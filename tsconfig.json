@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@*": ["./*"]
+    },
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+, "components/inputs/DownUp", "components/MyButton.jsx", "components/Provider.jsx", "app/layout.js", "app/editor/page.js", "components/GameAction.jsx", "components/ActionList.jsx", "components/ActionList.jsx", "app/editor/InputEditor.jsx", "app/editor/InputViewer.js", "components/inputs/Press.jsx", "components/inputs/Left.jsx", "components/inputs/Down.jsx", "components/inputs/DownPress.jsx", "components/inputs/Up.jsx", "components/inputs/Right.jsx", "components/generic/LayerChip.jsx", "components/generic/IconLegend.jsx", "components/fancy/ScrollProgess.jsx"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
