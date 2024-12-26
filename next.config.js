@@ -8,7 +8,28 @@ const nextConfig = {
     serverComponentsExternalPackages: ['mongoose', 'axios', 'kerberos', 'mongodb-js/zstd']
   },
   images: {
-    domains: ['lh3.googleusercontent.com']
+    domains: ['lh3.googleusercontent.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'aceternity.com',
+
+      },
+      {
+        protocol: 'https',
+        hostname: 'ehriqhck-portfolio.s3',
+
+      },    {
+        protocol: 'https',
+        hostname: 'randomuser.me',
+
+      },
+      {
+        protocol: 'https',
+        hostname: 'imgur.com',
+
+      },
+    ],
   },
   env: {
     NEXTAUTH_SECRET: 'say_lalisa_love_me_lalisa_love_me_hey'

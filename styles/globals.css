@@ -10,9 +10,69 @@
 /* :is(div[data-p-carousel-item-active='true'],div[data-p-carousel-item-end='true']), :is(div[data-p-carousel-item-active='true'],div[data-p-carousel-item-start='true']) {
   filter: opacity(0.39) !important;
 } */
+body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:url("https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg");
+  background-size:cover;
+  opacity:0.2;
+  }
+  
+  body::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:#cccccc;
+  opacity:0.3;
+  }
+  
+.testbg::before{
+  background-image: linear-gradient(167deg, rgba(4,29,35,1) 0%, rgba(4,29,35,0.37) 60%, rgba(4,29,35,0) 78%, rgba(4,29,35,1) 100%),linear-gradient(180deg, rgba(0,34,41,0) 0%, rgba(4,25,29,1) 100%);
+  background: #00FF99;
+
+  position:absolute;
+  inset:0;
+  z-index:5;
+  background-size:cover;
+ 
+  }
+  
+.testbg{
+  background: linear-gradient(rgb(255 255 255), rgb(211 235 255 / 89%)), url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg);
+  background-size:cover;
+
+ 
+  }
+  .testbg::after{
+    background-image:  linear-gradient(167deg, rgba(4,29,35,1) 0%, rgba(4,29,35,0.37) 60%, rgba(4,29,35,0) 78%, rgba(4,29,35,1) 100%),linear-gradient(180deg, rgba(0,34,41,0) 0%, rgba(4,25,29,1) 100%);
+background: #00FF99;
+  position:absolute;
+  inset:0;
+  z-index:4;
+  }
  /* li[data-pc-section='indicator'].p-highlight > button {
 background: red !important;
  } */
+ .page-bg {
+  /* background-image: linear-gradient(167deg, rgba(4, 29, 35, 1) 0%, rgba(4, 29, 35, 0.37) 10%, rgba(4, 29, 35, 0) 78%, rgba(4, 29, 35, 1) 100%), linear-gradient(180deg, rgba(0, 34, 41, 0) 0%, rgba(4, 25, 29, 1) 100%),
+   linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgb(0 37 48 / 36%) 70%, rgb(12 125 174 / 74%) 100%),
+   linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgb(0 37 48 / 36%) 70%, rgb(12 125 174 / 74%) 100%); */
+  
+  -webkit-transition: background-image 3s ease-in-out;
+  transition: background-image 3s ease-in-out;
+  background-image: linear-gradient(167deg, rgba(4,29,35,1) 0%, rgba(4,29,35,0.37) 60%, rgba(4,29,35,0) 78%, rgba(4,29,35,1) 100%),linear-gradient(180deg, rgba(0,34,41,0) 0%, rgba(4,25,29,1) 100%);
+
+  height: 100vh ;
+width: 100vw;
+}
+.page-bg-before ::before {
+  background-image: url("https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg");
+  background-size:cover;
+
+}
  .hero-bg {
   /* background-image: linear-gradient(167deg, rgba(4, 29, 35, 1) 0%, rgba(4, 29, 35, 0.37) 10%, rgba(4, 29, 35, 0) 78%, rgba(4, 29, 35, 1) 100%), linear-gradient(180deg, rgba(0, 34, 41, 0) 0%, rgba(4, 25, 29, 1) 100%),
    linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgb(0 37 48 / 36%) 70%, rgb(12 125 174 / 74%) 100%),
@@ -20,7 +80,7 @@ background: red !important;
 
    /* background-image: linear-gradient(167deg, rgba(4,29,35,1) 0%, rgba(4,29,35,0.37) 60%, rgba(4,29,35,0) 78%, rgba(4,29,35,1) 100%),linear-gradient(180deg, rgba(0,34,41,0) 0%, rgba(4,25,29,1) 100%); */
   /* url("https://i.imgur.com/WBFTEVS.jpeg"); */
-  background-image: linear-gradient(167deg, rgb(0, 31, 39) 0%, rgba(4, 29, 35, 0.37) 14%, rgb(4 29 35 / 0%) 78%, rgb(4 29 35 / 0%) 100%), linear-gradient(180deg, rgb(0 34 41 / 0%) 0%, rgb(0 51 51) 98%), linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgb(0 37 48 / 36%) 70%, rgb(12 125 174 / 74%) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgb(0 37 48 / 36%) 70%, rgb(12 128 174 / 94%) 100%);
+  /* background-image: linear-gradient(167deg, rgb(0, 31, 39) 0%, rgba(4, 29, 35, 0.37) 14%, rgb(4 29 35 / 0%) 78%, rgb(4 29 35 / 0%) 100%), linear-gradient(180deg, rgb(0 34 41 / 0%) 0%, rgb(0 51 51) 98%), linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgb(0 37 48 / 36%) 70%, rgb(12 125 174 / 74%) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgb(0 37 48 / 36%) 70%, rgb(12 128 174 / 94%) 100%); */
   -webkit-transition: background-image 3s ease-in-out;
   transition: background-image 3s ease-in-out;
   
@@ -28,7 +88,60 @@ background: red !important;
   height: 100vh ;
 width: 100vw;
 }
+.snap-parent-y-mandatory {
+  scroll-snap-type: y mandatory;
+  overflow: scroll;
+  height: 100vh;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
 
+header {
+  position: fixed;
+  height: 10vh;
+}
+
+.snap-parent-y-proximity {
+  scroll-snap-type: y proximity;
+  overflow: scroll;
+  height: 100vh;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-child-start {
+  opacity: 0.5;
+  z-index: 10;
+  scroll-snap-align: start;
+  flex: none;
+}
+
+.snap-child-center {
+  opacity: 0.5;
+  z-index: 10;
+  scroll-snap-align: center;
+  flex: none;
+}
+
+.hero-parallax {
+  object-fit: cover;
+  transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
+}
+.hero-bg-video {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  position: absolute;
+  z-index: -12;
+  left: 0;
+  right: 0;
+  top: 64px;
+  bottom: 0;
+  height: 100vh ;
+  width: 100vw;
+  object-fit: cover;
+  transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
+ }
  #hero-bg-video {
   position: absolute;
   z-index: -12;
@@ -2934,15 +3047,7 @@ margin-top:4.45px;
 }
 
 .main {
-  background: var(
-    --bg,
-    radial-gradient(
-      50% 50% at 50% 50%,
-      rgba(0, 197, 240, 0.2) 0%,
-      rgba(0, 0, 0, 0) 100%
-    ),
-    #010d0b
-  );
+
   width: 100vw;
   min-height: 100vh;
   position: fixed;

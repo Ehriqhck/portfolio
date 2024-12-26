@@ -181,33 +181,33 @@ function AnimatedGroup({
     return (
 
         <InView
-        viewOptions={{ once: true, margin: '0px 0px -250px 0px' }}
-        style={{display: 'flex', flexDirection: 'column'}}
-        styling='flex flex-col h-full space-between'
-        variants={{
-         
+            viewOptions={{ once: true, margin: '0px 0px -250px 0px' }}
+            style={{ display: 'flex', flexDirection: 'column' }}
+            styling='flex flex-col h-full space-between'
+            variants={{
 
-          hidden: {
-            opacity: 0,
-          },
-          visible: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.2,
-              
-            },
-          },
-        }}
-      >
 
-                {React.Children.map(children, (child, index) => (
-                    <motion.div key={index} variants={itemVariants}
-             
-                        className={'h-full flex' + ' ' + className}
-                    >
-                        {child}
-                    </motion.div>
-                ))}
+                hidden: {
+                    opacity: 0,
+                },
+                visible: {
+                    opacity: 1,
+                    transition: {
+                        staggerChildren: 0.2,
+
+                    },
+                },
+            }}
+        >
+
+            {React.Children.map(children, (child, index) => (
+                <motion.div key={index} variants={itemVariants}
+
+                    className={'h-full flex' + ' ' + className}
+                >
+                    {child}
+                </motion.div>
+            ))}
         </InView>
 
     );
