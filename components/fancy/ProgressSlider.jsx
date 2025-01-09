@@ -21,7 +21,7 @@ export const ProgressSlider = ({
   children,
   duration = 5000,
   fastDuration = 400,
-  vertical = true,
+  vertical = false,
   activeSlider,
   className,
 }) => {
