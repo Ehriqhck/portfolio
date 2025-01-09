@@ -256,6 +256,49 @@ function getStepBody(currentStep) {
       desc: 'Deploy and monitor engagement status. ',
     },
   ];
+  const sliderItems_CIAAN_AssessmentFlow = [
+    {
+      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_1/assessment_step_1_1x.webp',
+      title: '1. Set Details',
+      desc: 'Assessment name, targeted project/app, due dates, etc. ',
+      sliderName: 'Engagement Settings',
+    },
+    {
+      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_2/assessment_step_2_1x.webp',
+      title: '2. Add Forms',
+      desc: 'Add pre-made cybersecurity assessment forms.',
+      sliderName: 'mountains',
+    },
+    {
+      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_3/assessment_step_3_1x.webp',
+      title: '3. Assign Users',
+      desc: 'Security Users who will fill out added forms.',
+      sliderName: 'autumn',
+    },
+    {
+      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_5/assessment_step_5_1x.webp',
+      title: '4. Assessment Reports',
+      sliderName: 'foggy',
+      desc: 'Assign Engineer(s) to engage with previously assigned Security Users',
+    },
+
+  ];
+  const sliderItems_CIAAN_ManagementFlow = [
+    {
+      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessments_management/assessments_management_1x.webp',
+      title: 'Assessments',
+      desc: 'Spreadsheet layout of all assessments ',
+      sliderName: 'Engagement Settings',
+    },
+    {
+      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/engagements_management/engagements_management_1x.webp',
+      title: 'Engagements',
+      desc: 'Spreadsheet layout of all engagements',
+      sliderName: 'mountains',
+    },
+
+
+  ];
   const isMobile = useMediaQuery('(min-width: 640px)');
 
   switch (currentStep) {
@@ -371,8 +414,13 @@ function getStepBody(currentStep) {
 
                 <div className=" flex flex-col gap-4 font-['exo'] card-bg-white  rounded-xl w-fit bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] 
                 pt-12 pb-14 px-6 h-full pl-12 pr-16 ">
+                  <span className=" flex flex-col">
+                    <h1 className="font-['inter'] font-[700] text-[20px]">
+                      Security Staff Userflow #1
+                    </h1>
+                    <h1 className="font-['inter'] font-bold  text-[32px]">Security Engagements: Creation & Management</h1>
 
-                  <h3 class="text-xl font-semibold text-neutral-700 ">T-Mobile Stakeholders</h3>
+                  </span>
                   <div className="ml-[8px] mt-3 flex flex-col h-full gap-8 ">
 
 
@@ -395,12 +443,12 @@ function getStepBody(currentStep) {
                         </span>
 
                       </div>
-                      <div className="ml-4 mt-4 flex flex-row h-full ">
+                      <div className="ml-4 mt-4 flex flex-row h-full w-full ">
                         <div>
                           {/* <UnderArrow height='24px' width='38px' /> */}
 
                         </div>
-                        <span className=" flex mt-1 ml-1 flex-col pl-[38px]">
+                        <span className=" flex mt-1 ml-1 flex-col pl-[38px] w-full">
                           <p className=" Capitalized font-[600] text-[18px]">Delivered Userflows </p>
                           {/* <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p> */}
                           <div class="mt-2   w-full place-items-center overflow-x-scroll rounded-lg h-fit lg:overflow-visible">
@@ -412,41 +460,7 @@ function getStepBody(currentStep) {
                       </div>
 
                     </span>
-                    <span className=" flex flex-col w-full">
-                      <div className="pl-[8px] mt-2 flex flex-row h-fit ">
-                        <span className=" flex mt-1 ml-1 flex-col">
-                          <p className=" Capitalized font-[600] text-[18px]">T-Mobile Cybersecurity Users </p>
-                          <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p>
-                        </span>
-
-                      </div>
-                      <div className="ml-4 mt-4 flex flex-row  ">
-                        <div>
-                          <UnderArrow height='24px' width='38px' />
-
-                        </div>
-                        <span className=" flex mt-1 ml-1 flex-col">
-                          <p className=" Capitalized font-[600] text-[18px]">User Goals </p>
-                          <p>Security Users will view and manage any assigned engagements and assessments on their SCAS dashboard where they are able to complete any required forms & surveys.   </p>
-                        </span>
-
-                      </div>
-                      <div className="ml-4 mt-4 flex flex-row  ">
-                        <div>
-                          <UnderArrow height='24px' width='38px' />
-
-                        </div>
-                        <span className=" flex mt-1 ml-1 flex-col">
-                          <p className=" Capitalized font-[600] text-[18px]">Pain Points </p>
-                          {/* <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p> */}
-                          <div class="mt-2   w-full place-items-center overflow-x-scroll rounded-lg h-fit lg:overflow-visible">
-
-                            <BentoPreviews bentoContent='CIAAN-Assess' />
-                          </div>
-                        </span>
-
-                      </div>
-                    </span>
+          
 
                   </div>
 
@@ -536,7 +550,7 @@ function getStepBody(currentStep) {
                   <h1 className="font-['inter'] font-[700] text-[20px]">
                     Security Staff Userflow #1
                   </h1>
-                  <h1 className="font-['inter'] font-bold  text-[32px]">Security Engagement Creation & Management</h1>
+                  <h1 className="font-['inter'] font-bold  text-[32px]">Security Engagements: Creation & Management</h1>
 
                 </span>
                 <span className="flex flex-col">
@@ -643,7 +657,7 @@ function getStepBody(currentStep) {
                     className=' w-full  rounded-xl overflow-hidden sm:flex ml-4  '
                   >
                     <SliderBtnGroup className='sm:relative rounded-bl-xl min-w-[16rem]  absolute bottom-0 lg:max-w-[40%] lg:w-full sm:w-96 w-full z-10 sm:flex sm:flex-col grid grid-cols-2 sm:h-full h-fit sm:dark:bg-white sm:bg-white dark:bg-black/80 bg-white/80 backdrop-blur-md overflow-hidden '>
-                      {sliderItems_CIAAN_EngagementFlow.map((item, index) => (
+                      {sliderItems_CIAAN_AssessmentFlow.map((item, index) => (
                         <SliderBtn
                           key={index}
                           value={item?.sliderName}
@@ -660,7 +674,7 @@ function getStepBody(currentStep) {
                       ))}
                     </SliderBtnGroup>
                     <SliderContent className='w-full flex lg:grow-3'>
-                      {sliderItems_CIAAN_EngagementFlow.map((item, index) => (
+                      {sliderItems_CIAAN_AssessmentFlow.map((item, index) => (
                         <SliderWrapper
                           className='h-[650px] aspect-video flex  '
                           key={index}
