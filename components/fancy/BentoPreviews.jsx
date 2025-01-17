@@ -5,6 +5,7 @@ import {
   GlobeIcon,
   InputIcon,
 } from "@radix-ui/react-icons";
+import WorkflowIcon from '@components/generic/Icons/WorkflowIcon.jsx'
 
 import { BentoCard, BentoGrid } from "@/components/fancy/Bento.jsx";
 
@@ -58,7 +59,7 @@ const features = [
 ];
 const CIAAN_Assess = [
   {
-    Icon: FileTextIcon,
+    Icon: <WorkflowIcon height='24px'/>,
     name: "Security Assessment Creation & Management Userflow",
     description: "We automatically save your files as you type.",
     href: "/",
@@ -81,7 +82,7 @@ const CIAAN_Assess = [
     description: "Search through all your files in one place.",
     href: "/",
     cta: "Learn more",
-    background: <img className="absolute -right-20 -top-20 opacity-60" src='https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_4/create_engagement_step_4_1x.webp'  />,
+    background: <img className="absolute -right-20 -top-20 opacity-60" src='https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessments_management/assessments_management_1x.webp'  />,
     className: "lg:col-start-1 lg:col-end-5 lg:row-start-3 lg:row-end-3",
   },
 ];

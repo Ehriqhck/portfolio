@@ -212,111 +212,15 @@ const Home = () => {
   return (
 
     <motion.div
-      className="flex flex-col w-full text-[#DAF0EA]  overflow-x-hidden page-bg "
+      className="flex flex-col w-full text-[#DAF0EA]   page-bg "
 
     >
       <div className=" flex flex-col w-full ">
-        <div className=" uppercase font-['Exo_2'] tracking-[0]
-         text-[12px] text-[#cefcff96] h-fit self-end  flex gap-[4px] flex-col justify-items-end py-[4px] px-[2px] fixed 
-         top-[8vh] right-[10px]  z-50 w-fit   pr-[4px] pl-[8px] 
-         base ">
-
-          <div className="flex flex-row gap-[2px] items-center  uppercase  h-fit self-end place-items-end">
-            <p className=""> <a href="#Home">Home</a></p>
-
-            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-              <motion.circle
-                cx="50"
-                cy="50"
-                r="30"
-                pathLength="1"
-                className="indicator"
-                style={{ pathLength: scrollYProgressNav1 }}
-              />        <motion.circle
-                cx="50"
-                cy="50"
-                r="30"
-                pathLength="1"
-                className="indicatorBg"
-
-              />
-            </svg>
-          </div>
-
-          <div className="flex flex-row gap-[2px] items-center   h-fit self-end place-items-start">
-            <p className=""> <a href="#HowItWorks">How it Works </a></p>
-
-            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-              <motion.circle
-                cx="50"
-                cy="50"
-                r="30"
-                pathLength="1"
-                className="indicator"
-                style={{ pathLength: scrollYProgressNav2 }}
-              />
-              <motion.circle
-                cx="50"
-                cy="50"
-                r="30"
-                pathLength="1"
-                className="indicatorBg"
-
-              />
-            </svg>
-          </div>
-          <div className="flex flex-row gap-[2px] items-center   h-fit self-end place-items-start">
-            <p className=""><a href="#500Keybinds">500+ Keybinds</a></p>
-
-            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-              <motion.circle
-                cx="50"
-                cy="50"
-                r="30"
-                pathLength="1"
-                className="indicator"
-                style={{ pathLength: scrollYProgressNav3 }}
-              />
-              <motion.circle
-                cx="50"
-                cy="50"
-                r="30"
-                pathLength="1"
-                className="indicatorBg"
-
-              />
-            </svg>
-          </div>
-          <div className="flex flex-row gap-[2px] h-fit self-end items-center ">
-            <p className=""> <a href="#DeviceInputs">Device Inputs</a></p>
-
-            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-              <motion.circle
-                cx="50"
-                cy="50"
-                r="30"
-                pathLength="1"
-                className="indicator"
-                style={{ pathLength: scrollYProgressNav4 }}
-              />        <motion.circle
-                cx="50"
-                cy="50"
-                r="30"
-                pathLength="1"
-                className="indicatorBg"
-
-              />
-            </svg>
-          </div>
-        </div>
-        <div className="w-screen h-fit">
+   
+        <div className="w-fit h-fit">
           <FancyTabv2 />
         </div>
-
+ 
         <div className="flex flex-col w-full "
         >
           {/* <video autoPlay loop muted id='hero-bg-video'
@@ -372,7 +276,7 @@ const Home = () => {
 
 
            
-                <div class="  min-w-[300px] w-full place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible">
+                <div class="  min-w-[300px] w-full place-items-center  rounded-lg p-6 lg:overflow-visible">
                   
                   {/* <img
                     class="object-cover object-center w-full rounded-lg  aspect-[48/53]"

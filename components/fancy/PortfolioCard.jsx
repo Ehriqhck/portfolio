@@ -7,12 +7,19 @@ import UnderArrow from '@components/generic/Icons/UnderArrow.jsx'
 import CaseButton from '@components/fancy/CaseButton.jsx'
 import { BentoCard, BentoGrid } from "@/components/fancy/Bento.jsx";
 import { useMediaQuery } from 'usehooks-ts'
+import {
+  SliderBtnGroup,
+  ProgressSlider,
+  SliderBtn,
+  SliderContent,
+  SliderWrapper,
+} from '@components/fancy/ProgressSlider.jsx';
 
+import React from 'react'
 
-
-export function PortolioCard(props) {
+const PortfolioCard = ({ Subtitle, Title, Description, Slidercontent }) => {
   const isMobile = useMediaQuery('(min-width: 640px)');
-
+  const sliderData = Slidercontent;
   const sliderItems_CIAAN_EngagementFlow = [
     {
       img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_1/create_engagement_step_1_1x.webp',
@@ -45,14 +52,30 @@ export function PortolioCard(props) {
       desc: 'Deploy and monitor engagement status. ',
     },
   ];
+
+  const getSliderData = () => {
+    try {
+      if (Slidercontent === (undefined || null)) {
+        return (sliderItems_CIAAN_EngagementFlow);
+
+      }
+      return (Slidercontent)
+    } catch (error) {
+      return (sliderItems_CIAAN_EngagementFlow);
+
+    }
+
+
+  }
+
   return (
-    <div className=" pt-8 pb-5  h-full pl-10 pr-24  flex flex-col gap-4 font-['exo'] card-bg-white ml-8  rounded-xl w-full bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]  ">
+    <div className=" pt-8 pb-5  h-full pl-10 pr-24  flex flex-col gap-4 font-['exo'] card-bg-white   rounded-xl w-full bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]  ">
       <span className=" flex flex-col">
         <h1 className="font-['inter'] font-[700] text-[20px]">
-          {props.subtitle}
+          {Subtitle}
         </h1>
         <h1 className="font-['inter'] font-bold  text-[32px]">
-          {props.title}
+          {Title}
         </h1>
 
       </span>
@@ -69,7 +92,7 @@ export function PortolioCard(props) {
         </h1> */}
 
               <h1 className="font-['inter'] font-medium tracking-[0.005em]  text-[16px]">
-               {props.description}
+                {Description}
               </h1>
             </span>
 
@@ -85,7 +108,7 @@ export function PortolioCard(props) {
           className=' w-full  rounded-xl overflow-hidden sm:flex  '
         >
           <SliderBtnGroup className='sm:relative rounded-bl-xl min-w-[16rem]  absolute bottom-0 lg:max-w-[40%] lg:w-full sm:w-96 w-full z-10 sm:flex sm:flex-col grid grid-cols-2 sm:h-full h-fit sm:dark:bg-white sm:bg-white dark:bg-black/80 bg-white/80 backdrop-blur-md overflow-hidden '>
-            {props.sliderContent.map((item, index) => (
+            {getSliderData().map((item, index) => (
               <SliderBtn
                 key={index}
                 value={item?.sliderName}
@@ -102,7 +125,7 @@ export function PortolioCard(props) {
             ))}
           </SliderBtnGroup>
           <SliderContent className='w-full flex lg:grow-3'>
-            {sliderItems_CIAAN_EngagementFlow.map((item, index) => (
+            {getSliderData().map((item, index) => (
               <SliderWrapper
                 className='h-[650px] aspect-video flex  '
                 key={index}
@@ -124,3 +147,6 @@ export function PortolioCard(props) {
     </div>
   );
 }
+
+export default PortfolioCard
+

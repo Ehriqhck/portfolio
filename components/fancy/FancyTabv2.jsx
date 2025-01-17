@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, } from "framer-motion";
 import { ComponentProps } from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { AnimatedGroup } from '@/components/fancy/AnimatedGroup.jsx';
 import EhriqhckBlack from 'components/generic/Icons/Socials/EhriqhckBlack.jsx'
 import { BentoPreviews } from '@components/fancy/BentoPreviews.jsx'
@@ -10,14 +10,10 @@ import UnderArrow from '@components/generic/Icons/UnderArrow.jsx'
 import CaseButton from '@components/fancy/CaseButton.jsx'
 import { BentoCard, BentoGrid } from "@/components/fancy/Bento.jsx";
 import { useMediaQuery } from 'usehooks-ts'
+import PortfolioCard from '@components/fancy/PortfolioCard.jsx'
+import FigmaIcon from '@components/generic/Icons/Socials/FigmaIcon.jsx'
+import WorkflowIcon from '@components/generic/Icons/WorkflowIcon.jsx'
 
-import {
-  BellIcon,
-  CalendarIcon,
-  FileTextIcon,
-  GlobeIcon,
-  InputIcon,
-} from "@radix-ui/react-icons";
 import {
   SliderBtnGroup,
   ProgressSlider,
@@ -30,12 +26,47 @@ import { TreeTableDialogueSelectionContext } from "@components/Provider";
 function getButtons(step) {
 
   switch (step) {
+
     case 1:
       return (
-        <div className="flex items-center justify-center">
-          <span>About</span>
+        <div className="flex h-fit w-full text-nowrap  flex-col text-left ">
+          <span className=" flex flex-col mr-24 ml-[27px]  ">
+            <p className="text-[22px] font-inter text-white font-[500] mb-[5px] mt-[15px] leading-none">CIAAN Security SCAS</p>
+            <p className="font-[400] font-inter text-[14px] text-white">Cybersecurity Automation Platform</p>
+            <div className=" flex w-full my-[7px] ">
+              <FigmaIcon height='25px' />
+            </div>
+          </span>
 
 
+          <div class="nav-menu-swatch   w-full h-[22px] flex flex-row">
+            <div class="w-full h-full bg-[#4b0035]">
+            </div>
+            <div class="w-[70%] h-full bg-[#5d60eb] "></div>
+            <div class="w-[30%] h-full bg-[#f1f0ee] "></div>
+          </div>
+        </div>
+      )
+      break;
+
+    case 2:
+      return (
+        <div className="flex h-fit w-full text-nowrap  flex-col text-left ">
+          <span className=" flex flex-col mr-24 ml-[27px]  ">
+            <p className="text-[22px] font-inter text-white font-[500] mb-[5px] mt-[15px] leading-none">CIAAN Security SCAS</p>
+            <p className="font-[400] font-inter text-[14px] text-white">Cybersecurity Automation Platform</p>
+            <div className=" flex w-full my-[7px] ">
+              <FigmaIcon height='25px' />
+            </div>
+          </span>
+
+
+          <div class="nav-menu-swatch   w-full h-[22px] flex flex-row">
+            <div class="w-full h-full bg-[#4b0035]">
+            </div>
+            <div class="w-[70%] h-full bg-[#5d60eb] "></div>
+            <div class="w-[30%] h-full bg-[#f1f0ee] "></div>
+          </div>
         </div>
       )
       break;
@@ -43,7 +74,7 @@ function getButtons(step) {
     default:
       return (
         <div className="flex items-center justify-center">
-          <span>{step} asdsad</span>
+          <span> </span>
 
 
         </div>
@@ -60,7 +91,7 @@ function Step({ step, currentStep }) {
         : "inactive";
 
   return (
-    <motion.div animate={status} className="relative">
+    <motion.div animate={status} className="relative flex w-full  rounded-[3px] ">
       <motion.div
         variants={{
           active: {
@@ -80,7 +111,7 @@ function Step({ step, currentStep }) {
           type: "tween",
           ease: "circOut",
         }}
-        className="absolute inset-0  rounded-[8px]  bg-blue-200"
+        className="absolute inset-0  rounded-[8px] "
       />
 
       <motion.div
@@ -103,9 +134,9 @@ function Step({ step, currentStep }) {
           // },
         }}
         transition={{ duration: 0.2 }}
-        className="relative flex h-10 w-fit items-center justify-center rounded-[8px] border-2 font-semibold"
+        className="button-scas  relative flex  w-full items-center justify-center  border-2 font-semibold"
       >
-        {status}
+        {/* {status} */}
         {/* <div className="flex items-center justify-center">
           {status === "complete" ? (
             // <CheckIcon className="h-6 w-6 text-white" />
@@ -205,7 +236,7 @@ function getStepBody(currentStep) {
   ];
   const CIAAN_Assess = [
     {
-      Icon: FileTextIcon,
+      Icon: <WorkflowIcon height='24px' />,
       name: "Security Assessment Creation & Management Userflow",
       description: "We automatically save your files as you type.",
       href: "/",
@@ -214,7 +245,7 @@ function getStepBody(currentStep) {
       className: "lg:row-start-2 lg:row-end-3 lg:col-start-1 lg:col-end-2",
     },
     {
-      Icon: InputIcon,
+      Icon: <WorkflowIcon height='24px' />,
       name: "Security Engagement Creation & Management",
       description: "Search through all your files in one place.",
       href: "/",
@@ -300,7 +331,65 @@ function getStepBody(currentStep) {
 
   ];
   const isMobile = useMediaQuery('(min-width: 640px)');
+  const navRef1 = useRef(null);
+  const navRef2 = useRef(null);
+  const navRef3 = useRef(null);
+  const navRef4 = useRef(null);
+  const navRef5 = useRef(null);
 
+  // const { scrollYProgressCircle } = useScroll({ container: navRef1 });
+
+  const { scrollYProgress: scrollYProgressNav1 } = useScroll({
+    target: navRef1,
+    offset: ["start start", "120vh"],
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const { scrollYProgress: scrollYProgressNav2 } = useScroll({
+    target: navRef2,
+    offset: ["start start", "end 0.5"],
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const { scrollYProgress: scrollYProgressNav3 } = useScroll({
+    target: navRef3,
+    offset: ["0 1", "end 0.5"],
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+  const { scrollYProgress: scrollYProgressNav4 } = useScroll({
+    target: navRef4,
+    // offset: ["start start", "end end"]
+    offset: ["0 1", "start start",],
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+
+  });
+
+  const { scrollYProgress: scrollYProgressNav5 } = useScroll({
+    target: navRef5,
+    offset: ["end end", "start end"],
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const scrollRef = useRef(null)
+  const variants2 = {
+    active: {
+      display: "block"
+    },
+    inactive: {
+      display: "hidden",
+      transition: { duration: 2 }
+    }
+  }
   switch (currentStep) {
     case 2:
       return (
@@ -316,7 +405,7 @@ function getStepBody(currentStep) {
                 <div className="flex pt-[16px]  align-middle self-center  h-[165px]">
                   {/* <EhriqhckBlack height="100%" /> */}
                   <img
-                    class="object-cover object-center w-full rounded-lg  aspect-[48/53]"
+                    class="object-cover object-center w-full  aspect-[48/53]"
                     src="https://d3e0o4zthiks52.cloudfront.net/headshot.jpg"
                   />
                 </div>
@@ -378,322 +467,230 @@ function getStepBody(currentStep) {
           variants={
             variants}
         >
-          <div key={2} className=" w-full h-full 	">
+          <div key={2} className=" w-full h-full  testbg3	">
             <div
-              key={2} className="flex flex-col w-full gap-[36px]   h-full  ">
-              <div className="px-8  flex flex-col gap-[64px] w-fit h-full   ">
-                {/* <div className="flex pt-[16px]  align-middle self-center  h-[165px]">
-                    <EhriqhckBlack height="100%" />
-                    <img
-                    class="object-cover object-center w-full rounded-lg  aspect-[48/53]"
-                    src="https://d3e0o4zthiks52.cloudfront.net/headshot.jpg"
-                  />
-                  </div> */}
-                <span className="flex text-CIAAN-light flex-col  h-fit leading-tight  pt-32">
+              key={2} className="flex flex-col w-full    h-full  ">
+              <div className="   flex flex-col w-fit h-fit  ">
 
-                  <p className="text-CIAAN-light text-left  font-inter text-[32px] text-bold font-bold">
-                    CIAAN Security
-                  </p>
-                  <p className="my-4 text-left text-CIAAN-light font-['exo'] text-[56px] text-bold font-bold self-start mb-[-16px]">
-                    Security Assesment & Engagement
-                  </p>
-                  <p className="mt-4 text-left text-CIAAN-light font-['exo'] text-[56px] text-bold font-bold self-start mb-[-16px]">
-                    Automation Platform
-                  </p>
-                </span>
-                <span className="flex flex-row gap-8">
-                  <div class="flex  w-fit flex-row  text-CIAAN-light font-inter text-1 text-bold gap-1.5">
-                    <TeamIcon height='24px' />
-                    <p className="font-['exo'] Capitalized font-[600] text-[18px]">Sole UX/UI Designer</p>
-                  </div>
-                  <div class="flex  w-fit flex-row  text-CIAAN-light font-inter text-1 text-bold gap-1.5">
-                    <TimerIcon height='24px' />
-                    <p className="font-['exo'] Capitalized font-[600] text-[18px]">4 Months</p>
-                  </div>
-                </span>
+                <div className=" pt-[16vh] px-8 flex flex-col gap-[64px] bg-CIAAN-header">
+                  <span className="flex text-CIAAN-light flex-col  h-fit leading-tight  pt-32">
 
-                <div className=" flex flex-col gap-4 font-['exo'] card-bg-white  rounded-xl w-fit bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] 
-                pt-12 pb-14 px-6 h-full pl-12 pr-16 ">
-                  <span className=" flex flex-col">
-                    <h1 className="font-['inter'] font-[700] text-[20px]">
-                      Security Staff Userflow #1
-                    </h1>
-                    <h1 className="font-['inter'] font-bold  text-[32px]">Security Engagements: Creation & Management</h1>
-
+                    <p className="text-CIAAN-light text-left  font-inter text-[32px] text-bold font-bold">
+                      CIAAN Security
+                    </p>
+                    <p className="my-4 text-left text-CIAAN-light font-['exo'] text-[56px] text-bold font-bold self-start mb-[-16px]">
+                      Security Assesment & Engagement
+                    </p>
+                    <p className="mt-4 text-left text-CIAAN-light font-['exo'] text-[56px] text-bold font-bold self-start mb-[-16px]">
+                      Automation Platform
+                    </p>
                   </span>
-                  <div className="ml-[8px] mt-3 flex flex-col h-full gap-8 ">
-
-
-                    <span className=" flex flex-col w-full card-bg-white-inset pl-6 pr-16 pb-12 pt-6">
-                      <div className="ml-[8px] mt-3 flex flex-row ">
-                        <span className=" flex  ml-1 flex-col">
-                          <p className=" Capitalized font-[600] text-[20px] mb-1">T-Mobile Cybersecurity Administrators & Engineers </p>
-                          <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p>
-                        </span>
-
-                      </div>
-                      <div className="ml-4 mt-4 flex flex-row  ">
-                        <div>
-                          <UnderArrow height='24px' width='38px' />
-
-                        </div>
-                        <span className=" flex mt-1 ml-1 flex-col">
-                          <p className=" Capitalized font-[600] text-[18px]">User Goals </p>
-                          <p>Security Staff need to be able to create and manage a multitude of ongoing engagements & assessments. Each engagement & assessment needs to have at least one or more Security Engineers assigned to lead it, as well as one or more Security Users who has product ownership/expertise over the project that is target of the engagement or assesment. Security staff is able to pick and choose from pre-made engagement/assessment forms and surveys provided by a backend database.  </p>
-                        </span>
-
-                      </div>
-                      <div className="ml-4 mt-4 flex flex-row h-full w-full ">
-                        <div>
-                          {/* <UnderArrow height='24px' width='38px' /> */}
-
-                        </div>
-                        <span className=" flex mt-1 ml-1 flex-col pl-[38px] w-full">
-                          <p className=" Capitalized font-[600] text-[18px]">Delivered Userflows </p>
-                          {/* <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p> */}
-                          <div class="mt-2   w-full place-items-center overflow-x-scroll rounded-lg h-fit lg:overflow-visible">
-
-                            <BentoPreviews bentoContent='CIAAN-Assess' />
-                          </div>
-                        </span>
-
-                      </div>
-
-                    </span>
-          
-
-                  </div>
-
-
-
-
+                  <span className="flex flex-row gap-8">
+                    <div class="flex  w-fit flex-row  text-CIAAN-light font-inter text-1 text-bold gap-1.5">
+                      <TeamIcon height='24px' />
+                      <p className="font-['exo'] Capitalized font-[600] text-[18px]">Sole UX/UI Designer</p>
+                    </div>
+                    <div class="flex  w-fit flex-row  text-CIAAN-light font-inter text-1 text-bold gap-1.5">
+                      <TimerIcon height='24px' />
+                      <p className="font-['exo'] Capitalized font-[600] text-[18px]">4 Months</p>
+                    </div>
+                  </span>
                 </div>
+                <span className="homepage-bg-gradient-seam h-32  w-screen mb-[-4rem] ">
+
+                </span>
+                <span className=" flex flex-col bg-CIAAN-body gap-[64px] pt-8">
+
+
+                  <section className=" flex flex-row w-full
+                  ">
+                    <div className=" flex  w-[fit] overflow-visible top-0  ml-[130px] mr-[15px] ">
+                      <div className=" uppercase font-['Exo_2'] tracking-[0]
+text-[12px] text-white h-fit flex gap-[4px] flex-col  py-[4px] px-[2px] stickyNav 
+  z-[500]    pr-[4px] pl-[8px]   whitespace-nowrap  sticky  place-self-start	 top-8
+base ">
+
+                        <div className="flex flex-row gap-[2px] items-center  uppercase  h-fit self-end place-items-end">
+                          <p className=""> <a href="#Home">Overview</a></p>
+
+                          <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+                            <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+                            <motion.circle
+                              cx="50"
+                              cy="50"
+                              r="30"
+                              pathLength="1"
+                              className="indicator"
+                              style={{ pathLength: scrollYProgressNav1 }}
+                            />        <motion.circle
+                              cx="50"
+                              cy="50"
+                              r="30"
+                              pathLength="1"
+                              className="indicatorBg"
+
+                            />
+                          </svg>
+                        </div>
+
+                        <div className="flex flex-row gap-[2px] items-center   h-fit self-end place-items-start">
+                          <p className=""> <a href="#HowItWorks">Hi-fi Flows</a></p>
+
+                          <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+                            <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+                            <motion.circle
+                              cx="50"
+                              cy="50"
+                              r="30"
+                              pathLength="1"
+                              className="indicator"
+                              style={{ pathLength: scrollYProgressNav2 }}
+                            />
+                            <motion.circle
+                              cx="50"
+                              cy="50"
+                              r="30"
+                              pathLength="1"
+                              className="indicatorBg"
+
+                            />
+                          </svg>
+                        </div>
+                        <div className="flex flex-row gap-[2px] items-center   h-fit self-end place-items-start">
+                          <p className=""><a href="#500Keybinds">Research</a></p>
+
+                          <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+                            <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+                            <motion.circle
+                              cx="50"
+                              cy="50"
+                              r="30"
+                              pathLength="1"
+                              className="indicator"
+                              style={{ pathLength: scrollYProgressNav3 }}
+                            />
+                            <motion.circle
+                              cx="50"
+                              cy="50"
+                              r="30"
+                              pathLength="1"
+                              className="indicatorBg"
+
+                            />
+                          </svg>
+                        </div>
+                        <div className="flex flex-row gap-[2px] h-fit self-end items-center ">
+                          <p className=""> <a href="#DeviceInputs">Device Inputs</a></p>
+
+                          <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+                            <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+                            <motion.circle
+                              cx="50"
+                              cy="50"
+                              r="30"
+                              pathLength="1"
+                              className="indicator"
+                              style={{ pathLength: scrollYProgressNav4 }}
+                            />        <motion.circle
+                              cx="50"
+                              cy="50"
+                              r="30"
+                              pathLength="1"
+                              className="indicatorBg"
+
+                            />
+                          </svg>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <section className=" flex flex-col h-full w-full  gap-[36px]">
+
+                      <div className="  flex flex-col gap-4 font-['exo'] card-bg-white  rounded-xl w-fit bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] 
+pt-12 pb-14 px-6 h-full pl-12 pr-16 ">
+                        <span className=" flex flex-col">
+                          <h1 className="font-['inter'] font-[700] text-[20px]">
+                            Security Staff Userflow #1
+                          </h1>
+                          <h1 className="font-['inter'] font-bold  text-[32px]">Security Engagements: Creation & Management</h1>
+
+                        </span>
+
+                        <div className="ml-[8px] mt-3 flex flex-col h-full gap-8 ">
+
+
+                          <span className=" flex flex-col w-full card-bg-white-inset pl-6 pr-16 pb-12 pt-6">
+                            <div className="ml-[8px] mt-3 flex flex-row ">
+                              <span className=" flex  ml-1 flex-col">
+                                <p className=" Capitalized font-[600] text-[20px] mb-1">T-Mobile Cybersecurity Administrators & Engineers </p>
+                                <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p>
+                              </span>
+
+                            </div>
+                            <div className="ml-4 mt-4 flex flex-row  ">
+                              <div>
+                                <UnderArrow height='24px' width='38px' />
+
+                              </div>
+                              <span className=" flex mt-1 ml-1 flex-col">
+                                <p className=" Capitalized font-[600] text-[18px]">User Goals </p>
+                                <p>Security Staff need to be able to create and manage a multitude of ongoing engagements & assessments. Each engagement & assessment needs to have at least one or more Security Engineers assigned to lead it, as well as one or more Security Users who has product ownership/expertise over the project that is target of the engagement or assesment. Security staff is able to pick and choose from pre-made engagement/assessment forms and surveys provided by a backend database.  </p>
+                              </span>
+
+                            </div>
+                            <div className="ml-4 mt-4 flex flex-row h-full w-full ">
+                              <div>
+                                {/* <UnderArrow height='24px' width='38px' /> */}
+
+                              </div>
+                              <span className=" flex mt-1 ml-1 flex-col pl-[38px] w-full">
+                                <p className=" Capitalized font-[600] text-[18px]">Delivered Userflows </p>
+                                {/* <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p> */}
+                                <div class="mt-2   w-full place-items-center overflow-x-scroll rounded-lg h-fit lg:overflow-visible">
+
+                                  <BentoPreviews bentoContent='CIAAN-Assess' />
+                                </div>
+                              </span>
+
+                            </div>
+
+                          </span>
+
+
+                        </div>
+
+
+
+
+                      </div>
+                      <PortfolioCard Subtitle={'Security Staff Userflow #1'}
+                        Title={'Security Engagements: Creation & Management'}
+                        Description={'Security Engagements are created and managed by Security Administrators, and then conducted by assigned Security Engineers who work with assigned Security Users to complete the assigned engagement forms & surveys.'}
+                        Slidercontent={sliderItems_CIAAN_EngagementFlow}
+                      />
+                      <PortfolioCard Subtitle={'Security Staff Userflow #2'}
+                        Title={'Security Assessments: Creation & Management'}
+                        Description={'Security Engagements are created and managed by Security Administrators, and then conducted by assigned Security Engineers who work with assigned Security Users to complete the assigned engagement forms & surveys.'}
+                        Slidercontent={sliderItems_CIAAN_AssessmentFlow}
+                      />
+                      <PortfolioCard Subtitle={'Security Staff Userflow #3'}
+                        Title={'Security Assessments: Spreadsheet Management View'}
+                        Description={'Security Engagements are created and managed by Security Administrators, and then conducted by assigned Security Engineers who work with assigned Security Users to complete the assigned engagement forms & surveys.'}
+                        Slidercontent={sliderItems_CIAAN_ManagementFlow}
+                      />
+                    </section>
+
+                  </section>
+
+                </span>
+
 
 
               </div>
 
 
-              {/* <div className=" flex flex-col gap-4 font-['exo'] card-bg-white ml-8  rounded-xl w-full bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]  pt-12 pb-10  h-full pl-12 pr-4 ">
-                <span className=" flex flex-col">
-                  <h1 className="font-['inter'] font-[700] text-[20px]">
-                    Security Staff Userflow #1
-                  </h1>
-                  <h1 className="font-['inter'] font-bold  text-[32px]">Security Engagement Creation & Management</h1>
 
-                </span>
-                <span className="flex flex-col">
-                  <section className=" flex flex-row  mb-4 mt-4 gap-0 ml-2 ">
-                    <div className="spacer-noH-CIAAN h-full w-[1px]  " />
-
-                    <span className=" flex flex-col gap-4 ">
-
-                      <span className=" flex flex-col pl-[6px] gap-[4px] max-w-[1000px]">
-
-                        <h1 className="font-['inter'] font-medium tracking-[0.005em]  text-[16px]">
-                          Security Engagements are created and managed by Security Administrators, and then conducted by assigned Security Engineers who work with assigned Security Users to complete the assigned engagement forms & surveys.
-                        </h1>
-
-                      </span>
-
-
-                    </span>
-
-                  </section>
-                  <ProgressSlider
-                    vertical={isMobile ? true : false}
-                    fastDuration={200}
-                    duration={6200}
-                    activeSlider='bbridge'
-                    className='  rounded-xl overflow-hidden sm:flex ml-3 '
-                  >
-                    <SliderBtnGroup className='sm:relative rounded-l-xl  absolute bottom-0 lg:w-[22rem] sm:w-96 w-full z-10 sm:flex sm:flex-col grid grid-cols-2 sm:h-full h-fit sm:dark:bg-white sm:bg-white dark:bg-black/80 bg-white/80 backdrop-blur-md overflow-hidden '>
-                      {sliderItems_CIAAN_EngagementFlow.map((item, index) => (
-                        <SliderBtn
-                          key={index}
-                          value={item?.sliderName}
-                          className='text-left   pt-0 pb-4 sm:border-b border sm:pl-3 sm:pb-0  sm:flex-1'
-                          progressBarClass='left-0 sm:top-0 bottom-0  bg-black sm:w-1 sm:h-full h-4  before:h-full before:w-1 before:'
-                        >
-                          <h2 className='relative px-4 rounded w-fit  bg-black text-white mb-2'>
-                            {item.title}
-                          </h2>
-                          <p className='text-sm font-medium  text-slate-900 line-clamp-2 pr-2'>
-                            {item.desc}
-                          </p>
-                        </SliderBtn>
-                      ))}
-                    </SliderBtnGroup>
-                    <SliderContent className='w-full '>
-                      {sliderItems_CIAAN_EngagementFlow.map((item, index) => (
-                        <SliderWrapper
-                          className='h-full '
-                          key={index}
-                          value={item?.sliderName}
-                        >
-                          <Image
-                            className=' h-[550px]  object-cover w-fit min-w-fit rounded-r-xl overflow-hidden'
-                            src={item.img}
-                            width={1920}
-                            height={1080}
-                            alt={item.desc}
-                          />
-                        </SliderWrapper>
-                      ))}
-                    </SliderContent>
-                  </ProgressSlider>
-
-                </span>
-              </div> */}
-
-              <div className=" pt-8 pb-5  h-full pl-10 pr-10  flex flex-col gap-4 font-['exo'] card-bg-white ml-8  rounded-xl w-full bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]  ">
-                <span className=" flex flex-col">
-                  <h1 className="font-['inter'] font-[700] text-[20px]">
-                    Security Staff Userflow #1
-                  </h1>
-                  <h1 className="font-['inter'] font-bold  text-[32px]">Security Engagements: Creation & Management</h1>
-
-                </span>
-                <span className="flex flex-col">
-                  <section className=" flex flex-row  mb-6 mt-0 gap-0 ml-1 ">
-                    <div className="spacer-noH-CIAAN h-full w-[1px]  " />
-
-                    <span className=" flex flex-col gap-4 ">
-
-                      <span className=" flex flex-col pl-[6px] gap-[4px] max-w-[1000px]">
-
-                        {/* <h1 className="font-['inter'] font-[700] text-[20px]">
-                      Engagement Creation & Assigment
-                    </h1> */}
-
-                        <h1 className="font-['inter'] font-medium tracking-[0.005em]  text-[16px]">
-                          Security Engagements are created and managed by Security Administrators, and then conducted by assigned Security Engineers who work with assigned Security Users to complete the assigned engagement forms & surveys.
-                        </h1>
-                      </span>
-
-
-                    </span>
-
-                  </section>
-                  <ProgressSlider
-                    vertical={isMobile ? true : false}
-                    fastDuration={200}
-                    duration={6200}
-                    activeSlider='bbridge'
-                    className=' w-full  rounded-xl overflow-hidden sm:flex ml-4  '
-                  >
-                    <SliderBtnGroup className='sm:relative rounded-bl-xl min-w-[16rem]  absolute bottom-0 lg:max-w-[40%] lg:w-full sm:w-96 w-full z-10 sm:flex sm:flex-col grid grid-cols-2 sm:h-full h-fit sm:dark:bg-white sm:bg-white dark:bg-black/80 bg-white/80 backdrop-blur-md overflow-hidden '>
-                      {sliderItems_CIAAN_EngagementFlow.map((item, index) => (
-                        <SliderBtn
-                          key={index}
-                          value={item?.sliderName}
-                          className='text-left mt-0  pt-0 pb-4 sm:border-b border sm:pl-3 sm:pb-0 align-top   place-content-start sm:flex-1'
-                          progressBarClass=' left-0 sm:top-0 bottom-0  bg-CIAAN-scas-light sm:w-1 sm:h-full h-4  before:h-full before:w-1 before:'
-                        >
-                          <h2 className='relative px-4 rounded w-fit  bg-CIAAN-scas-light text-white mb-2'>
-                            {item.title}
-                          </h2>
-                          <p className='text-sm font-medium  text-slate-900 line-clamp-2 pr-2'>
-                            {item.desc}
-                          </p>
-                        </SliderBtn>
-                      ))}
-                    </SliderBtnGroup>
-                    <SliderContent className='w-full flex lg:grow-3'>
-                      {sliderItems_CIAAN_EngagementFlow.map((item, index) => (
-                        <SliderWrapper
-                          className='h-[650px] aspect-video flex  '
-                          key={index}
-                          value={item?.sliderName}
-                        >
-                          <Image
-                            className=' h-full  object-cover w-fit min-w-fit rounded-r-xl aspect-video overflow-hidden'
-                            src={item.img}
-                            width={1920}
-                            height={1080}
-                            alt={item.desc}
-                          />
-                        </SliderWrapper>
-                      ))}
-                    </SliderContent>
-                  </ProgressSlider>
-
-                </span>
-              </div>
-
-              <div className=" pt-8 pb-5  h-full pl-10 pr-10  flex flex-col gap-4 font-['exo'] card-bg-white ml-8  rounded-xl w-full bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]  ">
-                <span className=" flex flex-col">
-                  <h1 className="font-['inter'] font-[700] text-[20px]">
-                    Security Staff Userflow #2
-                  </h1>
-                  <h1 className="font-['inter'] font-bold  text-[32px]">Security Assessments: Creation & Management</h1>
-
-                </span>
-                <span className="flex flex-col">
-                  <section className=" flex flex-row  mb-6 mt-0 gap-0 ml-1 ">
-                    <div className="spacer-noH-CIAAN h-full w-[1px]  " />
-
-                    <span className=" flex flex-col gap-4 ">
-
-                      <span className=" flex flex-col pl-[6px] gap-[4px] max-w-[1000px]">
-
-                        {/* <h1 className="font-['inter'] font-[700] text-[20px]">
-                      Engagement Creation & Assigment
-                    </h1> */}
-
-                        <h1 className="font-['inter'] font-medium tracking-[0.005em]  text-[16px]">
-                          Security Engagements are created and managed by Security Administrators, and then conducted by assigned Security Engineers who work with assigned Security Users to complete the assigned engagement forms & surveys.
-                        </h1>
-                      </span>
-
-
-                    </span>
-
-                  </section>
-                  <ProgressSlider
-                    vertical={isMobile ? true : false}
-                    fastDuration={200}
-                    duration={6200}
-                    activeSlider='bbridge'
-                    className=' w-full  rounded-xl overflow-hidden sm:flex ml-4  '
-                  >
-                    <SliderBtnGroup className='sm:relative rounded-bl-xl min-w-[16rem]  absolute bottom-0 lg:max-w-[40%] lg:w-full sm:w-96 w-full z-10 sm:flex sm:flex-col grid grid-cols-2 sm:h-full h-fit sm:dark:bg-white sm:bg-white dark:bg-black/80 bg-white/80 backdrop-blur-md overflow-hidden '>
-                      {sliderItems_CIAAN_AssessmentFlow.map((item, index) => (
-                        <SliderBtn
-                          key={index}
-                          value={item?.sliderName}
-                          className='text-left mt-0  pt-0 pb-4 sm:border-b border sm:pl-3 sm:pb-0 align-top   place-content-start sm:flex-1'
-                          progressBarClass=' left-0 sm:top-0 bottom-0  bg-CIAAN-scas-light sm:w-1 sm:h-full h-4  before:h-full before:w-1 before:'
-                        >
-                          <h2 className='relative px-4 rounded w-fit  bg-CIAAN-scas-light text-white mb-2'>
-                            {item.title}
-                          </h2>
-                          <p className='text-sm font-medium  text-slate-900 line-clamp-2 pr-2'>
-                            {item.desc}
-                          </p>
-                        </SliderBtn>
-                      ))}
-                    </SliderBtnGroup>
-                    <SliderContent className='w-full flex lg:grow-3'>
-                      {sliderItems_CIAAN_AssessmentFlow.map((item, index) => (
-                        <SliderWrapper
-                          className='h-[650px] aspect-video flex  '
-                          key={index}
-                          value={item?.sliderName}
-                        >
-                          <Image
-                            className=' h-full  object-cover w-fit min-w-fit rounded-r-xl aspect-video overflow-hidden'
-                            src={item.img}
-                            width={1920}
-                            height={1080}
-                            alt={item.desc}
-                          />
-                        </SliderWrapper>
-                      ))}
-                    </SliderContent>
-                  </ProgressSlider>
-
-                </span>
-              </div>
             </div>
 
           </div>
@@ -720,25 +717,25 @@ export default function FancyTabv2() {
   let [step, setStep] = useState(1);
 
   return (
-    <div className=" w-full  rounded-lg testbg2 h-full overflow-y-scroll">
+    <div className=" w-full   testbg2 h-full">
 
-      <div className="flex  flex-row gap-[32px]  rounded p-8">
-        <button onClick={() => setStep(1)} >
+      <div className="flex  flex-row gap-[32px]  rounded px-8 pb-8 pt-4 absolute z-[999] w-full">
+        <button onClick={() => setStep(1)} className="w-full flex  max-w-[475px]" >
           <Step step={1} currentStep={step} />
         </button>
 
-        <button onClick={() => setStep(2)} >
+        <button onClick={() => setStep(2)} className="w-full flex  max-w-[475px]">
           <Step step={2} currentStep={step} />
         </button>
         <button onClick={() => setStep(3)} >
           <Step step={3} currentStep={step} />
         </button>
-        <button onClick={() => setStep(4)} >
+        {/* <button onClick={() => setStep(4)} >
           <Step step={4} currentStep={step} />
         </button>
         <button onClick={() => setStep(5)} >
           <Step step={5} currentStep={step} />
-        </button>
+        </button> */}
       </div>
 
       {/* Dynamic content based on `step` */}
