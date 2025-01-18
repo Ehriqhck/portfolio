@@ -118,12 +118,12 @@ function Step({ step, currentStep }) {
         initial={false}
         variants={{
           inactive: {
-            backgroundColor: "#fff", // neutral
+            backgroundColor: "#ffffff25", // neutral
             borderColor: "#e5e5e5", // neutral-200
             color: "#a3a3a3", // neutral-400
           },
           active: {
-            backgroundColor: "#fff",
+            backgroundColor: "#ffffff25",
             borderColor: "#3b82f6", // blue-500
             color: "#3b82f6", // blue-500
           },
@@ -472,7 +472,7 @@ function getStepBody(currentStep) {
               key={2} className="flex flex-col w-full    h-full  ">
               <div className="   flex flex-col w-fit h-fit  ">
 
-                <div className=" pt-[16vh] px-8 flex flex-col gap-[64px] bg-CIAAN-header">
+                <div className=" pt-[16vh]  px-8 flex flex-col gap-[64px] bg-CIAAN-header">
                   <span className="flex text-CIAAN-light flex-col  h-fit leading-tight  pt-32">
 
                     <p className="text-CIAAN-light text-left  font-inter text-[32px] text-bold font-bold">
@@ -502,110 +502,255 @@ function getStepBody(currentStep) {
                 <span className=" flex flex-col bg-CIAAN-body gap-[64px] pt-8">
 
 
-                  <section className=" flex flex-row w-full
+                  <section className=" flex flex-row w-full 
                   ">
-                    <div className=" flex  w-[fit] overflow-visible top-0  ml-[130px] mr-[15px] ">
-                      <div className=" uppercase font-['Exo_2'] tracking-[0]
-text-[12px] text-white h-fit flex gap-[4px] flex-col  py-[4px] px-[2px] stickyNav 
-  z-[500]    pr-[4px] pl-[8px]   whitespace-nowrap  sticky  place-self-start	 top-8
+                    <div className=" flex flex-col w-[fit] overflow-visible top-5  ml-6 mr-5  ">
+                      <div className="h-6 stickyNav" > </div>
+
+                      <div className="place-self-start	 self-start top-5 uppercase   font-['Exo_2'] tracking-[0]
+text-[12px] text-white h-fit flex gap-[4px] flex-col navbg   
+  z-[500]     pl-1   whitespace-nowrap  sticky  pb-[16px] pr-[28px] pt-[10px]
 base ">
+                        <span className="flex flex-col gap-2">
+                          <div className="px-[5px]  py-[3px]  flex flex-row gap-[2px] items-center  uppercase  h-fit self-start place-items-start">
+                            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+                              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+                              <motion.circle
+                                cx="50"
+                                cy="50"
+                                r="30"
+                                pathLength="1"
+                                className="indicator"
+                                style={{ pathLength: scrollYProgressNav1 }}
+                              />        <motion.circle
+                                cx="50"
+                                cy="50"
+                                r="30"
+                                pathLength="1"
+                                className="indicatorBg"
 
-                        <div className="flex flex-row gap-[2px] items-center  uppercase  h-fit self-end place-items-end">
-                          <p className=""> <a href="#Home">Overview</a></p>
+                              />
+                            </svg>
+                            <p className=""> <a href="#Home">Overview</a></p>
 
-                          <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                            <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                            <motion.circle
-                              cx="50"
-                              cy="50"
-                              r="30"
-                              pathLength="1"
-                              className="indicator"
-                              style={{ pathLength: scrollYProgressNav1 }}
-                            />        <motion.circle
-                              cx="50"
-                              cy="50"
-                              r="30"
-                              pathLength="1"
-                              className="indicatorBg"
 
-                            />
-                          </svg>
-                        </div>
+                          </div>
 
-                        <div className="flex flex-row gap-[2px] items-center   h-fit self-end place-items-start">
-                          <p className=""> <a href="#HowItWorks">Hi-fi Flows</a></p>
+                          <div className="px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
+                            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+                              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+                              <motion.circle
+                                cx="50"
+                                cy="50"
+                                r="30"
+                                pathLength="1"
+                                className="indicator"
+                                style={{ pathLength: scrollYProgressNav2 }}
+                              />
+                              <motion.circle
+                                cx="50"
+                                cy="50"
+                                r="30"
+                                pathLength="1"
+                                className="indicatorBg"
 
-                          <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                            <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                            <motion.circle
-                              cx="50"
-                              cy="50"
-                              r="30"
-                              pathLength="1"
-                              className="indicator"
-                              style={{ pathLength: scrollYProgressNav2 }}
-                            />
-                            <motion.circle
-                              cx="50"
-                              cy="50"
-                              r="30"
-                              pathLength="1"
-                              className="indicatorBg"
+                              />
+                            </svg>
+                            <p className=""> <a href="#HowItWorks">Research & Planning</a></p>
 
-                            />
-                          </svg>
-                        </div>
-                        <div className="flex flex-row gap-[2px] items-center   h-fit self-end place-items-start">
-                          <p className=""><a href="#500Keybinds">Research</a></p>
 
-                          <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                            <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                            <motion.circle
-                              cx="50"
-                              cy="50"
-                              r="30"
-                              pathLength="1"
-                              className="indicator"
-                              style={{ pathLength: scrollYProgressNav3 }}
-                            />
-                            <motion.circle
-                              cx="50"
-                              cy="50"
-                              r="30"
-                              pathLength="1"
-                              className="indicatorBg"
+                          </div>
 
-                            />
-                          </svg>
-                        </div>
-                        <div className="flex flex-row gap-[2px] h-fit self-end items-center ">
-                          <p className=""> <a href="#DeviceInputs">Device Inputs</a></p>
+                          <span className="pl-[4px] flex flex-col -mt-[4px]">
+                            <div className="px-[5px] py-[3px] flex flex-row gap-[2px] items-center mb-[2px]  h-fit self-start place-items-start">
 
-                          <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                            <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                            <motion.circle
-                              cx="50"
-                              cy="50"
-                              r="30"
-                              pathLength="1"
-                              className="indicator"
-                              style={{ pathLength: scrollYProgressNav4 }}
-                            />        <motion.circle
-                              cx="50"
-                              cy="50"
-                              r="30"
-                              pathLength="1"
-                              className="indicatorBg"
+                              <p className="ml-[4px]"><a href="#500Keybinds">Security Staff Flows</a></p>
 
-                            />
-                          </svg>
-                        </div>
+
+                            </div>
+
+                            <div className=" ml-[14px]  px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
+                              <div className=" -mt-[8px] -ml-[6px] ">
+                                <UnderArrow fill="#ffffff25" height='18px' />
+
+                              </div>
+                              <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+                                <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+                                <motion.circle
+                                  cx="50"
+                                  cy="50"
+                                  r="30"
+                                  pathLength="1"
+                                  className="indicator"
+                                  style={{ pathLength: scrollYProgressNav3 }}
+                                />
+                                <motion.circle
+                                  cx="50"
+                                  cy="50"
+                                  r="30"
+                                  pathLength="1"
+                                  className="indicatorBg"
+
+                                />
+                              </svg>
+                              <p className=""><a href="#500Keybinds">Security Assessments</a></p>
+
+
+                            </div>
+                            <div className=" ml-[14px] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
+                              <div className=" -mt-[8px] -ml-[6px] ">
+                                <UnderArrow fill="#ffffff25" height='18px' />
+
+                              </div>
+                              <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+                                <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+                                <motion.circle
+                                  cx="50"
+                                  cy="50"
+                                  r="30"
+                                  pathLength="1"
+                                  className="indicator"
+                                  style={{ pathLength: scrollYProgressNav3 }}
+                                />
+                                <motion.circle
+                                  cx="50"
+                                  cy="50"
+                                  r="30"
+                                  pathLength="1"
+                                  className="indicatorBg"
+
+                                />
+                              </svg>
+                              <p className=""><a href="#500Keybinds">Security Engagements</a></p>
+
+
+                            </div>
+                            <div className=" ml-[14px] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
+                              <div className=" -mt-[8px] -ml-[6px] ">
+                                <UnderArrow fill="#ffffff25" height='18px' />
+
+                              </div>
+                              <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+                                <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+                                <motion.circle
+                                  cx="50"
+                                  cy="50"
+                                  r="30"
+                                  pathLength="1"
+                                  className="indicator"
+                                  style={{ pathLength: scrollYProgressNav3 }}
+                                />
+                                <motion.circle
+                                  cx="50"
+                                  cy="50"
+                                  r="30"
+                                  pathLength="1"
+                                  className="indicatorBg"
+
+                                />
+                              </svg>
+                              <p className=""><a href="#500Keybinds">Spreadsheet View</a></p>
+
+
+                            </div>
+                          </span>
+                          <span className="pl-[4px] flex flex-col -mt-[4px]">
+                            <div className="px-[5px] py-[3px] flex flex-row gap-[2px] items-center mb-[2px]  h-fit self-start place-items-start">
+
+                              <p className="ml-[4px]"><a href="#500Keybinds">Security User Flows</a></p>
+
+
+                            </div>
+
+                            <div className=" ml-[14px]  px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
+                              <div className=" -mt-[8px] -ml-[6px] ">
+                                <UnderArrow fill="#ffffff25" height='18px' />
+
+                              </div>
+                              <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+                                <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+                                <motion.circle
+                                  cx="50"
+                                  cy="50"
+                                  r="30"
+                                  pathLength="1"
+                                  className="indicator"
+                                  style={{ pathLength: scrollYProgressNav3 }}
+                                />
+                                <motion.circle
+                                  cx="50"
+                                  cy="50"
+                                  r="30"
+                                  pathLength="1"
+                                  className="indicatorBg"
+
+                                />
+                              </svg>
+                              <p className=""><a href="#500Keybinds">Security Assessments</a></p>
+
+
+                            </div>
+                            <div className=" ml-[14px] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
+                              <div className=" -mt-[8px] -ml-[6px] ">
+                                <UnderArrow fill="#ffffff25" height='18px' />
+
+                              </div>
+                              <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+                                <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+                                <motion.circle
+                                  cx="50"
+                                  cy="50"
+                                  r="30"
+                                  pathLength="1"
+                                  className="indicator"
+                                  style={{ pathLength: scrollYProgressNav3 }}
+                                />
+                                <motion.circle
+                                  cx="50"
+                                  cy="50"
+                                  r="30"
+                                  pathLength="1"
+                                  className="indicatorBg"
+
+                                />
+                              </svg>
+                              <p className=""><a href="#500Keybinds">Security Engagements</a></p>
+
+
+                            </div>
+
+                          </span>
+
+                          <div className="px-[5px] py-[3px]  flex flex-row gap-[2px] h-fit self-start items-center ">
+                            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+                              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+                              <motion.circle
+                                cx="50"
+                                cy="50"
+                                r="30"
+                                pathLength="1"
+                                className="indicator"
+                                style={{ pathLength: scrollYProgressNav4 }}
+                              />        <motion.circle
+                                cx="50"
+                                cy="50"
+                                r="30"
+                                pathLength="1"
+                                className="indicatorBg"
+
+                              />
+                            </svg>
+                            <p className=""> <a href="#DeviceInputs">Device Inputs</a></p>
+
+                          </div>
+                        </span>
+
+
                       </div>
 
                     </div>
 
-                    <section className=" flex flex-col h-full w-full  gap-[36px]">
+                    <section className=" flex flex-col h-full w-full  gap-[64px]">
 
                       <div className="  flex flex-col gap-4 font-['exo'] card-bg-white  rounded-xl w-fit bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] 
 pt-12 pb-14 px-6 h-full pl-12 pr-16 ">
@@ -633,9 +778,71 @@ pt-12 pb-14 px-6 h-full pl-12 pr-16 ">
                                 <UnderArrow height='24px' width='38px' />
 
                               </div>
+
                               <span className=" flex mt-1 ml-1 flex-col">
                                 <p className=" Capitalized font-[600] text-[18px]">User Goals </p>
-                                <p>Security Staff need to be able to create and manage a multitude of ongoing engagements & assessments. Each engagement & assessment needs to have at least one or more Security Engineers assigned to lead it, as well as one or more Security Users who has product ownership/expertise over the project that is target of the engagement or assesment. Security staff is able to pick and choose from pre-made engagement/assessment forms and surveys provided by a backend database.  </p>
+                                <section className=" flex flex-row  mb-6 mt-0 gap-0 ml-1  bg-slate-200 ">
+                                  <div className="spacer-noH-CIAAN h-full w-[1px]   " />
+
+                                  <span className=" flex flex-col gap-4 mt-[7px] mb-2 ">
+
+                                    <span className=" flex flex-col pl-[6px] gap-[4px] max-w-[1000px]">
+
+                                      {/* <h1 className="font-['inter'] font-[700] text-[20px]">
+          Engagement Creation & Assigment
+        </h1> */}
+
+                                      <h1 className="font-['inter'] font-300 tracking-[0.005em]  text-[16px]">
+                                        Security Staff need to be able to create and manage a multitude of ongoing engagements & assessments. Each engagement & assessment needs to have at least one or more Security Engineers assigned to lead it, as well as one or more Security Users who has product ownership/expertise over the project that is target of the engagement or assesment. Security staff is able to pick and choose from pre-made engagement/assessment forms and surveys provided by a backend database.
+
+
+                                      </h1>
+                                    </span>
+
+
+                                  </span>
+
+                                </section>                              </span>
+
+                            </div>
+                            <div className="ml-4 mt-4 flex flex-row h-full w-full ">
+                              <div>
+                                {/* <UnderArrow height='24px' width='38px' /> */}
+
+                              </div>
+                              <span className=" flex mt-1 ml-1 flex-col pl-[38px] w-full">
+                                {/* <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p> */}
+
+                                <div class=" bg-slate-100 flex flex-col gap-1 ml-1 mt-2 pb-4 pl-4 pt-4 pr-4  w-full place-items-start overflow-x-scroll rounded-lg h-fit lg:overflow-visible">
+                                  <p className=" Capitalized font-[600] text-[18px]">Delivered Userflows </p>
+
+                                  <div className="bg-[#39425c]  opacity-60 w-[2px]  rounded-full overflow-hidden  " />
+
+                                  <BentoPreviews bentoContent='CIAAN-Assess' />
+                                </div>
+                              </span>
+
+                            </div>
+
+                          </span>
+                          <span className=" flex flex-col w-full card-bg-white-inset pl-6 pr-16 pb-12 pt-6">
+                            <div className="ml-[8px] mt-3 flex flex-row ">
+                              <span className=" flex  ml-1 flex-col">
+                                <p className=" Capitalized font-[600] text-[20px] mb-1">Security Users </p>
+                                <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p>
+                              </span>
+
+                            </div>
+                            <div className="ml-4 mt-4 flex flex-row  ">
+                              <div>
+                                <UnderArrow height='24px' width='38px' />
+
+                              </div>
+                              <span className=" flex mt-1 ml-1 flex-col">
+                                <p className=" Capitalized font-[600] text-[18px]">User Goals & Requirements </p>
+                                <p>
+Security Users are responsible for two things: first is working with an assigned Security Engineer during a security engagement, and filling out assessment forms.
+                                </p>
                               </span>
 
                             </div>
@@ -645,18 +852,21 @@ pt-12 pb-14 px-6 h-full pl-12 pr-16 ">
 
                               </div>
                               <span className=" flex mt-1 ml-1 flex-col pl-[38px] w-full">
-                                <p className=" Capitalized font-[600] text-[18px]">Delivered Userflows </p>
                                 {/* <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p> */}
-                                <div class="mt-2   w-full place-items-center overflow-x-scroll rounded-lg h-fit lg:overflow-visible">
 
-                                  <BentoPreviews bentoContent='CIAAN-Assess' />
+                                <div class=" bg-slate-100 flex flex-col gap-1 ml-1 mt-2 pb-4 pl-4 pt-4 pr-4  w-full place-items-start overflow-x-scroll rounded-lg h-fit lg:overflow-visible">
+
+                                  <p className=" Capitalized font-[600] text-[18px]">Delivered Userflows </p>
+
+                                  <div className="bg-[#39425c]  opacity-60 w-[2px]  rounded-full overflow-hidden  " />
+
+                                  <BentoPreviews bentoContent='CIAAN-SecurityUsers' />
                                 </div>
                               </span>
 
                             </div>
 
                           </span>
-
 
                         </div>
 

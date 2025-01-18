@@ -86,17 +86,42 @@ const CIAAN_Assess = [
     className: "lg:col-start-1 lg:col-end-5 lg:row-start-3 lg:row-end-3",
   },
 ];
+const CIAAN_SecurityUser = [
+  {
+    Icon: <WorkflowIcon height='24px'/>,
+    name: "Security User Dashboard",
+    description: "Manage assigned security assessments and engagements.",
+    href: "/",
+    cta: "Learn more",
+    background: <img className="absolute -right-20 -top-20 opacity-60" src="https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_2/assessment_step_2_1_5x.webp" />,
+    className: "lg:row-start-1 lg:row-end-2 lg:col-start-1 lg:col-end-5",
+  },
+  {
+    Icon: InputIcon,
+    name: "Assessment Forms",
+    description: "Essentially Google Forms for Security Assessments",
+    href: "/",
+    cta: "Learn more",
+    background: <img className="absolute -right-20 -top-20 opacity-60" src='https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_4/create_engagement_step_4_1x.webp'  />,
+    className: "lg:col-start-1 lg:col-end-5 lg:row-start-2 lg:row-end-2",
+  },
+
+];
 export function BentoPreviews({ bentoContent }) {
-  const getContent = (id) => {
+  const getContent = (bentoContent) => {
 
 
-    switch (id) {
+    switch (bentoContent) {
       case "CIAAN-Assess":
         return (CIAAN_Assess)
         break;
 
+        case "CIAAN-SecurityUser":
+          return (CIAAN_SecurityUser)
+
+          break;
       default:
-        return (CIAAN_Assess)
+        return (CIAAN_SecurityUser)
 
         break;
     }

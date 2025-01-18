@@ -69,8 +69,8 @@ const PortfolioCard = ({ Subtitle, Title, Description, Slidercontent }) => {
   }
 
   return (
-    <div className=" pt-8 pb-5  h-full pl-10 pr-24  flex flex-col gap-4 font-['exo'] card-bg-white   rounded-xl w-full bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]  ">
-      <span className=" flex flex-col">
+    <div className=" pt-8 pb-5  h-full pl-10 pr-10  flex flex-col gap-4 font-['exo'] card-bg-white   rounded-xl w-full bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]  ">
+      <span className=" flex  flex-col">
         <h1 className="font-['inter'] font-[700] text-[20px]">
           {Subtitle}
         </h1>
@@ -79,11 +79,11 @@ const PortfolioCard = ({ Subtitle, Title, Description, Slidercontent }) => {
         </h1>
 
       </span>
-      <span className="flex flex-col">
-        <section className=" flex flex-row  mb-6 mt-0 gap-0 ml-1 ">
-          <div className="spacer-noH-CIAAN h-full w-[1px]  " />
+      <span className="flex flex-col ">
+        <section className=" flex flex-row  mb-6 mt-0 gap-0 ml-1  bg-slate-200 ">
+          <div className="spacer-noH-CIAAN h-full w-[1px]   " />
 
-          <span className=" flex flex-col gap-4 ">
+          <span className=" flex flex-col gap-4 mt-[7px] mb-2 ">
 
             <span className=" flex flex-col pl-[6px] gap-[4px] max-w-[1000px]">
 
@@ -127,12 +127,12 @@ const PortfolioCard = ({ Subtitle, Title, Description, Slidercontent }) => {
           <SliderContent className='w-full flex lg:grow-3'>
             {getSliderData().map((item, index) => (
               <SliderWrapper
-                className='h-[650px] aspect-video flex  '
+                className='h-[650px]  flex  '
                 key={index}
                 value={item?.sliderName}
               >
                 <Image
-                  className=' h-full  object-cover w-fit min-w-fit rounded-r-xl aspect-video overflow-hidden'
+                  className=' h-full  object-cover w-fit min-w-fit rounded-r-xl   overflow-hidden'
                   src={item.img}
                   width={1920}
                   height={1080}

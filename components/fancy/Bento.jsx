@@ -57,11 +57,11 @@ const BentoCard = ({
       className,
     )}
   >
-    <div className="pt-12">{background}</div>
+    <div className="pt-16">{background}</div>
 
     <div className=" portfolio-bento pointer-events-none z-10 flex pb-4 transform-gpu flex-row gap-1 px-6 pt-3 pb-1 transition-all duration-300 group-hover:-translate-y-10">
       {getIcon('workflow')}
-      <div className=" flex flex-col">
+      <div className=" ml-1 flex flex-col">
         <h3 className="text-xl font-semibold text-neutral-100 ">
           {name}
         </h3>
