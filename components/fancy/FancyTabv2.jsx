@@ -208,53 +208,28 @@ function getStepBody(currentStep) {
       },
     },
   }
-  const sliderItems = [
-    {
-      img: 'https://imgur.com/vjgokm8',
-      title: 'Bridge',
-      desc: 'A breathtaking view of a city illuminated by countless lights, showcasing the vibrant and bustling nightlife.',
-      sliderName: 'bridge',
-    },
-    {
-      img: 'https://imgur.com/vjgokm8',
-      title: 'Mountains View',
-      desc: 'A serene lake reflecting the surrounding mountains and trees, creating a mirror-like surface.',
-      sliderName: 'mountains',
-    },
-    {
-      img: 'https://imgur.com/vjgokm8',
-      title: 'Autumn',
-      desc: 'A picturesque path winding through a dense forest adorned with vibrant autumn foliage.',
-      sliderName: 'autumn',
-    },
-    {
-      img: 'https://imgur.com/vjgokm8',
-      title: 'Foggy',
-      sliderName: 'foggy',
-      desc: 'A stunning foggy view over the foresh, with the sun casting a golden glow across the forest. ',
-    },
-  ];
-  const CIAAN_Assess = [
-    {
-      Icon: <WorkflowIcon height='24px' />,
-      name: "Security Assessment Creation & Management Userflow",
-      description: "We automatically save your files as you type.",
-      href: "/",
-      cta: "Learn more",
-      background: <img className="absolute -right-20 -top-20 opacity-60" />,
-      className: "lg:row-start-2 lg:row-end-3 lg:col-start-1 lg:col-end-2",
-    },
-    {
-      Icon: <WorkflowIcon height='24px' />,
-      name: "Security Engagement Creation & Management",
-      description: "Search through all your files in one place.",
-      href: "/",
-      cta: "Learn more",
-      background: <img className="absolute -right-20 -top-20 opacity-60" src="https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_2/assessment_step_2_1_5x.webp" />,
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-1",
-    },
 
-  ];
+  // const CIAAN_Assess = [
+  //   {
+  //     Icon: <WorkflowIcon height='24px' />,
+  //     name: "Security Assessment Creation & Management Userflow",
+  //     description: "We automatically save your files as you type.",
+  //     href: "/",
+  //     cta: "Learn more",
+  //     background: <img className="absolute -right-20 -top-20 opacity-60" />,
+  //     className: "lg:row-start-2 lg:row-end-3 lg:col-start-1 lg:col-end-2",
+  //   },
+  //   {
+  //     Icon: <WorkflowIcon height='24px' />,
+  //     name: "Security Engagement Creation & Management",
+  //     description: "Search through all your files in one place.",
+  //     href: "/",
+  //     cta: "Learn more",
+  //     background: <img className="absolute -right-20 -top-20 opacity-60" src="https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_2/assessment_step_2_1_5x.webp" />,
+  //     className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-1",
+  //   },
+
+  // ];
   const sliderItems_CIAAN_EngagementFlow = [
     {
       img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_1/create_engagement_step_1_1x.webp',
@@ -316,16 +291,85 @@ function getStepBody(currentStep) {
   ];
   const sliderItems_CIAAN_ManagementFlow = [
     {
-      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessments_management/assessments_management_1x.webp',
-      title: 'Assessments',
-      desc: 'Spreadsheet layout of all assessments ',
-      sliderName: 'Engagement Settings',
+      heading: 'Managing Assessments & Engagements',
+      description: <p>
+        To enable T-Mobile security staff to better manage multiple ongoing engagements & assessments, both have a spreadsheet-style management page featuring various filtering and sorting functionality.
+      </p>,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessments_management/assessments_management_1_5x.webp',
+          title: 'Assessments',
+          desc: 'Spreadsheet layout of all assessments ',
+          sliderName: 'Engagement Settings',
+        },
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/engagements_management/engagements_management_1x.webp',
+          title: 'Engagements',
+          desc: 'Spreadsheet layout of all engagements',
+          sliderName: 'mountains',
+        },
+      ]
+    }
+
+  ];
+
+  const sliderItems_CIAAN_SecurityUserDashboard = [
+    {
+      heading: 'User Dashboard',
+      description: <p>
+        This dashboard allows Security Users to view and fill out any assigned security assessment forms.  Each form card shows detailed information about the respective assessment driven by feedback that Security Staff were often asked trivial questions such as about who was managing the assessment or how far along it has progressed.
+      </p>,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp',
+          title: 'Assessments',
+          desc: 'Spreadsheet layout of all assessments ',
+          sliderName: 'Engagement Settings',
+        },
+
+      ]
     },
     {
-      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/engagements_management/engagements_management_1x.webp',
-      title: 'Engagements',
-      desc: 'Spreadsheet layout of all engagements',
-      sliderName: 'mountains',
+      heading: 'Assessment Forms',
+      description: <p>
+        Imagine Google Forms but for cybersecurity assessments. Since these forms often cannot be quickly filled due to certain questions that require extra work for Security Users, and combined with the high-stakes impact these forms can have, there was extra emphasis for form-safety controls & exposing assessment details to reduce user error.
+
+      </p>,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp',
+          title: 'Assessments',
+          desc: 'Spreadsheet layout of all assessments ',
+          sliderName: 'Engagement Settings',
+        },
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/engagements_management/engagements_management_1x.webp',
+          title: 'Engagements',
+          desc: 'Spreadsheet layout of all engagements',
+          sliderName: 'mountains',
+        },
+      ]
+    },
+
+  ];
+  const sliderItems_CIAAN_UserResearch = [
+    {
+      heading: 'Expert Interviews',
+      description: <p>User research was conducted concurrently alongside design tasks throughout the project. At the outset, I leaned heavily on expert interviews with CIAAN directors (as they knew how much I didn't know) to establish actionable user insights to serve as a starting point for planning my design sprints.
+        This was later combined with insights from semi-structured interviews with some of T-Mobile's security staff -- the culmination of which is shown in the graphic below.</p>,
+      note:
+        <p> There was great overlap between the security engineers & adminstrators; eventually we recognized that the practical/organizational differences were trivial enough between them to consolidate both as the 'Security Staff/Team'.  </p>
+      ,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp',
+          title: 'Assessments',
+          desc: 'Spreadsheet layout of all assessments ',
+          sliderName: 'Engagement Settings',
+        },
+      ]
+
+
     },
 
 
@@ -756,9 +800,9 @@ base ">
 pt-12 pb-14 px-6 h-full pl-12 pr-16 ">
                         <span className=" flex flex-col">
                           <h1 className="font-['inter'] font-[700] text-[20px]">
-                            Security Staff Userflow #1
+                            Project Overview
                           </h1>
-                          <h1 className="font-['inter'] font-bold  text-[32px]">Security Engagements: Creation & Management</h1>
+                          <h1 className="font-['inter'] font-bold  text-[32px]">Security Assessments & Engagements</h1>
 
                         </span>
 
@@ -768,7 +812,7 @@ pt-12 pb-14 px-6 h-full pl-12 pr-16 ">
                           <span className=" flex flex-col w-full card-bg-white-inset pl-6 pr-16 pb-12 pt-6">
                             <div className="ml-[8px] mt-3 flex flex-row ">
                               <span className=" flex  ml-1 flex-col">
-                                <p className=" Capitalized font-[600] text-[20px] mb-1">T-Mobile Cybersecurity Administrators & Engineers </p>
+                                <p className=" Capitalized font-[600] text-[20px] mb-1">T-Mobile Cybersecurity Staff </p>
                                 <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p>
                               </span>
 
@@ -841,7 +885,7 @@ pt-12 pb-14 px-6 h-full pl-12 pr-16 ">
                               <span className=" flex mt-1 ml-1 flex-col">
                                 <p className=" Capitalized font-[600] text-[18px]">User Goals & Requirements </p>
                                 <p>
-Security Users are responsible for two things: first is working with an assigned Security Engineer during a security engagement, and filling out assessment forms.
+                                  Security Users are responsible for two things: first is working with an assigned Security Engineer during a security engagement, and filling out assessment forms.
                                 </p>
                               </span>
 
@@ -874,6 +918,7 @@ Security Users are responsible for two things: first is working with an assigned
 
 
                       </div>
+
                       <PortfolioCard Subtitle={'Security Staff Userflow #1'}
                         Title={'Security Engagements: Creation & Management'}
                         Description={'Security Engagements are created and managed by Security Administrators, and then conducted by assigned Security Engineers who work with assigned Security Users to complete the assigned engagement forms & surveys.'}
@@ -889,24 +934,32 @@ Security Users are responsible for two things: first is working with an assigned
                         Description={'Security Engagements are created and managed by Security Administrators, and then conducted by assigned Security Engineers who work with assigned Security Users to complete the assigned engagement forms & surveys.'}
                         Slidercontent={sliderItems_CIAAN_ManagementFlow}
                       />
+                      <PortfolioCard
+                        CardContent={sliderItems_CIAAN_ManagementFlow}
+                        Section={"Security User Screens"}
+                        Title={'Security Assessments'}
+                      />
+
+                      <PortfolioCard
+                        CardContent={sliderItems_CIAAN_ManagementFlow}
+                        Section={"Security Staff Screens"}
+                        Title={'Spreadsheet Management View'}
+                      />
+
+                      <PortfolioCard
+                        Section={"Security User Screens"}
+                        Title={'Assessment Forms'}
+
+                        CardContent={sliderItems_CIAAN_SecurityUserDashboard}
+                      />
+                      <PortfolioCard Title='User Research' Section='Research & Planning'
+                        CardContent={sliderItems_CIAAN_UserResearch} ></PortfolioCard>
                     </section>
-
                   </section>
-
                 </span>
-
-
-
               </div>
-
-
-
             </div>
-
           </div>
-
-
-
         </AnimatedGroup>
       )
       break;
