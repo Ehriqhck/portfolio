@@ -212,9 +212,15 @@ const Home = () => {
   return (
 
     <motion.div
-      className="flex flex-col w-full text-[#DAF0EA]   page-bg "
+      className="flex flex-col  text-[#DAF0EA]   page-bg "
 
-    >
+    >    <MediaPlayer src="https://www.youtube.com/watch?v=_cMxraX_5RE" />
+
+
+           {/* <video autoPlay loop muted 
+          className=" h-[100vh] w-[100vw]  "
+          src="https://www.youtube.com/watch?v=_cMxraX_5RE">
+        </video> */}
       <div className=" flex flex-col w-full ">
    
         <div className="w-fit h-fit">
@@ -223,10 +229,7 @@ const Home = () => {
  
         <div className="flex flex-col w-full "
         >
-          {/* <video autoPlay loop muted id='hero-bg-video'
-          className=" h-[100vh] w-[100vw] object-cover hero-bg"
-          src="https://files.vidstack.io/sprite-fight/720p.mp4">
-        </video> */}
+     
           {/* <HeroSlider className='' /> */}
 
 

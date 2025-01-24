@@ -230,67 +230,132 @@ function getStepBody(currentStep) {
   //   },
 
   // ];
-  const sliderItems_CIAAN_EngagementFlow = [
+  const sliderItems_CIAAN_Overview = [
     {
-      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_1/create_engagement_step_1_1x.webp',
-      title: '1. Set Details',
-      desc: 'Engagement name, targeted project/app, due dates, etc. ',
-      sliderName: 'Engagement Settings',
+      // video: 'https://customer-ct1udu2wic3j3wru.cloudflarestream.com/846ef93c705e9d63ef0d0b7c5296da12/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2F846ef93c705e9d63ef0d0b7c5296da12%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false',
+      heading: 'What is SCAS, and what is the project scope?',
+      note: <p className="">
+        The work shown below was prior to CIAAN winning the development contract from T-Mobile. See the 'impact' section for further details </p>,
+      description:
+        <p>SCAS (Security Controls & Automation System) is a cybersecurity platform featuring a suite of security automation tools tailored for T-Mobile as bid to win a development contract against other competing software vendors.The work covered below focuses on the part of SCAS responsible for automating security assessments and engagements for T-Mobile's usecase.
+        </p>,
+      visuals: [
+
+      ]
     },
     {
-      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_2/create_engagement_step_2_1_5x.webp',
-      title: '2. Add Forms',
-      desc: 'Forms determining engagement tasks & requirements.',
-      sliderName: 'mountains',
-    },
-    {
-      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_3/create_engagement_step_3_1_5x.webp',
-      title: '3. Assign Users',
-      desc: 'Security Users whose projects are the target of the engagement.',
-      sliderName: 'autumn',
-    },
-    {
-      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_4/create_engagement_step_4_1_5x.webp',
-      title: '4. Assign Engineers',
-      sliderName: 'foggy',
-      desc: 'Assign Engineer(s) to engage with previously assigned Security Users',
-    },
-    {
-      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_5/create_engagement_step_5_1_5x.webp',
-      title: '5. Deploy Status',
-      sliderName: 'foggyd',
-      desc: 'Deploy and monitor engagement status. ',
-    },
-  ];
-  const sliderItems_CIAAN_AssessmentFlow = [
-    {
-      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_1/assessment_step_1_1x.webp',
-      title: '1. Set Details',
-      desc: 'Assessment name, targeted project/app, due dates, etc. ',
-      sliderName: 'Engagement Settings',
-    },
-    {
-      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_2/assessment_step_2_1x.webp',
-      title: '2. Add Forms',
-      desc: 'Add pre-made cybersecurity assessment forms.',
-      sliderName: 'mountains',
-    },
-    {
-      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_3/assessment_step_3_1x.webp',
-      title: '3. Assign Users',
-      desc: 'Security Users who will fill out added forms.',
-      sliderName: 'autumn',
-    },
-    {
-      img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_5/assessment_step_5_1x.webp',
-      title: '4. Assessment Reports',
-      sliderName: 'foggy',
-      desc: 'Assign Engineer(s) to engage with previously assigned Security Users',
+      // video: 'https://customer-ct1udu2wic3j3wru.cloudflarestream.com/846ef93c705e9d63ef0d0b7c5296da12/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2F846ef93c705e9d63ef0d0b7c5296da12%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false',
+      heading: 'What are Security Assessments?',
+      note: <p className="">Within SCAS, those on the receiving end of these assessments forms are considered under the umbrella term 'Security Users'.</p>,
+      description:
+        <p>Imagine you are a developer or product owner working on some kind of product/app/service within a large organization: you have some baseline intuition/experience/knowledge on writing safe and secure code, but apart from common regulatory policies like GDPR, you don't spend your time studying the specifics of cybersecurity polcies and best practices - it's not something you have specialized in.
+          <br />  <br /> However, from a liability and regulatory standpoint the organization needs to make sure their software meets the bar, which is where the cybersecurity team comes in to (essentially) give you a Google Forms survey asking questions assessing the compliance of your code against the exact requirements.
+          These assessment forms are compartively much more practical and convenient than spending the resources to train every developer to be cybersecurity policy experts, or have them do their own research which carries its own risks.
+        </p>,
+      visuals: [
+
+      ]
     },
 
+    {
+      // video: 'https://customer-ct1udu2wic3j3wru.cloudflarestream.com/846ef93c705e9d63ef0d0b7c5296da12/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2F846ef93c705e9d63ef0d0b7c5296da12%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false',
+      heading: 'What are Security Engagements?',
+      // note: <p className="">Within SCAS, those on the receiving end of these assessments forms are considered under the umbrella term 'Security Users'.</p>,
+      description:
+        <p>Consider security engagements akin to the other end of the equation: engagements are when Security Staff engage with Security Users to make sure their projects are compliant. For example, say the Security Team recieves an assessment form for project X indicating that X is not compliant against some esoteric policy that the product owner/developers are not familiar with. Here, some security engineer(s) are then assigned to give direct assistence to its respective stakeholders to meet compliance.
+        </p>,
+      visuals: [
+
+      ]
+    },
+
+
+
   ];
+  const sliderItems_CIAAN_EngagementFlow = [
+
+    {
+      video: 'https://customer-ct1udu2wic3j3wru.cloudflarestream.com/846ef93c705e9d63ef0d0b7c5296da12/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2F846ef93c705e9d63ef0d0b7c5296da12%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false',
+      heading: 'Engagement Creation/Management',
+      description: <p>
+        Security Engagements are created and managed by Security Administrators, and then conducted by assigned Security Engineers who work with assigned Security Users to complete the assigned engagement forms & surveys.        </p>,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_1/create_engagement_step_1_1x.webp',
+          title: '1. Set Details',
+          desc: 'Engagement name, targeted project/app, due dates, etc. ',
+          sliderName: 'Engagement Settings',
+        },
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_2/create_engagement_step_2_1_5x.webp',
+          title: '2. Add Forms',
+          desc: 'Forms determining engagement tasks & requirements.',
+          sliderName: 'mountains',
+        },
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_3/create_engagement_step_3_1_5x.webp',
+          title: '3. Assign Users',
+          desc: 'Security Users whose projects are the target of the engagement.',
+          sliderName: 'autumn',
+        },
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_4/create_engagement_step_4_1_5x.webp',
+          title: '4. Assign Engineers',
+          sliderName: 'foggy',
+          desc: 'Assign Engineer(s) to engage with previously assigned Security Users',
+        },
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_5/create_engagement_step_5_1_5x.webp',
+          title: '5. Deployment',
+          sliderName: 'foggyd',
+          desc: 'Deploy and monitor engagement status. ',
+        },
+      ]
+    },
+
+
+  ];
+  const sliderItems_CIAAN_AssessmentFlow =
+    [
+      {
+        video: 'https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2F0b7c1165f13cedbcdfd43335e9ee8a27%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false',
+        heading: 'Assessment Creation/Management',
+        description: <p>
+          Security Engagements are created and managed by Security Administrators, and then conducted by assigned Security Engineers who work with assigned Security Users to complete the assigned engagement forms & surveys.        </p>,
+        visuals: [
+          {
+            img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_1/assessment_step_1_1x.webp',
+            title: '1. Set Details',
+            desc: 'Assessment name, targeted project/app, due dates, etc. ',
+            sliderName: 'Engagement Settings',
+          },
+          {
+            img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_2/assessment_step_2_1x.webp',
+            title: '2. Add Forms',
+            desc: 'Add pre-made cybersecurity assessment forms.',
+            sliderName: 'mountains',
+          },
+          {
+            img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_3/assessment_step_3_1x.webp',
+            title: '3. Assign Users',
+            desc: 'Security Users who will fill out added forms.',
+            sliderName: 'autumn',
+          },
+          {
+            img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_5/assessment_step_5_1x.webp',
+            title: '4. Assessment Reports',
+            sliderName: 'foggy',
+            desc: 'Assign Engineer(s) to engage with previously assigned Security Users',
+          },
+        ]
+      },
+
+
+    ];
   const sliderItems_CIAAN_ManagementFlow = [
     {
+      video: 'https://customer-ct1udu2wic3j3wru.cloudflarestream.com/afa43c86b161718c4dcf69f8ef6240ed/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2Fafa43c86b161718c4dcf69f8ef6240ed%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false',
+
       heading: 'Managing Assessments & Engagements',
       description: <p>
         To enable T-Mobile security staff to better manage multiple ongoing engagements & assessments, both have a spreadsheet-style management page featuring various filtering and sorting functionality.
@@ -358,11 +423,11 @@ function getStepBody(currentStep) {
       description: <p>User research was conducted concurrently alongside design tasks throughout the project. At the outset, I leaned heavily on expert interviews with CIAAN directors (as they knew how much I didn't know) to establish actionable user insights to serve as a starting point for planning my design sprints.
         This was later combined with insights from semi-structured interviews with some of T-Mobile's security staff -- the culmination of which is shown in the graphic below.</p>,
       note:
-        <p> There was great overlap between the security engineers & adminstrators; eventually we recognized that the practical/organizational differences were trivial enough between them to consolidate both as the 'Security Staff/Team'.  </p>
+        <p> There was great overlap between the security engineers & adminstrators; eventually we recognized that the practical/organizational differences were trivial enough between them to consolidate both as the 'Security Staff/Team' for this part of the SCAS platform.  </p>
       ,
       visuals: [
         {
-          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp',
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/researchtesting/user_research/user_research_1_5x.webp',
           title: 'Assessments',
           desc: 'Spreadsheet layout of all assessments ',
           sliderName: 'Engagement Settings',
@@ -371,7 +436,48 @@ function getStepBody(currentStep) {
 
 
     },
+    {
+      heading: 'Competitive Analysis',
+      description: <p>Due to the proprietary nature of cybersecurity platforms there was little opportunity to make a direct comparisons, but the issues affecting Security Staff are effectively analogous to many everyday problems such as having to many meetings, managing multiple projects and people, and other common friction points. For this reason, against the prior user research insights, the analysis aimed to explore design patterns employed by other products which could serve SCAS's assessment & engagement worklflows.   </p>,
+      note:
+        <p> For example, one pattern listed from the which made it into the mockups were Slack & Discord's systemic handling of user profile information with ID tags.   </p>
+      ,
+      visuals: [
+        // {
+        //   img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/researchtesting/user_research/user_research_1_5x.webp',
+        //   title: 'Assessments',
+        //   desc: 'Spreadsheet layout of all assessments ',
+        //   sliderName: 'Engagement Settings',
+        // },
+      ]
 
+
+    },
+
+  ];
+  const sliderItems_CIAAN_UserTesting = [
+
+    {
+      // figma:"https://embed.figma.com/proto/5yh2ZI7ywU6dsPP9m8wd1r/402-SCAS?page-id=136%3A9531&node-id=452-86817&viewport=2763%2C-1433%2C0.26&scaling=contain&content-scaling=fixed&starting-point-node-id=452%3A86817&show-proto-sidebar=1&embed-host=share",
+      heading: 'Methodology',
+      description: <p>
+        Using the mockups above, three cognitive walkthroughs were conducted remotely through Zoom screensharing with three cybersecurity experts familiar with assessment/engagement processes. Each participant was asked to perform four common worflow tasks and were encouraged to verbalize their thought-process in-situ. Additional time was allocated afterwards to enquire further about usability feedback & discussion.         </p>,
+      visuals: ''
+    },
+    {
+      heading: 'Testing Results',
+      description: <p>
+        Research insights are summarized in the table below. Overall, feedback was generally very positive both in terms of both ease-of-use and aesthetics, though there were questions about the specific definitions of the terminology used such as 'assigning' a Security Engineer -- no operational definition was provided by the mockups so it was left to the users to presume.    </p>,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/researchtesting/testing_feedback/testing_feedback_1_5x.webp',
+          title: '1. Set Details',
+          desc: 'Engagement name, targeted project/app, due dates, etc. ',
+          sliderName: 'Engagement Settings',
+        },
+
+      ]
+    }
 
   ];
   const isMobile = useMediaQuery('(min-width: 640px)');
@@ -539,7 +645,9 @@ function getStepBody(currentStep) {
                       <p className="font-['exo'] Capitalized font-[600] text-[18px]">4 Months</p>
                     </div>
                   </span>
+
                 </div>
+
                 <span className="homepage-bg-gradient-seam h-32  w-screen mb-[-4rem] ">
 
                 </span>
@@ -549,11 +657,11 @@ function getStepBody(currentStep) {
                   <section className=" flex flex-row w-full 
                   ">
                     <div className=" flex flex-col w-[fit] overflow-visible top-5  ml-6 mr-5  ">
-                      <div className="h-6 stickyNav" > </div>
 
+                      {/* navbar */}
                       <div className="place-self-start	 self-start top-5 uppercase   font-['Exo_2'] tracking-[0]
 text-[12px] text-white h-fit flex gap-[4px] flex-col navbg   
-  z-[500]     pl-1   whitespace-nowrap  sticky  pb-[16px] pr-[28px] pt-[10px]
+  z-[500]     pl-1   whitespace-nowrap  sticky  pb-[16px] pr-[28px] pt-[10px] mt-[5vh]
 base ">
                         <span className="flex flex-col gap-2">
                           <div className="px-[5px]  py-[3px]  flex flex-row gap-[2px] items-center  uppercase  h-fit self-start place-items-start">
@@ -794,166 +902,41 @@ base ">
 
                     </div>
 
-                    <section className=" flex flex-col h-full w-full  gap-[64px]">
-
-                      <div className="  flex flex-col gap-4 font-['exo'] card-bg-white  rounded-xl w-fit bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] 
-pt-12 pb-14 px-6 h-full pl-12 pr-16 ">
-                        <span className=" flex flex-col">
-                          <h1 className="font-['inter'] font-[700] text-[20px]">
-                            Project Overview
-                          </h1>
-                          <h1 className="font-['inter'] font-bold  text-[32px]">Security Assessments & Engagements</h1>
-
-                        </span>
-
-                        <div className="ml-[8px] mt-3 flex flex-col h-full gap-8 ">
+                    <section className=" flex flex-col h-full w-full  gap-[64px] mt-[5vh]">
 
 
-                          <span className=" flex flex-col w-full card-bg-white-inset pl-6 pr-16 pb-12 pt-6">
-                            <div className="ml-[8px] mt-3 flex flex-row ">
-                              <span className=" flex  ml-1 flex-col">
-                                <p className=" Capitalized font-[600] text-[20px] mb-1">T-Mobile Cybersecurity Staff </p>
-                                <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p>
-                              </span>
+                      <PortfolioCard Title='Security Controls & Automation System (SCAS)' Section='Project Overview'
+                        CardContent={sliderItems_CIAAN_Overview} ></PortfolioCard>
 
-                            </div>
-                            <div className="ml-4 mt-4 flex flex-row  ">
-                              <div>
-                                <UnderArrow height='24px' width='38px' />
-
-                              </div>
-
-                              <span className=" flex mt-1 ml-1 flex-col">
-                                <p className=" Capitalized font-[600] text-[18px]">User Goals </p>
-                                <section className=" flex flex-row  mb-6 mt-0 gap-0 ml-1  bg-slate-200 ">
-                                  <div className="spacer-noH-CIAAN h-full w-[1px]   " />
-
-                                  <span className=" flex flex-col gap-4 mt-[7px] mb-2 ">
-
-                                    <span className=" flex flex-col pl-[6px] gap-[4px] max-w-[1000px]">
-
-                                      {/* <h1 className="font-['inter'] font-[700] text-[20px]">
-          Engagement Creation & Assigment
-        </h1> */}
-
-                                      <h1 className="font-['inter'] font-300 tracking-[0.005em]  text-[16px]">
-                                        Security Staff need to be able to create and manage a multitude of ongoing engagements & assessments. Each engagement & assessment needs to have at least one or more Security Engineers assigned to lead it, as well as one or more Security Users who has product ownership/expertise over the project that is target of the engagement or assesment. Security staff is able to pick and choose from pre-made engagement/assessment forms and surveys provided by a backend database.
-
-
-                                      </h1>
-                                    </span>
-
-
-                                  </span>
-
-                                </section>                              </span>
-
-                            </div>
-                            <div className="ml-4 mt-4 flex flex-row h-full w-full ">
-                              <div>
-                                {/* <UnderArrow height='24px' width='38px' /> */}
-
-                              </div>
-                              <span className=" flex mt-1 ml-1 flex-col pl-[38px] w-full">
-                                {/* <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p> */}
-
-                                <div class=" bg-slate-100 flex flex-col gap-1 ml-1 mt-2 pb-4 pl-4 pt-4 pr-4  w-full place-items-start overflow-x-scroll rounded-lg h-fit lg:overflow-visible">
-                                  <p className=" Capitalized font-[600] text-[18px]">Delivered Userflows </p>
-
-                                  <div className="bg-[#39425c]  opacity-60 w-[2px]  rounded-full overflow-hidden  " />
-
-                                  <BentoPreviews bentoContent='CIAAN-Assess' />
-                                </div>
-                              </span>
-
-                            </div>
-
-                          </span>
-                          <span className=" flex flex-col w-full card-bg-white-inset pl-6 pr-16 pb-12 pt-6">
-                            <div className="ml-[8px] mt-3 flex flex-row ">
-                              <span className=" flex  ml-1 flex-col">
-                                <p className=" Capitalized font-[600] text-[20px] mb-1">Security Users </p>
-                                <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p>
-                              </span>
-
-                            </div>
-                            <div className="ml-4 mt-4 flex flex-row  ">
-                              <div>
-                                <UnderArrow height='24px' width='38px' />
-
-                              </div>
-                              <span className=" flex mt-1 ml-1 flex-col">
-                                <p className=" Capitalized font-[600] text-[18px]">User Goals & Requirements </p>
-                                <p>
-                                  Security Users are responsible for two things: first is working with an assigned Security Engineer during a security engagement, and filling out assessment forms.
-                                </p>
-                              </span>
-
-                            </div>
-                            <div className="ml-4 mt-4 flex flex-row h-full w-full ">
-                              <div>
-                                {/* <UnderArrow height='24px' width='38px' /> */}
-
-                              </div>
-                              <span className=" flex mt-1 ml-1 flex-col pl-[38px] w-full">
-                                {/* <p>Security Users are non-security staff who are administered security engagements and assessments for the projects they work on or have ownership/authority over. </p> */}
-
-                                <div class=" bg-slate-100 flex flex-col gap-1 ml-1 mt-2 pb-4 pl-4 pt-4 pr-4  w-full place-items-start overflow-x-scroll rounded-lg h-fit lg:overflow-visible">
-
-                                  <p className=" Capitalized font-[600] text-[18px]">Delivered Userflows </p>
-
-                                  <div className="bg-[#39425c]  opacity-60 w-[2px]  rounded-full overflow-hidden  " />
-
-                                  <BentoPreviews bentoContent='CIAAN-SecurityUsers' />
-                                </div>
-                              </span>
-
-                            </div>
-
-                          </span>
-
-                        </div>
-
-
-
-
-                      </div>
+                      <PortfolioCard Title='User Research' Section='Research & Planning'
+                        CardContent={sliderItems_CIAAN_UserResearch} ></PortfolioCard>
 
                       <PortfolioCard Subtitle={'Security Staff Userflow #1'}
                         Title={'Security Engagements: Creation & Management'}
-                        Description={'Security Engagements are created and managed by Security Administrators, and then conducted by assigned Security Engineers who work with assigned Security Users to complete the assigned engagement forms & surveys.'}
-                        Slidercontent={sliderItems_CIAAN_EngagementFlow}
+                        CardContent={sliderItems_CIAAN_EngagementFlow}
                       />
                       <PortfolioCard Subtitle={'Security Staff Userflow #2'}
                         Title={'Security Assessments: Creation & Management'}
-                        Description={'Security Engagements are created and managed by Security Administrators, and then conducted by assigned Security Engineers who work with assigned Security Users to complete the assigned engagement forms & surveys.'}
-                        Slidercontent={sliderItems_CIAAN_AssessmentFlow}
+                        CardContent={sliderItems_CIAAN_AssessmentFlow}
                       />
-                      <PortfolioCard Subtitle={'Security Staff Userflow #3'}
-                        Title={'Security Assessments: Spreadsheet Management View'}
-                        Description={'Security Engagements are created and managed by Security Administrators, and then conducted by assigned Security Engineers who work with assigned Security Users to complete the assigned engagement forms & surveys.'}
-                        Slidercontent={sliderItems_CIAAN_ManagementFlow}
-                      />
-                      <PortfolioCard
-                        CardContent={sliderItems_CIAAN_ManagementFlow}
-                        Section={"Security User Screens"}
-                        Title={'Security Assessments'}
-                      />
+
 
                       <PortfolioCard
                         CardContent={sliderItems_CIAAN_ManagementFlow}
                         Section={"Security Staff Screens"}
-                        Title={'Spreadsheet Management View'}
+                        Title={'Assessment & Engagement Management'}
                       />
 
                       <PortfolioCard
-                        Section={"Security User Screens"}
-                        Title={'Assessment Forms'}
-
+                        Section={"Security User"}
+                        Title={'Assessment Form Delivery'}
                         CardContent={sliderItems_CIAAN_SecurityUserDashboard}
                       />
-                      <PortfolioCard Title='User Research' Section='Research & Planning'
-                        CardContent={sliderItems_CIAAN_UserResearch} ></PortfolioCard>
+                      <PortfolioCard
+                        Section={"User Testing"}
+                        Title={'Cognitive Walkthroughs'}
+                        CardContent={sliderItems_CIAAN_UserTesting}
+                      />
                     </section>
                   </section>
                 </span>
@@ -980,7 +963,7 @@ export default function FancyTabv2() {
   let [step, setStep] = useState(1);
 
   return (
-    <div className=" w-full   testbg2 h-full">
+    <div className=" w-full   testbg2 h-full mt">
 
       <div className="flex  flex-row gap-[32px]  rounded px-8 pb-8 pt-4 absolute z-[999] w-full">
         <button onClick={() => setStep(1)} className="w-full flex  max-w-[475px]" >

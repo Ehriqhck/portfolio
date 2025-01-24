@@ -52,7 +52,7 @@ body::before{
  
   }
   .portfolio-bento {
-    background-image: linear-gradient(60deg, #4b0030e6, #ff4c8b80);
+    background-image: linear-gradient(60deg, #4b0030e6 30%, #ff4c8b80);
   }
   .navbg {
     border-radius: 8px;
@@ -116,8 +116,18 @@ color: var(--scas);
     box-shadow: 0 0 20px -2px #0009;
   }
   .bg-CIAAN-body {
-    background:linear-gradient(167deg, #041d2300, rgb(4 29 35 / 0%) 60%, rgba(4, 29, 35, 0) 78%, #041d23), linear-gradient(180deg, rgb(88 14 62 / 98%) 1%, #391a48de), url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg), linear-gradient(180deg, rgb(255, 255, 255),rgb(255, 255, 255));
+    /* background:  url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg), linear-gradient(180deg, rgba(57, 0, 23, 0.407), rgba(62, 0, 35, 0.356)); */
+    border-image: fill 0 linear-gradient(180deg, rgb(88 14 62) 0%, rgb(88 14 62 / 79%) 3%, #552344);
+    /* background-image: url("https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg"); */
+min-height: 100%;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+background-size: 120vw;
+background-color: #7e7e7e57;
+    background-image: linear-gradient(190deg, #fff, #fff0), radial-gradient(circle at 0 0, #b34f00, #00000000), linear-gradient(#0c151b1c, #007e85b0), url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg);
   }
+
   .bg-CIAAN-header{
 background-image:  linear-gradient(180deg, rgba(0, 34, 41, 0), #670947 90%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(48 0 31 / 25%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url('https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/hero_bg_1x.webp');
 /* background-image:  linear-gradient(167deg, rgba(75, 0, 48, 0.9), rgb(34 4 35 / 37%) 14%, rgb(35 4 34 / 0%) 78%, rgba(4, 29, 35, 0)), linear-gradient(180deg, rgba(0, 34, 41, 0), #6d0a4a 98%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(48 0 31 / 25%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url('https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/hero_bg_1x.webp'); */
@@ -173,8 +183,7 @@ background: red !important;
   transition: background-image 3s ease-in-out;
   background-image: linear-gradient(167deg, rgba(4,29,35,1) 0%, rgba(4,29,35,0.37) 60%, rgba(4,29,35,0) 78%, rgba(4,29,35,1) 100%),linear-gradient(180deg, rgba(0,34,41,0) 0%, rgba(4,25,29,1) 100%);
 
-  height: 100vh ;
-width: 100vw;
+
 }
 .page-bg-before ::before {
   background-image: url("https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg");
@@ -635,6 +644,9 @@ padding-left: 72px !important; */
   right: 20px;
   transform: rotate(-90deg);
 }
+.bg-flowcards {
+
+}
 .indicator {
   stroke: #ffffffb0;
 }
@@ -1034,16 +1046,13 @@ z-index: 2;
 }
 .panel-title > div {
   border-radius: 0px 0px 10px 10px !important;
-  padding: 2px 4px 5px 4px !important;
-  background-color: #001c2554 !important;
   position: relative !important;
-  background: linear-gradient(180deg, rgb(255 255 255 / 0%) 0%, rgb(0 208 255 / 7%) 100%), #000708,
- #000708 !important;
+  background: linear-gradient(13deg,#ff4c7399,#0000),linear-gradient(#4b003c,#4b003c),linear-gradient(#00000080,#00000080);
   display: flex !important;
   flex-direction: row !important;
 }
   
-  .panel-title > div::before {
+  /* .panel-title > div::before {
   
   content: "";
   position: absolute;
@@ -1059,7 +1068,7 @@ z-index: 2;
   mask: linear-gradient(#ffffff 0 0) padding-box, linear-gradient(#fff 0 0) !important;
   -webkit-mask-composite: destination-out !important;
   mask-composite: exclude !important;
-  }
+  } */
 
 div[type='bindSelection1']::before {
   filter: brightness(0.55);
@@ -2882,7 +2891,6 @@ width: 100%;
 }
 
 .spacer-noH-CIAAN {
-  transform: rotate(0deg);
   width: 2px;
   border-radius: 90px;
   margin-right: 3px;
@@ -3084,6 +3092,13 @@ margin-top:4.45px;
   gap: 8px; 
 }
 
+.sliderContentBg {
+    /* box-shadow: inset -2px -1px 25px 1px rgba(0, 187, 155, .51); */
+    background:url("https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg");
+background-size:100px 100px; 
+    border-image: fill 0
+    repeating-linear-gradient(-45deg, #000e10, rgba(0, 9, 16, .3) 2px, transparent 0, transparent 2.83px), linear-gradient(179deg, rgba(0, 34, 41, 0), rgba(0, 191, 163, .56)); /* your gradient here */
+}
 .input:hover {
   fill: green;
 }
@@ -3164,13 +3179,13 @@ margin-top:4.45px;
 
 .main {
 
-  width: 100vw;
+  /* width: 100vw;
   min-height: 100vh;
   position: fixed;
   display: flex;
   justify-content: center;
   padding: 120px 24px 160px 24px;
-  pointer-events: none;
+  pointer-events: none; */
 }
 
 .square_contain {

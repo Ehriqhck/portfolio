@@ -14,10 +14,11 @@ import {
   SliderContent,
   SliderWrapper,
 } from '@components/fancy/ProgressSlider.jsx';
+import clsx from 'clsx';
 
 import React from 'react'
 
-const PortfolioCard = ({ CardContent, Subtitle, Section, Title, Slidercontent, Content: ContentTest }) => {
+const PortfolioCard = ({ CardContent, Section, Title, Slidercontent, Content: ContentTest, Figma }) => {
   const isMobile = useMediaQuery('(min-width: 640px)');
   const sliderData = Slidercontent;
   const sliderItems_CIAAN_EngagementFlow = [
@@ -67,29 +68,56 @@ const PortfolioCard = ({ CardContent, Subtitle, Section, Title, Slidercontent, C
 
 
   }
-
+  const getHeading = (heading, index) => {
+    const padding = clsx('Capitalized font-[600] text-[20px] ', { 'mt-5': index > 0 });
+    return (
+      <p class={padding} >
+        {heading}
+      </p>
+    )
+  }
   const getBody = (dataArray) => {
-    if (dataArray) {
-      return (
-        <>
-          {dataArray.map((item, index) => (
-            <span className="flex flex-col ">
 
+
+
+    if (dataArray) {
+
+      return (
+
+        dataArray.map((item, index) => (
+
+          <span className="flex flex-col ">
+            {item?.video ?
+              <div className="flex mb-4" >
+                <iframe
+                  src={item.video}
+                  loading="lazy"
+                  className="  rounded-2xl  overflow-hidden"
+                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                  allowfullscreen="true"
+                ></iframe>
+              </div>
+              : <></>}
+
+            <span class=" flex  ml-[2px] flex-col ">
+              {item.heading ?
+                getHeading(item.heading, index)
+                : <></>
+              }
               {item.description ?
-                <>
-                  <span class=" flex  ml-[2px] flex-col mt-1.5">
-                    <p class=" Capitalized font-[600] text-[20px] mb-1">
-                      {item.heading}
-                    </p>
-                    <p>
-                      {item.description}
-                    </p>
-                  </span>
+                <p>
+                  {item.description}
+                </p>
+                : <>
                 </>
-                : <></>}
-              {item.note ?
-                <section className=" flex flex-row  mb-6 mt-1.5 gap-0 ml-1   bg-slate-200 ">
-                  <div className="spacer-noH-CIAAN h-full w-[1px]   " />
+              }
+
+            </span>
+
+            {
+              item.note ?
+                <section className=" flex flex-row  mb-2 mt-1.5 gap-0 ml-1   bg-slate-200 ">
+                  <div className="spacer-noH-CIAAN h-full w-[2px] flex  " />
                   <span className=" flex flex-col gap-4 mt-[7px] mb-2 ">
                     <span className=" flex flex-col pl-[6px] gap-[4px] max-w-[1000px]">
                       <h1 className="font-['inter'] font-medium tracking-[0.005em]  text-[16px]">
@@ -98,16 +126,24 @@ const PortfolioCard = ({ CardContent, Subtitle, Section, Title, Slidercontent, C
                     </span>
                   </span>
                 </section>
+                : <></>
+            }
+
+            <div className="flex  flex-col">
+              {getVisuals(item.visuals, item?.visuals?.length)}
+              {item?.figma ?
+                <iframe
+                  className="mt-3.5 ml-0.5"
+                  src="https://embed.figma.com/proto/5yh2ZI7ywU6dsPP9m8wd1r/402-SCAS?page-id=136%3A9531&node-id=452-86817&viewport=2763%2C-1433%2C0.26&scaling=contain&content-scaling=fixed&starting-point-node-id=452%3A86817&show-proto-sidebar=1&embed-host=share" allowfullscreen>
+
+                </iframe>
                 : <></>}
 
-                <div className="flex mt-3.5 ml-0.5"> 
-                {getVisuals(item.visuals, item.visuals.length)}
+            </div>
 
-                </div>
+          </span>
+        ))
 
-            </span>
-          ))}
-        </>
       )
 
     } else {
@@ -126,40 +162,48 @@ const PortfolioCard = ({ CardContent, Subtitle, Section, Title, Slidercontent, C
             fastDuration={200}
             duration={6200}
             activeSlider='bbridge'
-            className=' w-full   rounded-xl overflow-hidden sm:flex  '
+            className=' w-full   rounded-xl overflow-hidden sm:flex mt-2 '
           >
-            <SliderBtnGroup className='sm:relative rounded-bl-xl min-w-[16rem]  absolute bottom-0 lg:max-w-[40%] lg:w-full sm:w-96 w-full z-10 sm:flex sm:flex-col grid grid-cols-2 sm:h-full h-fit sm:dark:bg-white sm:bg-white dark:bg-black/80 bg-white/80 backdrop-blur-md overflow-hidden '>
+            <SliderBtnGroup
+              className='max-w-fit md:relative rounded-bl-xl min-w-[16rem] 
+               bottom-0   w-full z-10 flex
+               sm:flex sm:flex-col    sm:dark:bg-white
+             dark:bg-black/80 bg-white/80 backdrop-blur-md overflow-hidden '>
               {data.map((item, index) => (
                 <SliderBtn
                   key={index}
                   value={item?.sliderName}
-                  className='text-left mt-0  pt-0 pb-4 sm:border-b border sm:pl-3 sm:pb-0 align-top   place-content-start sm:flex-1'
+                  className='text-left flex  flex-col h-full  pt-2 pl-2 pb-4 sm:border-b border sm:pl-3 sm:pb-0 align-top   place-content-start sm:flex-1'
                   progressBarClass=' left-0 sm:top-0 bottom-0  bg-CIAAN-scas-light sm:w-1 sm:h-full h-4  before:h-full before:w-1 before:'
                 >
-                  <h2 className='relative px-4 rounded w-fit  bg-CIAAN-scas-light text-white mb-2'>
+                  <h2 className='relative px-4 rounded w-fit  bg-CIAAN-scas-light text-white my-2'>
                     {item.title}
                   </h2>
-                  <p className='text-sm font-medium  text-slate-900 line-clamp-2 pr-2'>
+                  <p className='text-sm font-medium  text-slate-900 line-clamp-2 pr-2 mb-2'>
                     {item.desc}
                   </p>
                 </SliderBtn>
               ))}
             </SliderBtnGroup>
 
-            <SliderContent className='w-full flex lg:grow-3'>
+            <SliderContent className='   '>
               {data.map((item, index) => (
                 <SliderWrapper
-                  className='h-[650px]  flex  '
+                  className=' h-full flex bg-slate-200    '
                   key={index}
                   value={item?.sliderName}
                 >
                   <Image
-                    className=' h-full  object-cover w-fit   rounded-r-xl   overflow-hidden'
+                    //lg:aspect-[1440/1025] className=' h-full  object-cover w-fit   rounded-r-xl   overflow-hidden'
+                    className='rounded-r-xl  place-self-center self-center  '
+
                     src={item?.img}
-                    width={1920}
-                    height={1080}
+
+                    width={'1440'}
+                    height={'1025'}
                   // alt={item.desc}
                   />
+
                 </SliderWrapper>
               ))}
             </SliderContent>
@@ -169,20 +213,20 @@ const PortfolioCard = ({ CardContent, Subtitle, Section, Title, Slidercontent, C
         return (
 
           data.map((item, index) => (
-        
-              <Image
-                className=' h-full  object-cover w-fit  rounded-xl   overflow-hidden'
-                src={item?.img}
-                width={1920}
-                height={1080}
-              // alt={item.desc}
-              />
+
+            <Image
+              className=' h-full mt-2 object-cover w-fit  rounded-xl   overflow-hidden'
+              src={item?.img}
+              width={1920}
+              height={1080}
+            // alt={item.desc}
+            />
           ))
-      )
+        )
 
       }
     } catch (error) {
-      return (<> {JSON.stringify(error)} {data.visuals}</>)
+      return (<> {JSON.stringify(error)} {data?.visuals}</>)
     }
 
 
@@ -190,16 +234,23 @@ const PortfolioCard = ({ CardContent, Subtitle, Section, Title, Slidercontent, C
   }
 
   return (
-    <div className=" pt-8 pb-5  h-full pl-10 pr-10  flex flex-col gap-4 font-['exo'] card-bg-white   rounded-xl w-full bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]  ">
+    <div className=" pt-0 pb-14  h-full pl-10 pr-10  flex flex-col gap-4 font-['exo'] card-bg-white   rounded-xl w-full bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]  ">
 
       <span className=" flex  flex-col">
 
         {ContentTest ? <>{ContentTest}</> :
           <>
-            <h1 className="font-['inter'] font-[700] text-[20px]">
-              {Section}
-            </h1>
-            <h1 className="font-['inter'] font-bold  text-[2em]">
+            <div className="panel-title ">
+              <div class="flex flex-row px-4 pb-2 ">
+                <h1 className="font-['exo'] capitalize text-CIAAN-light font-[600] pt-2.5 text-xl">
+                  {Section}
+                </h1>
+
+              </div>
+            </div>
+
+
+            <h1 className="font-['inter'] font-bold  text-[2em] mt-14">
               {Title}
             </h1>
 
@@ -208,11 +259,12 @@ const PortfolioCard = ({ CardContent, Subtitle, Section, Title, Slidercontent, C
 
       </span>
       <span className="flex flex-col ">
-    
-          <section className="gap-12 flex flex-col">
+
+        <section className=" flex flex-col">
           {getBody(CardContent)}
 
-          </section>
+
+        </section>
 
       </span>
       { }
