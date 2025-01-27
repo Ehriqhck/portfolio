@@ -10,6 +10,61 @@
 /* :is(div[data-p-carousel-item-active='true'],div[data-p-carousel-item-end='true']), :is(div[data-p-carousel-item-active='true'],div[data-p-carousel-item-start='true']) {
   filter: opacity(0.39) !important;
 } */
+@layer utilities {
+  .blur-vignette {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius);
+    -webkit-backdrop-filter: blur(var(--blur));
+    backdrop-filter: blur(var(--blur));
+    --r: max(var(--transition-length), calc(var(--radius) - var(--inset)));
+    --corner-size: calc(var(--r) + var(--inset)) calc(var(--r) + var(--inset));
+    --corner-gradient: transparent 0px,
+      transparent calc(var(--r) - var(--transition-length)), black var(--r);
+    --fill-gradient: black, black var(--inset),
+      transparent calc(var(--inset) + var(--transition-length)),
+      transparent calc(100% - var(--transition-length) - var(--inset)),
+      black calc(100% - var(--inset));
+    --fill-narrow-size: calc(100% - (var(--inset) + var(--r)) * 2);
+    --fill-farther-position: calc(var(--inset) + var(--r));
+    -webkit-mask-image: linear-gradient(to right, var(--fill-gradient)),
+      linear-gradient(to bottom, var(--fill-gradient)),
+      radial-gradient(at bottom right, var(--corner-gradient)),
+      radial-gradient(at bottom left, var(--corner-gradient)),
+      radial-gradient(at top left, var(--corner-gradient)),
+      radial-gradient(at top right, var(--corner-gradient));
+    -webkit-mask-size:
+      100% var(--fill-narrow-size),
+      var(--fill-narrow-size) 100%,
+      var(--corner-size),
+      var(--corner-size),
+      var(--corner-size),
+      var(--corner-size);
+    -webkit-mask-position:
+      0 var(--fill-farther-position),
+      var(--fill-farther-position) 0,
+      0 0,
+      100% 0,
+      100% 100%,
+      0 100%;
+    -webkit-mask-repeat: no-repeat;
+  }
+}
+.animated-cards::before {
+  @apply pointer-events-none absolute select-none rounded-3xl opacity-0 transition-opacity duration-300 hover:opacity-100;
+  background: radial-gradient(
+    1000px circle at var(--x) var(--y),
+    #c9ee80 0,
+    #eebbe2 10%,
+    #adc0ec 25%,
+    #c9ee80 35%,
+    rgba(255, 255, 255, 0) 50%,
+    transparent 80%
+  );
+  z-index: -1;
+  content: "";
+  inset: -1px;
+}
  .CIAAN-herobg {
   background:linear-gradient(114deg, rgba(75,0,48,0.9) 0%, rgba(255,76,139,0.5) 100%);
   background-size:cover;
@@ -86,12 +141,60 @@ body::before{
     display: flex
 ;
 }
+.aboutMe {
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  background-color: #00000021;
+  background-image: linear-gradient(139deg, #000a145c, #f8fbff00);
+  justify-content: center;
+  align-self: center;
+
+;
+  box-shadow: 0 0 200px #50bfff1f;
+}
+.aboutMe1{
+  background-image: radial-gradient(circle at 100% 100%, #247f9b52, #fff0 63%);
+}
+.aboutMePic {
+  background-image: url(https://cdn.prod.website-files.com/60ed4aeb79e554d52f0d9608/64f640c054e53ad5310a13b6_headshot.jpg);
+  background-position: 65%;
+  background-size: cover;
+ 
+  box-shadow: 0 1px 20px #6ee4ff1b;
+}
+.aboutMe2{
+  backdrop-filter: brightness() blur(3px);
+  background-color: #1c495263;
+
+  justify-content: center;
+  place-items: start center;
+  padding: 36px 37px 38px;
+
+;
+  box-shadow: inset 0 0 20px #279bdf26;}
   .text-CIAAN-light {
     -webkit-background-clip: text !important;
     text-shadow: 0px 4px 42px rgb(243 0 107 / 15%);
     -webkit-text-fill-color: transparent;
     background: linear-gradient(180deg, #ffffff 27%, #c9bdc9 90%);
   }
+  .text-light2 {
+    -webkit-background-clip: text !important;
+    /* text-shadow: 0px 4px 42px rgb(0 182 243 / 15%); */
+    -webkit-text-fill-color: transparent;
+    /* background: linear-gradient(180deg, #ffffff 27%, #9ba9bb 90%); */
+   background: white;
+    /* background: linear-gradient(180deg, #000000 27%, #1d4e5c 90%); */
+    }
+  .text-light {
+    -webkit-background-clip: text !important;
+    /* text-shadow: 0px 4px 42px rgb(0 182 243 / 15%); */
+    -webkit-text-fill-color: transparent;
+    /* background: linear-gradient(180deg, #ffffff 27%, #9ba9bb 90%); */
+   
+    background: linear-gradient(180deg, #000000 27%, #1d4e5c 90%);
+    }
+  
   .text-CIAAN-dark {
 color: var(--scas);
   }
@@ -133,6 +236,27 @@ background-image:  linear-gradient(180deg, rgba(0, 34, 41, 0), #670947 90%), lin
 /* background-image:  linear-gradient(167deg, rgba(75, 0, 48, 0.9), rgb(34 4 35 / 37%) 14%, rgb(35 4 34 / 0%) 78%, rgba(4, 29, 35, 0)), linear-gradient(180deg, rgba(0, 34, 41, 0), #6d0a4a 98%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(48 0 31 / 25%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url('https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/hero_bg_1x.webp'); */
 background-size: cover;
 background-repeat: no-repeat;
+transition: all 0.6s ease-in-out;
+-webkit-transition: background-image 5s;
+
+  }
+  .snap {
+    scroll-snap-align: center;
+  }
+  .snap-parent {
+    max-height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: proximity; /* for older browsers */
+    scroll-snap-type: y proximity;
+    }
+  .bg-home-header{
+    background-image:  linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(48 0 31 / 25%) 70%, rgb(174 12 164 / 0%)),linear-gradient(180deg, rgba(0, 34, 41, 0), #122634 90%), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), radial-gradient(circle at 50% 100%, #3ad2bb17, #00427969), linear-gradient(30deg, #000e1ff2, #00091173 52%), url('https://cdn.prod.website-files.com/60ed4aeb79e554d52f0d9608/6514ee3d4f98a9deb8cda352_bg%20compressed.jpg');
+    /* background-image:  linear-gradient(167deg, rgba(75, 0, 48, 0.9), rgb(34 4 35 / 37%) 14%, rgb(35 4 34 / 0%) 78%, rgba(4, 29, 35, 0)), linear-gradient(180deg, rgba(0, 34, 41, 0), #6d0a4a 98%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(48 0 31 / 25%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url('https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/hero_bg_1x.webp'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 0.6s ease-in-out;
+    -webkit-transition: background-image 5s;
+
   }
   .testbg2{
     background-image: linear-gradient(167deg,#041d23,rgba(4,29,35,.37) 60%,rgba(4,29,35,0) 78%,#041d23),linear-gradient(180deg,rgba(0,34,41,0),#04191d);
@@ -213,10 +337,6 @@ width: 100vw;
   -webkit-overflow-scrolling: touch;
 }
 
-header {
-  position: fixed;
-  height: 10vh;
-}
 
 .snap-parent-y-proximity {
   scroll-snap-type: y proximity;
@@ -302,6 +422,51 @@ header {
   padding: 80px 0px 0px;
   position: relative;
   width: 100%;
+}
+.refresh {
+  padding: 10px;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.menuNavBg {
+    mix-blend-mode: multiply;
+    background-color: #8a8a8a96;
+    background-image: linear-gradient(42deg, #000000bf, #ffffffe6), url("https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg");
+    background-position: 0 0, 100%;
+    background-repeat: repeat, no-repeat;
+    background-size: auto, cover;
+    width: 150vw;
+    height: 150vh;
+
+    inset: 0% auto auto 0%;
+    overflow: visible;
+}
+.HomeBg {
+  background-color: #ffffffd6;
+  background-image: linear-gradient(42deg, #ffffffbf, #ffffffe6), url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg);
+  background-position: 0 0, 100%;
+  background-repeat: repeat, no-repeat;
+  background-size: auto, cover;
+
+
+  inset: 0% auto auto 0%;
+  overflow: visible;
+}
+.blur-background {
+  z-index: 29;
+  
+  background-color: #718598bd;
+  order: 1;
+  inset: 0%;
 }
 .framer-top2 {
   place-content: center space-around;
@@ -1500,6 +1665,8 @@ transition: filter 0.3s;
 html{
   min-width: 555px;
   scroll-behavior: smooth;
+ 
+
 }
 ::-webkit-scrollbar {
   width: 14px;
@@ -2889,7 +3056,9 @@ width: 100%;
   margin: 0 5px 0 0;
 
 }
-
+.ux-card-ciaan{
+  background-image: linear-gradient(60deg,#4b0030e6,#ff4c8b80),url(https://cdn.prod.website-files.com/60ed4aeb79e554d52f0d9608/6383e4d85f097fa47164f397_2022-11-27%2014_28_54-402%20SCAS%20-%20Figma.png);
+}
 .spacer-noH-CIAAN {
   width: 2px;
   border-radius: 90px;

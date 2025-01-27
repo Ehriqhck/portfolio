@@ -51,7 +51,7 @@ import {
   SliderContent,
   SliderWrapper,
 } from '@components/fancy/ProgressSlider.jsx';
-const Home = () => {
+const Page = () => {
 
   const groupVariant = {
     item: {
@@ -207,29 +207,60 @@ const Home = () => {
       role: "Panda AI",
     },
   ];
+  const blackBox = {
+    initial: {
+      height: "150vh",
+      bottom: 0,
+    },
+    animate: {
+      height: 0,
+    },
+    transition: {
+      duration: 1.5,
+      ease: [0.87, 0, 0.13, 1],
+    },
+  };
 
+  const InitialTransition = () => {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center">
+        <motion.div
+          className="relative z-50 w-full bg-black"
+          initial="initial"
+          animate="animate"
+          variants={blackBox}
+        />
+      </div>
+    );
+  };
 
   return (
 
     <motion.div
       className="flex flex-col  text-[#DAF0EA]   page-bg "
 
-    >    <MediaPlayer src="https://www.youtube.com/watch?v=_cMxraX_5RE" />
+    >
+      {/* <div className="absolute inset-0 flex items-center justify-center">
+        <motion.div
+          className="relative z-50 w-full bg-black"
+          initial="initial"
+          animate="animate"
+          variants={blackBox}
+        />
+      </div> */}
 
-
-           {/* <video autoPlay loop muted 
+      {/* <video autoPlay loop muted 
           className=" h-[100vh] w-[100vw]  "
           src="https://www.youtube.com/watch?v=_cMxraX_5RE">
         </video> */}
+                  <FancyTabv2 />
+
       <div className=" flex flex-col w-full ">
-   
-        <div className="w-fit h-fit">
-          <FancyTabv2 />
-        </div>
- 
+
+
         <div className="flex flex-col w-full "
         >
-     
+
           {/* <HeroSlider className='' /> */}
 
 
@@ -237,50 +268,48 @@ const Home = () => {
           <div
             id="Home"
             className="  h-fit w-[100vw] flex  flex-col px-[128px]  ">
-            <AnimatedGroup className="flex flex-col   h-fit
+            <div className="flex flex-col   h-fit
                 "
-              variants={{
-                container: {
-                  visible: {
-                    // transition: {
-                    //   staggerChildren: 1,
-                    // },
+              // variants={{
+              //   container: {
+              //     visible: {
+               
+              //     },
+              //   },
+              //   item: {
+              //     hidden: {
+              //       opacity: 0,
+              //       filter: 'blur(8px)',
+              //       y: -60,
+              //       rotateX: 90,
 
-                  },
-                },
-                item: {
-                  hidden: {
-                    opacity: 0,
-                    filter: 'blur(8px)',
-                    y: -60,
-                    rotateX: 90,
+              //     },
+              //     visible: {
+              //       opacity: 1,
 
-                  },
-                  visible: {
-                    opacity: 1,
-
-                    filter: 'blur(0px)',
-                    y: 0,
-                    rotateX: 0,
-                    transition: {
-                      type: 'spring',
-                      bounce: 0.3,
-                      duration: 1.6,
-                    },
-                  },
-                },
-              }}
+              //       filter: 'blur(0px)',
+              //       y: 0,
+              //       rotateX: 0,
+              //       transition: {
+              //         type: 'spring',
+              //         bounce: 0.3,
+              //         duration: 1.6,
+              //       },
+              //     },
+              //   },
+              // }}
             >
 
               <div
-                ref={navRef1}
+                // ref={navRef1}
 
-                key={1} className="flex flex-row w-full gap-[36px]  mt-[12vh] h-fit ">
+                // key={1}
+                 className="flex flex-row w-full gap-[36px]  mt-[12vh] h-fit ">
 
 
-           
+
                 <div class="  min-w-[300px] w-full place-items-center  rounded-lg p-6 lg:overflow-visible">
-                  
+
                   {/* <img
                     class="object-cover object-center w-full rounded-lg  aspect-[48/53]"
                     src="https://d3e0o4zthiks52.cloudfront.net/headshot.jpg"
@@ -290,17 +319,17 @@ const Home = () => {
               </div>
 
 
-            </AnimatedGroup>
+            </div>
           </div>
 
         </div>
 
 
-   
+
       </div>
     </motion.div>
 
   );
 }
 
-export default Home
+export default Page

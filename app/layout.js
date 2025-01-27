@@ -1,3 +1,5 @@
+
+
 import '@styles/globals.css'
 import { Exo } from 'next/font/google'
 import 'primereact-sass-theme-9.6.2/themes/mytheme/theme.scss'
@@ -9,20 +11,24 @@ import Provider from '@components/Provider'
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 import NoSsr from '@components/NoSsr'
 import localFont from '@next/font/local'
+import Header from '@components/fancy/Header.jsx'
+import { MenuNav } from '@components/fancy/MenuNav.jsx'
 
 export const metadata = {
   title: 'Control Mapper',
   description: ''
 }
 
-const varino = localFont({ src:
-  [
-    {
-      path:  '../public/assets/fonts/Varino-Normal.otf',
-      weight: '400',
-      style: 'normal',
-    },
-  ] })
+const varino = localFont({
+  src:
+    [
+      {
+        path: '../public/assets/fonts/Varino-Normal.otf',
+        weight: '400',
+        style: 'normal',
+      },
+    ]
+})
 
 const RootLayout = ({ children }) => (
   <html lang='en' className='dark'>
@@ -31,8 +37,10 @@ const RootLayout = ({ children }) => (
         <div className='main'>
           <div className='gradient' />
         </div>
-        <main className={'app '  }>
-          {/* <NavEditor /> */}
+        <main className={'app '}>
+          {/* <MenuNav/> */}
+
+          {/* <Header></Header> */}
 
           {children}
         </main>

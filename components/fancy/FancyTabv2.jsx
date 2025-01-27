@@ -13,6 +13,10 @@ import { useMediaQuery } from 'usehooks-ts'
 import PortfolioCard from '@components/fancy/PortfolioCard.jsx'
 import FigmaIcon from '@components/generic/Icons/Socials/FigmaIcon.jsx'
 import WorkflowIcon from '@components/generic/Icons/WorkflowIcon.jsx'
+import { Header } from '@components/fancy/Header.jsx'
+import { usePathname } from "next/navigation";
+import { DirectionAwareTabs } from 'components/fancy/DirectionAwareTabs.jsx'
+import { StickyScroll } from "@components/fancy/StickyScroll.jsx";
 
 import {
   SliderBtnGroup,
@@ -23,13 +27,17 @@ import {
 } from '@components/fancy/ProgressSlider.jsx';
 import Image from "@node_modules/next/image";
 import { TreeTableDialogueSelectionContext } from "@components/Provider";
+import {
+  BlurVignette,
+  BlurVignetteArticle,
+} from 'components/fancy/blur-vignette.jsx';
 function getButtons(step) {
 
   switch (step) {
 
     case 1:
       return (
-        <div className="flex h-fit w-full text-nowrap  flex-col text-left ">
+        <div className="flex h-fit w-full text-nowrap  flex-col text-left  ">
           <span className=" flex flex-col mr-24 ml-[27px]  ">
             <p className="text-[22px] font-inter text-white font-[500] mb-[5px] mt-[15px] leading-none">CIAAN Security SCAS</p>
             <p className="font-[400] font-inter text-[14px] text-white">Cybersecurity Automation Platform</p>
@@ -82,6 +90,7 @@ function getButtons(step) {
       break;
   }
 }
+
 function Step({ step, currentStep }) {
   let status =
     currentStep === step
@@ -91,7 +100,7 @@ function Step({ step, currentStep }) {
         : "inactive";
 
   return (
-    <motion.div animate={status} className="relative flex w-full  rounded-[3px] ">
+    <motion.div animate={status} className="relative flex w-full  rounded-[3px]  ">
       <motion.div
         variants={{
           active: {
@@ -177,6 +186,150 @@ function CheckIcon(props) {
   );
 }
 function getStepBody(currentStep) {
+  const stickyContentAboutMe = [
+    {
+      sectionBg: 'bg-home-header',
+      bottomSeam: <span class="homepage-bg-gradient-seam h-32  w-screen mb-[-4rem] "></span>,
+      title: "Collaborative Editing",
+      description:
+        "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
+      content: (
+        <div className="h-full  w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
+          Collaborative Editing
+        </div>
+      ),
+    },
+    {
+      title: "Real time changes",
+      description:
+        "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+      content: (
+        <div className="h-full w-full  flex items-center justify-center text-white">
+          <Image
+            src="/linear.webp"
+            width={300}
+            height={300}
+            className="h-full w-full object-cover"
+            alt="linear board demo"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Version control",
+      description:
+        "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      content: (
+        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
+          Version control
+        </div>
+      ),
+    },
+    {
+      title: "Running out of content",
+      description:
+        "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      content: (
+        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
+          Running out of content
+        </div>
+      ),
+    },
+  ];
+  const tabs = [
+    {
+      id: 0,
+      label: "About Me",
+      content: (
+        <>             <StickyScroll content={stickyContentAboutMe} ></StickyScroll>
+
+        </>
+        // <div className="border border-border/50 w-full flex flex-col items-center p-4 rounded-lg gap-3">
+
+        //   <span className="flex text-light flex-col  leading-tight  pt-32">
+
+        //     <p className="text-light text-left font-['exo']  text-[32px] text-bold font-bold">
+        //       Hi there! I'm Eric Yang.
+        //     </p>
+        //     <p className="my-4 text-left text-light font-['exo'] text-[56px] text-bold font-bold self-start mb-[-16px]">
+        //       I'm Eric Yang.
+        //     </p>
+        //     <p className="mt-5 text-left text-light font-['exo'] text-[56px] text-bold font-bold self-start mb-[-16px]">
+        //       I Design & Build Experiences.
+        //     </p>
+        //   </span>
+        // </div>
+      ),
+      body: <>
+        <span className="flex text-light flex-col h-full leading-tight  pt-32">
+
+          <p className="text-light text-left font-['exo']  text-[32px] text-bold font-bold">
+            Hi there! I'm Eric Yang.
+          </p>
+          <p className="my-4 text-left text-light font-['exo'] text-[56px] text-bold font-bold self-start mb-[-16px]">
+            I'm Eric Yang.
+          </p>
+          <p className="mt-5 text-left text-light font-['exo'] text-[56px] text-bold font-bold self-start mb-[-16px]">
+            I Design & Build Experiences.
+          </p>
+        </span>
+      </>
+    },
+    {
+      id: 1,
+      label: "UX Case Studies",
+      content: (
+        <div className="border border-border/50 w-full flex flex-col items-center p-4 rounded-lg gap-3">
+          <span className="flex text-light flex-col h-full leading-tight  pt-32">
+
+            <p className="text-light text-left font-['exo']  text-[32px] text-bold font-bold">
+              Hi there! I'm Eric Yang.
+            </p>
+            <p className="my-4 text-left text-light font-['exo'] text-[56px] text-bold font-bold self-start mb-[-16px]">
+              I'm Eric Yang.
+            </p>
+            <p className="mt-5 text-left text-light font-['exo'] text-[56px] text-bold font-bold self-start mb-[-16px]">
+              I Design & Build Experiences.
+            </p>
+          </span>
+        </div>
+      ),
+    },
+    {
+      id: 2,
+      label: "Art & Graphic Design",
+      content: (
+        <div className="border border-border/50 w-full flex flex-col items-center gap-3 p-4">
+          <div animation="spin-fast" gradient="default">
+            Button
+          </div>
+          <div animation="spin" gradient="default">
+            Button
+          </div>
+          <div animation="spin-slow" gradient="default">
+            Button
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 3,
+      label: "Coding Projects",
+      content: (
+        <div className="border border-border/50 w-full flex flex-col items-center p-4 rounded-lg gap-3">
+          <div animation="spin-fast" gradient="sunset">
+            Button
+          </div>
+          <div animation="spin" gradient="sunset">
+            Button
+          </div>
+          <div animation="spin-slow" gradient="sunset">
+            Button
+          </div>
+        </div>
+      ),
+    },
+  ]
   const variants = {
     container: {
       visible: {
@@ -541,9 +694,9 @@ function getStepBody(currentStep) {
     }
   }
   switch (currentStep) {
-    case 2:
+    case 'ux-scas':
       return (
-        <AnimatedGroup className="flex flex-col 
+        <div className="flex flex-col 
                 "
           variants={
             variants}
@@ -607,351 +760,71 @@ function getStepBody(currentStep) {
           </div>
 
 
-        </AnimatedGroup>
+        </div>
       )
       break;
-    case 1:
+    case '/':
       return (
-        <AnimatedGroup className="flex flex-col text-CIAAN-dark 
+        <div className="flex flex-col text-light
                   "
           variants={
             variants}
         >
-          <div key={2} className=" w-full h-full  testbg3	">
+
+          <div key={2} className=" w-full h-full  	">
             <div
               key={2} className="flex flex-col w-full    h-full  ">
-              <div className="   flex flex-col w-fit h-fit  ">
 
-                <div className=" pt-[16vh]  px-8 flex flex-col gap-[64px] bg-CIAAN-header">
-                  <span className="flex text-CIAAN-light flex-col  h-fit leading-tight  pt-32">
+              <div className=" h-screen     flex flex-col  HomeBg pb-16">
+                <DirectionAwareTabs tabs={tabs} />
 
-                    <p className="text-CIAAN-light text-left  font-inter text-[32px] text-bold font-bold">
-                      CIAAN Security
-                    </p>
-                    <p className="my-4 text-left text-CIAAN-light font-['exo'] text-[56px] text-bold font-bold self-start mb-[-16px]">
-                      Security Assesment & Engagement
-                    </p>
-                    <p className="mt-4 text-left text-CIAAN-light font-['exo'] text-[56px] text-bold font-bold self-start mb-[-16px]">
-                      Automation Platform
-                    </p>
-                  </span>
-                  <span className="flex flex-row gap-8">
-                    <div class="flex  w-fit flex-row  text-CIAAN-light font-inter text-1 text-bold gap-1.5">
-                      <TeamIcon height='24px' />
-                      <p className="font-['exo'] Capitalized font-[600] text-[18px]">Sole UX/UI Designer</p>
-                    </div>
-                    <div class="flex  w-fit flex-row  text-CIAAN-light font-inter text-1 text-bold gap-1.5">
-                      <TimerIcon height='24px' />
-                      <p className="font-['exo'] Capitalized font-[600] text-[18px]">4 Months</p>
-                    </div>
-                  </span>
+                <div className="flex flex-row gap-16  w-full justify-self-center content-center">
+                  {/* <div class="aboutMePic  min-w-[255px]  rounded-xl overflow-hidden">
 
+                    </div> */}
+
+                  {/* <span className="flex text-light flex-col h-full leading-tight  pt-32">
+
+                      <p className="text-light text-left font-['exo']  text-[32px] text-bold font-bold">
+                        Hi there! I'm Eric Yang.
+                      </p>
+                      <p className="my-4 text-left text-light font-['exo'] text-[56px] text-bold font-bold self-start mb-[-16px]">
+                        I'm Eric Yang.
+                      </p>
+                      <p className="mt-5 text-left text-light font-['exo'] text-[56px] text-bold font-bold self-start mb-[-16px]">
+                        I Design & Build Experiences.
+                      </p>
+                    </span> */}
                 </div>
 
-                <span className="homepage-bg-gradient-seam h-32  w-screen mb-[-4rem] ">
+                {/* <span className="flex flex-row  aboutMe">
 
-                </span>
-                <span className=" flex flex-col bg-CIAAN-body gap-[64px] pt-8">
+                    <div className="flex flex-col aboutMe1 w-[600px]">
 
-
-                  <section className=" flex flex-row w-full 
-                  ">
-                    <div className=" flex flex-col w-[fit] overflow-visible top-5  ml-6 mr-5  ">
-
-                      {/* navbar */}
-                      <div className="place-self-start	 self-start top-5 uppercase   font-['Exo_2'] tracking-[0]
-text-[12px] text-white h-fit flex gap-[4px] flex-col navbg   
-  z-[500]     pl-1   whitespace-nowrap  sticky  pb-[16px] pr-[28px] pt-[10px] mt-[5vh]
-base ">
-                        <span className="flex flex-col gap-2">
-                          <div className="px-[5px]  py-[3px]  flex flex-row gap-[2px] items-center  uppercase  h-fit self-start place-items-start">
-                            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                              <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicator"
-                                style={{ pathLength: scrollYProgressNav1 }}
-                              />        <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicatorBg"
-
-                              />
-                            </svg>
-                            <p className=""> <a href="#Home">Overview</a></p>
-
-
-                          </div>
-
-                          <div className="px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                              <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicator"
-                                style={{ pathLength: scrollYProgressNav2 }}
-                              />
-                              <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicatorBg"
-
-                              />
-                            </svg>
-                            <p className=""> <a href="#HowItWorks">Research & Planning</a></p>
-
-
-                          </div>
-
-                          <span className="pl-[4px] flex flex-col -mt-[4px]">
-                            <div className="px-[5px] py-[3px] flex flex-row gap-[2px] items-center mb-[2px]  h-fit self-start place-items-start">
-
-                              <p className="ml-[4px]"><a href="#500Keybinds">Security Staff Flows</a></p>
-
-
-                            </div>
-
-                            <div className=" ml-[14px]  px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                              <div className=" -mt-[8px] -ml-[6px] ">
-                                <UnderArrow fill="#ffffff25" height='18px' />
-
-                              </div>
-                              <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                                <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicator"
-                                  style={{ pathLength: scrollYProgressNav3 }}
-                                />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicatorBg"
-
-                                />
-                              </svg>
-                              <p className=""><a href="#500Keybinds">Security Assessments</a></p>
-
-
-                            </div>
-                            <div className=" ml-[14px] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                              <div className=" -mt-[8px] -ml-[6px] ">
-                                <UnderArrow fill="#ffffff25" height='18px' />
-
-                              </div>
-                              <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                                <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicator"
-                                  style={{ pathLength: scrollYProgressNav3 }}
-                                />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicatorBg"
-
-                                />
-                              </svg>
-                              <p className=""><a href="#500Keybinds">Security Engagements</a></p>
-
-
-                            </div>
-                            <div className=" ml-[14px] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                              <div className=" -mt-[8px] -ml-[6px] ">
-                                <UnderArrow fill="#ffffff25" height='18px' />
-
-                              </div>
-                              <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                                <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicator"
-                                  style={{ pathLength: scrollYProgressNav3 }}
-                                />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicatorBg"
-
-                                />
-                              </svg>
-                              <p className=""><a href="#500Keybinds">Spreadsheet View</a></p>
-
-
-                            </div>
-                          </span>
-                          <span className="pl-[4px] flex flex-col -mt-[4px]">
-                            <div className="px-[5px] py-[3px] flex flex-row gap-[2px] items-center mb-[2px]  h-fit self-start place-items-start">
-
-                              <p className="ml-[4px]"><a href="#500Keybinds">Security User Flows</a></p>
-
-
-                            </div>
-
-                            <div className=" ml-[14px]  px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                              <div className=" -mt-[8px] -ml-[6px] ">
-                                <UnderArrow fill="#ffffff25" height='18px' />
-
-                              </div>
-                              <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                                <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicator"
-                                  style={{ pathLength: scrollYProgressNav3 }}
-                                />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicatorBg"
-
-                                />
-                              </svg>
-                              <p className=""><a href="#500Keybinds">Security Assessments</a></p>
-
-
-                            </div>
-                            <div className=" ml-[14px] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                              <div className=" -mt-[8px] -ml-[6px] ">
-                                <UnderArrow fill="#ffffff25" height='18px' />
-
-                              </div>
-                              <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                                <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicator"
-                                  style={{ pathLength: scrollYProgressNav3 }}
-                                />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicatorBg"
-
-                                />
-                              </svg>
-                              <p className=""><a href="#500Keybinds">Security Engagements</a></p>
-
-
-                            </div>
-
-                          </span>
-
-                          <div className="px-[5px] py-[3px]  flex flex-row gap-[2px] h-fit self-start items-center ">
-                            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                              <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicator"
-                                style={{ pathLength: scrollYProgressNav4 }}
-                              />        <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicatorBg"
-
-                              />
-                            </svg>
-                            <p className=""> <a href="#DeviceInputs">Device Inputs</a></p>
-
-                          </div>
-                        </span>
-
+                      <div className="flex flex-col aboutMe2 w-full">
 
                       </div>
-
                     </div>
 
-                    <section className=" flex flex-col h-full w-full  gap-[64px] mt-[5vh]">
 
+                    <div class="aboutMePic">
+                      <img src="https://cdn.prod.website-files.com/60ed4aeb79e554d52f0d9608/64f640c054e53ad5310a13b6_headshot.jpg" loading="lazy" sizes="(max-width: 479px) 0px, (max-width: 767px) 100vw, 314.09375px" srcset="https://cdn.prod.website-files.com/60ed4aeb79e554d52f0d9608/64f640c054e53ad5310a13b6_headshot-p-500.jpg 500w, https://cdn.prod.website-files.com/60ed4aeb79e554d52f0d9608/64f640c054e53ad5310a13b6_headshot-p-800.jpg 800w, https://cdn.prod.website-files.com/60ed4aeb79e554d52f0d9608/64f640c054e53ad5310a13b6_headshot.jpg 1080w" alt="" class="headshot" />
+                    </div>
 
-                      <PortfolioCard Title='Security Controls & Automation System (SCAS)' Section='Project Overview'
-                        CardContent={sliderItems_CIAAN_Overview} ></PortfolioCard>
+                  </span> */}
 
-                      <PortfolioCard Title='User Research' Section='Research & Planning'
-                        CardContent={sliderItems_CIAAN_UserResearch} ></PortfolioCard>
-
-                      <PortfolioCard Subtitle={'Security Staff Userflow #1'}
-                        Title={'Security Engagements: Creation & Management'}
-                        CardContent={sliderItems_CIAAN_EngagementFlow}
-                      />
-                      <PortfolioCard Subtitle={'Security Staff Userflow #2'}
-                        Title={'Security Assessments: Creation & Management'}
-                        CardContent={sliderItems_CIAAN_AssessmentFlow}
-                      />
-
-
-                      <PortfolioCard
-                        CardContent={sliderItems_CIAAN_ManagementFlow}
-                        Section={"Security Staff Screens"}
-                        Title={'Assessment & Engagement Management'}
-                      />
-
-                      <PortfolioCard
-                        Section={"Security User"}
-                        Title={'Assessment Form Delivery'}
-                        CardContent={sliderItems_CIAAN_SecurityUserDashboard}
-                      />
-                      <PortfolioCard
-                        Section={"User Testing"}
-                        Title={'Cognitive Walkthroughs'}
-                        CardContent={sliderItems_CIAAN_UserTesting}
-                      />
-                    </section>
-                  </section>
-                </span>
               </div>
+
+
             </div>
           </div>
-        </AnimatedGroup>
+        </div>
       )
       break;
     default:
       return (
         <div className="space-y-2 px-8 w-full">
-          <div className="h-4 w-5/6 rounded bg-red-100" />
-          <div className="h-4 rounded bg-neutral-100" />
-          <div className="h-4 w-4/6 rounded bg-neutral-100" />
+          {currentStep}
         </div>
 
       )
@@ -961,50 +834,20 @@ base ">
 // Usage
 export default function FancyTabv2() {
   let [step, setStep] = useState(1);
+  const pathname = usePathname()
 
   return (
-    <div className=" w-full   testbg2 h-full mt">
+    <>
 
-      <div className="flex  flex-row gap-[32px]  rounded px-8 pb-8 pt-4 absolute z-[999] w-full">
-        <button onClick={() => setStep(1)} className="w-full flex  max-w-[475px]" >
-          <Step step={1} currentStep={step} />
-        </button>
-
-        <button onClick={() => setStep(2)} className="w-full flex  max-w-[475px]">
-          <Step step={2} currentStep={step} />
-        </button>
-        <button onClick={() => setStep(3)} >
-          <Step step={3} currentStep={step} />
-        </button>
-        {/* <button onClick={() => setStep(4)} >
-          <Step step={4} currentStep={step} />
-        </button>
-        <button onClick={() => setStep(5)} >
-          <Step step={5} currentStep={step} />
-        </button> */}
-      </div>
-
-      {/* Dynamic content based on `step` */}
-
-      {getStepBody(step)}
+      <div className=" w-full   testbg2 h-full mt">
 
 
-      <div className=" flex justify-between">
-        <button
-          onClick={() => setStep(step < 2 ? step : step - 1)}
-          className={`${step === 1 ? "pointer-events-none opacity-50" : ""
-            } duration-350 rounded px-2 py-1 text-neutral-400 transition hover:text-neutral-700`}
-        >
-          Back
-        </button>
-        <button
-          onClick={() => setStep(step > 5 ? step : step + 1)}
-          className={`${step > 5 ? "pointer-events-none opacity-50" : ""
-            } bg duration-350 flex items-center justify-center rounded-full bg-blue-500 py-1.5 px-3.5 font-medium tracking-tight text-white transition hover:bg-blue-600 active:bg-blue-700`}
-        >
-          Continue
-        </button>
-      </div>
-    </div>
+        {/* Dynamic content based on `step` */}
+
+        {getStepBody(pathname)}
+
+
+
+      </div></>
   );
 }
