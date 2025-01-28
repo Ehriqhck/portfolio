@@ -86,13 +86,13 @@ const PortfolioCard = ({ CardContent, Section, Title, Slidercontent, Content: Co
 
         dataArray.map((item, index) => (
 
-          <span className="flex flex-col ">
+          <span className="flex flex-col w-full ">
             {item?.video ?
-              <div className="flex mb-4" >
+              <div className="flex mb-4 w-full"  >
                 <iframe
                   src={item.video}
                   loading="lazy"
-                  className="  rounded-2xl  overflow-hidden"
+                  className="  rounded-2xl w-full aspect-video  overflow-hidden"
                   allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
                   allowfullscreen="true"
                 ></iframe>
@@ -189,13 +189,13 @@ const PortfolioCard = ({ CardContent, Section, Title, Slidercontent, Content: Co
             <SliderContent className='   '>
               {data.map((item, index) => (
                 <SliderWrapper
-                  className=' h-full flex bg-slate-200    '
+                  className=' h-full flex w-full bg-slate-200    '
                   key={index}
                   value={item?.sliderName}
                 >
                   <Image
                     //lg:aspect-[1440/1025] className=' h-full  object-cover w-fit   rounded-r-xl   overflow-hidden'
-                    className='rounded-r-xl  place-self-center self-center  '
+                    className='rounded-r-xl  place-self-center self-center w-full  '
 
                     src={item?.img}
 

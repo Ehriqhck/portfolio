@@ -18,6 +18,7 @@
        }
 */
 "use client"
+import FigmaIcon from '@components/generic/Icons/Socials/FigmaIcon.jsx'
 
 import {
   forwardRef,
@@ -102,9 +103,9 @@ const TOTAL_STEPS = 4
 const steps = [
   {
     id: "1",
-    name: "Step 1",
-    title: "Feature 1",
-    description: "Feature 1 description  ",
+    name: "Assessments",
+    title: "Assessment Workflow",
+    description: "For security staff to create & manage assessments. ",
   },
   {
     id: "2",
@@ -181,7 +182,7 @@ interface AnimatedStepImageProps extends StepImageProps {
  */
 function useNumberCycler(
   totalSteps: number = TOTAL_STEPS,
-  interval: number = 3000
+  interval: number = 400000
 ) {
   const [currentNumber, setCurrentNumber] = useState(0)
   const [isManualInteraction, setIsManualInteraction] = useState(false)
@@ -314,6 +315,7 @@ const StepImage = forwardRef<
         }}
         {...props}
       />
+
     )
   }
 )
@@ -375,7 +377,7 @@ function FeatureCard({
 
   return (
     <motion.div
-      className="animated-cards relative w-full rounded-[16px]"
+      className="animated-cards relative w-full  rounded-3xl  aspect-[3/2]"
       onMouseMove={handleMouseMove}
       style={
         {
@@ -386,12 +388,13 @@ function FeatureCard({
     >
       <div
         className={clsx(
-          "group relative w-full overflow-hidden rounded-3xl border border-black/10 bg-gradient-to-b from-neutral-900/90 to-stone-800 transition duration-300 dark:from-neutral-950/90 dark:to-neutral-800/90",
-          "md:hover:border-transparent",
+          // bg-gradient-to-b from-neutral-900/90 to-stone-800 transition duration-300 dark:from-neutral-950/90 dark:to-neutral-800/90
+          "group relative w-full h-full overflow-hidden rounded-3xl ",
+          "md:hover:border-transparent ",
           bgClass
         )}
       >
-        <div className="m-10 min-h-[450px] w-full">
+        <div className="my-10 mt-16 ml-7 min-h-[450px] w-full h-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={step}
@@ -405,7 +408,7 @@ function FeatureCard({
               }}
             >
               <motion.h2
-                className="text-xl font-bold tracking-tight text-white md:text-2xl"
+                className="text-xl font-bold tracking-tight text-CIAAN-light md:text-1xl"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
@@ -425,7 +428,7 @@ function FeatureCard({
                   ease: [0.23, 1, 0.32, 1],
                 }}
               >
-                <p className="text-sm leading-5 text-neutral-300 sm:text-base sm:leading-5 dark:text-zinc-400">
+                <p className="text-[16px]  font-medium font-['exo']  text-CIAAN-light  sm:leading-5 ">
                   <Balancer>{steps[step].description}</Balancer>
                 </p>
               </motion.div>
@@ -454,7 +457,7 @@ function Steps({
   return (
     <nav aria-label="Progress" className="flex justify-center px-4">
       <ol
-        className="flex w-full flex-wrap items-start justify-start gap-2 sm:justify-center md:w-10/12 md:divide-y-0"
+        className="flex w-full  flex-wrap items-start justify-start gap-2 sm:justify-center md:w-10/12 md:divide-y-0"
         role="list"
       >
         {steps.map((step, stepIdx) => {
@@ -471,7 +474,7 @@ function Steps({
               variants={stepVariants}
               transition={{ duration: 0.3 }}
               className={cn(
-                "relative z-50 rounded-full px-3 py-1 transition-all duration-300 ease-in-out md:flex",
+                "relative z-50 rounded-full h-full px-3 py-1 transition-all duration-300 ease-in-out md:flex",
                 isCompleted ? "bg-neutral-500/20" : "bg-neutral-500/10"
               )}
             >
@@ -491,9 +494,9 @@ function Steps({
                     className={cn(
                       "flex h-4 w-4 shrink-0 items-center justify-center rounded-full duration-300",
                       isCompleted &&
-                        "bg-brand-400 text-white dark:bg-brand-400",
+                      "bg-brand-400 text-white dark:bg-brand-400",
                       isCurrent &&
-                        "bg-brand-300/80 text-neutral-400 dark:bg-neutral-500/50",
+                      "bg-brand-300/80 text-neutral-400 dark:bg-neutral-500/50",
                       isFuture && "bg-brand-300/10 dark:bg-neutral-500/20"
                     )}
                   >
@@ -524,7 +527,7 @@ function Steps({
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     className={clsx(
-                      "text-sm font-medium duration-300",
+                      "text-sm font-medium duration-300 text-light2",
                       isCompleted && "text-muted-foreground",
                       isCurrent && "text-lime-300 dark:text-lime-500",
                       isFuture && "text-neutral-500"
@@ -577,7 +580,7 @@ export function FeatureCarousel({
 
   const handleIncrement = () => {
     if (isAnimating) return
-    setIsAnimating(true)
+    // setIsAnimating(true)
     increment()
   }
 
@@ -609,13 +612,13 @@ export function FeatureCarousel({
                 src={image.step1light1}
                 preset="slideInLeft"
               />
-              <AnimatedStepImage
+              {/* <AnimatedStepImage
                 alt={image.alt}
                 className={clsx(step1img2Class)}
                 src={image.step1light2}
                 preset="slideInRight"
                 delay={0.1}
-              />
+              /> */}
             </motion.div>
           )
         case 1:
@@ -639,13 +642,13 @@ export function FeatureCarousel({
                 src={image.step2light1}
                 preset="fadeInScale"
               />
-              <AnimatedStepImage
+              {/* <AnimatedStepImage
                 alt={image.alt}
                 className={clsx(step2img2Class, "rounded-2xl")}
                 src={image.step2light2}
                 preset="fadeInScale"
                 delay={0.1}
-              />
+              /> */}
             </motion.div>
           )
         case 2:
@@ -679,15 +682,15 @@ export function FeatureCarousel({
           return (
             <motion.div
               className={clsx(
-                "absolute left-2/4 top-1/3 flex w-[100%] -translate-x-1/2 -translate-y-[33%] flex-col gap-12 text-center text-2xl font-bold md:w-[60%]"
+                "absolute flex w-full flex-col ", step4imgClass
               )}
               {...ANIMATION_PRESETS.fadeInScale}
               onAnimationComplete={handleAnimationComplete}
             >
               <AnimatedStepImage
                 alt={image.alt}
-                className="pointer-events-none top-[50%] w-[90%] overflow-hidden rounded-2xl border border-neutral-100/10 md:left-[35px] md:top-[30%] md:w-full dark:border-zinc-700"
-                src={'https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg'}
+                className={clsx(step4imgClass, "rounded-2xl", "pointer-events-none  overflow-hidden  ")}
+                src={image.step4light}
                 preset="fadeInScale"
                 delay={0.1}
               />
@@ -712,23 +715,63 @@ export function FeatureCarousel({
   }
 
   return (
-    <FeatureCard {...props} step={step}>
-      {renderStepContent()}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
-        className="absolute left-[12rem] top-5 z-50 h-full w-full cursor-pointer md:left-0"
-      >
-        <Steps current={step} onChange={() => {}} steps={steps} />
-      </motion.div>
-      <motion.div
-        className="absolute right-0 top-0 z-50 h-full w-full cursor-pointer md:left-0"
-        onClick={handleIncrement}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-      />
-    </FeatureCard>
+    <div className="flex  w-full  h-fit  flex-col text-left animated-cards-header-scas  pb-0 rounded-b-3xl rounded-3xl overflow-hidden">
+      <span className=" flex flex-col pb-2 h-full space-between w-full px-[27px]  ">
+        <p className="text-3xl font-inter  text-CIAAN-light font-[700] mb-[5px] mt-6 leading-tight">{props.title}</p>
+        <p className="font-[500] font-inter  text-[16px] text-CIAAN-light leading-tight">{props.description}</p>
+
+        {/* <div className="bg-animated-cards-description-scas backdrop-blur-[2px] gap-[4px] flex flex-col mt-4  py-[16px] px-[9px] w-full">
+          <span className=" font-['Exo_2'] tracking-[0.035em]  capitalize text-[16px] h-fit self-start">
+            <div className="flex flex-row ">
+              <h3 className="font-[500] text-[15px] leading-tight  ml-[8px] text-CIAAN-light opacity-[80%]">
+                Overview
+              </h3>
+            </div>
+          </span>
+          <div className="flex flex-row w-full  ">
+    
+            <div className="flex flex-col pb-[8px]  w-full  self-start justify-start text-left">
+              <span className=" font-['Exo_2'] tracking-[0.035em] text-CIAAN-light capitalize text-[16px] h-fit self-start place-items-start">
+                <div className="flex flex-col ml-[8px] gap-[4px] font-[500] ">
+                  <h3 className=" whitespace-normal self-start justify-start text-left ">
+                    {props.overview}
+                  </h3>
+             
+                </div>
+              </span>
+            </div>
+          </div>
+        </div> */}
+      </span>
+      {/* <div class="nav-menu-swatch   w-full h-[22px] flex flex-row">
+      <div class="w-full h-full bg-[#4b0035]">
+      </div>
+      <div class="w-[70%] h-full bg-[#5d60eb] "></div>
+      <div class="w-[30%] h-full bg-[#f1f0ee] "></div>
+    </div> */}
+
+      <div className="relative z-10 h-full grid w-full gap-8 rounded-3xl  backdrop-blur-sm animated-cards-border-bg-scas px-2 pt-2 pb-2">
+
+        <FeatureCard {...props} step={step}>
+          {renderStepContent()}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="absolute left-[12rem] top-7 z-50 h-full w-full cursor-pointer md:left-0"
+          >
+            <Steps current={step} onChange={() => { }} steps={steps} />
+          </motion.div>
+          <motion.div
+            className="absolute right-0 top-0 z-50 h-full w-full cursor-pointer md:left-0"
+            onClick={handleIncrement}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          />
+        </FeatureCard>
+      </div>
+    </div>
+
   )
 }
 
