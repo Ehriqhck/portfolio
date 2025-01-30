@@ -41,9 +41,10 @@ import {
   type Variants,
 } from "motion/react"
 import Balancer from "react-wrap-balancer"
-
+import TeamIcon from '@components/generic/Icons/TeamIcon.jsx'
+import TimerIcon from '@components/generic/Icons/TimerIcon.jsx'
 import { cn } from '@/components/fancy/cn.jsx';
-
+import { RainbowButton }from './RainbowButton'
 // Types
 type WrapperStyle = MotionStyle & {
   "--x": MotionValue<string>
@@ -182,7 +183,7 @@ interface AnimatedStepImageProps extends StepImageProps {
  */
 function useNumberCycler(
   totalSteps: number = TOTAL_STEPS,
-  interval: number = 400000
+  interval: number = 4000
 ) {
   const [currentNumber, setCurrentNumber] = useState(0)
   const [isManualInteraction, setIsManualInteraction] = useState(false)
@@ -408,7 +409,7 @@ function FeatureCard({
               }}
             >
               <motion.h2
-                className="text-xl font-bold tracking-tight text-CIAAN-light md:text-1xl"
+                className="text-xl font-bold tracking-tight text-CIAAN-light-animatedCard md:text-1xl"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
@@ -428,7 +429,7 @@ function FeatureCard({
                   ease: [0.23, 1, 0.32, 1],
                 }}
               >
-                <p className="text-[16px]  font-medium font-['exo']  text-CIAAN-light  sm:leading-5 ">
+                <p className="text-[16px]  font-medium font-['exo']  text-CIAAN-light-animatedCard  sm:leading-5 ">
                   <Balancer>{steps[step].description}</Balancer>
                 </p>
               </motion.div>
@@ -716,14 +717,31 @@ export function FeatureCarousel({
 
   return (
     <div className="flex  w-full  h-fit  flex-col text-left animated-cards-header-scas  pb-0 rounded-b-3xl rounded-3xl overflow-hidden">
+   
       <span className=" flex flex-col pb-2 h-full space-between w-full px-[27px]  ">
-        <p className="text-3xl font-inter  text-CIAAN-light font-[700] mb-[5px] mt-6 leading-tight">{props.title}</p>
-        <p className="font-[500] font-inter  text-[16px] text-CIAAN-light leading-tight">{props.description}</p>
+        <p className="text-3xl font-inter  text-CIAAN-light-animatedCard font-[700] mb-[5px] mt-6 leading-tight">{props.title}</p>
+        <p className="font-[500] font-inter  text-[16px] text-CIAAN-light-animatedCard leading-tight">{props.description}</p>
+        <span className="flex flex-row mt-4 ">
+          <div className="floodlight flex w-fit mr-8 flex-row  ">
+            <FigmaIcon height='25px' />
+          </div>
+          <RainbowButton> <p className='text-light font-["EXO"] leading-none uppercase  font-bold'>Read Case Study</p> </RainbowButton>          {/* <span className='flex flex-row gap-3'>
+            <div class="flex  w-fit flex-row  self-center text-CIAAN-light-animatedCard font-inter text-1 text-bold gap-1.5">
+              <TeamIcon height='24px' />
+              <p className="font-['exo'] Capitalized font-[600] text-light2 self-center leading-tight text-sm">Sole UX/UI Designer</p>
+            </div>
+            <div class="flex  w-fit flex-row  text-CIAAN-light-animatedCard  self-center leading-tightfont-inter text-1 text-bold gap-1.5">
+              <TimerIcon height='24px' />
+              <p className="font-['exo'] Capitalized font-[600] self-center leading-tight text-sm">4 Months</p>
+            </div>
+          </span> */}
+
+        </span>
 
         {/* <div className="bg-animated-cards-description-scas backdrop-blur-[2px] gap-[4px] flex flex-col mt-4  py-[16px] px-[9px] w-full">
           <span className=" font-['Exo_2'] tracking-[0.035em]  capitalize text-[16px] h-fit self-start">
             <div className="flex flex-row ">
-              <h3 className="font-[500] text-[15px] leading-tight  ml-[8px] text-CIAAN-light opacity-[80%]">
+              <h3 className="font-[500] text-[15px] leading-tight  ml-[8px] text-CIAAN-light-animatedCard opacity-[80%]">
                 Overview
               </h3>
             </div>
@@ -731,7 +749,7 @@ export function FeatureCarousel({
           <div className="flex flex-row w-full  ">
     
             <div className="flex flex-col pb-[8px]  w-full  self-start justify-start text-left">
-              <span className=" font-['Exo_2'] tracking-[0.035em] text-CIAAN-light capitalize text-[16px] h-fit self-start place-items-start">
+              <span className=" font-['Exo_2'] tracking-[0.035em] text-CIAAN-light-animatedCard capitalize text-[16px] h-fit self-start place-items-start">
                 <div className="flex flex-col ml-[8px] gap-[4px] font-[500] ">
                   <h3 className=" whitespace-normal self-start justify-start text-left ">
                     {props.overview}
@@ -750,7 +768,7 @@ export function FeatureCarousel({
       <div class="w-[30%] h-full bg-[#f1f0ee] "></div>
     </div> */}
 
-      <div className="relative z-10 h-full grid w-full gap-8 rounded-3xl  backdrop-blur-sm animated-cards-border-bg-scas px-2 pt-2 pb-2">
+      <div className="relative z-10 h-full grid w-full gap-8 rounded-3xl  backdrop-blur-sm animated-cards-border-bg-scas px-2.5 pt-2.5 mt-3 pb-2.5">
 
         <FeatureCard {...props} step={step}>
           {renderStepContent()}
@@ -758,7 +776,7 @@ export function FeatureCarousel({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="absolute left-[12rem] top-7 z-50 h-full w-full cursor-pointer md:left-0"
+            className="absolute left-[12rem] top-5 z-50 h-full w-full cursor-pointer md:left-0"
           >
             <Steps current={step} onChange={() => { }} steps={steps} />
           </motion.div>
