@@ -717,7 +717,7 @@ export function FeatureCarousel({
 
   return (
     <div className="flex  w-full  h-fit  flex-col text-left animated-cards-header-scas  pb-0 rounded-b-3xl rounded-3xl overflow-hidden">
-   
+   {/* wow */}
       <span className=" flex flex-col pb-2 h-full space-between w-full px-[27px]  ">
         <p className="text-3xl font-inter  text-CIAAN-light-animatedCard font-[700] mb-[5px] mt-6 leading-tight">{props.title}</p>
         <p className="font-[500] font-inter  text-[16px] text-CIAAN-light-animatedCard leading-tight">{props.description}</p>
