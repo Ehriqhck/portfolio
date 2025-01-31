@@ -19,6 +19,7 @@
 */
 "use client"
 import FigmaIcon from '@components/generic/Icons/Socials/FigmaIcon.jsx'
+import { HeroHighlight } from '@/components/fancy/HeroHighlight';
 
 import {
   forwardRef,
@@ -375,9 +376,22 @@ function FeatureCard({
     setMounted(true)
   }, [])
 
+  const getBorderStoke = (type) => {
+    switch (type) {
+      case "scas":
+        return("scas")
+        break;
+        case "tri":
+          return("tri")
+          break;
+      
+      default:
+        break;
+    }
+  }
   return (
     <motion.div
-      className="animated-cards relative w-full  rounded-3xl  aspect-[3/2]"
+      className="animated-cards-cursor-scas animated-cards-cursor-scas-fixed relative w-full  rounded-3xl  aspect-[3/2]"
       onMouseMove={handleMouseMove}
       style={
         {
@@ -394,48 +408,51 @@ function FeatureCard({
           bgClass
         )}
       >
-        <div className="my-10 mt-16 ml-7 min-h-[450px] w-full h-full">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={step}
-              className="flex w-4/6 flex-col gap-3"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{
-                duration: 0.3,
-                ease: [0.23, 1, 0.32, 1],
-              }}
-            >
-              <motion.h2
-                className="text-xl font-bold tracking-tight text-CIAAN-light md:text-1xl"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  delay: 0.1,
-                  duration: 0.3,
-                  ease: [0.23, 1, 0.32, 1],
-                }}
-              >
-                {steps[step].title}
-              </motion.h2>
+        <HeroHighlight>
+
+          <div className="my-10  mt-16 ml-7 min-h-[450px] w-full h-full">
+            <AnimatePresence mode="wait">
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
+                key={step}
+                className="flex w-4/6 flex-col gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
                 transition={{
-                  delay: 0.2,
                   duration: 0.3,
                   ease: [0.23, 1, 0.32, 1],
                 }}
               >
-                <p className="text-[16px]  font-medium font-['exo']  text-CIAAN-light  sm:leading-5 ">
-                  <Balancer>{steps[step].description}</Balancer>
-                </p>
+                <motion.h2
+                  className="text-xl font-bold tracking-tight text-CIAAN-light md:text-1xl"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    delay: 0.1,
+                    duration: 0.3,
+                    ease: [0.23, 1, 0.32, 1],
+                  }}
+                >
+                  {steps[step].title}
+                </motion.h2>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    delay: 0.2,
+                    duration: 0.3,
+                    ease: [0.23, 1, 0.32, 1],
+                  }}
+                >
+                  <p className="text-[16px]  font-medium font-['exo']  text-CIAAN-light  sm:leading-5 ">
+                    <Balancer>{steps[step].description}</Balancer>
+                  </p>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          </AnimatePresence>
-          {mounted ? children : null}
-        </div>
+            </AnimatePresence>
+            {mounted ? children : null}
+          </div>
+        </HeroHighlight>
       </div>
     </motion.div>
   )
@@ -715,63 +732,66 @@ export function FeatureCarousel({
   }
 
   return (
-    <div className="flex  w-full  h-fit  flex-col text-left animated-cards-header-scas  pb-0 rounded-b-3xl rounded-3xl overflow-hidden">
-      <span className=" flex flex-col pb-2 h-full space-between w-full px-[27px]  ">
-        <p className="text-3xl font-inter  text-CIAAN-light font-[700] mb-[5px] mt-6 leading-tight">{props.title}</p>
-        <p className="font-[500] font-inter  text-[16px] text-CIAAN-light leading-tight">{props.description}</p>
 
-        {/* <div className="bg-animated-cards-description-scas backdrop-blur-[2px] gap-[4px] flex flex-col mt-4  py-[16px] px-[9px] w-full">
-          <span className=" font-['Exo_2'] tracking-[0.035em]  capitalize text-[16px] h-fit self-start">
-            <div className="flex flex-row ">
-              <h3 className="font-[500] text-[15px] leading-tight  ml-[8px] text-CIAAN-light opacity-[80%]">
-                Overview
-              </h3>
-            </div>
-          </span>
-          <div className="flex flex-row w-full  ">
-    
-            <div className="flex flex-col pb-[8px]  w-full  self-start justify-start text-left">
-              <span className=" font-['Exo_2'] tracking-[0.035em] text-CIAAN-light capitalize text-[16px] h-fit self-start place-items-start">
-                <div className="flex flex-col ml-[8px] gap-[4px] font-[500] ">
-                  <h3 className=" whitespace-normal self-start justify-start text-left ">
-                    {props.overview}
-                  </h3>
-             
-                </div>
-              </span>
+    <div className={cn(props.cardBg, "flex  w-full  h-fit  flex-col text-left   pb-0 rounded-b-3xl rounded-3xl overflow-hidden")}>
+      <HeroHighlight>
+        <span className=" flex flex-col pb-2 h-full space-between w-full px-[27px]  ">
+          <p className="text-3xl font-inter   font-[700] mb-[5px] mt-6 leading-tight">{props.title}</p>
+          <p className="font-[500] font-inter  text-[16px]  leading-tight">{props.description}</p>
+          <div className={cn(props.descriptionClassName, " gap-[2px] flex flex-col mt-5  pb-[16px] pt-4 px-[9px] w-full",)} >
+
+            <span className=" font-['Exo_2'] tracking-[0.035em] pb-1 capitalize text-[16px] h-fit self-start">
+              <div className="flex flex-row ">
+                <h3 className="font-[500] text-[14px] leading-tight  ml-[8px] text-CIAAN-light opacity-[85%]">
+                  Overview
+                </h3>
+              </div>
+            </span>
+            <div className="flex flex-row w-full  ">
+
+              <div className="flex flex-col pb-[8px]  w-full  self-start justify-start text-left">
+                <span className=" font-['Exo_2'] tracking-[0.005em]  font-[500] capitalize text-[16px] h-fit self-start place-items-start">
+                  <div className="flex flex-col ml-[8px] gap-[4px]  ">
+                    <h3 className=" whitespace-normal self-start justify-start text-left ">
+                      {props.overview}
+                    </h3>
+                    {props.button}
+                  </div>
+                </span>
+              </div>
             </div>
           </div>
-        </div> */}
-      </span>
-      {/* <div class="nav-menu-swatch   w-full h-[22px] flex flex-row">
+        </span>
+        {/* <div class="nav-menu-swatch   w-full h-[22px] flex flex-row">
       <div class="w-full h-full bg-[#4b0035]">
       </div>
       <div class="w-[70%] h-full bg-[#5d60eb] "></div>
       <div class="w-[30%] h-full bg-[#f1f0ee] "></div>
     </div> */}
 
-      <div className="relative z-10 h-full grid w-full gap-8 rounded-3xl  backdrop-blur-sm animated-cards-border-bg-scas px-2 pt-2 pb-2">
+        <div className={cn("relative z-10 h-full grid w-full gap-8 rounded-3xl  backdrop-blur-sm  px-2 pt-2 pb-5", props.insetCardBorderClassName)}>
 
-        <FeatureCard {...props} step={step}>
-          {renderStepContent()}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="absolute left-[12rem] top-7 z-50 h-full w-full cursor-pointer md:left-0"
-          >
-            <Steps current={step} onChange={() => { }} steps={steps} />
-          </motion.div>
-          <motion.div
-            className="absolute right-0 top-0 z-50 h-full w-full cursor-pointer md:left-0"
-            onClick={handleIncrement}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          />
-        </FeatureCard>
-      </div>
+          <FeatureCard {...props} step={step}>
+            {renderStepContent()}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="absolute left-[12rem] top-7 z-50 h-full w-full cursor-pointer md:left-0"
+            >
+              <Steps current={step} onChange={() => { }} steps={steps} />
+            </motion.div>
+            <motion.div
+              className="absolute right-0 top-0 z-50 h-full w-full cursor-pointer md:left-0"
+              onClick={handleIncrement}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            />
+          </FeatureCard>
+        </div>
+      </HeroHighlight>
+
     </div>
-
   )
 }
 
