@@ -379,12 +379,12 @@ function FeatureCard({
   const getBorderStoke = (type) => {
     switch (type) {
       case "scas":
-        return("scas")
+        return ("scas")
         break;
-        case "tri":
-          return("tri")
-          break;
-      
+      case "tri":
+        return ("tri")
+        break;
+
       default:
         break;
     }
@@ -735,32 +735,31 @@ export function FeatureCarousel({
 
     <div className={cn(props.cardBg, "flex  w-full  h-fit  flex-col text-left   pb-0 rounded-b-3xl rounded-3xl overflow-hidden")}>
       <HeroHighlight>
-        <span className=" flex flex-col pb-2 h-full space-between w-full px-[27px]  ">
-          <p className="text-3xl font-inter   font-[700] mb-[5px] mt-6 leading-tight">{props.title}</p>
+        <span className=" flex flex-col pb-4 h-full space-between w-full px-[27px]  ">
+          <p className="text-3xl font-inter   font-[700] mb-[5px] mt-8 leading-tight">{props.title}</p>
           <p className="font-[500] font-inter  text-[16px]  leading-tight">{props.description}</p>
-          <div className={cn(props.descriptionClassName, " gap-[2px] flex flex-col mt-5  pb-[16px] pt-4 px-[9px] w-full",)} >
+          {props.button}
 
-            <span className=" font-['Exo_2'] tracking-[0.035em] pb-1 capitalize text-[16px] h-fit self-start">
-              <div className="flex flex-row ">
-                <h3 className="font-[500] text-[14px] leading-tight  ml-[8px] text-CIAAN-light opacity-[85%]">
-                  Overview
+          <div className={cn(props.descriptionClassName, " flex flex-col mt-5  pb-[16px] pt-3 px-2.5 w-full",)} >
+
+            <span className=" font-['Exo_2'] tracking-[0.035em]  capitalize text-[16px] h-fit self-start">
+              <div className="flex flex-col gap-2 ">
+                <h3 className="font-[550] text-[14px] leading-tight  ml-[8px] text-CIAAN-light opacity-[85%]">
+                  Overview 
+                </h3>
+                <h3 className="font-[550] text-[14px] leading-tight  text-CIAAN-light opacity-[85%]">
+                  {props.iconBar}
                 </h3>
               </div>
             </span>
             <div className="flex flex-row w-full  ">
 
-              <div className="flex flex-col pb-[8px]  w-full  self-start justify-start text-left">
-                <span className=" font-['Exo_2'] tracking-[0.005em]  font-[500] capitalize text-[16px] h-fit self-start place-items-start">
-                  <div className="flex flex-col ml-[8px] gap-[4px]  ">
-                    <h3 className=" whitespace-normal self-start justify-start text-left ">
-                      {props.overview}
-                    </h3>
-                    {props.button}
-                  </div>
-                </span>
-              </div>
+
+
             </div>
+
           </div>
+
         </span>
         {/* <div class="nav-menu-swatch   w-full h-[22px] flex flex-row">
       <div class="w-full h-full bg-[#4b0035]">

@@ -374,11 +374,11 @@ const page = () => {
                 </span>
                 <span className="flex flex-row gap-8">
                   <div class="flex  w-fit flex-row  text-CIAAN-light font-inter text-1 text-bold gap-1.5">
-                    <TeamIcon height='24px' />
+                    <TeamIcon height='24px' stop='#8FA0BE' />
                     <p className="font-['exo'] Capitalized font-[600] text-[18px]">Sole UX/UI Designer</p>
                   </div>
                   <div class="flex  w-fit flex-row  text-CIAAN-light font-inter text-1 text-bold gap-1.5">
-                    <TimerIcon height='24px' />
+                    <TimerIcon height='24px' stop='#8FA0BE'/>
                     <p className="font-['exo'] Capitalized font-[600] text-[18px]">4 Months</p>
                   </div>
                 </span>
