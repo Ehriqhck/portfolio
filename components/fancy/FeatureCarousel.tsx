@@ -20,7 +20,10 @@
 "use client"
 import FigmaIcon from '@components/generic/Icons/Socials/FigmaIcon.jsx'
 import { HeroHighlight } from '@/components/fancy/HeroHighlight';
+import TeamIcon from '@components/generic/Icons/TeamIcon.jsx'
+import ProjectIcon from '@components/generic/Icons/ProjectIcon.jsx'
 
+import TimerIcon from '@components/generic/Icons/TimerIcon.jsx'
 import {
   forwardRef,
   useCallback,
@@ -101,32 +104,114 @@ interface Step {
 // Constants
 const TOTAL_STEPS = 4
 
-const steps = [
-  {
-    id: "1",
-    name: "Assessments",
-    title: "Assessment Workflow",
-    description: "For security staff to create & manage assessments. ",
-  },
-  {
-    id: "2",
-    name: "Step 2",
-    title: "Feature 2",
-    description: "Feature 2 description",
-  },
-  {
-    id: "3",
-    name: "Step 3",
-    title: "Feature 3",
-    description: "Feature 3 description",
-  },
-  {
-    id: "4",
-    name: "Step 4",
-    title: "Feature 4",
-    description: "Feature 4 description",
-  },
-] as const
+const getClasses = (str) => {
+  switch (str) {
+    case "scas":
+      return ("rcs-scas leading-tight font-['EXO']  font-[550]")
+      break;
+    case "tri":
+      return ("rcs-tri leading-tight font-['EXO']  font-[550]")
+    default:
+      break;
+  }
+}
+
+const getSteps = (str) => {
+
+  switch (str) {
+    case 'scas':
+      return (
+        [
+          {
+            id: "1",
+            name: "Security Assessments",
+            title: "Assessment Creation & Management",
+            description: "Scaleable 5-step workflow for Security Staff to adminster assessments ",
+          },
+          {
+            id: "2",
+            name: "Security Engagements",
+            title: "Engagement Creation & Management",
+            description: "Scaleable 5-step workflow for Security Staff to deploy engagements with Security Users",
+          },
+          {
+            id: "3",
+            name: "Spreadsheet View",
+            title: "Google Sheets but for Assessments & Engagements",
+            description: "Consolidated tabular view for Security Staff to manage ongoing assessments & engagements",
+          },
+          {
+            id: "4",
+            name: "Security User Dashboard",
+            title: "View and complete assessment forms",
+            description: "Where Security Users to view their assigned assessment forms",
+          },
+        ]
+      )
+      break;
+      case 'tri':
+        return (
+          [
+            {
+              id: "1",
+              name: "Security Assessments",
+              title: "Assessment Creation & Management",
+              description: "Scaleable 5-step workflow for Security Staff to adminster assessments ",
+            },
+            {
+              id: "2",
+              name: "Security Engagements",
+              title: "Engagement Creation & Management",
+              description: "Scaleable 5-step workflow for Security Staff to deploy engagements with Security Users",
+            },
+            {
+              id: "3",
+              name: "Assessment Forms",
+              title: "Google Forms but for security assessments ",
+              description: "For Security Users to fill out assigned forms",
+            },
+            {
+              id: "4",
+              name: "Security User Dashboard",
+              title: "Dashboard for Security Users to view their assigned assessments",
+              description: "Security User's ",
+            },
+          ]
+        )
+        break;
+    default:
+      return ([])
+      break;
+  }
+
+}
+
+// const steps = [
+//   {
+//     id: "1",
+//     name: "Security Assessments",
+//     title: "Assessment Creation & Management",
+//     description: "Scaleable 5-step workflow for Security Staff to adminster assessments ",
+//   },
+//   {
+//     id: "2",
+//     name: "Security Engagements",
+//     title: "Engagement Creation & Management",
+//     description: "Scaleable 5-step workflow for Security Staff to deploy engagements with Security Users",
+//   },
+//   {
+//     id: "3",
+//     name: "Assessment Forms",
+//     title: "Google Forms but for security assessments ",
+//     description: "For Security Users to fill out assigned forms",
+//   },
+//   {
+//     id: "4",
+//     name: "Security User Dashboard",
+//     title: "Dashboard for assigned assessment forms",
+//     description: "Security User's ",
+//   },
+// ] as const
 
 /**
  * Animation presets for reusable motion configurations.
@@ -283,11 +368,11 @@ function IconCheck({ className, ...props }: React.ComponentProps<"svg">) {
 
 const stepVariants: Variants = {
   inactive: {
-    scale: 0.8,
+    scale: 0.9,
     opacity: 0.5,
   },
   active: {
-    scale: 1,
+    scale: 0.9,
     opacity: 1,
   },
 }
@@ -356,6 +441,7 @@ function FeatureCard({
   bgClass,
   children,
   step,
+  ...props
 }: CardProps & {
   children: React.ReactNode
   step: number
@@ -408,51 +494,49 @@ function FeatureCard({
           bgClass
         )}
       >
-        <HeroHighlight>
 
-          <div className="my-10  mt-16 ml-7 min-h-[450px] w-full h-full">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={step}
-                className="flex w-4/6 flex-col gap-3"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
+        <div className="max-[844px]:ml-6  my-10  ml-16  w-full h-full">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={step}
+              className="flex w-full flex-col gap-2 max-[844px]:pt-[3.8rem] pt-12 "
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{
+                duration: 0.3,
+                ease: [0.23, 1, 0.32, 1],
+              }}
+            >
+              <motion.h2
+                className="text-xl font-bold tracking-tight  text-CIAAN-light md:text-1xl max-[844px]:text-[18px]"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{
+                  delay: 0.1,
                   duration: 0.3,
                   ease: [0.23, 1, 0.32, 1],
                 }}
               >
-                <motion.h2
-                  className="text-xl font-bold tracking-tight text-CIAAN-light md:text-1xl"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    delay: 0.1,
-                    duration: 0.3,
-                    ease: [0.23, 1, 0.32, 1],
-                  }}
-                >
-                  {steps[step].title}
-                </motion.h2>
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    delay: 0.2,
-                    duration: 0.3,
-                    ease: [0.23, 1, 0.32, 1],
-                  }}
-                >
-                  <p className="text-[16px]  font-medium font-['exo']  text-CIAAN-light  sm:leading-5 ">
-                    <Balancer>{steps[step].description}</Balancer>
-                  </p>
-                </motion.div>
+                {getSteps(props.case)[step].title}
+              </motion.h2>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  delay: 0.2,
+                  duration: 0.3,
+                  ease: [0.23, 1, 0.32, 1],
+                }}
+              >
+                <p className="text-[16px]  font-medium font-['exo']  text-CIAAN-light leading-tight max-[844px]:text-[13px] ">
+                  <Balancer>{getSteps(props.case)[step].description}</Balancer>
+                </p>
               </motion.div>
-            </AnimatePresence>
-            {mounted ? children : null}
-          </div>
-        </HeroHighlight>
+            </motion.div>
+          </AnimatePresence>
+          {mounted ? children : null}
+        </div>
       </div>
     </motion.div>
   )
@@ -472,9 +556,9 @@ function Steps({
   onChange: (index: number) => void
 }) {
   return (
-    <nav aria-label="Progress" className="flex justify-center px-4">
+    <nav aria-label="Progress" className="flex justify-start ml-12 max-[844px]:ml-4 max-[844px]:mt-0 mt-2">
       <ol
-        className="flex w-full  flex-wrap items-start justify-start gap-2 sm:justify-center md:w-10/12 md:divide-y-0"
+        className="flex w-full   items-start justify-start  max-[844px]:justify-start gap-1 flex-wrap md:divide-y-0"
         role="list"
       >
         {steps.map((step, stepIdx) => {
@@ -491,7 +575,7 @@ function Steps({
               variants={stepVariants}
               transition={{ duration: 0.3 }}
               className={cn(
-                "relative z-50 rounded-full h-full px-3 py-1 transition-all duration-300 ease-in-out md:flex",
+                "relative z-50 rounded-full h-fit px-3 py-1 transition-all duration-300 ease-in-out max-[972px]:px-1 ",
                 isCompleted ? "bg-neutral-500/20" : "bg-neutral-500/10"
               )}
             >
@@ -506,7 +590,7 @@ function Steps({
                   <motion.span
                     initial={false}
                     animate={{
-                      scale: isCurrent ? 1.2 : 1,
+                      scale: isCurrent ? 1 : 1,
                     }}
                     className={cn(
                       "flex h-4 w-4 shrink-0 items-center justify-center rounded-full duration-300",
@@ -544,7 +628,7 @@ function Steps({
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     className={clsx(
-                      "text-sm font-medium duration-300 text-light2",
+                      "text-sm font-medium duration-300 text-light2 text-nowrap tracking-[0.025em]",
                       isCompleted && "text-muted-foreground",
                       isCurrent && "text-lime-300 dark:text-lime-500",
                       isFuture && "text-neutral-500"
@@ -733,22 +817,58 @@ export function FeatureCarousel({
 
   return (
 
-    <div className={cn(props.cardBg, "flex  w-full  h-fit  flex-col text-left   pb-0 rounded-b-3xl rounded-3xl overflow-hidden")}>
+    <div className={cn(props.cardBg, "flex  w-full  max-w-[84vh] self-center  h-fit  flex-col text-left   pb-0 rounded-b-3xl rounded-3xl overflow-hidden")}>
       <HeroHighlight>
         <span className=" flex flex-col pb-4 h-full space-between w-full px-[27px]  ">
           <p className="text-3xl font-inter   font-[700] mb-[5px] mt-8 leading-tight">{props.title}</p>
           <p className="font-[500] font-inter  text-[16px]  leading-tight">{props.description}</p>
           {props.button}
 
-          <div className={cn(props.descriptionClassName, " flex flex-col mt-5  pb-[16px] pt-3 px-2.5 w-full",)} >
+          <div className={cn(props.descriptionClassName, " flex flex-col mt-5  pb-[16px] pt-3 px-2.5 w-full max-w-[1000px]",)} >
 
-            <span className=" font-['Exo_2'] tracking-[0.035em]  capitalize text-[16px] h-fit self-start">
-              <div className="flex flex-col gap-2 ">
-                <h3 className="font-[550] text-[14px] leading-tight  ml-[8px] text-CIAAN-light opacity-[85%]">
-                  Overview 
+            <span className=" ml-1 mt-0.5 mb-1 font-['Exo_2'] tracking-[0.045em] w-full capitalize text-[16px] h-fit self-start">
+              <div className="flex flex-col gap-3 w-full ">
+                <h3 className="font-[550] text-[14px] leading-tight   ml-[8px] text-CIAAN-light opacity-[85%]">
+                  Last Updated 2/3/2024
                 </h3>
-                <h3 className="font-[550] text-[14px] leading-tight  text-CIAAN-light opacity-[85%]">
-                  {props.iconBar}
+                <h3 className="font-[550] text-[14px] leading-tight w-full  text-CIAAN-light opacity-[85%]">
+                  <span className="flex flex-row  w-full  justify-between max-w-[650px] space-between ml-[10px]">
+                    <div className="flex flex-row gap-2">
+                      <div className=" self-center mt-1">
+                        <TimerIcon height='26px' stop={"" + props.iconStop} />
+                      </div>
+                      <div className="flex flex-col gap-1.5 self-center">
+                        <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
+                          Project Length
+                        </h3>
+                        <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">4 Months</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-row gap-2">
+                      <div className=" self-center mt-1">
+                        <TeamIcon height='26px' stop={props.iconStop} />
+                      </div>
+                      <div className="flex flex-col gap-1.5 self-center">
+                        <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
+                          Role
+                        </h3>
+                        <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">Sole UX/UI Designer</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-row gap-2">
+                      <div className=" self-center mt-1">
+                        <ProjectIcon height='26px' stop={props.iconStop} />
+                      </div>
+                      <div className="flex flex-col gap-1.5 self-center">
+                        <h3 className="font-[550] text-[12px] leading-tight   -ml-[1px] text-CIAAN-light opacity-[90%]">
+                          Project Type
+                        </h3>
+                        <p className="text-CIAAN-light font-['exo'] self-center leading-none  -mt-[2px] text-left w-full">
+                          Interactive Workflow Mockups
+                        </p>
+                      </div>
+                    </div>
+                  </span>
                 </h3>
               </div>
             </span>
@@ -767,8 +887,8 @@ export function FeatureCarousel({
       <div class="w-[70%] h-full bg-[#5d60eb] "></div>
       <div class="w-[30%] h-full bg-[#f1f0ee] "></div>
     </div> */}
-
-        <div className={cn("relative z-10 h-full grid w-full gap-8 rounded-3xl  backdrop-blur-sm  px-2 pt-2 pb-5", props.insetCardBorderClassName)}>
+linear-gradient(348deg, #aa0067 0%, #ffcb3cbf 50%, #7c3c72b5 100%)
+        <div className={cn("relative z-10 h-full grid w-full gap-8 rounded-3xl px-1 pt-0 pb-5", props.insetCardBorderClassName)}>
 
           <FeatureCard {...props} step={step}>
             {renderStepContent()}
@@ -776,17 +896,20 @@ export function FeatureCarousel({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="absolute left-[12rem] top-7 z-50 h-full w-full cursor-pointer md:left-0"
+              className={cn("absolute left-[12rem]  max-[844px]:left-0  top-6 z-50 h-full w-full cursor-pointer cardInset md:left-0",
+                props.gradientOverlay
+              )}
             >
-              <Steps current={step} onChange={() => { }} steps={steps} />
+              <Steps current={step} onChange={() => { }} steps={getSteps(props.case)} />
             </motion.div>
             <motion.div
-              className="absolute right-0 top-0 z-50 h-full w-full cursor-pointer md:left-0"
+              className="absolute right-0 top-0 h-[100vh] z-50  w-full cursor-pointer md:left-0"
               onClick={handleIncrement}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             />
           </FeatureCard>
+
         </div>
       </HeroHighlight>
 

@@ -9,6 +9,8 @@ import { FeatureCarousel } from '@components/fancy/FeatureCarousel.tsx'
 import { RainbowButton } from './RainbowButton.jsx'
 import StripeCard from '@components/fancy/StripeCard.jsx'
 import TeamIcon from '@components/generic/Icons/TeamIcon.jsx'
+import ProjectIcon from '@components/generic/Icons/ProjectIcon.jsx'
+
 import TimerIcon from '@components/generic/Icons/TimerIcon.jsx'
 export const StickyScroll = ({
   content,
@@ -120,69 +122,47 @@ export const StickyScroll = ({
 
                 <     StripeCard />
                 <FeatureCarousel
+                gradientOverlay='cardInset-scas'
                   cardInsetBg="bg-CIAAN-body"
                   cardBg="animated-cards-header-scas"
-
+                  case="scas"
                   title=<p className="text-CIAAN-light font-['exo']">CIAAN Security Corporation </p>
                   descriptionClassName="bg-animated-cards-description-scas backdrop-blur-[10px]"
                   description=<p className="text-CIAAN-light font-['exo']">Flightsim Keybind Mapping Automation</p>
 
-                  iconBar=<span className="flex flex-row gap-8 ml-[10px]"> 
-                    <div className="flex flex-row gap-2">
-                      <div className=" self-center mt-1">
-                        <TimerIcon height='26px' stop='#8FA0BE' />
-                      </div>
-                      <div className="flex flex-col gap-1.5 self-center">
-                        <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
-                          Project Length
-                        </h3>
-                        <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">4 Months</p>
-                      </div>
-                    </div>
-                    <div className="flex flex-row gap-2">
-                      <div className=" self-center mt-1">
-                        <TeamIcon height='26px' stop='#8FA0BE' />
-                      </div>
-                      <div className="flex flex-col gap-1.5 self-center">
-                        <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
-                          Role
-                        </h3>
-                        <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">Sole UX/UI Designer</p>
-                      </div>
-                    </div>
-                  </span>
+                  iconStop="#E3EDFF"
                   overview=<p className="text-CIAAN-light font-['exo']">SCAS (Security Controls & Automation System) is a platform of cybersecurity tools initially tailored for T-Mobile Security Staff.<br></br>  Here, I designed SCAS's workflow for automating assessment & engagement creation & management.</p>
                   insetCardBorderClassName="animated-cards-border-bg-scas"
                   // Example classes for responsive layout
                   step1img1Class={cn(
-                    "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                    " max-md:rounded-[24px] rounded-[10px] left-[25%] top-[57%] md:left-[2%] md:top-[8%]",
+                    " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[80%]  transition-all duration-500 dark:border-stone-700/50",
+                    "  rounded-[10px]   md:left-[3%]  mt-8",
                     "md:group-hover:translate-y-2"
                   )}
                   step1img2Class={cn(
-                    "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                    " max-md:rounded-[24px] rounded-[10px] left-[25%] top-[57%] md:left-[2%] md:top-[8%]",
+                    "pointer-events-none w-[80%]  transition-all duration-500 dark:border-stone-700/50",
+                    "  rounded-[10px]   md:left-[3%]  mt-8",
                     "md:group-hover:translate-y-2"
                   )}
                   step2img1Class={cn(
-                    "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                    " max-md:rounded-[24px] rounded-[10px] left-[25%] top-[57%] md:left-[2%] md:top-[8%]",
+                    " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[80%]  transition-all duration-500 dark:border-stone-700/50",
+                    "  rounded-[10px]   md:left-[3%]  mt-8 ",
                     "md:group-hover:translate-y-2"
                   )}
                   step2img2Class={cn(
-                    "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                    " max-md:rounded-[24px] rounded-[10px] left-[25%] top-[57%] md:left-[2%] md:top-[8%]",
+                    " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[80%]  transition-all duration-500 dark:border-stone-700/50",
+                    "  rounded-[10px]   md:left-[3%]  mt-8",
                     "md:group-hover:translate-y-2"
                   )}
                   step3imgClass={cn(
-                    "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                    " max-md:rounded-[24px] rounded-[10px] left-[25%] top-[57%] md:left-[2%] md:top-[8%]",
-                    "md:group-hover:translate-y-2"
+                " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[80%]  transition-all duration-500 dark:border-stone-700/50",
+                "  rounded-[10px]   md:left-[3%]  mt-8",
+                "md:group-hover:translate-y-2"
                   )}
                   step4imgClass={cn(
-                    "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                    " max-md:rounded-[24px] rounded-[10px] left-[25%] top-[57%] md:left-[2%] md:top-[7%]",
-                    "md:group-hover:translate-y-2"
+                    " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[89.9%]  transition-all duration-500 dark:border-stone-700/50",
+                    "  rounded-[10px]   md:left-[2%]  mt-4",
+                    "  md:group-hover:translate-y-2"
                   )}
                   // Example images
                   image={{
@@ -190,7 +170,7 @@ export const StickyScroll = ({
                     step1light2: "https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg",
                     step2light1: "https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_2/create_engagement_step_2_1_5x.webp",
                     step2light2: "https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_2x.webp",
-                    step3light: "https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_forms/screen_security_user_forms_1x.webp",
+                    step3light: "https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/engagements_management/engagements_management_1_5x.webp",
                     step4light: "https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_2x.webp",
                     alt: "Feature demonstration",
                   }}
@@ -202,6 +182,7 @@ export const StickyScroll = ({
                 {/* description=<p className="text-CIAAN-light font-['exo']">Cybersecurity Assessment & Engagement Automation</p> */}
 
                 <FeatureCarousel
+                  case="tri"
                   cardInsetBg="bg-CIAAN-body"
                   cardBg="animated-cards-header-scas "
 
@@ -213,33 +194,33 @@ export const StickyScroll = ({
                   insetCardBorderClassName="animated-cards-border-bg-tri"
                   // Example classes for responsive layout
                   step1img1Class={cn(
-                    "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                    " max-md:rounded-[24px] rounded-[10px] left-[25%] top-[57%] md:left-[2%] md:top-[8%]",
+                    "pointer-events-none w-[80%]  transition-all duration-500 dark:border-stone-700/50",
+                    "  rounded-[10px]  top-[57%] md:left-[2%] md:top-[8%] sm:top-[3%]",
                     "md:group-hover:translate-y-2"
                   )}
                   step1img2Class={cn(
                     "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                    " max-md:rounded-[24px] rounded-[10px] left-[25%] top-[57%] md:left-[2%] md:top-[8%]",
+                    "  rounded-[10px]  top-[57%] md:left-[2%] md:top-[8%]",
                     "md:group-hover:translate-y-2"
                   )}
                   step2img1Class={cn(
                     "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                    " max-md:rounded-[24px] rounded-[10px] left-[25%] top-[57%] md:left-[2%] md:top-[8%]",
+                    "  rounded-[10px]  top-[57%] md:left-[2%] md:top-[8%]",
                     "md:group-hover:translate-y-2"
                   )}
                   step2img2Class={cn(
                     "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                    " max-md:rounded-[24px] rounded-[10px] left-[25%] top-[57%] md:left-[2%] md:top-[8%]",
+                    "  rounded-[10px]  top-[57%] md:left-[2%] md:top-[8%]",
                     "md:group-hover:translate-y-2"
                   )}
                   step3imgClass={cn(
                     "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                    " max-md:rounded-[24px] rounded-[10px] left-[25%] top-[57%] md:left-[2%] md:top-[8%]",
+                    "  rounded-[10px]  top-[57%] md:left-[2%] md:top-[8%]",
                     "md:group-hover:translate-y-2"
                   )}
                   step4imgClass={cn(
                     "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                    " max-md:rounded-[24px] rounded-[10px] left-[25%] top-[57%] md:left-[2%] md:top-[7%]",
+                    "  rounded-[10px]  top-[57%] md:left-[2%] md:top-[7%]",
                     "md:group-hover:translate-y-2"
                   )}
                   // Example images

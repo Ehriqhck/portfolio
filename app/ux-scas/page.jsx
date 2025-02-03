@@ -396,7 +396,7 @@ const page = () => {
                   <div className=" flex flex-col w-[fit] overflow-visible top-5  ml-6 mr-5  ">
 
                     {/* navbar */}
-                    <div className="place-self-start	 self-start top-5 uppercase   font-['Exo_2'] tracking-[0]
+                    <div className="place-self-start	max-w-[1446]  self-start top-5 uppercase   font-['Exo_2'] tracking-[0]
 text-[12px] text-white h-fit flex gap-[4px] flex-col navbg   
   z-[500]     pl-1   whitespace-nowrap  sticky  pb-[16px] pr-[28px] pt-[10px] mt-[5vh]
 base ">
