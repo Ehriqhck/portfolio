@@ -1,10 +1,13 @@
 "use client";
+import { motion } from "framer-motion";
+import { cn } from '@/components/fancy/cn.jsx';
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Transition } from "@headlessui/react";
 import UnderArrow from '@components/generic/Icons/UnderArrow.jsx'
 import CaseButton from '@components/fancy/CaseButton.jsx'
+import { MobileCarousel } from './MobileCarousel';
 
 import { BentoCard, BentoGrid } from "@/components/fancy/Bento.jsx";
 import { useMediaQuery } from 'usehooks-ts'
@@ -26,6 +29,7 @@ const DisplaySize = ({ width, height }) => (
   </div>
 );
 const PortfolioCard = ({ CardContent, Section, Title, Slidercontent, Content: ContentTest, Figma }) => {
+
   const isMobile = useMediaQuery('(min-width: 640px)');
   const sliderData = Slidercontent;
   const sliderItems_CIAAN_EngagementFlow = [
@@ -159,61 +163,88 @@ const PortfolioCard = ({ CardContent, Section, Title, Slidercontent, Content: Co
       )
     }
   }
+  const imgVariants = {
+    hidden: { opacity: 0, },
+    visible: { opacity: 1, },
+  };
   const getVisuals = (data, length) => {
 
     try {
       if (length > 1) {
         return (
-          <ProgressSlider
-            vertical={isMobile ? true : false}
-            fastDuration={200}
-            duration={6200}
-            activeSlider='bbridge'
-            className=' w-full   rounded-xl overflow-hidden sm:flex mt-2 '
-          >
-            <SliderBtnGroup
-              className='max-w-fit md:relative rounded-bl-xl min-w-[16rem] 
+          <>
+            {
+              isMobile
+                ?
+                
+                <MobileCarousel autoplayInterval={2000} showNavigation={true} tips={data}></MobileCarousel>
+                :
+                <ProgressSlider
+                  vertical={isMobile ? true : false}
+                  fastDuration={200}
+                  duration={6200}
+                  activeSlider='bbridge'
+                  className=' w-full   rounded-xl overflow-hidden sm:flex mt-2 '
+                >
+                  <SliderBtnGroup
+                    className='max-w-fit md:relative rounded-bl-xl min-w-[16rem] 
                bottom-0   w-full z-10 flex
                sm:flex sm:flex-col    sm:dark:bg-white
              dark:bg-black/80 bg-white/80 backdrop-blur-md overflow-hidden '>
-              {data.map((item, index) => (
-                <SliderBtn
-                  key={index}
-                  value={item?.sliderName}
-                  className='text-left flex  flex-col h-full  pt-2 pl-2 pb-4 sm:border-b border sm:pl-3 sm:pb-0 align-top   place-content-start sm:flex-1'
-                  progressBarClass=' left-0 sm:top-0 bottom-0  bg-CIAAN-scas-light sm:w-1 sm:h-full h-4  before:h-full before:w-1 before:'
-                >
-                  <h2 className='relative px-4 rounded w-fit  bg-CIAAN-scas-light text-white my-2'>
-                    {item.title}
-                  </h2>
-                  <p className='text-sm font-medium  text-slate-900 line-clamp-2 pr-2 mb-2'>
-                    {item.desc}
-                  </p>
-                </SliderBtn>
-              ))}
-            </SliderBtnGroup>
+                    {data.map((item, index) => (
+                      <SliderBtn
+                        key={index}
+                        value={item?.sliderName}
+                        className={'text-left flex  flex-col h-full  pt-2 pl-2 pb-4 sm:border-b border sm:pl-3 sm:pb-0 align-top   place-content-start sm:flex-1 bg-contain '}
+                        progressBarClass=' left-0 sm:top-0 bottom-0  bg-CIAAN-scas-light sm:w-1 sm:h-full h-4  before:h-full before:w-1 before:'
+                      >
+                        <h2 className='relative px-4 rounded w-fit  bg-CIAAN-scas-light text-white my-2'>
+                          {item.title}
+                        </h2>
+                        <p className='text-sm font-medium  text-slate-900 line-clamp-2 pr-2 mb-2'>
+                          {item.desc}
+                        </p>
+                      </SliderBtn>
+                    ))}
+                  </SliderBtnGroup>
 
-            <SliderContent className='   '>
-              {data.map((item, index) => (
-                <SliderWrapper
-                  className=' h-full flex w-full bg-slate-200    '
-                  key={index}
-                  value={item?.sliderName}
-                >
-            
-                  <Image
-                    className='rounded-r-xl  h-min w-min place-self-center self-center  '
+                  <SliderContent className='   '>
+                    {data.map((item, index) => (
+                      <SliderWrapper
+                        className=' h-full flex w-full bg-slate-200    '
+                        key={index}
+                        value={item?.sliderName}
+                      >
+                        <motion.div
+                          initial="hidden"
+                          animate="visible"
+                          variants={imgVariants}
+                          className={"h-full flex self-center "}
 
-                    src={item?.img}
+                        >
+                          <Image
 
-                    width={'1440'}
-                    height={'1025'}
-                  />
+                            className={'rounded-r-xl h-[30vh]   w-min place-self-center self-center '}
 
-                </SliderWrapper>
-              ))}
-            </SliderContent>
-          </ProgressSlider>
+                            src={item?.img}
+
+                            width={'1440'}
+                            height={'1025'}
+                          // onLoad={event => {
+                          //   const target = event.target;
+
+                          //   if (target.src.indexOf('data:image/gif;base64') < 0) {
+                          //       setImageIsLoaded(true)
+                          //   }}}
+                          />
+                        </motion.div>
+                      </SliderWrapper>
+                    ))}
+                  </SliderContent>
+                </ProgressSlider >
+            }
+          </>
+
         )
       } else {
         return (

@@ -100,6 +100,7 @@ const page = () => {
         {
           img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_1/create_engagement_step_1_1x.webp',
           title: '1. Set Details',
+          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
           desc: 'Engagement name, targeted project/app, due dates, etc. ',
           sliderName: 'Engagement Settings',
         },
@@ -107,23 +108,27 @@ const page = () => {
           img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_2/create_engagement_step_2_1_5x.webp',
           title: '2. Add Forms',
           desc: 'Forms determining engagement tasks & requirements.',
+          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
           sliderName: 'mountains',
         },
         {
           img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_3/create_engagement_step_3_1_5x.webp',
           title: '3. Assign Users',
+          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
           desc: 'Security Users whose projects are the target of the engagement.',
           sliderName: 'autumn',
         },
         {
           img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_4/create_engagement_step_4_1_5x.webp',
           title: '4. Assign Engineers',
+          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
           sliderName: 'foggy',
           desc: 'Assign Engineer(s) to engage with previously assigned Security Users',
         },
         {
           img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/create_engagement_step_5/create_engagement_step_5_1_5x.webp',
           title: '5. Deployment',
+          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
           sliderName: 'foggyd',
           desc: 'Deploy and monitor engagement status. ',
         },
@@ -143,23 +148,27 @@ const page = () => {
           {
             img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_1/assessment_step_1_1x.webp',
             title: '1. Set Details',
+            imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
             desc: 'Assessment name, targeted project/app, due dates, etc. ',
             sliderName: 'Engagement Settings',
           },
           {
             img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_2/assessment_step_2_1x.webp',
             title: '2. Add Forms',
+            imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
             desc: 'Add pre-made cybersecurity assessment forms.',
             sliderName: 'mountains',
           },
           {
             img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_3/assessment_step_3_1x.webp',
+            imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
             title: '3. Assign Users',
             desc: 'Security Users who will fill out added forms.',
             sliderName: 'autumn',
           },
           {
             img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessment_step_5/assessment_step_5_1x.webp',
+            imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
             title: '4. Assessment Reports',
             sliderName: 'foggy',
             desc: 'Assign Engineer(s) to engage with previously assigned Security Users',
@@ -180,12 +189,14 @@ const page = () => {
       visuals: [
         {
           img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/assessments_management/assessments_management_1_5x.webp',
+          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
           title: 'Assessments',
           desc: 'Spreadsheet layout of all assessments ',
           sliderName: 'Engagement Settings',
         },
         {
           img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/engagements_management/engagements_management_1x.webp',
+          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
           title: 'Engagements',
           desc: 'Spreadsheet layout of all engagements',
           sliderName: 'mountains',
@@ -204,6 +215,7 @@ const page = () => {
       visuals: [
         {
           img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp',
+          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
           title: 'Assessments',
           desc: 'Spreadsheet layout of all assessments ',
           sliderName: 'Engagement Settings',
@@ -220,12 +232,15 @@ const page = () => {
       visuals: [
         {
           img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp',
+          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
+
           title: 'Assessments',
           desc: 'Spreadsheet layout of all assessments ',
           sliderName: 'Engagement Settings',
         },
         {
           img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/engagements_management/engagements_management_1x.webp',
+          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
           title: 'Engagements',
           desc: 'Spreadsheet layout of all engagements',
           sliderName: 'mountains',
@@ -245,6 +260,7 @@ const page = () => {
       visuals: [
         {
           img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/researchtesting/user_research/user_research_1_5x.webp',
+          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
           title: 'Assessments',
           desc: 'Spreadsheet layout of all assessments ',
           sliderName: 'Engagement Settings',
@@ -288,6 +304,7 @@ const page = () => {
       visuals: [
         {
           img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/researchtesting/testing_feedback/testing_feedback_1_5x.webp',
+          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
           title: '1. Set Details',
           desc: 'Engagement name, targeted project/app, due dates, etc. ',
           sliderName: 'Engagement Settings',
@@ -378,7 +395,7 @@ const page = () => {
                     <p className="font-['exo'] Capitalized font-[600] text-[18px]">Sole UX/UI Designer</p>
                   </div>
                   <div class="flex  w-fit flex-row  text-CIAAN-light font-inter text-1 text-bold gap-1.5">
-                    <TimerIcon height='24px' stop='#8FA0BE'/>
+                    <TimerIcon height='24px' stop='#8FA0BE' />
                     <p className="font-['exo'] Capitalized font-[600] text-[18px]">4 Months</p>
                   </div>
                 </span>
@@ -639,7 +656,7 @@ base ">
 
                   </div>
 
-                  <section className=" flex flex-col h-full w-full  gap-[64px] mt-[5vh]">
+                  <section className=" flex flex-col h-full w-full max-w-[1100px] self-center  gap-[64px] mt-[5vh]">
 
 
                     <PortfolioCard Title='Security Controls & Automation System (SCAS)' Section='Project Overview'

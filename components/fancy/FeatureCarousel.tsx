@@ -22,7 +22,6 @@ import FigmaIcon from '@components/generic/Icons/Socials/FigmaIcon.jsx'
 import { HeroHighlight } from '@/components/fancy/HeroHighlight';
 import TeamIcon from '@components/generic/Icons/TeamIcon.jsx'
 import ProjectIcon from '@components/generic/Icons/ProjectIcon.jsx'
-
 import TimerIcon from '@components/generic/Icons/TimerIcon.jsx'
 import {
   forwardRef,
@@ -494,7 +493,7 @@ function FeatureCard({
           bgClass
         )}
       >
-
+asd
         <div className="max-[844px]:ml-6  my-10  ml-16  w-full h-full">
           <AnimatePresence mode="wait">
             <motion.div
