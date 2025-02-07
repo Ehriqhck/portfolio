@@ -57,6 +57,10 @@
 .animated-cards-cursor-scas-fixed{
   background-image: linear-gradient(66deg,#4b002ff7 32%,#e20d588e),url(https://cdn.prod.website-files.com/60ed4aeb79e554d52f0d9608/6383e4d85f097fa47164f397_2022-11-27%2014_28_54-402%20SCAS%20-%20Figma.png);
 }
+.note-scas {
+  border-width: 0px 0px 0px 2px;
+  border-color: #bd91a3;
+}
 .animated-cards-cursor-scas::before {
   @apply pointer-events-none absolute select-none rounded-3xl opacity-0 transition-opacity duration-300 hover:opacity-100;
   background: radial-gradient(

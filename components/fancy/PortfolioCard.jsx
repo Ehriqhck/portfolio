@@ -30,7 +30,7 @@ const DisplaySize = ({ width, height }) => (
 );
 const PortfolioCard = ({ CardContent, Section, Title, Slidercontent, Content: ContentTest, Figma }) => {
 
-  const isMobile = useMediaQuery('(min-width: 640px)');
+  const isMobile = useMediaQuery('(min-width: 1250px)');
   const sliderData = Slidercontent;
   const sliderItems_CIAAN_EngagementFlow = [
     {
@@ -127,8 +127,8 @@ const PortfolioCard = ({ CardContent, Section, Title, Slidercontent, Content: Co
 
             {
               item.note ?
-                <section className=" flex flex-row  mb-2 mt-1.5 gap-0 ml-1   bg-slate-200 ">
-                  <div className="spacer-noH-CIAAN h-full w-[2px] flex  " />
+                <section className="note-scas flex flex-row  mb-2 mt-1.5 gap-0 ml-1  h-  bg-slate-200 ">
+                  {/* <div className="spacer-noH-CIAAN h-full w-[2px] flex  " /> */}
                   <span className=" flex flex-col gap-4 mt-[7px] mb-2 ">
                     <span className=" flex flex-col pl-[6px] gap-[4px] max-w-[1000px]">
                       <h1 className="font-['inter'] font-medium tracking-[0.005em]  text-[16px]">

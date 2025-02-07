@@ -817,7 +817,6 @@ export function FeatureCarousel({
   return (
 
     <div className={cn(props.cardBg, "flex  w-full  max-w-[84vh] self-center  h-fit  flex-col text-left   pb-0 rounded-b-3xl rounded-3xl overflow-hidden")}>
-      <HeroHighlight>
         <span className=" flex flex-col pb-4 h-full space-between w-full px-[27px]  ">
           <p className="text-3xl font-inter   font-[700] mb-[5px] mt-8 leading-tight">{props.title}</p>
           <p className="font-[500] font-inter  text-[16px]  leading-tight">{props.description}</p>
@@ -910,7 +909,6 @@ linear-gradient(348deg, #aa0067 0%, #ffcb3cbf 50%, #7c3c72b5 100%)
           </FeatureCard>
 
         </div>
-      </HeroHighlight>
 
     </div>
   )

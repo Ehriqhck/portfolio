@@ -120,7 +120,6 @@ export const StickyScroll = ({
               </motion.p>
               <div className="w-full h-fit  mx-auto gap-10 flex flex-col">
 
-                <     StripeCard />
                 <FeatureCarousel
                 gradientOverlay='cardInset-scas'
                   cardInsetBg="bg-CIAAN-body"
