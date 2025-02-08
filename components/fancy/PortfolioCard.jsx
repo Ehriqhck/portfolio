@@ -9,7 +9,6 @@ import UnderArrow from '@components/generic/Icons/UnderArrow.jsx'
 import CaseButton from '@components/fancy/CaseButton.jsx'
 import { MobileCarousel } from './MobileCarousel';
 
-import { BentoCard, BentoGrid } from "@/components/fancy/Bento.jsx";
 import { useMediaQuery } from 'usehooks-ts'
 import {
   SliderBtnGroup,
@@ -174,10 +173,17 @@ const PortfolioCard = ({ CardContent, Section, Title, Slidercontent, Content: Co
         return (
           <>
             {
-              isMobile
+              !isMobile
                 ?
                 
-                <MobileCarousel autoplayInterval={2000} showNavigation={true} tips={data}></MobileCarousel>
+                <MobileCarousel
+                 autoplayInterval={5000}
+                  activeColor="#ff329ddb" 
+                 footerClass="MobileCarousel-bg-footer-gradient-scas" 
+                 tipGradient='MobileCarousel-bg-gradient-scas' 
+                 textShadow='MobileCarousel-text-scas'
+                 showNavigation={true} tips={data} backgroundTips={true}
+                  backgroundGradient></MobileCarousel>
                 :
                 <ProgressSlider
                   vertical={isMobile ? true : false}
@@ -187,8 +193,8 @@ const PortfolioCard = ({ CardContent, Section, Title, Slidercontent, Content: Co
                   className=' w-full   rounded-xl overflow-hidden sm:flex mt-2 '
                 >
                   <SliderBtnGroup
-                    className='max-w-fit md:relative rounded-bl-xl min-w-[16rem] 
-               bottom-0   w-full z-10 flex
+                    className=' rounded-bl-xl  
+               bottom-0   w-fit z-10 flex max-w-[19rem]
                sm:flex sm:flex-col    sm:dark:bg-white
              dark:bg-black/80 bg-white/80 backdrop-blur-md overflow-hidden '>
                     {data.map((item, index) => (
@@ -224,7 +230,7 @@ const PortfolioCard = ({ CardContent, Section, Title, Slidercontent, Content: Co
                         >
                           <Image
 
-                            className={'rounded-r-xl h-[30vh]   w-min place-self-center self-center '}
+                            className={'rounded-r-xl h-[32vh]   w-min place-self-center self-center '}
 
                             src={item?.img}
 

@@ -5,16 +5,16 @@ import { ComponentProps } from "react";
 import { useState, useRef } from "react";
 import { AnimatedGroup } from '@/components/fancy/AnimatedGroup.jsx';
 import EhriqhckBlack from 'components/generic/Icons/Socials/EhriqhckBlack.jsx'
-import { BentoPreviews } from '@components/fancy/BentoPreviews.jsx'
 import TeamIcon from '@components/generic/Icons/TeamIcon.jsx'
 import TimerIcon from '@components/generic/Icons/TimerIcon.jsx'
 import UnderArrow from '@components/generic/Icons/UnderArrow.jsx'
 import CaseButton from '@components/fancy/CaseButton.jsx'
-import { BentoCard, BentoGrid } from "@/components/fancy/Bento.jsx";
+import { BentoGrid, BentoGridItem } from "@/components/fancy/BentoGrid.jsx";
 import { useMediaQuery } from 'usehooks-ts'
 import PortfolioCard from '@components/fancy/PortfolioCard.jsx'
 import FigmaIcon from '@components/generic/Icons/Socials/FigmaIcon.jsx'
-
+import { Stream } from "@cloudflare/stream-react";
+import IframeResizer from "@iframe-resizer/react"
 const page = () => {
   const variants = {
     container: {
@@ -363,6 +363,80 @@ const page = () => {
     damping: 30,
     restDelta: 0.001
   });
+  const Skeleton = () => (
+    <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl   dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black"></div>
+  );
+  const items = [
+    {
+      title: "The Dawn of Innovation",
+      description: "Explore the birth of groundbreaking ideas and inventions.",
+      header:
+        <div className=' flex flex-col w-full h-full'>
+          <div className="group-hover/bento:translate-x-2 transition duration-200">
+            {/* {icon} */}
+            <span className=' flex flex-col h-full'>
+              <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2">
+               Assessment & Engagement Workflows
+              </div>
+              <div className="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300">
+                Creation, Management, & Deployment 
+              </div>
+            </span>
+            {/* <video width="100%" muted autoPlay>
+              <source src="https://files.vidstack.io/sprite-fight/720p.mp4" type="video/mp4"></source>
+            </video> */}
+
+
+          </div>
+          {/* <iframe
+                src="https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2F0b7c1165f13cedbcdfd43335e9ee8a27%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false"
+                className="  rounded-2xl w-full  overflow-hidden"
+                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                width={1000}
+              ></iframe> */}
+          {/* <IframeResizer
+                license="GPLv3"
+                src="https://files.vidstack.io/sprite-fight/720p.mp4"
+                style={{ width: '100%',  objectFit: 'fill' }}
+                waitForLoad
+              /> */}
+          <video
+            style={{
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+              overflow: 'hidden'
+            }}
+            className=' rounded-md mt-4'
+            src="https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4"
+            autoPlay muted loop
+            playsInline
+          />
+        </div>
+      ,
+      className: "md:col-span-2 md:row-span-1",
+
+    },
+    {
+      title: "The Digital Revolution",
+      description: "Dive into the transformative power of technology.",
+      header: <Skeleton />,
+      className: "md:col-span-1",
+    },
+    {
+      title: "The Art of Design",
+      description: "Discover the beauty of thoughtful and functional design.",
+      header: <Skeleton />,
+      className: "md:col-span-1",
+    },
+    {
+      title: "The Power of Communication",
+      description:
+        "Understand the impact of effective communication in our lives.",
+      header: <Skeleton />,
+      className: "md:col-span-2",
+    },
+  ];
   return (
     <div className=" w-full   testbg2 h-full mt">
 
@@ -407,7 +481,18 @@ const page = () => {
               </span>
               <span className=" flex flex-col bg-CIAAN-body gap-[64px] pt-8">
 
-
+                <BentoGrid className="  w-full max-w-[1100px]">
+                  {items.map((item, i) => (
+                    <BentoGridItem
+                      key={i}
+                      title={item.title}
+                      description={item.description}
+                      header={item.header}
+                      className={item.className}
+                      icon={item.icon}
+                    />
+                  ))}
+                </BentoGrid>
                 <section className=" flex flex-row w-full 
                   ">
                   <div className=" flex flex-col w-[fit] overflow-visible top-5  ml-6 mr-5  ">

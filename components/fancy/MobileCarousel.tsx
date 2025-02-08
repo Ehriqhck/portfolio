@@ -78,7 +78,7 @@ function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array]
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+      ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
   }
   return shuffled
 }
@@ -123,6 +123,7 @@ export function MobileCarousel({
   backgroundGradient = false,
   shuffleTips = false,
   animateText = true,
+  ...props
 }: LoadingCarouselProps) {
   const [progress, setProgress] = useState(0)
   const [api, setApi] = useState<CarouselApi>()
@@ -197,7 +198,7 @@ export function MobileCarousel({
     },
     [api]
   )
-console.log(tips, "TIPS");
+  console.log(tips, "TIPS");
 
   return (
     <motion.div
@@ -205,7 +206,7 @@ console.log(tips, "TIPS");
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={cn(
-        "w-full max-w-6xl mx-auto rounded-lg bg-muted shadow-[0px_1px_1px_0px_rgba(0,0,0,0.05),0px_1px_1px_0px_rgba(255,252,240,0.5)_inset,0px_0px_0px_1px_hsla(0,0%,100%,0.1)_inset,0px_0px_1px_0px_rgba(28,27,26,0.5)]",
+        "w-full max-w-6xl mt-3 mx-auto rounded-lg bg-muted shadow-[0px_1px_1px_0px_rgba(0,0,0,0.05),0px_1px_1px_0px_rgba(255,252,240,0.5)_inset,0px_0px_0px_1px_hsla(0,0%,100%,0.1)_inset,0px_0px_1px_0px_rgba(28,27,26,0.5)]",
         className
       )}
     >
@@ -239,7 +240,7 @@ console.log(tips, "TIPS");
                       priority
                     />
                     {backgroundGradient && (
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                      <div className={cn(props.tipGradient, "absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent")} />
                     )}
 
                     {backgroundTips ? (
@@ -247,9 +248,8 @@ console.log(tips, "TIPS");
                         variants={textVariants}
                         initial="hidden"
                         animate="visible"
-                        className={`absolute ${
-                          textPosition === "top" ? "top-0" : "bottom-0"
-                        } left-0 right-0 p-4 sm:p-6 md:p-8`}
+                        className={`absolute ${textPosition === "top" ? "top-0" : "bottom-0"
+                          } left-0 right-0 p-4  md:px-8 pt-8 pb-6`}
                       >
                         {displayTips[current]?.url ? (
                           <a
@@ -257,14 +257,18 @@ console.log(tips, "TIPS");
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <p className="text-white text-center md:text-left text-base sm:text-lg md:text-xl lg:text-2xl lg:font-bold tracking-tight font-medium leading-relaxed">
-                              {tip.title}
-                            </p>
+                     
                           </a>
                         ) : (
-                          <p className="text-white text-center md:text-left text-base sm:text-lg md:text-xl lg:text-2xl lg:font-bold tracking-tight font-medium leading-relaxed">
-                            {tip.title}
-                          </p>
+                          <div className={cn(" flex flex-col gap-1 flex-nowrap  ")}>
+                            <p className={cn(props.textShadow, "font-['exo'] font-[600] text-[15px] uppercase text-light2")}>
+                              {tip.title}
+                            </p>
+                            <p className="text-center font-['inter'] font-[600] text-[18px] md:text-left text-light2">
+                              {tip.desc}
+                            </p>
+                          </div>
+
                         )}
                       </motion.div>
                     ) : null}
@@ -281,8 +285,8 @@ console.log(tips, "TIPS");
           )}
         </Carousel>
         <div
-          className={cn(
-            "bg-muted p-4 ",
+          className={cn(props.footerClass,
+            "p-4 ",
             showIndicators && !backgroundTips ? "lg:py-2 lg:px-4 " : ""
           )}
         >
@@ -299,13 +303,12 @@ console.log(tips, "TIPS");
                 {(displayTips || []).map((_, index) => (
                   <motion.button
                     key={index}
-                    className={`h-1 w-8 flex-shrink-0 rounded-full ${
-                      index === current ? "bg-muted" : "bg-primary"
-                    }`}
+                    className={`h-1 w-8 flex-shrink-0 rounded-full ${index === current ? props.activeColor : props.activeColor
+                      }`}
                     initial={false}
                     animate={{
                       backgroundColor:
-                        index === current ? "#3D3D3E" : "#E6E6E4",
+                        index === current ? props.activeColor : "#E6E6E4",
                     }}
                     transition={{ duration: 0.5 }}
                     onClick={() => handleSelect(index)}
@@ -316,8 +319,8 @@ console.log(tips, "TIPS");
             )}
             <div className="flex items-center space-x-2 text-primary whitespace-nowrap">
               {backgroundTips ? (
-                <span className="text-sm font-medium">
-                  Tip {current + 1}/{displayTips?.length || 0}
+                <span className="text-sm font-bold font-['exo'] text-light2 uppercase">
+                   Step {current + 1}/{displayTips?.length || 0}
                 </span>
               ) : (
                 <div className="flex flex-col">
@@ -326,7 +329,7 @@ console.log(tips, "TIPS");
                       href={displayTips[current]?.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-base lg:text-2xl xl:font-semibold tracking-tight font-medium"
+                      className="text-light2 lg:text-2xl xl:font-semibold tracking-tight font-medium"
                     >
                       {animateText ? (
                         <TextScramble
@@ -341,7 +344,7 @@ console.log(tips, "TIPS");
                       )}
                     </a>
                   ) : (
-                    <span className="text-base lg:text-2xl xl:font-semibold tracking-tight font-medium">
+                    <span className="text-light2  lg:text-2xl xl:font-semibold tracking-tight font-medium">
                       {animateText ? (
                         <TextScramble
                           key={displayTips[current]?.text}
