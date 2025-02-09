@@ -43,7 +43,6 @@ import { useWindowSize } from "@components/fancy/hook-use-window-size";
 import { Box, ContentBox } from "@components/fancy/SnapScrollBox";
 import { FancyTab } from "@components/fancy/FancyTab";
 import FancyTabv2 from "@components/fancy/FancyTabv2";
-import BentoPreviews from '@components/fancy/BentoPreviews'
 import {
   SliderBtnGroup,
   ProgressSlider,
@@ -253,7 +252,7 @@ const Page = () => {
           className=" h-[100vh] w-[100vw]  "
           src="https://www.youtube.com/watch?v=_cMxraX_5RE">
         </video> */}
-                  <FancyTabv2 />
+      <FancyTabv2 />
 
       <div className=" flex flex-col w-full ">
 
@@ -270,41 +269,41 @@ const Page = () => {
             className="  h-fit w-[100vw] flex  flex-col px-[128px]  ">
             <div className="flex flex-col   h-fit
                 "
-              // variants={{
-              //   container: {
-              //     visible: {
-               
-              //     },
-              //   },
-              //   item: {
-              //     hidden: {
-              //       opacity: 0,
-              //       filter: 'blur(8px)',
-              //       y: -60,
-              //       rotateX: 90,
+            // variants={{
+            //   container: {
+            //     visible: {
 
-              //     },
-              //     visible: {
-              //       opacity: 1,
+            //     },
+            //   },
+            //   item: {
+            //     hidden: {
+            //       opacity: 0,
+            //       filter: 'blur(8px)',
+            //       y: -60,
+            //       rotateX: 90,
 
-              //       filter: 'blur(0px)',
-              //       y: 0,
-              //       rotateX: 0,
-              //       transition: {
-              //         type: 'spring',
-              //         bounce: 0.3,
-              //         duration: 1.6,
-              //       },
-              //     },
-              //   },
-              // }}
+            //     },
+            //     visible: {
+            //       opacity: 1,
+
+            //       filter: 'blur(0px)',
+            //       y: 0,
+            //       rotateX: 0,
+            //       transition: {
+            //         type: 'spring',
+            //         bounce: 0.3,
+            //         duration: 1.6,
+            //       },
+            //     },
+            //   },
+            // }}
             >
 
               <div
                 // ref={navRef1}
 
                 // key={1}
-                 className="flex flex-row w-full gap-[36px]  mt-[12vh] h-fit ">
+                className="flex flex-row w-full gap-[36px]  mt-[12vh] h-fit ">
 
 
 

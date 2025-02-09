@@ -3,12 +3,11 @@ import { ComponentProps } from "react";
 import { useState, useRef } from "react";
 import { AnimatedGroup } from '@/components/fancy/AnimatedGroup.jsx';
 import EhriqhckBlack from 'components/generic/Icons/Socials/EhriqhckBlack.jsx'
-import { BentoPreviews } from '@components/fancy/BentoPreviews.jsx'
 import TeamIcon from '@components/generic/Icons/TeamIcon.jsx'
 import TimerIcon from '@components/generic/Icons/TimerIcon.jsx'
 import UnderArrow from '@components/generic/Icons/UnderArrow.jsx'
 import CaseButton from '@components/fancy/CaseButton.jsx'
-import { BentoCard, BentoGrid } from "@/components/fancy/Bento.jsx";
+import { BentoCard, BentoGrid } from "@/components/fancy/BentoGrid.jsx";
 import { useMediaQuery } from 'usehooks-ts'
 import PortfolioCard from '@components/fancy/PortfolioCard.jsx'
 import FigmaIcon from '@components/generic/Icons/Socials/FigmaIcon.jsx'

@@ -288,6 +288,75 @@ const page = () => {
     },
 
   ];
+  const sliderItems_CIAAN_DesignSystem = [
+
+    {
+      // figma:"https://embed.figma.com/proto/5yh2ZI7ywU6dsPP9m8wd1r/402-SCAS?page-id=136%3A9531&node-id=452-86817&viewport=2763%2C-1433%2C0.26&scaling=contain&content-scaling=fixed&starting-point-node-id=452%3A86817&show-proto-sidebar=1&embed-host=share",
+      heading: 'Visual Approach',
+      description: <p >
+        The aim was to tailor the visual style to the T-Mobile brand while prioritizing function over form. To this end, I decided to simply use T-Mobile's characteristic hot pink for CTAs, brand text, and other elements that deserve higher visual salience.         </p>,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/genericComponents.png',
+          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
+          title: '1. Set Details',
+          desc: 'Engagement name, targeted project/app, due dates, etc. ',
+          sliderName: 'Engagement Settings',
+        },
+
+      ]
+    },
+
+    {
+      heading: 'Componentize as I go',
+      description: <p>
+        For rapid design iteration I componentized and prototyped interface elements as I designed them in turn instead of starting with low or mid-fi drafts for the sake of time. This was necessary from the start since there are many interface elements repeatedly used (such as the ID tags) across flows that I would have to otherwise update individually. This eventually enabled me to create various templates for pages and nested components early on using these building blocks as shown below.  </p>,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/pageComponents.png',
+          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
+          title: '1. Set Details',
+          desc: 'Engagement name, targeted project/app, due dates, etc. ',
+          sliderName: 'Engagement Settings',
+        },
+
+      ]
+    },
+    {
+      // figma:"https://embed.figma.com/proto/5yh2ZI7ywU6dsPP9m8wd1r/402-SCAS?page-id=136%3A9531&node-id=452-86817&viewport=2763%2C-1433%2C0.26&scaling=contain&content-scaling=fixed&starting-point-node-id=452%3A86817&show-proto-sidebar=1&embed-host=share",
+      heading: 'Spreadsheet View',
+      description:
+       <p >
+        A set of sheet components were created, but the interface for advanced filtering and pagination were ommitted in favor of sticking to the table component already provided by the UI library CIAAN was using.
+           </p>,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/sheetComponents.png',
+          imgClass: "h-[50%]",
+          title: '1. Set Details',
+          desc: 'Engagement name, targeted project/app, due dates, etc. ',
+          sliderName: 'Engagement Settings',
+        },
+
+      ]
+    },
+    {
+      // figma:"https://embed.figma.com/proto/5yh2ZI7ywU6dsPP9m8wd1r/402-SCAS?page-id=136%3A9531&node-id=452-86817&viewport=2763%2C-1433%2C0.26&scaling=contain&content-scaling=fixed&starting-point-node-id=452%3A86817&show-proto-sidebar=1&embed-host=share",
+      heading: 'Status-dependant Variants',
+      description: <p >
+        Component variants were created for interface elements that are functionally dependant on some system status (such as save states).    </p>,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/statusComponents.png',
+          imgClass: "h-[50%]",
+          title: '1. Set Details',
+          desc: 'Engagement name, targeted project/app, due dates, etc. ',
+          sliderName: 'Engagement Settings',
+        },
+
+      ]
+    },
+  ];
   const sliderItems_CIAAN_UserTesting = [
 
     {
@@ -368,72 +437,65 @@ const page = () => {
   );
   const items = [
     {
-      title: "The Dawn of Innovation",
-      description: "Explore the birth of groundbreaking ideas and inventions.",
+      title: "Assessment & Engagement Workflows",
+      description: " Creation, Management, & Deployment ",
+      src: "",
       header:
-        <div className=' flex flex-col w-full h-full'>
-          <div className="group-hover/bento:translate-x-2 transition duration-200">
-            {/* {icon} */}
-            <span className=' flex flex-col h-full'>
-              <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2">
-               Assessment & Engagement Workflows
-              </div>
-              <div className="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300">
-                Creation, Management, & Deployment 
-              </div>
-            </span>
-            {/* <video width="100%" muted autoPlay>
-              <source src="https://files.vidstack.io/sprite-fight/720p.mp4" type="video/mp4"></source>
-            </video> */}
-
-
-          </div>
-          {/* <iframe
-                src="https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2F0b7c1165f13cedbcdfd43335e9ee8a27%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false"
-                className="  rounded-2xl w-full  overflow-hidden"
-                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                width={1000}
-              ></iframe> */}
-          {/* <IframeResizer
-                license="GPLv3"
-                src="https://files.vidstack.io/sprite-fight/720p.mp4"
-                style={{ width: '100%',  objectFit: 'fill' }}
-                waitForLoad
-              /> */}
-          <video
-            style={{
-              objectFit: 'cover',
-              width: '100%',
-              height: '100%',
-              overflow: 'hidden'
-            }}
-            className=' rounded-md mt-4'
-            src="https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4"
-            autoPlay muted loop
-            playsInline
-          />
-        </div>
+        <video
+          style={{
+            objectFit: 'cover',
+            width: '100%',
+            height: '100%',
+            overflow: 'hidden'
+          }}
+          className=' rounded-lg'
+          src="https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4"
+          autoPlay muted loop
+          playsInline
+        />
       ,
       className: "md:col-span-2 md:row-span-1",
 
     },
     {
-      title: "The Digital Revolution",
-      description: "Dive into the transformative power of technology.",
-      header: <Skeleton />,
+      title: "System UI & Branding",
+      description: "Componentized Design System with Page Templates",
+      header: <div
+        className='bg-white mt-1 bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/designSystem_feature_1_5x.webp)] h-full mt-1 object-fill bg-cover bg-no-repeat w-full  rounded-lg   overflow-hidden'
+        src="https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/designSystem_feature_1_5x.webp"
+
+      // alt={item.desc}
+      />,
       className: "md:col-span-1",
     },
     {
-      title: "The Art of Design",
-      description: "Discover the beauty of thoughtful and functional design.",
-      header: <Skeleton />,
+      title: "Security User Dashboard",
+      description: "User-facing dashboard for managing assigned assessments.",
+      header: <div
+        className='bg-white bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)] h-full mt-1 object-fill bg-cover bg-no-repeat w-full  rounded-lg  overflow-hidden'
+        src="https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/designSystem_feature_1_5x.webp"
+
+      // alt={item.desc}
+      />,
       className: "md:col-span-1",
     },
     {
-      title: "The Power of Communication",
+      title: "Spreadsheet Management",
+      src: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/afa43c86b161718c4dcf69f8ef6240ed/downloads/default.mp4",
       description:
         "Understand the impact of effective communication in our lives.",
-      header: <Skeleton />,
+      header: <video
+        style={{
+          objectFit: 'cover',
+          width: '100%',
+          height: '100%',
+          overflow: 'hidden'
+        }}
+        className=' rounded-lg mt-1'
+        src="https://customer-ct1udu2wic3j3wru.cloudflarestream.com/afa43c86b161718c4dcf69f8ef6240ed/downloads/default.mp4"
+        autoPlay muted loop
+        playsInline
+      />,
       className: "md:col-span-2",
     },
   ];
@@ -450,8 +512,8 @@ const page = () => {
             key={2} className="flex flex-col w-full    h-full  ">
             <div className="   flex flex-col w-fit h-fit  ">
 
-              <div className=" pt-[16vh]  px-8 flex flex-col gap-[64px] bg-CIAAN-header">
-                <span className="flex text-CIAAN-light flex-col  h-fit leading-tight  pt-32">
+              <div className=" pt-[20vh]  px-14 flex flex-col  bg-CIAAN-header">
+                <span className="flex text-CIAAN-light  mb-8 flex-col  h-fit leading-tight  pt-32">
 
                   <p className="text-CIAAN-light text-left  font-inter text-[32px] text-bold font-bold">
                     CIAAN Security
@@ -463,7 +525,7 @@ const page = () => {
                     Automation Platform
                   </p>
                 </span>
-                <span className="flex flex-row gap-8">
+                <span className="flex flex-row gap-8 mb-16">
                   <div class="flex  w-fit flex-row  text-CIAAN-light font-inter text-1 text-bold gap-1.5">
                     <TeamIcon height='24px' stop='#8FA0BE' />
                     <p className="font-['exo'] Capitalized font-[600] text-[18px]">Sole UX/UI Designer</p>
@@ -473,15 +535,7 @@ const page = () => {
                     <p className="font-['exo'] Capitalized font-[600] text-[18px]">4 Months</p>
                   </div>
                 </span>
-
-              </div>
-
-              <span className="homepage-bg-gradient-seam h-32  w-screen mb-[-4rem] ">
-
-              </span>
-              <span className=" flex flex-col bg-CIAAN-body gap-[64px] pt-8">
-
-                <BentoGrid className="  w-full max-w-[1100px]">
+                <BentoGrid className="  w-full max-w-[1300px] ml-1">
                   {items.map((item, i) => (
                     <BentoGridItem
                       key={i}
@@ -490,12 +544,33 @@ const page = () => {
                       header={item.header}
                       className={item.className}
                       icon={item.icon}
+                      cardBg="featureCard-bg-scas"
                     />
                   ))}
                 </BentoGrid>
+              </div>
+
+              <span className="homepage-bg-gradient-seam h-32  w-screen mb-[-4rem] ">
+
+              </span>
+              <span className=" flex flex-col bg-CIAAN-body gap-[64px] pt-8">
+
+                {/* <BentoGrid className="  w-full max-w-[1300px] mx-12">
+                  {items.map((item, i) => (
+                    <BentoGridItem
+                      key={i}
+                      title={item.title}
+                      description={item.description}
+                      header={item.header}
+                      className={item.className}
+                      icon={item.icon}
+                      cardBg="featureCard-bg-scas"
+                    />
+                  ))}
+                </BentoGrid> */}
                 <section className=" flex flex-row w-full 
                   ">
-                  <div className=" flex flex-col w-[fit] overflow-visible top-5  ml-6 mr-5  ">
+                  <div className=" flex flex-col w-[fit] overflow-visible top-5  pl-14 mr-8 pt-24  ">
 
                     {/* navbar */}
                     <div className="place-self-start	max-w-[1446]  self-start top-5 uppercase   font-['Exo_2'] tracking-[0]
@@ -677,41 +752,13 @@ base ">
 
                               />
                             </svg>
-                            <p className=""><a href="#500Keybinds">Security Assessments</a></p>
+                            <p className=""><a href="#500Keybinds">Assessment Delivery</a></p>
 
 
                           </div>
-                          <div className=" ml-[14px] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                            <div className=" -mt-[8px] -ml-[6px] ">
-                              <UnderArrow fill="#ffffff25" height='18px' />
 
-                            </div>
-                            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                              <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicator"
-                                style={{ pathLength: scrollYProgressNav3 }}
-                              />
-                              <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicatorBg"
-
-                              />
-                            </svg>
-                            <p className=""><a href="#500Keybinds">Security Engagements</a></p>
-
-
-                          </div>
 
                         </span>
-
                         <div className="px-[5px] py-[3px]  flex flex-row gap-[2px] h-fit self-start items-center ">
                           <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
                             <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
@@ -731,7 +778,29 @@ base ">
 
                             />
                           </svg>
-                          <p className=""> <a href="#DeviceInputs">Device Inputs</a></p>
+                          <p className=""> <a href="#DeviceInputs">Design System</a></p>
+
+                        </div>
+                        <div className="px-[5px] py-[3px]  flex flex-row gap-[2px] h-fit self-start items-center ">
+                          <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+                            <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+                            <motion.circle
+                              cx="50"
+                              cy="50"
+                              r="30"
+                              pathLength="1"
+                              className="indicator"
+                              style={{ pathLength: scrollYProgressNav4 }}
+                            />        <motion.circle
+                              cx="50"
+                              cy="50"
+                              r="30"
+                              pathLength="1"
+                              className="indicatorBg"
+
+                            />
+                          </svg>
+                          <p className=""> <a href="#DeviceInputs">User Testing</a></p>
 
                         </div>
                       </span>
@@ -770,6 +839,11 @@ base ">
                       Section={"Security User"}
                       Title={'Assessment Form Delivery'}
                       CardContent={sliderItems_CIAAN_SecurityUserDashboard}
+                    />
+                    <PortfolioCard
+                      Section={"Design System"}
+                      Title={''}
+                      CardContent={sliderItems_CIAAN_DesignSystem}
                     />
                     <PortfolioCard
                       Section={"User Testing"}
