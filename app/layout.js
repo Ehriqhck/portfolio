@@ -34,10 +34,11 @@ const RootLayout = ({ children }) => (
   <html lang='en' className='dark'>
     <body>
       <Provider>
-        <div className='main'>
+        
+        {/* <div className='main'>
           <div className='gradient' />
-        </div>
-        <main className={'app '}>
+        </div> */}
+        <main >
           {/* <MenuNav/> */}
 
           {/* <Header></Header> */}

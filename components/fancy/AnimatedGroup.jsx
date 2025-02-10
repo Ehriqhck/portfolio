@@ -9,6 +9,7 @@ import {
 import { useRef } from 'react';
 import React from 'react';
 import { InView } from './InView';
+import { throttle } from './throttle';
 // type PresetType =
 //   | 'fade'
 //   | 'slide'
