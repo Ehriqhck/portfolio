@@ -811,7 +811,7 @@ export function FeatureCarousel({
 
   return (
 
-    <div className={cn(props.cardBg, "flex  w-full   h-full   flex-col text-left    overflow-hidden")}>
+    <div className={cn(props.cardBg, "flex  w-full  py-[20vh]  h-full   flex-col text-left    overflow-hidden")}>
       <span className=" flex flex-col pb-4 h-full space-between w-full px-14  ">
         <p className="text-[2.5rem] font-inter   font-[700] mb-2 mt-10 leading-tight">{props.title}</p>
         <p className="font-[500] font-inter  text-[1.15rem] mb-3 leading-tight">{props.description}</p>

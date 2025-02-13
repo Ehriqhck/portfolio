@@ -338,7 +338,7 @@ const Schedule = () => {
             className="mx-auto   flex flex-col text-white bg-CIAAN-body"
         >
 
-        
+
             <ScheduleItem title="Starlink" date="Dec 20th" location="Texas"
                 sectionContent={
                     <FeatureCarousel
@@ -353,36 +353,36 @@ const Schedule = () => {
 
                         iconStop="#E3EDFF"
                         overview=<p className="text-CIAAN-light font-['exo']">SCAS (Security Controls & Automation System) is a platform of cybersecurity tools initially tailored for T-Mobile Security Staff.<br></br>  Here, I designed SCAS's workflow for automating assessment & engagement creation & management.</p>
-                        insetCardBorderClassName="animated-cards-border-bg-scads"
+                        insetCardBorderClassName="min-w-fit w-full animated-cards-border-bg-scads"
                         // Example classes for responsive layout
                         step1img1Class={cn(
                             " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[80%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]   md:left-[3%]  mt-8",
+                            "  rounded-[10px]    md:left-[0%]  mt-8",
                             "md:group-hover:translate-y-2"
                         )}
                         step1img2Class={cn(
                             " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[80%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]   md:left-[3%]  mt-8",
+                            "  rounded-[10px]   md:left-[0%]  mt-8",
                             "md:group-hover:translate-y-2"
                         )}
                         step2img1Class={cn(
                             " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[80%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]   md:left-[3%]  mt-8",
+                            "  rounded-[10px]   md:left-[0%]  mt-8",
                             "md:group-hover:translate-y-2"
                         )}
                         step2img2Class={cn(
                             " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[80%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]   md:left-[3%]  mt-8",
+                            "  rounded-[10px]   md:left-[0%]  mt-8",
                             "md:group-hover:translate-y-2"
                         )}
                         step3imgClass={cn(
                             " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[80%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]   md:left-[3%]  mt-8",
+                            "  rounded-[10px]   md:left-[0%]  mt-8",
                             "md:group-hover:translate-y-2"
                         )}
                         step4imgClass={cn(
                             " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[80%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]   md:left-[3%]  mt-8",
+                            "  rounded-[10px]   md:left-[0%]  mt-8",
                             "md:group-hover:translate-y-2"
                         )}
                         // Example images
@@ -402,7 +402,7 @@ const Schedule = () => {
                     />
                 }
             />
-    <ScheduleItem title="NG-21" date="Dec 9th" location="Florida"
+            <ScheduleItem title="NG-21" date="Dec 9th" location="Florida"
                 sectionContent={
                     <FeatureCarousel
                         items={itemsScas}
@@ -419,33 +419,31 @@ const Schedule = () => {
                         insetCardBorderClassName="animated-cards-borsder-bg-tri"
                         // Example classes for responsive layout
                         step1img1Class={cn(
-                            "pointer-events-none w-[80%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]  top-[57%] md:left-[2%] md:top-[8%] sm:top-[3%]",
-                            "md:group-hover:translate-y-2"
+
                         )}
                         step1img2Class={cn(
                             "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]  top-[57%] md:left-[2%] md:top-[8%]",
+                            "  rounded-[10px]  top-[57%]  md:top-[8%]",
                             "md:group-hover:translate-y-2"
                         )}
                         step2img1Class={cn(
                             "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]  top-[57%] md:left-[2%] md:top-[8%]",
+                            "  rounded-[10px]  top-[57%]  md:top-[8%]",
                             "md:group-hover:translate-y-2"
                         )}
                         step2img2Class={cn(
                             "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]  top-[57%] md:left-[2%] md:top-[8%]",
+                            "  rounded-[10px]  top-[57%]  md:top-[8%]",
                             "md:group-hover:translate-y-2"
                         )}
                         step3imgClass={cn(
                             "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]  top-[57%] md:left-[2%] md:top-[8%]",
+                            "  rounded-[10px]  top-[57%]  md:top-[8%]",
                             "md:group-hover:translate-y-2"
                         )}
                         step4imgClass={cn(
                             "pointer-events-none w-[90%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]  top-[57%] md:left-[2%] md:top-[7%]",
+                            "  rounded-[10px]  top-[57%]  md:top-[7%]",
                             "md:group-hover:translate-y-2"
                         )}
                         // Example images
