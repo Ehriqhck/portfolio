@@ -326,9 +326,9 @@ const page = () => {
       // figma:"https://embed.figma.com/proto/5yh2ZI7ywU6dsPP9m8wd1r/402-SCAS?page-id=136%3A9531&node-id=452-86817&viewport=2763%2C-1433%2C0.26&scaling=contain&content-scaling=fixed&starting-point-node-id=452%3A86817&show-proto-sidebar=1&embed-host=share",
       heading: 'Spreadsheet View',
       description:
-       <p >
-        A set of sheet components were created, but the interface for advanced filtering and pagination were ommitted in favor of sticking to the table component already provided by the UI library CIAAN was using.
-           </p>,
+        <p >
+          A set of sheet components were created, but the interface for advanced filtering and pagination were ommitted in favor of sticking to the table component already provided by the UI library CIAAN was using.
+        </p>,
       visuals: [
         {
           img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/sheetComponents.png',
@@ -502,8 +502,7 @@ const page = () => {
   return (
     <div className=" w-full   testbg2 h-full mt">
 
-      <AnimatedGroup className="flex flex-col text-CIAAN-dark 
-                  "
+      <AnimatedGroup className="flex flex-col text-CIAAN-dark     "
         variants={
           variants}
       >

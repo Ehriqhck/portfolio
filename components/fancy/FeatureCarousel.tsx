@@ -148,36 +148,36 @@ const getSteps = (str) => {
         ]
       )
       break;
-      case 'tri':
-        return (
-          [
-            {
-              id: "1",
-              name: "Security Assessments",
-              title: "Assessment Creation & Management",
-              description: "Scaleable 5-step workflow for Security Staff to adminster assessments ",
-            },
-            {
-              id: "2",
-              name: "Security Engagements",
-              title: "Engagement Creation & Management",
-              description: "Scaleable 5-step workflow for Security Staff to deploy engagements with Security Users",
-            },
-            {
-              id: "3",
-              name: "Assessment Forms",
-              title: "Google Forms but for security assessments ",
-              description: "For Security Users to fill out assigned forms",
-            },
-            {
-              id: "4",
-              name: "Security User Dashboard",
-              title: "Dashboard for Security Users to view their assigned assessments",
-              description: "Security User's ",
-            },
-          ]
-        )
-        break;
+    case 'tri':
+      return (
+        [
+          {
+            id: "1",
+            name: "Security Assessments",
+            title: "Assessment Creation & Management",
+            description: "Scaleable 5-step workflow for Security Staff to adminster assessments ",
+          },
+          {
+            id: "2",
+            name: "Security Engagements",
+            title: "Engagement Creation & Management",
+            description: "Scaleable 5-step workflow for Security Staff to deploy engagements with Security Users",
+          },
+          {
+            id: "3",
+            name: "Assessment Forms",
+            title: "Google Forms but for security assessments ",
+            description: "For Security Users to fill out assigned forms",
+          },
+          {
+            id: "4",
+            name: "Security User Dashboard",
+            title: "Dashboard for Security Users to view their assigned assessments",
+            description: "Security User's ",
+          },
+        ]
+      )
+      break;
     default:
       return ([])
       break;
@@ -267,7 +267,7 @@ interface AnimatedStepImageProps extends StepImageProps {
  */
 function useNumberCycler(
   totalSteps: number = TOTAL_STEPS,
-  interval: number = 400000
+  interval: number = 800000
 ) {
   const [currentNumber, setCurrentNumber] = useState(0)
   const [isManualInteraction, setIsManualInteraction] = useState(false)
@@ -384,24 +384,101 @@ const StepImage = forwardRef<
     { src, alt, className, style, width = 1200, height = 630, ...props },
     ref
   ) => {
-    return (
-      <Image
-        ref={ref}
-        alt={alt}
-        className={className}
-        src={src}
-        width={width}
-        height={height}
-        style={{
-          position: "absolute",
-          userSelect: "none",
-          maxWidth: "unset",
-          ...style,
-        }}
-        {...props}
-      />
 
-    )
+    switch (props.video) {
+      case true:
+        <div
+          ref={ref}
+          className={cn(className, 'HeroHomeBg-scas object-cover '
+          )}
+
+          style={{
+            position: "absolute",
+            userSelect: "none",
+            maxWidth: "unset",
+            ...style,
+          }}
+          {...props}
+        >
+          <video
+            style={{
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+              overflow: 'hidden',
+              position: "absolute",
+              userSelect: "none",
+              maxWidth: "unset",
+              ...style,
+            }}
+            className=' rounded-3xl'
+            src="https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4"
+            autoPlay muted loop
+            playsInline
+          />
+
+        </div>
+
+        break;
+
+      default:
+        return (
+          // <div
+          //   ref={ref}
+          //   className={className}
+
+          //   style={{
+          //     position: "absolute",
+          //     userSelect: "none",
+          //     maxWidth: "unset",
+          //     ...style,
+          //   }}
+          //   {...props}
+          // >
+          <div ref={ref}
+            style={{
+              // objectFit: 'cover',
+        
+              position: "absolute",
+
+              maxWidth: "unset",
+              ...style,
+            }}
+            className={className + ' ' + ' rounded-3xl  overflow-hidden HeroHomeBg-scas'}
+          >
+            <video
+              style={{
+                objectFit: 'cover',
+                width: '100%',
+                height: '100%',
+
+              }}
+              className=' rounded-3xl '
+              src="https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4"
+              autoPlay muted loop
+              playsInline
+            />
+          </div>
+          // <Image
+          //   ref={ref}
+          //   alt={alt}
+          //   className={className}
+          //   src={src}
+          //   width={width}
+          //   height={height}
+          //   style={{
+          //     position: "absolute",
+          //     userSelect: "none",
+          //     maxWidth: "unset",
+          //     ...style,
+          //   }}
+          //   {...props}
+          // />
+
+        )
+        break;
+    }
+
   }
 )
 StepImage.displayName = "StepImage"
@@ -414,7 +491,7 @@ const MotionStepImage = motion(StepImage)
  */
 const AnimatedStepImage = ({
   preset = "fadeInScale",
-  delay = 0,
+  delay = 0.2,
   onAnimationComplete,
   ...props
 }: AnimatedStepImageProps) => {
@@ -476,7 +553,9 @@ function FeatureCard({
   }
   return (
     <motion.div
-      className="animated-cards-cursor-scas animated-cards-cursor-scas-fixed relative w-full  rounded-3xl  aspect-[3/2]"
+      // className="animated-cards-cursor-scas overflow-hidden animated-cards-cursor-scas-fixed! relative w-full  rounded-3xl  aspect-[3/2]"
+      className=" overflow-hidden relative w-full  rounded-3xl  aspect-[3/2]"
+
       onMouseMove={handleMouseMove}
       style={
         {
@@ -493,8 +572,8 @@ function FeatureCard({
           bgClass
         )}
       >
-asd
-        <div className="max-[844px]:ml-6  my-10  ml-16  w-full h-full">
+
+        <div className="max-[844px]:ml-6  my-10  ml-16  w-full h-full ">
           <AnimatePresence mode="wait">
             <motion.div
               key={step}
@@ -691,46 +770,9 @@ export function FeatureCarousel({
   const renderStepContent = () => {
     const content = () => {
       switch (step) {
-        case 0:
-          /**
-           * Layout: Two images side by side
-           * - Left image (step1img1): 50% width, positioned left
-           * - Right image (step1img2): 60% width, positioned right
-           * Animation:
-           * - Left image slides in from left
-           * - Right image slides in from right with 0.1s delay
-           * - Both use spring animation for smooth motion
-           */
-          return (
-            <motion.div
-              className="relative w-full h-full"
-              onAnimationComplete={handleAnimationComplete}
-            >
-              <AnimatedStepImage
-                alt={image.alt}
-                className={clsx(step1img1Class)}
-                src={image.step1light1}
-                preset="slideInLeft"
-              />
-              {/* <AnimatedStepImage
-                alt={image.alt}
-                className={clsx(step1img2Class)}
-                src={image.step1light2}
-                preset="slideInRight"
-                delay={0.1}
-              /> */}
-            </motion.div>
-          )
-        case 1:
-          /**
-           * Layout: Two images with overlapping composition
-           * - First image (step2img1): 50% width, positioned left
-           * - Second image (step2img2): 40% width, overlaps first image
-           * Animation:
-           * - Both images fade in and scale up from 95%
-           * - Second image has 0.1s delay for staggered effect
-           * - Uses spring physics for natural motion
-           */
+
+
+        default:
           return (
             <motion.div
               className="relative w-full h-full"
@@ -751,53 +793,6 @@ export function FeatureCarousel({
               /> */}
             </motion.div>
           )
-        case 2:
-          /**
-           * Layout: Single centered image
-           * - Full width image (step3img): 90% width, centered
-           * Animation:
-           * - Fades in and scales up from 95%
-           * - Uses spring animation for smooth scaling
-           * - Triggers animation complete callback
-           */
-          return (
-            <AnimatedStepImage
-              alt={image.alt}
-              className={clsx(step3imgClass, "rounded-2xl")}
-              src={image.step3light}
-              preset="fadeInScale"
-              onAnimationComplete={handleAnimationComplete}
-            />
-          )
-        case 3:
-          /**
-           * Layout: Final showcase layout
-           * - Container: Centered, 60% width on desktop
-           * - Image (EhriqhckWhite): 90% width, positioned slightly up
-           * Animation:
-           * - Container fades in and scales up
-           * - Image follows with 0.1s delay
-           * - Both use spring physics for natural motion
-           */
-          return (
-            <motion.div
-              className={clsx(
-                "absolute flex w-full flex-col ", step4imgClass
-              )}
-              {...ANIMATION_PRESETS.fadeInScale}
-              onAnimationComplete={handleAnimationComplete}
-            >
-              <AnimatedStepImage
-                alt={image.alt}
-                className={clsx(step4imgClass, "rounded-2xl", "pointer-events-none  overflow-hidden  ")}
-                src={image.step4light}
-                preset="fadeInScale"
-                delay={0.1}
-              />
-            </motion.div>
-          )
-        default:
-          return null
       }
     }
 
@@ -816,99 +811,98 @@ export function FeatureCarousel({
 
   return (
 
-    <div className={cn(props.cardBg, "flex  w-full  max-w-[84vh] self-center  h-fit  flex-col text-left   pb-0 rounded-b-3xl rounded-3xl overflow-hidden")}>
-        <span className=" flex flex-col pb-4 h-full space-between w-full px-[27px]  ">
-          <p className="text-3xl font-inter   font-[700] mb-[5px] mt-8 leading-tight">{props.title}</p>
-          <p className="font-[500] font-inter  text-[16px]  leading-tight">{props.description}</p>
-          {props.button}
+    <div className={cn(props.cardBg, "flex  w-full   h-full   flex-col text-left    overflow-hidden")}>
+      <span className=" flex flex-col pb-4 h-full space-between w-full px-14  ">
+        <p className="text-[2.5rem] font-inter   font-[700] mb-2 mt-10 leading-tight">{props.title}</p>
+        <p className="font-[500] font-inter  text-[1.15rem] mb-3 leading-tight">{props.description}</p>
+        {props.button}
 
-          <div className={cn(props.descriptionClassName, " flex flex-col mt-5  pb-[16px] pt-3 px-2.5 w-full max-w-[1000px]",)} >
+        <div className={cn(props.descriptionClassName, " flex flex-col mt-5  pb-[16px] pt-3 px-2.5 w-full max-w-[1000px]",)} >
 
-            <span className=" ml-1 mt-0.5 mb-1 font-['Exo_2'] tracking-[0.045em] w-full capitalize text-[16px] h-fit self-start">
-              <div className="flex flex-col gap-3 w-full ">
-                <h3 className="font-[550] text-[14px] leading-tight   ml-[8px] text-CIAAN-light opacity-[85%]">
-                  Last Updated 2/3/2024
-                </h3>
-                <h3 className="font-[550] text-[14px] leading-tight w-full  text-CIAAN-light opacity-[85%]">
-                  <span className="flex flex-row  w-full  justify-between max-w-[650px] space-between ml-[10px]">
-                    <div className="flex flex-row gap-2">
-                      <div className=" self-center mt-1">
-                        <TimerIcon height='26px' stop={"" + props.iconStop} />
-                      </div>
-                      <div className="flex flex-col gap-1.5 self-center">
-                        <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
-                          Project Length
-                        </h3>
-                        <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">4 Months</p>
-                      </div>
+          <span className=" ml-1 mt-0.5 mb-1 font-['Exo_2'] tracking-[0.045em] w-full capitalize text-[16px] h-fit self-start">
+            <div className="flex flex-col gap-3 w-full ">
+              <h3 className="font-[550] text-[14px] leading-tight   ml-[8px] text-CIAAN-light opacity-[85%]">
+                Last Updated 2/3/2024
+              </h3>
+              <h3 className="font-[550] text-[14px] leading-tight w-full  text-CIAAN-light opacity-[85%]">
+                <span className="flex flex-row  w-full  justify-between max-w-[650px] space-between ml-[10px]">
+                  <div className="flex flex-row gap-2">
+                    <div className=" self-center mt-1">
+                      <TimerIcon height='26px' stop={"" + props.iconStop} />
                     </div>
-                    <div className="flex flex-row gap-2">
-                      <div className=" self-center mt-1">
-                        <TeamIcon height='26px' stop={props.iconStop} />
-                      </div>
-                      <div className="flex flex-col gap-1.5 self-center">
-                        <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
-                          Role
-                        </h3>
-                        <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">Sole UX/UI Designer</p>
-                      </div>
+                    <div className="flex flex-col gap-1.5 self-center">
+                      <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
+                        Project Length
+                      </h3>
+                      <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">4 Months</p>
                     </div>
-                    <div className="flex flex-row gap-2">
-                      <div className=" self-center mt-1">
-                        <ProjectIcon height='26px' stop={props.iconStop} />
-                      </div>
-                      <div className="flex flex-col gap-1.5 self-center">
-                        <h3 className="font-[550] text-[12px] leading-tight   -ml-[1px] text-CIAAN-light opacity-[90%]">
-                          Project Type
-                        </h3>
-                        <p className="text-CIAAN-light font-['exo'] self-center leading-none  -mt-[2px] text-left w-full">
-                          Interactive Workflow Mockups
-                        </p>
-                      </div>
+                  </div>
+                  <div className="flex flex-row gap-2">
+                    <div className=" self-center mt-1">
+                      <TeamIcon height='26px' stop={props.iconStop} />
                     </div>
-                  </span>
-                </h3>
-              </div>
-            </span>
-            <div className="flex flex-row w-full  ">
-
-
-
+                    <div className="flex flex-col gap-1.5 self-center">
+                      <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
+                        Role
+                      </h3>
+                      <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">Sole UX/UI Designer</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-row gap-2">
+                    <div className=" self-center mt-1">
+                      <ProjectIcon height='26px' stop={props.iconStop} />
+                    </div>
+                    <div className="flex flex-col gap-1.5 self-center">
+                      <h3 className="font-[550] text-[12px] leading-tight   -ml-[1px] text-CIAAN-light opacity-[90%]">
+                        Project Type
+                      </h3>
+                      <p className="text-CIAAN-light font-['exo'] self-center leading-none  -mt-[2px] text-left w-full">
+                        Interactive Workflow Mockups
+                      </p>
+                    </div>
+                  </div>
+                </span>
+              </h3>
             </div>
+          </span>
+          <div className="flex flex-row w-full  ">
+
+
 
           </div>
 
-        </span>
-        {/* <div class="nav-menu-swatch   w-full h-[22px] flex flex-row">
+        </div>
+
+      </span>
+      {/* <div class="nav-menu-swatch   w-full h-[22px] flex flex-row">
       <div class="w-full h-full bg-[#4b0035]">
       </div>
       <div class="w-[70%] h-full bg-[#5d60eb] "></div>
       <div class="w-[30%] h-full bg-[#f1f0ee] "></div>
     </div> */}
-linear-gradient(348deg, #aa0067 0%, #ffcb3cbf 50%, #7c3c72b5 100%)
-        <div className={cn("relative z-10 h-full grid w-full gap-8 rounded-3xl px-1 pt-0 pb-5", props.insetCardBorderClassName)}>
+      <div className={cn("relative z-10  grid w-full ", props.insetCardBorderClassName)}>
 
-          <FeatureCard {...props} step={step}>
-            {renderStepContent()}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className={cn("absolute left-[12rem]  max-[844px]:left-0  top-6 z-50 h-full w-full cursor-pointer cardInset md:left-0",
-                props.gradientOverlay
-              )}
-            >
-              <Steps current={step} onChange={() => { }} steps={getSteps(props.case)} />
-            </motion.div>
-            <motion.div
-              className="absolute right-0 top-0 h-[100vh] z-50  w-full cursor-pointer md:left-0"
-              onClick={handleIncrement}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            />
-          </FeatureCard>
+        <FeatureCard {...props} step={step}>
+          {renderStepContent()}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className={cn("absolute left-[12rem]  max-[844px]:left-0  top-6 z-50 h-full w-full cursor-pointer  md:left-0",
+              props.gradientOverlay
+            )}
+          >
+            <Steps current={step} onChange={() => { }} steps={getSteps(props.case)} />
+          </motion.div>
+          <motion.div
+            className="absolute right-0 top-0 h-[100vh] z-50  w-full cursor-pointer md:left-0"
+            onClick={handleIncrement}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          />
+        </FeatureCard>
 
-        </div>
+      </div>
 
     </div>
   )

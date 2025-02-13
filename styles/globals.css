@@ -10,10 +10,23 @@
 /* :is(div[data-p-carousel-item-active='true'],div[data-p-carousel-item-end='true']), :is(div[data-p-carousel-item-active='true'],div[data-p-carousel-item-start='true']) {
   filter: opacity(0.39) !important;
 } */
+ .scrollto{
+
+ }
 .featureCard-bg-scas{
   /* background-image: linear-gradient(270deg, rgba(0, 34, 41, 0), #67094263 90%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(251 81 255 / 15%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url(https://pub-e1fd8b0….r2.dev/hero_bg_1x.webp); */
   background-image: linear-gradient(326deg, rgb(177 53 128 / 45%), #8416544d 90%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(251 81 255 / 15%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url(https://pub-e1fd8b0….r2.dev/hero_bg_1x.webp);
 
+}
+.w-fill {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  min-width: fill-available;
+}
+.h-fill {
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: fill-available;
 }
 @layer utilities {
   .blur-vignette {
@@ -57,6 +70,8 @@
 }
 .animated-cards-header-scas{
   background-image: linear-gradient(66deg,#4b002ff7 32%,#e20d588e),url(https://cdn.prod.website-files.com/60ed4aeb79e554d52f0d9608/6383e4d85f097fa47164f397_2022-11-27%2014_28_54-402%20SCAS%20-%20Figma.png);
+background-repeat: no-repeat;
+background-size: cover;
 }
 
 .animated-cards-cursor-scas-fixed{
@@ -170,6 +185,9 @@ overflow: hidden;
   /* background: rgb(75,0,48);
   background: linear-gradient(114deg, rgba(75,0,48,0.9) 0%, rgba(255,76,139,0.5) 100%); */
  }
+ body {
+  overflow-x: hidden;
+}
 /* body::before{
   content:"";
   position:absolute;
@@ -471,14 +489,22 @@ transition: all 0.6s ease-in-out;
 -webkit-transition: background-image 5s;
 
   }
+  
+  .scroll-snap {
+    scroll-snap-type: x mandatory;
+  }
+  .scroll-snap > * {
+    scroll-snap-align: end;
+  }
+
   .snap {
     scroll-snap-align: center;
   }
   .snap-parent {
-    max-height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: proximity; /* for older browsers */
-    scroll-snap-type: y proximity;
+   
+    overflow-x: scroll;
+
+    scroll-snap-type: x mandatory;
     }
   .bg-home-header{
     background-image:  linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(48 0 31 / 25%) 70%, rgb(174 12 164 / 0%)),linear-gradient(180deg, rgba(0, 34, 41, 0), #122634 90%), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), radial-gradient(circle at 50% 100%, #3ad2bb17, #00427969), linear-gradient(30deg, #000e1ff2, #00091173 52%), url('https://cdn.prod.website-files.com/60ed4aeb79e554d52f0d9608/6514ee3d4f98a9deb8cda352_bg%20compressed.jpg');
@@ -576,16 +602,20 @@ width: 100vw;
   width: 100%;
   -webkit-overflow-scrolling: touch;
 }
+.overflow-touch{
+  -webkit-overflow-scrolling: touch;
+
+
+
+}
 
 .snap-child-start {
-  opacity: 0.5;
   z-index: 10;
   scroll-snap-align: start;
   flex: none;
 }
 
 .snap-child-center {
-  opacity: 0.5;
   z-index: 10;
   scroll-snap-align: center;
   flex: none;
@@ -680,6 +710,10 @@ width: 100vw;
 
     inset: 0% auto auto 0%;
     overflow: visible;
+}
+.HeroHomeBg-scas {
+  -webkit-mask-image:-webkit-linear-gradient(90deg, #ffffff00 5%, #000000 55%, #000000 100%);
+
 }
 .HomeBg {
   background-color: #ffffffd6;
@@ -1894,10 +1928,8 @@ transition: filter 0.3s;
 }
 
 html{
-  /* min-width: 555px;
-  scroll-behavior: smooth;
-  */
 
+  scroll-behavior: smooth
 }
 ::-webkit-scrollbar {
   width: 14px;
