@@ -269,7 +269,7 @@ interface AnimatedStepImageProps extends StepImageProps {
  */
 function useNumberCycler(
   totalSteps: number = TOTAL_STEPS,
-  interval: number = 800000
+  interval: number = 5000
 ) {
   const [currentNumber, setCurrentNumber] = useState(0)
   const [isManualInteraction, setIsManualInteraction] = useState(false)
@@ -907,20 +907,35 @@ export function FeatureCarousel({
 
 
           </div>
-          <div className={cn("place-self-start toc-scas bg-no-repeat bg-cover bg-CIAAN-body ml-4 mr-6 navbg 	self-start uppercase  w-fit  font-['Exo_2']  text-[12px]  h-full flex flex-col      pl-2.5   whitespace-nowrap    pb-[16px] pr-[28px] pt-[10px] ",
-props.descriptionClassName, 
+          <div className={cn("place-self-start toc-scas bg-no-repeat bg-cover ml-4 mr-6 navbg 	self-start uppercase  w-fit  font-['Exo_2']  text-[12px]  h-full flex flex-col      ",
+            // props.descriptionClassName,
           )}>
-            <span className="flex flex-col gap-2">
+
+            <div className="h-full  rounded-xl bg-animated-cards-description-scas backdrop-blur-[10px] group/bento hover:shadow-xl transition duration-200 shadow-input p-4 justify-between flex flex-col space-y-4 md:col-span-1 featureCard-bg-scas">
+            <div class=" flex flex-col h-fit">
+                <div class="group-hover/bento:translate-x-2 transition duration-200">
+                  <span class=" flex flex-col h-fit">
+                    <div class="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2  mt-2">Security User Dashboard</div>
+                    <div class="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300">User-facing dashboard for managing assigned assessments.</div>
+                  </span>
+                </div>
+              </div>
+              <div class="bg-white bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)] h-full mt-1 object-fill bg-cover bg-no-repeat w-full  rounded-lg  overflow-hidden" src="https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/designSystem_feature_1_5x.webp">
+              </div>
+          
+            </div>
+
+            {/* <span className="flex flex-col gap-2 ">
               <div className="px-[4px]  py-[3px]  flex flex-row gap-[2px] items-center  uppercase  h-fit self-start place-items-start">
 
-              <h3 className="font-[550] text-[14px] leading-tight     text-CIAAN-light opacity-[100%]">
+                <h3 className="font-[550] text-[14px] leading-tight     text-CIAAN-light opacity-[100%]">
                   Table of Contents
                 </h3>
 
 
               </div>
 
-              <div className="px-[4px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
+              <div className="px-[4px]  font-[350] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
 
                 <p className=""> <a href="#HowItWorks">Research & Planning</a></p>
 
@@ -928,14 +943,14 @@ props.descriptionClassName,
               </div>
 
               <span className=" flex flex-col -mt-[4px]">
-                <div className=" py-[3px] flex flex-row gap-[2px] items-center mb-[2px]  h-fit self-start place-items-start">
+                <div className=" py-[3px] font-[350] flex flex-row gap-[2px] items-center mb-[2px]  h-fit self-start place-items-start">
 
                   <p className="ml-[4px]"><a href="#500Keybinds">Security Staff Flows</a></p>
 
 
                 </div>
 
-                <div className=" ml-[14px] mb-[2px]  px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
+                <div className=" ml-[14px] font-[350] mb-[2px]  px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
                   <div className=" -mt-[8px] -ml-[6px] pr-[2px]">
                     <UnderArrow fill="#ffffff25" height='18px' />
 
@@ -945,13 +960,13 @@ props.descriptionClassName,
 
 
                 </div>
-                <div className=" ml-[14px] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
+                <div className=" ml-[14px] font-[350] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
                   <div className=" -mt-[8px] -ml-[6px] pr-[2px] ">
                     <UnderArrow fill="#ffffff25" height='18px' />
 
                   </div>
 
-                  <p className=""><a href="#500Keybinds">Spreadsheet View</a></p>
+                  <p className="font-[350]"><a href="#500Keybinds">Spreadsheet View</a></p>
 
 
                 </div>
@@ -959,36 +974,35 @@ props.descriptionClassName,
               <span className="pl-[4px] flex flex-col -mt-[4px]">
                 <div className=" py-[3px] flex flex-row gap-[2px] items-center mb-[2px]  h-fit self-start place-items-start">
 
-                  <p className=""><a href="#500Keybinds">Security User Flows</a></p>
+                  <p className="font-[350]"><a href="#500Keybinds">Security User Flows</a></p>
 
 
                 </div>
 
-                <div className=" ml-[14px]  px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
+                <div className=" ml-[14px] font-[350] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
                   <div className=" -mt-[8px] -ml-[6px] pr-[2px] ">
                     <UnderArrow fill="#ffffff25" height='18px' />
 
                   </div>
 
-                  <p className=""><a href="#500Keybinds">Assessment Delivery</a></p>
+                  <p className="font-[350]"><a href="#500Keybinds">Assessment Delivery</a></p>
 
 
                 </div>
 
 
               </span>
-              <div className="px-[4px] py-[3px]  flex flex-row gap-[2px] h-fit self-start items-center ">
-            
+              <div className="px-[4px] py-[3px] font-[350] flex flex-row gap-[2px] h-fit self-start items-center ">
+
                 <p className=""> <a href="#DeviceInputs">Design System</a></p>
 
               </div>
-              <div className="px-[4px] py-[3px]  flex flex-row gap-[2px] h-fit self-start items-center ">
+              <div className="px-[4px] py-[3px] font-[350] flex flex-row gap-[2px] h-fit self-start items-center ">
 
-                <p className=""> <a href="#DeviceInputs">User Testing</a></p>
+                <p className="font-[350]"> <a href="#DeviceInputs">User Testing</a></p>
 
               </div>
-            </span>
-
+            </span> */}
 
           </div>
         </section>
