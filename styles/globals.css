@@ -69,7 +69,7 @@
   }
 }
 .animated-cards-header-scas{
-  background-image: linear-gradient(66deg,#4b002ff7 32%,#e20d588e),url(https://cdn.prod.website-files.com/60ed4aeb79e554d52f0d9608/6383e4d85f097fa47164f397_2022-11-27%2014_28_54-402%20SCAS%20-%20Figma.png);
+  background-image: linear-gradient(66deg, #4b002f 32%, #e20d585e);
 background-repeat: no-repeat;
 background-size: cover;
 }
@@ -377,18 +377,15 @@ filter: blur(calc(0.8* 1rem)) brightness(1) drop-shadow(0 0px 0px #ff00a200) ;
   }
   
 
-.cardInset-scas:before,
-.cardInset-scas:after {
-  content: "";
+
+
+.cardInset-scas {
   position: absolute;
   display: block;
   /* left: -10px; */
   /* top: -60px; */
   width: 100%;
   height: 100%;
-}
-
-.cardInset-scas:before {
   bottom: 0;
   background: linear-gradient(182deg, #33333300 50%, #930058a8 100%);
   mix-blend-mode: hard-light;
@@ -461,12 +458,31 @@ color: var(--scas);
     border-image: fill 0 linear-gradient(180deg, rgb(88 14 62) 0%, rgb(88 14 62 / 79%) 3%, #552344);
     /* background-image: url("https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg"); */
 min-height: 100%;
+/* border-image: fill 0 linear-gradient(180deg, rgb(88 14 62) 0%, rgb(255 13 220 / 33%) 3%, #ff077300); */
+
 background-repeat: no-repeat;
 background-attachment: fixed;
 background-position: center;
 background-size: 120vw;
 background-color: #7e7e7e57;
     background-image: linear-gradient(190deg, #fff, #fff0), radial-gradient(circle at 0 0, #b34f00, #00000000), linear-gradient(#0c151b1c, #007e85b0), url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg);
+  }
+  .toc-scas {
+    background-image: linear-gradient(182deg, #33333300 50%, #930058a8 100%);
+  
+  }
+  .bg-CIAAN-bodyHero {
+    /* background:  url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg), linear-gradient(180deg, rgba(57, 0, 23, 0.407), rgba(62, 0, 35, 0.356)); */
+    border-image: fill 0 linear-gradient(180deg, rgb(88 14 62) 0%, rgb(88 14 62 / 79%) 3%, #552344);
+    /* background-image: url("https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg"); */
+min-height: 100%;
+border-image: fill 0 linear-gradient(180deg, rgb(88 14 62) 0%, rgb(255 13 220 / 33%) 3%, #ff077300);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+background-size: 120vw;
+background-color: #7e7e7e57;
+    background-image: linear-gradient(190deg, #fff, #fff0), radial-gradient(circle at 0 0, #b34f00, #00000000), linear-gradient(#0c151b1c, #007e85b0), url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_2x.webp);
   }
   .bg-tri-body {
     /* background:  url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg), linear-gradient(180deg, rgba(57, 0, 23, 0.407), rgba(62, 0, 35, 0.356)); */
@@ -480,6 +496,14 @@ background-size: 120vw;
 background-color: #7e7e7e57;
     background-image: linear-gradient(190deg, #fff, #fff0), radial-gradient(circle at 0 0, #00dcc0, #00000000), linear-gradient(#0c151b1c, #00e8ff), url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg);
   }
+  .bg-CIAAN-header-home{
+    background-image:  linear-gradient(180deg, rgba(0, 34, 41, 0), #670947 45%, #670947 45%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(48 0 31 / 25%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url('https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/hero_bg_1x.webp');
+    /* background-image:  linear-gradient(167deg, rgba(75, 0, 48, 0.9), rgb(34 4 35 / 37%) 14%, rgb(35 4 34 / 0%) 78%, rgba(4, 29, 35, 0)), linear-gradient(180deg, rgba(0, 34, 41, 0), #6d0a4a 98%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(48 0 31 / 25%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url('https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/hero_bg_1x.webp'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 0.6s ease-in-out;
+    -webkit-transition: background-image 5s;
+    -webkit-mask-image: -webkit-linear-gradient(90deg, #ffffff00 25%, #000000 55%, #000000 100%);      }
   .bg-CIAAN-header{
 background-image:  linear-gradient(180deg, rgba(0, 34, 41, 0), #670947 45%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(48 0 31 / 25%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url('https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/hero_bg_1x.webp');
 /* background-image:  linear-gradient(167deg, rgba(75, 0, 48, 0.9), rgb(34 4 35 / 37%) 14%, rgb(35 4 34 / 0%) 78%, rgba(4, 29, 35, 0)), linear-gradient(180deg, rgba(0, 34, 41, 0), #6d0a4a 98%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(48 0 31 / 25%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url('https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/hero_bg_1x.webp'); */
@@ -712,6 +736,10 @@ width: 100vw;
     overflow: visible;
 }
 .HeroHomeBg-scas {
+  -webkit-mask-image:-webkit-linear-gradient(90deg, #ffffff00 5%, #000000 55%, #000000 100%);
+
+}
+.HeroHomeHeaderBg-scas {
   -webkit-mask-image:-webkit-linear-gradient(90deg, #ffffff00 5%, #000000 55%, #000000 100%);
 
 }

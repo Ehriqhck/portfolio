@@ -23,6 +23,8 @@ import { HeroHighlight } from '@/components/fancy/HeroHighlight';
 import TeamIcon from '@components/generic/Icons/TeamIcon.jsx'
 import ProjectIcon from '@components/generic/Icons/ProjectIcon.jsx'
 import TimerIcon from '@components/generic/Icons/TimerIcon.jsx'
+import UnderArrow from '@components/generic/Icons/UnderArrow.jsx'
+
 import {
   forwardRef,
   useCallback,
@@ -438,13 +440,13 @@ const StepImage = forwardRef<
           <div ref={ref}
             style={{
               // objectFit: 'cover',
-        
+
               position: "absolute",
 
               maxWidth: "unset",
               ...style,
             }}
-            className={className + ' ' + ' rounded-3xl  overflow-hidden HeroHomeBg-scas'}
+            className={className + ' ' + ' rounded-3xl  HeroHomeBg-scas'}
           >
             <video
               style={{
@@ -554,7 +556,7 @@ function FeatureCard({
   return (
     <motion.div
       // className="animated-cards-cursor-scas overflow-hidden animated-cards-cursor-scas-fixed! relative w-full  rounded-3xl  aspect-[3/2]"
-      className=" overflow-hidden relative w-full  rounded-3xl  aspect-[3/2]"
+      className=" rounded-3xl  relative h-full w-full  "
 
       onMouseMove={handleMouseMove}
       style={
@@ -569,11 +571,11 @@ function FeatureCard({
           // bg-gradient-to-b from-neutral-900/90 to-stone-800 transition duration-300 dark:from-neutral-950/90 dark:to-neutral-800/90
           "group relative w-full h-full overflow-hidden rounded-3xl ",
           "md:hover:border-transparent ",
-          bgClass
+          bgClass, props.insetCardBorderClassName, props.gradientOverlay
         )}
       >
 
-        <div className="max-[844px]:ml-6  my-10  ml-16  w-full h-full ">
+        <div className="max-[844px]:ml-6  mt-10  ml-16  w-full h-full   overflow-hidden rounded-3xl  ">
           <AnimatePresence mode="wait">
             <motion.div
               key={step}
@@ -775,12 +777,12 @@ export function FeatureCarousel({
         default:
           return (
             <motion.div
-              className="relative w-full h-full"
+              className="relative w-full  h-full"
               onAnimationComplete={handleAnimationComplete}
             >
               <AnimatedStepImage
                 alt={image.alt}
-                className={clsx(step2img1Class, "rounded-2xl")}
+                className={clsx(step2img1Class, "rounded-3xl")}
                 src={image.step2light1}
                 preset="fadeInScale"
               />
@@ -811,96 +813,185 @@ export function FeatureCarousel({
 
   return (
 
-    <div className={cn(props.cardBg, "flex  w-full  py-[20vh]  h-full   flex-col text-left    overflow-hidden")}>
-      <span className=" flex flex-col pb-4 h-full space-between w-full px-14  ">
-        <p className="text-[2.5rem] font-inter   font-[700] mb-2 mt-10 leading-tight">{props.title}</p>
-        <p className="font-[500] font-inter  text-[1.15rem] mb-3 leading-tight">{props.description}</p>
-        {props.button}
+    <div className={cn(props.cardBg, "flex  w-full pt-[20vh]      flex-col text-left    overflow-hidden")}>
+      <div className="  absolute top-0  w-full h-[50%]    bg-CIAAN-header-home">
+      </div>
 
-        <div className={cn(props.descriptionClassName, " flex flex-col mt-5  pb-[16px] pt-3 px-2.5 w-full max-w-[1000px]",)} >
-
-          <span className=" ml-1 mt-0.5 mb-1 font-['Exo_2'] tracking-[0.045em] w-full capitalize text-[16px] h-fit self-start">
-            <div className="flex flex-col gap-3 w-full ">
-              <h3 className="font-[550] text-[14px] leading-tight   ml-[8px] text-CIAAN-light opacity-[85%]">
-                Last Updated 2/3/2024
-              </h3>
-              <h3 className="font-[550] text-[14px] leading-tight w-full  text-CIAAN-light opacity-[85%]">
-                <span className="flex flex-row  w-full  justify-between max-w-[650px] space-between ml-[10px]">
-                  <div className="flex flex-row gap-2">
-                    <div className=" self-center mt-1">
-                      <TimerIcon height='26px' stop={"" + props.iconStop} />
-                    </div>
-                    <div className="flex flex-col gap-1.5 self-center">
-                      <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
-                        Project Length
-                      </h3>
-                      <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">4 Months</p>
-                    </div>
-                  </div>
-                  <div className="flex flex-row gap-2">
-                    <div className=" self-center mt-1">
-                      <TeamIcon height='26px' stop={props.iconStop} />
-                    </div>
-                    <div className="flex flex-col gap-1.5 self-center">
-                      <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
-                        Role
-                      </h3>
-                      <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">Sole UX/UI Designer</p>
-                    </div>
-                  </div>
-                  <div className="flex flex-row gap-2">
-                    <div className=" self-center mt-1">
-                      <ProjectIcon height='26px' stop={props.iconStop} />
-                    </div>
-                    <div className="flex flex-col gap-1.5 self-center">
-                      <h3 className="font-[550] text-[12px] leading-tight   -ml-[1px] text-CIAAN-light opacity-[90%]">
-                        Project Type
-                      </h3>
-                      <p className="text-CIAAN-light font-['exo'] self-center leading-none  -mt-[2px] text-left w-full">
-                        Interactive Workflow Mockups
-                      </p>
-                    </div>
-                  </div>
-                </span>
-              </h3>
-            </div>
-          </span>
-          <div className="flex flex-row w-full  ">
-
-
-
-          </div>
-
-        </div>
-
-      </span>
       {/* <div class="nav-menu-swatch   w-full h-[22px] flex flex-row">
       <div class="w-full h-full bg-[#4b0035]">
       </div>
       <div class="w-[70%] h-full bg-[#5d60eb] "></div>
       <div class="w-[30%] h-full bg-[#f1f0ee] "></div>
     </div> */}
-      <div className={cn("relative z-10  grid w-full ", props.insetCardBorderClassName)}>
+      <div className={cn("relative z-10  grid   rounded-r-3xl overflow-hidden  ",)}>
+        <span className="  flex flex-col pb-4 h-full space-between w-full px-14  z-0 ">
 
-        <FeatureCard {...props} step={step}>
-          {renderStepContent()}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className={cn("absolute left-[12rem]  max-[844px]:left-0  top-6 z-50 h-full w-full cursor-pointer  md:left-0",
-              props.gradientOverlay
-            )}
-          >
-            <Steps current={step} onChange={() => { }} steps={getSteps(props.case)} />
-          </motion.div>
-          <motion.div
-            className="absolute right-0 top-0 h-[100vh] z-50  w-full cursor-pointer md:left-0"
-            onClick={handleIncrement}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          />
-        </FeatureCard>
+          <p className="text-[2.5rem] font-inter   font-[700] mb-2 mt-10 leading-tight">{props.title}</p>
+          <p className="font-[500] font-inter  text-[1.15rem] mb-3 leading-tight">{props.description}</p>
+          {props.button}
+
+          <div className={cn(props.descriptionClassName, " flex flex-col mt-14 mb-4  pb-[16px] pt-3 px-2.5 w-fit pr-32  ",)} >
+            <span className=" ml-1 mt-0.5 mb-0.5 font-['Exo_2'] w-full tracking-[0.045em] w-full capitalize text-[16px] h-fit self-start">
+              <div className="flex flex-col gap-3 w-full ">
+                <h3 className="font-[550] text-[14px] leading-tight   ml-[8px] text-CIAAN-light opacity-[85%]">
+                  Last Updated 2/3/2024
+                </h3>
+                <div className="font-[550] text-[14px] leading-tight w-fit flex flex-row  text-CIAAN-light opacity-[85%]">
+                  <span className="flex flex-row  w-full  justify-between gap-12 space-between ml-[10px]">
+                    <div className="flex flex-row gap-2">
+                      <div className=" self-center mt-1">
+                        <TimerIcon height='26px' stop={"" + props.iconStop} />
+                      </div>
+                      <div className="flex flex-col gap-1.5 self-center">
+                        <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
+                          Project Length
+                        </h3>
+                        <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">4 Months</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-row gap-2">
+                      <div className=" self-center mt-1">
+                        <TeamIcon height='26px' stop={props.iconStop} />
+                      </div>
+                      <div className="flex flex-col gap-1.5 self-center">
+                        <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
+                          Role
+                        </h3>
+                        <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">Sole UX/UI Designer</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-row gap-2">
+                      <div className=" self-center mt-1">
+                        <ProjectIcon height='26px' stop={props.iconStop} />
+                      </div>
+                      <div className="flex flex-col gap-1.5 self-center">
+                        <h3 className="font-[550] text-[12px] leading-tight   -ml-[1px] text-CIAAN-light opacity-[90%]">
+                          Project Type
+                        </h3>
+                        <p className="text-CIAAN-light font-['exo'] self-center leading-none  -mt-[2px] text-left w-full">
+                          Interactive Workflow Mockups
+                        </p>
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </span>
+          </div>
+
+        </span>
+        <section className={cn(" flex flex-row pb-32")}>
+          <div className={cn(props.gradientOverlay, "  absolute top-0  w-full h-full pointer-events-none  ")}>
+          </div>
+          <div className={cn(props.descriptionClassName, " grid w-[80%] ml-14 min-w-1/2   rounded-r-3xl overflow-hidden h-[58vh] ",)}>
+
+            <FeatureCard {...props} step={step}>
+              {renderStepContent()}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className={cn("absolute left-[12rem]  max-[844px]:left-0  rounded-3xl overflow-hidden top-6 z-50 h-full w-full cursor-pointer  md:left-0",
+                )}
+              >
+                <Steps current={step} onChange={() => { }} steps={getSteps(props.case)} />
+              </motion.div>
+              <motion.div
+                className="absolute right-0 top-0 h-[100vh] z-[50]   w-full cursor-pointer md:left-0"
+                onClick={handleIncrement}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              />
+
+            </FeatureCard>
+
+
+          </div>
+          <div className={cn("place-self-start toc-scas bg-no-repeat bg-cover bg-CIAAN-body ml-4 mr-6 navbg 	self-start uppercase  w-fit  font-['Exo_2']  text-[12px]  h-full flex flex-col      pl-2.5   whitespace-nowrap    pb-[16px] pr-[28px] pt-[10px] ",
+props.descriptionClassName, 
+          )}>
+            <span className="flex flex-col gap-2">
+              <div className="px-[4px]  py-[3px]  flex flex-row gap-[2px] items-center  uppercase  h-fit self-start place-items-start">
+
+              <h3 className="font-[550] text-[14px] leading-tight     text-CIAAN-light opacity-[100%]">
+                  Table of Contents
+                </h3>
+
+
+              </div>
+
+              <div className="px-[4px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
+
+                <p className=""> <a href="#HowItWorks">Research & Planning</a></p>
+
+
+              </div>
+
+              <span className=" flex flex-col -mt-[4px]">
+                <div className=" py-[3px] flex flex-row gap-[2px] items-center mb-[2px]  h-fit self-start place-items-start">
+
+                  <p className="ml-[4px]"><a href="#500Keybinds">Security Staff Flows</a></p>
+
+
+                </div>
+
+                <div className=" ml-[14px] mb-[2px]  px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
+                  <div className=" -mt-[8px] -ml-[6px] pr-[2px]">
+                    <UnderArrow fill="#ffffff25" height='18px' />
+
+                  </div>
+
+                  <p className=""><a href="#500Keybinds">Security Assessments</a></p>
+
+
+                </div>
+                <div className=" ml-[14px] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
+                  <div className=" -mt-[8px] -ml-[6px] pr-[2px] ">
+                    <UnderArrow fill="#ffffff25" height='18px' />
+
+                  </div>
+
+                  <p className=""><a href="#500Keybinds">Spreadsheet View</a></p>
+
+
+                </div>
+              </span>
+              <span className="pl-[4px] flex flex-col -mt-[4px]">
+                <div className=" py-[3px] flex flex-row gap-[2px] items-center mb-[2px]  h-fit self-start place-items-start">
+
+                  <p className=""><a href="#500Keybinds">Security User Flows</a></p>
+
+
+                </div>
+
+                <div className=" ml-[14px]  px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
+                  <div className=" -mt-[8px] -ml-[6px] pr-[2px] ">
+                    <UnderArrow fill="#ffffff25" height='18px' />
+
+                  </div>
+
+                  <p className=""><a href="#500Keybinds">Assessment Delivery</a></p>
+
+
+                </div>
+
+
+              </span>
+              <div className="px-[4px] py-[3px]  flex flex-row gap-[2px] h-fit self-start items-center ">
+            
+                <p className=""> <a href="#DeviceInputs">Design System</a></p>
+
+              </div>
+              <div className="px-[4px] py-[3px]  flex flex-row gap-[2px] h-fit self-start items-center ">
+
+                <p className=""> <a href="#DeviceInputs">User Testing</a></p>
+
+              </div>
+            </span>
+
+
+          </div>
+        </section>
 
       </div>
 
