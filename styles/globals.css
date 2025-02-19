@@ -16,7 +16,12 @@
 .featureCard-bg-scas{
   /* background-image: linear-gradient(270deg, rgba(0, 34, 41, 0), #67094263 90%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(251 81 255 / 15%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url(https://pub-e1fd8b0….r2.dev/hero_bg_1x.webp); */
   /* background-image: linear-gradient(326deg, rgb(177 53 128 / 45%), #8416544d 90%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(251 81 255 / 15%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url(https://pub-e1fd8b0….r2.dev/hero_bg_1x.webp); */
-background-image: linear-gradient(270deg, rgba(0, 34, 41, 0), #67094263 90%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(210 3 163 / 23%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url(https://pub-e1fd8b0….r2.dev/hero_bg_1x.webp);
+background-image: linear-gradient(270deg, rgba(0, 34, 41, 0), #67094263 90%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(210 3 207 / 23%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url(https://pub-e1fd8b0….r2.dev/hero_bg_1x.webp);
+}
+.featureCard-bg-flik{
+  /* background-image: linear-gradient(270deg, rgba(0, 34, 41, 0), #67094263 90%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(251 81 255 / 15%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url(https://pub-e1fd8b0….r2.dev/hero_bg_1x.webp); */
+  /* background-image: linear-gradient(326deg, rgb(177 53 128 / 45%), #8416544d 90%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(251 81 255 / 15%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url(https://pub-e1fd8b0….r2.dev/hero_bg_1x.webp); */
+background-image:linear-gradient(270deg, rgb(76 3 104 / 60%), #67095e63 90%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(135 3 210 / 23%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(2 23 175 / 21%) 70%, rgb(21 12 174 / 0%)), url(https://pub-e1fd8b0….r2.dev/hero_bg_1x.webp);
 }
 .w-fill {
   width: -webkit-fill-available;
@@ -323,16 +328,61 @@ transition: all .4s !important;
     transition:  all .4s cubic-bezier(.743,.831,.17,.75);
 filter: blur(calc(0.8* 1rem)) brightness(1) drop-shadow(0 0px 0px #ff00a200) ;
   }
-  /* .rcs-scas::before :hover {
-    content: "";
-    background-image: linear-gradient(hsla(1, 100%, 50%, 0.97), hsla(0, 0%, 100%, 0.85), hsl(0deg 100% 50%));
-  } */
+
+
   .rcs-tri:hover:before  {
     content: "";
     filter: blur(calc(0.8* 1rem)) brightness(1) saturate(1) drop-shadow(16px 16px 20px #ff28d0);
     /* background-image: linear-gradient(hsl(26.91deg 100% 50% / 97%), hsl(52.08deg 100% 64.75% / 85%), hsl(0deg 100% 50%)); */
     transition: all .4s cubic-bezier(.743,.831,.17,.75);
   }
+
+  .rcs-flik-text {
+    -webkit-background-clip: text !important;
+    /* text-shadow: 0px 4px 42px rgb(0 182 243 / 15%); */
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(180deg, #3f360c 27%, #5e05d5e3 90%);
+   /* background: white; */
+    /* background: linear-gradient(180deg, #000000 27%, #1d4e5c 90%); */
+    filter: saturate(1);
+    transition: all .4s cubic-bezier(.743,.831,.17,.75);
+
+    }
+    .rcs-flik-text:hover {
+      -webkit-background-clip: text !important;
+      /* text-shadow: 0px 4px 42px rgb(0 182 243 / 15%); */
+      -webkit-text-fill-color: transparent;
+      background:linear-gradient(180deg, #af2fdf 27%, #a001b4 40%);
+      
+      transition: all .4s cubic-bezier(.743,.831,.17,.75);
+      /* background: linear-gradient(180deg, #000000 27%, #1d4e5c 90%); */
+      }
+  .rcs-flik{
+    background-image: linear-gradient(#f1f1ff, #dddded), linear-gradient(#cf08ff 50%, rgb(240 41 255) 80%, rgb(215 0 254 / 32%)), linear-gradient(90deg, #56b6ff, hsl(159.82deg 88.83% 35.77%), hsl(165.37deg 100% 50% / 93%), #62b5a78f);
+    filter:  brightness(1) saturate(1)  drop-shadow(0 0px 0px #ff00a200);
+    transition: all .4s cubic-bezier(.743,.831,.17,.75);
+
+  }
+  .rcs-flik:hover {
+filter:brightness(1) saturate(1)  drop-shadow(0 2px 24px #00ffc86b);
+transition: all .4s !important;
+  }
+  .rcs-flik:before {
+    content: "";
+    background-image: linear-gradient(hsl(258.08deg 100% 50% / 97%), hsl(258.08deg 100% 65% / 51%), hsl(275.7deg 100% 57.27%));
+    transition:  all .4s cubic-bezier(.743,.831,.17,.75);
+filter: blur(calc(0.8* 1rem)) brightness(1) drop-shadow(0 0px 0px #ff00a200) ;
+  }
+
+
+  .rcs-flik:hover:before  {
+    content: "";
+    filter: blur(calc(0.8* 1rem)) brightness(1) saturate(1) drop-shadow(16px 16px 20px #ff28d0);
+    /* background-image: linear-gradient(hsl(26.91deg 100% 50% / 97%), hsl(52.08deg 100% 64.75% / 85%), hsl(0deg 100% 50%)); */
+    transition: all .4s cubic-bezier(.743,.831,.17,.75);
+  }
+
+  
   .rcs-scas-text {
     -webkit-background-clip: text !important;
     /* text-shadow: 0px 4px 42px rgb(0 182 243 / 15%); */
@@ -381,7 +431,7 @@ filter: blur(calc(0.8* 1rem)) brightness(1) drop-shadow(0 0px 0px #ff00a200) ;
   }
   
 
-
+  
 
 .cardInset-scas {
   position: absolute;
@@ -502,7 +552,7 @@ background-color: #7e7e7e57;
     background-attachment: fixed;
 }
 .toc-flik {
-  background-image: linear-gradient(182deg, #33333300 50%, #700093a8 100%);
+  background-image: linear-gradient(153deg, #33333300 50%, #9a008b 100%);
 
 }
 .tocBg-flik {

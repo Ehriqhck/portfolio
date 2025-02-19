@@ -3,21 +3,25 @@ import React from "react";
 import { cn } from '@/components/fancy/cn.jsx';
 import clsx from "clsx";
 
-export const RainbowButton = React.forwardRef(({type, children, className, ...props }, ref) => {
+export const RainbowButton = React.forwardRef(({ type, children, className, ...props }, ref) => {
 
 
 
-const getClasses = (type) => {
-  switch (type) {
-    case "scas":
-      return("rcs-scas leading-tight font-['EXO']  font-[550]")
-      break;
-  case "tri":
-    return("rcs-tri leading-tight font-['EXO']  font-[550]")
-    default:
-      break;
+  const getClasses = (type) => {
+    switch (type) {
+      case "scas":
+        return ("rcs-scas leading-tight font-['EXO']  font-[550]")
+        break;
+      case "tri":
+        return ("rcs-tri leading-tight font-['EXO']  font-[550]")
+      case'flik':
+        return ("rcs-flik leading-tight font-['EXO']  font-[550]")
+      default:
+        break;
+
+        return ('')
+    }
   }
-}
 
   return (
     <button
@@ -29,7 +33,7 @@ const getClasses = (type) => {
         // light mode colors
         // "rcs-scas",
         // dark mode colors
-        className + " "+
+        className + " " +
         // "dark:bg-[linear-gradient(#fff,#fff),linear-gradient(#fff_50%,rgba(255,255,255,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,hsl(var(--color-1)),hsl(var(--color-5)),hsl(var(--color-3)),hsl(var(--color-4)),hsl(var(--color-2)))]",
         getClasses(type),
       )}
@@ -39,7 +43,7 @@ const getClasses = (type) => {
     </button>
   );
 });
- 
+
 RainbowButton.displayName = "RainbowButton";
 
 // background-image: linear-gradient(90deg, hsl(315.18deg 100% 63%), hsl(40.84deg 100% 63%), hsl(303deg 100% 63%));

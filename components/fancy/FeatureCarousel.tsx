@@ -573,13 +573,13 @@ function FeatureCard({
       <div
         className={clsx(
           // bg-gradient-to-b from-neutral-900/90 to-stone-800 transition duration-300 dark:from-neutral-950/90 dark:to-neutral-800/90
-          "group relative w-full h-full overflow-hidden rounded-3xl ",
+          "group relative w-full h-full rounded-3xl ",
           "md:hover:border-transparent ",
           bgClass, props.insetCardBorderClassName, props.gradientOverlay
         )}
       >
 
-        <div className="max-[844px]:ml-6  mt-10  ml-16  w-full h-full   overflow-hidden rounded-3xl  ">
+        <div className="max-[844px]:ml-6  mt-10  ml-16  w-full h-full  rounded-3xl  ">
           <AnimatePresence mode="wait">
             <motion.div
               key={step}
@@ -734,15 +734,15 @@ const defaultClasses = {
   step1img1:
     "pointer-events-none w-[50%] border border-border-100/10 transition-all duration-500 dark:border-border-700/50 rounded-2xl",
   step1img2:
-    "pointer-events-none w-[60%] border border-border-100/10 dark:border-border-700/50 transition-all duration-500 overflow-hidden rounded-2xl",
+    "pointer-events-none w-[60%] border border-border-100/10 dark:border-border-700/50 transition-all duration-500  rounded-2xl",
   step2img1:
-    "pointer-events-none w-[50%] border border-border-100/10 transition-all duration-500 dark:border-border-700 rounded-2xl overflow-hidden",
+    "pointer-events-none w-[50%] border border-border-100/10 transition-all duration-500 dark:border-border-700 rounded-2xl ",
   step2img2:
-    "pointer-events-none w-[40%] border border-border-100/10 dark:border-border-700 transition-all duration-500 rounded-2xl overflow-hidden",
+    "pointer-events-none w-[40%] border border-border-100/10 dark:border-border-700 transition-all duration-500 rounded-2xl ",
   step3img:
-    "pointer-events-none w-[90%] border border-border-100/10 dark:border-border-700 rounded-2xl transition-all duration-500 overflow-hidden",
+    "pointer-events-none w-[90%] border border-border-100/10 dark:border-border-700 rounded-2xl transition-all duration-500 ",
   step4img:
-    "pointer-events-none w-[90%] border border-border-100/10 dark:border-border-700 rounded-2xl transition-all duration-500 overflow-hidden",
+    "pointer-events-none w-[90%] border border-border-100/10 dark:border-border-700 rounded-2xl transition-all duration-500 ",
 } as const
 
 /**
@@ -912,11 +912,11 @@ export function FeatureCarousel({
 
         <section className={cn(" flex flex-row pb-[12rem]  mt-14 ml-14")}>
 
-          <div className={cn("place-self-start toc-scas bg-no-repeat bg-cover rounded-xl  mr-6  	self-start uppercase  w-fit  font-['Exo_2']  text-[12px]  h-full flex flex-col      ",
+          <div className={cn(props.tocCn, "place-self-start  bg-no-repeat bg-cover rounded-xl  mr-6  	self-start uppercase  w-fit  font-['Exo_2']  text-[12px]  h-full flex flex-col      ",
             // props.descriptionClassName,
           )}>
 
-            <div className={cn(props.descriptionClassName, props.featureCardCn, "featureCard-bg-scas h-full  rounded-xl backdrop-blur-[10px] group/bento hover:shadow-xl transition duration-200 shadow-input pb-8  pl-4 pr-10 justify-between flex flex-col  ")}>
+            <div className={cn(props.descriptionClassName, props.featureCardCn, props.featureCardBgCn, " h-full  rounded-xl backdrop-blur-[10px] group/bento hover:shadow-xl transition duration-200 shadow-input pb-8  pl-4 pr-10 justify-between flex flex-col  ")}>
               <div className={cn(props.gradientOverlay, "  absolute top-0  left-0 rounded-xl tocBg-scas w-full h-full  pointer-events-none  ")}>
               </div>
               <div class={cn(props.panelTitle, "panel-title-scasHero ")}>
@@ -954,7 +954,7 @@ export function FeatureCarousel({
           </div>
           <span className=' w-full flex flex-col pr-10 '>
             <div className={cn(props.descriptionClassName, " flex flex-col mb-4  pb-[16px] pt-3 px-2.5 w-fit pr-32  ",)} >
-              <div className={cn(props.gradientOverlay, props.tocBg, "  absolute   w-full h-full  pointer-events-none  ")}>
+              <div className={cn(props.gradientOverlay, props.tocBg, "  left-0 rounded-xl absolute   w-full h-full  pointer-events-none  ")}>
               </div>
               <span className=" ml-1 mt-0.5 mb-0.5 font-['Exo_2'] w-full tracking-[0.045em]  capitalize text-[16px] h-fit self-start">
                 <div className="flex flex-col gap-3 w-full ">
@@ -1004,7 +1004,7 @@ export function FeatureCarousel({
               </span>
             </div>
 
-            <div className={cn(props.descriptionClassName, " grid w-[100%] min-w-1/2   rounded-r-3xl overflow-hidden h-[58vh] ",)}>
+            <div className={cn(props.descriptionClassName, " grid w-[100%] min-w-1/2   rounded-r-3xl  h-[58vh] ",)}>
               <div className={cn(props.gradientOverlay, props.tocBg, "  absolute top-0  left-0 rounded-xl w-full h-full  pointer-events-none  ")}>
               </div>
               <FeatureCard {...props} step={step}>
@@ -1013,7 +1013,7 @@ export function FeatureCarousel({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
-                  className={cn("absolute left-[12rem]  max-[844px]:left-0  rounded-3xl overflow-hidden top-6 z-50 h-full w-full cursor-pointer  md:left-0",
+                  className={cn("absolute left-[12rem]  max-[844px]:left-0  rounded-3xl  top-6 z-50 h-full w-full cursor-pointer  md:left-0",
                   )}
                 >
                   <Steps current={step} onChange={() => { }} steps={getSteps(props.case)} />

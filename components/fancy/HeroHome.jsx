@@ -342,8 +342,11 @@ const Schedule = () => {
                     sectionContent={
                         <FeatureCarousel
                             items={itemsScas}
+                            tocCn='toc-scas'
+
                             tocLineCn='toc-line-scas'
                             headerCn='bg-CIAAN-header-home'
+                               featureCardBgCn='featureCard-bg-scas'
                             gradientOverlay='cardInset-scas'
                             cardInsetBg="bg-CIAAN-bodyHero"
                             cardBg="animated-cards-header-scas"
@@ -358,32 +361,32 @@ const Schedule = () => {
                             // Example classes for responsive layout
                             step1img1Class={cn(
                                 " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                                "  rounded-[10px]    md:left-[0%]  mt-8",
+                                "  rounded-3xl    md:left-[0%]  mt-8",
                                 "md:group-hover:translate-y-2"
                             )}
                             step1img2Class={cn(
                                 " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "  rounded-3xl   md:left-[0%]  mt-8",
                                 "md:group-hover:translate-y-2"
                             )}
                             step2img1Class={cn(
                                 " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "  rounded-3xl   md:left-[0%]  mt-8",
                                 "md:group-hover:translate-y-2"
                             )}
                             step2img2Class={cn(
                                 " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "  rounded-3xl   md:left-[0%]  mt-8",
                                 "md:group-hover:translate-y-2"
                             )}
                             step3imgClass={cn(
                                 " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "  rounded-3xl   md:left-[0%]  mt-8",
                                 "md:group-hover:translate-y-2"
                             )}
                             step4imgClass={cn(
                                 " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "  rounded-3xl   md:left-[0%]  mt-8",
                                 "md:group-hover:translate-y-2"
                             )}
                             // Example images
@@ -412,7 +415,9 @@ const Schedule = () => {
                     sectionContent={
                         <FeatureCarousel
                             items={itemsScas}
+                            tocCn='toc-flik'
                             tocLineCn='toc-line-scas'
+                            featureCardBgCn='featureCard-bg-flik'
                             headerCn='bg-flik-header-home'
                             gradientOverlay='cardInset-flik'
                             cardInsetBg="bg-flik-bodyHero"
@@ -428,32 +433,32 @@ const Schedule = () => {
                             // Example classes for responsive layout
                             step1img1Class={cn(
                                 " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                                "  rounded-[10px]    md:left-[0%]  mt-8",
+                                "  rounded-3xl    md:left-[0%]  mt-8",
                                 "md:group-hover:translate-y-2"
                             )}
                             step1img2Class={cn(
                                 " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "  rounded-3xl   md:left-[0%]  mt-8",
                                 "md:group-hover:translate-y-2"
                             )}
                             step2img1Class={cn(
                                 " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "  rounded-3xl   md:left-[0%]  mt-8",
                                 "md:group-hover:translate-y-2"
                             )}
                             step2img2Class={cn(
                                 " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "  rounded-3xl   md:left-[0%]  mt-8",
                                 "md:group-hover:translate-y-2"
                             )}
                             step3imgClass={cn(
                                 " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "  rounded-3xl   md:left-[0%]  mt-8",
                                 "md:group-hover:translate-y-2"
                             )}
                             step4imgClass={cn(
                                 " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "  rounded-3xl   md:left-[0%]  mt-8",
                                 "md:group-hover:translate-y-2"
                             )}
                             // Example images
@@ -469,7 +474,7 @@ const Schedule = () => {
                              tocBg=" tocBg-flik "
                             // bg-gradient-to-tr from-neutral-900/90 to-neutral-800/90 Card styling
                             bgClass="bg-CIAsAN-body"
-                            button={<RainbowButton type='scas'> <p className='rcs-scas-text leading-tight font-["EXO"] uppercase font-[550] text-[15px]'>Read Case Study</p> </RainbowButton>
+                            button={<RainbowButton type='flik'> <p className='rcs-flik-text leading-tight font-["EXO"] uppercase font-[550] text-[15px]'>Read Case Study</p> </RainbowButton>
                             }
                         />
                     }
@@ -496,27 +501,27 @@ const Schedule = () => {
                         )}
                         step1img2Class={cn(
                             "pointer-events-none w-[100%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]  top-[57%]  md:top-[8%]",
+                            "  rounded-3xl  top-[57%]  md:top-[8%]",
                             "md:group-hover:translate-y-2"
                         )}
                         step2img1Class={cn(
                             "pointer-events-none w-[100%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]  top-[57%]  md:top-[8%]",
+                            "  rounded-3xl  top-[57%]  md:top-[8%]",
                             "md:group-hover:translate-y-2"
                         )}
                         step2img2Class={cn(
                             "pointer-events-none w-[100%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]  top-[57%]  md:top-[8%]",
+                            "  rounded-3xl  top-[57%]  md:top-[8%]",
                             "md:group-hover:translate-y-2"
                         )}
                         step3imgClass={cn(
                             "pointer-events-none w-[100%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]  top-[57%]  md:top-[8%]",
+                            "  rounded-3xl  top-[57%]  md:top-[8%]",
                             "md:group-hover:translate-y-2"
                         )}
                         step4imgClass={cn(
                             "pointer-events-none w-[100%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]  top-[57%]  md:top-[7%]",
+                            "  rounded-3xl  top-[57%]  md:top-[7%]",
                             "md:group-hover:translate-y-2"
                         )}
                         // Example images
