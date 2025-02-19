@@ -27,7 +27,7 @@ const DisplaySize = ({ width, height }) => (
     </h1>
   </div>
 );
-const PortfolioCard = ({ CardContent, Section, Title, Slidercontent, Content: ContentTest, Figma }) => {
+const PortfolioCard = ({type, CardContent, Section, Title, Slidercontent, Content: ContentTest, Figma, ...props }) => {
 
   const isMobile = useMediaQuery('(min-width: 1250px)');
   const sliderData = Slidercontent;
@@ -166,7 +166,7 @@ const PortfolioCard = ({ CardContent, Section, Title, Slidercontent, Content: Co
     hidden: { opacity: 0, },
     visible: { opacity: 1, },
   };
-  const getVisuals = (data, length) => {
+  const getVisuals = (data, length, ...props) => {
 
     try {
       if (length > 1) {
@@ -277,7 +277,7 @@ const PortfolioCard = ({ CardContent, Section, Title, Slidercontent, Content: Co
   }
 
   return (
-    <div className=" pt-0 pb-14  h-full pl-10 pr-10  flex flex-col gap-4 font-['exo'] card-bg-white   rounded-xl w-full bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]  ">
+    <div className={cn(props.cardBg, " pt-0 pb-14  h-full pl-10 pr-10  flex flex-col gap-4 font-['exo']    rounded-xl w-full [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]  ")}>
 
       <span className=" flex  flex-col">
 

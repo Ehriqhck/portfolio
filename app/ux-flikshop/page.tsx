@@ -505,7 +505,7 @@ const page = () => {
     <ReactLenis root>
       <div className=" w-full   testbg2 h-full mt">
 
-        <AnimatedGroup className="flex flex-col text-CIAAN-dark     "
+        <AnimatedGroup className={"flex flex-col text-flik-dark     "}
           variants={
             variants}
         >
@@ -552,10 +552,10 @@ const page = () => {
                   </BentoGrid>
                 </div>
 
-                <span className="homepage-bg-gradient-seam h-32  w-screen mb-[-4rem] ">
+                <span className="flik-bg-gradient-seam h-32  w-screen mb-[-4rem] ">
 
                 </span>
-                <span className=" flex flex-col bg-CIAAN-body gap-[64px] pt-8">
+                <span className=" flex flex-col bg-flik-body gap-[64px] pt-8">
 
                   {/* <BentoGrid className="  w-full max-w-[1300px] mx-12">
                   {items.map((item, i) => (
@@ -799,75 +799,53 @@ base ">
                                 r="30"
                                 pathLength="1"
                                 className="indicatorBg"
-
                               />
                             </svg>
                             <p className=""> <a href="#DeviceInputs">User Testing</a></p>
-
                           </div>
                         </span>
-
-
                       </div>
-
                     </div>
 
                     <section className=" flex flex-col h-full w-full max-w-[1100px] self-center  gap-[64px] mt-[5vh]">
 
 
-                      <PortfolioCard
-                        cardBg="card-bg-white"
-                        cardText='text-scas-dark'
-                        Title='Security Controls & Automation System (SCAS)' Section='Project Overview'
+                      <PortfolioCard 
+                      cardBg="card-bg-flik" 
+                      cardText='text-flik-dark'
+                      Title='Security Controls & Automation System (SCAS)' Section='Project Overview'
                         CardContent={sliderItems_CIAAN_Overview} ></PortfolioCard>
 
-                      <PortfolioCard
-                        cardBg="card-bg-white"
-                        cardText='text-scas-dark'
-                        Title='User Research'
-
-                        Section='Research & Planning'
+                      <PortfolioCard  Title='User Research' Section='Research & Planning'
                         CardContent={sliderItems_CIAAN_UserResearch} ></PortfolioCard>
 
                       <PortfolioCard Section={'Security Staff Screens'}
-                        cardBg="card-bg-white"
-                        cardText='text-scas-dark'
                         Title={'Security Engagements: Creation & Management'}
                         CardContent={sliderItems_CIAAN_EngagementFlow}
                       />
                       <PortfolioCard Section={'Security Staff Screens'}
-                        cardBg="card-bg-white"
-                        cardText='text-scas-dark'
                         Title={'Security Assessments: Creation & Management'}
                         CardContent={sliderItems_CIAAN_AssessmentFlow}
                       />
 
 
                       <PortfolioCard
-                        cardBg="card-bg-white"
-                        cardText='text-scas-dark'
                         CardContent={sliderItems_CIAAN_ManagementFlow}
                         Section={"Security Staff Screens"}
                         Title={'Assessment & Engagement Management'}
                       />
 
                       <PortfolioCard
-                        cardBg="card-bg-white"
-                        cardText='text-scas-dark'
                         Section={"Security User"}
                         Title={'Assessment Form Delivery'}
                         CardContent={sliderItems_CIAAN_SecurityUserDashboard}
                       />
                       <PortfolioCard
-                        cardBg="card-bg-white"
-                        cardText='text-scas-dark'
                         Section={"Design System"}
                         Title={''}
                         CardContent={sliderItems_CIAAN_DesignSystem}
                       />
                       <PortfolioCard
-                        cardBg="card-bg-white"
-                        cardText='text-scas-dark'
                         Section={"User Testing"}
                         Title={'Cognitive Walkthroughs'}
                         CardContent={sliderItems_CIAAN_UserTesting}
