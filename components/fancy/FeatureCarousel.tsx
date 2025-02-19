@@ -18,12 +18,14 @@
        }
 */
 "use client"
+import { NyxTOCItems } from './NyxTOCItems';
 import FigmaIcon from '@components/generic/Icons/Socials/FigmaIcon.jsx'
 import { HeroHighlight } from '@/components/fancy/HeroHighlight';
 import TeamIcon from '@components/generic/Icons/TeamIcon.jsx'
 import ProjectIcon from '@components/generic/Icons/ProjectIcon.jsx'
 import TimerIcon from '@components/generic/Icons/TimerIcon.jsx'
 import UnderArrow from '@components/generic/Icons/UnderArrow.jsx'
+import { AlignLeft, ChevronRight } from "lucide-react"
 
 import {
   forwardRef,
@@ -112,6 +114,8 @@ const getClasses = (str) => {
       break;
     case "tri":
       return ("rcs-tri leading-tight font-['EXO']  font-[550]")
+      case "flik":
+        return ("rcs-tri leading-tight font-['EXO']  font-[550]")
     default:
       break;
   }
@@ -269,7 +273,7 @@ interface AnimatedStepImageProps extends StepImageProps {
  */
 function useNumberCycler(
   totalSteps: number = TOTAL_STEPS,
-  interval: number = 5000
+  interval: number = 5000000
 ) {
   const [currentNumber, setCurrentNumber] = useState(0)
   const [isManualInteraction, setIsManualInteraction] = useState(false)
@@ -810,11 +814,82 @@ export function FeatureCarousel({
       </AnimatePresence>
     )
   }
+  const tocItems = [
+    {
+      title: "",
+      url: "#introduction",
+      depth: 1,
+    },
+    {
+      title: "Overview",
+      url: "#introduction",
+      depth: 1,
+    },
+    {
+      title: "Research & Planning",
+      url: "#getting-started",
+      depth: 2,
+    },
+    {
+      title: "Security Staff Flows",
+      url: "#installation",
+      depth: 1,
+    },
+    {
+      title: "Security Assessments",
+      url: "#basic-usage",
+      depth: 3,
+    },
+    {
+      title: "Security Engagements",
+      url: "#advanced-features",
+      depth: 3,
+    },
+    {
+      title: "Spreadsheet View",
+      url: "#api-reference",
+      depth: 3,
+    },
+    {
+      title: "Security User Flows",
+      url: "#introdudction",
+      depth: 2,
+    },
+    {
+      title: "Assessment Delivery",
+      url: "#gettingd-started",
+      depth: 3,
+    },
+    {
+      title: "Design System",
+      url: "#gettingd-sdtarted",
+      depth: 1,
+    },
+    {
+      title: "",
+      url: "#gettindgd-sddtarted",
+      depth: 1,
+    },
+    {
+      title: "",
+      url: "#gettindgd-sddtarted",
+      depth: 1,
+    }, {
+      title: "",
+      url: "#gettindgd-sddtarted",
+      depth: 1,
+    },
+    {
+      title: "",
+      url: "#gettindgd-asdsddtarted",
+      depth: 1,
+    },
 
+  ]
   return (
 
     <div className={cn(props.cardBg, "flex  w-full pt-[20vh]      flex-col text-left    overflow-hidden")}>
-      <div className="  absolute top-0  w-full h-[50%]    bg-CIAAN-header-home">
+      <div className={cn(props.headerCn, "  absolute top-0  w-full h-[50%]    ")}>
       </div>
 
       {/* <div class="nav-menu-swatch   w-full h-[22px] flex flex-row">
@@ -824,187 +899,138 @@ export function FeatureCarousel({
       <div class="w-[30%] h-full bg-[#f1f0ee] "></div>
     </div> */}
       <div className={cn("relative z-10  grid   rounded-r-3xl overflow-hidden  ",)}>
+        <div className={cn(props.gradientOverlay, "  absolute top-0  w-full h-full  pointer-events-none  ")}>
+        </div>
         <span className="  flex flex-col pb-4 h-full space-between w-full px-14  z-0 ">
 
           <p className="text-[2.5rem] font-inter   font-[700] mb-2 mt-10 leading-tight">{props.title}</p>
           <p className="font-[500] font-inter  text-[1.15rem] mb-3 leading-tight">{props.description}</p>
           {props.button}
 
-          <div className={cn(props.descriptionClassName, " flex flex-col mt-14 mb-4  pb-[16px] pt-3 px-2.5 w-fit pr-32  ",)} >
-            <span className=" ml-1 mt-0.5 mb-0.5 font-['Exo_2'] w-full tracking-[0.045em] w-full capitalize text-[16px] h-fit self-start">
-              <div className="flex flex-col gap-3 w-full ">
-                <h3 className="font-[550] text-[14px] leading-tight   ml-[8px] text-CIAAN-light opacity-[85%]">
-                  Last Updated 2/3/2024
-                </h3>
-                <div className="font-[550] text-[14px] leading-tight w-fit flex flex-row  text-CIAAN-light opacity-[85%]">
-                  <span className="flex flex-row  w-full  justify-between gap-12 space-between ml-[10px]">
-                    <div className="flex flex-row gap-2">
-                      <div className=" self-center mt-1">
-                        <TimerIcon height='26px' stop={"" + props.iconStop} />
-                      </div>
-                      <div className="flex flex-col gap-1.5 self-center">
-                        <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
-                          Project Length
-                        </h3>
-                        <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">4 Months</p>
-                      </div>
-                    </div>
-                    <div className="flex flex-row gap-2">
-                      <div className=" self-center mt-1">
-                        <TeamIcon height='26px' stop={props.iconStop} />
-                      </div>
-                      <div className="flex flex-col gap-1.5 self-center">
-                        <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
-                          Role
-                        </h3>
-                        <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">Sole UX/UI Designer</p>
-                      </div>
-                    </div>
-                    <div className="flex flex-row gap-2">
-                      <div className=" self-center mt-1">
-                        <ProjectIcon height='26px' stop={props.iconStop} />
-                      </div>
-                      <div className="flex flex-col gap-1.5 self-center">
-                        <h3 className="font-[550] text-[12px] leading-tight   -ml-[1px] text-CIAAN-light opacity-[90%]">
-                          Project Type
-                        </h3>
-                        <p className="text-CIAAN-light font-['exo'] self-center leading-none  -mt-[2px] text-left w-full">
-                          Interactive Workflow Mockups
-                        </p>
-                      </div>
-                    </div>
-                  </span>
-                </div>
-              </div>
-            </span>
-          </div>
 
         </span>
-        <section className={cn(" flex flex-row pb-32")}>
-          <div className={cn(props.gradientOverlay, "  absolute top-0  w-full h-full pointer-events-none  ")}>
-          </div>
-          <div className={cn(props.descriptionClassName, " grid w-[80%] ml-14 min-w-1/2   rounded-r-3xl overflow-hidden h-[58vh] ",)}>
 
-            <FeatureCard {...props} step={step}>
-              {renderStepContent()}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className={cn("absolute left-[12rem]  max-[844px]:left-0  rounded-3xl overflow-hidden top-6 z-50 h-full w-full cursor-pointer  md:left-0",
-                )}
-              >
-                <Steps current={step} onChange={() => { }} steps={getSteps(props.case)} />
-              </motion.div>
-              <motion.div
-                className="absolute right-0 top-0 h-[100vh] z-[50]   w-full cursor-pointer md:left-0"
-                onClick={handleIncrement}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              />
+        <section className={cn(" flex flex-row pb-[12rem]  mt-14 ml-14")}>
 
-            </FeatureCard>
-
-
-          </div>
-          <div className={cn("place-self-start toc-scas bg-no-repeat bg-cover ml-4 mr-6 navbg 	self-start uppercase  w-fit  font-['Exo_2']  text-[12px]  h-full flex flex-col      ",
+          <div className={cn("place-self-start toc-scas bg-no-repeat bg-cover rounded-xl  mr-6  	self-start uppercase  w-fit  font-['Exo_2']  text-[12px]  h-full flex flex-col      ",
             // props.descriptionClassName,
           )}>
 
-            <div className="h-full  rounded-xl bg-animated-cards-description-scas backdrop-blur-[10px] group/bento hover:shadow-xl transition duration-200 shadow-input p-4 justify-between flex flex-col space-y-4 md:col-span-1 featureCard-bg-scas">
-            <div class=" flex flex-col h-fit">
+            <div className={cn(props.descriptionClassName, props.featureCardCn, "featureCard-bg-scas h-full  rounded-xl backdrop-blur-[10px] group/bento hover:shadow-xl transition duration-200 shadow-input pb-8  pl-4 pr-10 justify-between flex flex-col  ")}>
+              <div className={cn(props.gradientOverlay, "  absolute top-0  left-0 rounded-xl tocBg-scas w-full h-full  pointer-events-none  ")}>
+              </div>
+              <div class={cn(props.panelTitle, "panel-title-scasHero ")}>
+                <div class="flex flex-row px-2.5 pt-1.5 pb-[5px]">
+                  <AlignLeft className="size-4 opacity-100 self-center pt-[-1px] mr-1.5" />
+                  <h1 class="font-[550] text-nowrap text-[14px] leading-tight self-center    text-CIAAN-light opacity-[90%] ">
+                    Table of Contents
+                  
+                  </h1>
+                </div>
+              </div>
+
+              <div className="flex gap-10  text-nowrap pt-8 pl-1">
+                <div className="flex-1">
+                  <NyxTOCItems
+                   items={tocItems} 
+                   tocLine={props.tocLineCn}
+                   textCn="font-[550] self-center text-[12px] text-nowrap   -ml-[2px] text-CIAAN-light opacity-[95%]" 
+                   labelCn="font-[550] text-[14px] leading-tight  mb-2 text-CIAAN-light opacity-[90%]" />
+                </div>
+              </div>
+              {/* <div class="bg-white bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)] h-full mt-1 object-fill bg-cover bg-no-repeat w-full  rounded-lg  overflow-hidden" src="https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/designSystem_feature_1_5x.webp">
+              </div> */}
+              {/* <div class=" flex flex-col h-fit w-fit">
                 <div class="group-hover/bento:translate-x-2 transition duration-200">
                   <span class=" flex flex-col h-fit">
                     <div class="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2  mt-2">Security User Dashboard</div>
                     <div class="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300">User-facing dashboard for managing assigned assessments.</div>
                   </span>
                 </div>
-              </div>
-              <div class="bg-white bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)] h-full mt-1 object-fill bg-cover bg-no-repeat w-full  rounded-lg  overflow-hidden" src="https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/designSystem_feature_1_5x.webp">
-              </div>
-          
+              </div> */}
+
             </div>
 
-            {/* <span className="flex flex-col gap-2 ">
-              <div className="px-[4px]  py-[3px]  flex flex-row gap-[2px] items-center  uppercase  h-fit self-start place-items-start">
-
-                <h3 className="font-[550] text-[14px] leading-tight     text-CIAAN-light opacity-[100%]">
-                  Table of Contents
-                </h3>
-
-
-              </div>
-
-              <div className="px-[4px]  font-[350] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-
-                <p className=""> <a href="#HowItWorks">Research & Planning</a></p>
-
-
-              </div>
-
-              <span className=" flex flex-col -mt-[4px]">
-                <div className=" py-[3px] font-[350] flex flex-row gap-[2px] items-center mb-[2px]  h-fit self-start place-items-start">
-
-                  <p className="ml-[4px]"><a href="#500Keybinds">Security Staff Flows</a></p>
-
-
-                </div>
-
-                <div className=" ml-[14px] font-[350] mb-[2px]  px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                  <div className=" -mt-[8px] -ml-[6px] pr-[2px]">
-                    <UnderArrow fill="#ffffff25" height='18px' />
-
-                  </div>
-
-                  <p className=""><a href="#500Keybinds">Security Assessments</a></p>
-
-
-                </div>
-                <div className=" ml-[14px] font-[350] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                  <div className=" -mt-[8px] -ml-[6px] pr-[2px] ">
-                    <UnderArrow fill="#ffffff25" height='18px' />
-
-                  </div>
-
-                  <p className="font-[350]"><a href="#500Keybinds">Spreadsheet View</a></p>
-
-
-                </div>
-              </span>
-              <span className="pl-[4px] flex flex-col -mt-[4px]">
-                <div className=" py-[3px] flex flex-row gap-[2px] items-center mb-[2px]  h-fit self-start place-items-start">
-
-                  <p className="font-[350]"><a href="#500Keybinds">Security User Flows</a></p>
-
-
-                </div>
-
-                <div className=" ml-[14px] font-[350] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                  <div className=" -mt-[8px] -ml-[6px] pr-[2px] ">
-                    <UnderArrow fill="#ffffff25" height='18px' />
-
-                  </div>
-
-                  <p className="font-[350]"><a href="#500Keybinds">Assessment Delivery</a></p>
-
-
-                </div>
-
-
-              </span>
-              <div className="px-[4px] py-[3px] font-[350] flex flex-row gap-[2px] h-fit self-start items-center ">
-
-                <p className=""> <a href="#DeviceInputs">Design System</a></p>
-
-              </div>
-              <div className="px-[4px] py-[3px] font-[350] flex flex-row gap-[2px] h-fit self-start items-center ">
-
-                <p className="font-[350]"> <a href="#DeviceInputs">User Testing</a></p>
-
-              </div>
-            </span> */}
-
           </div>
+          <span className=' w-full flex flex-col pr-10 '>
+            <div className={cn(props.descriptionClassName, " flex flex-col mb-4  pb-[16px] pt-3 px-2.5 w-fit pr-32  ",)} >
+              <div className={cn(props.gradientOverlay, props.tocBg, "  absolute   w-full h-full  pointer-events-none  ")}>
+              </div>
+              <span className=" ml-1 mt-0.5 mb-0.5 font-['Exo_2'] w-full tracking-[0.045em]  capitalize text-[16px] h-fit self-start">
+                <div className="flex flex-col gap-3 w-full ">
+                  <h3 className="font-[550] text-[14px] leading-tight   ml-[8px] text-CIAAN-light opacity-[85%]">
+                    Last Updated 2/3/2024
+                  </h3>
+                  <div className="font-[550] text-[14px] leading-tight w-fit flex flex-row  text-CIAAN-light opacity-[85%]">
+                    <span className="flex flex-row  w-full  justify-between gap-12 space-between ml-[10px]">
+                      <div className="flex flex-row gap-2">
+                        <div className=" self-center mt-1">
+                          <TimerIcon height='26px' stop={"" + props.iconStop} />
+                        </div>
+                        <div className="flex flex-col gap-1.5 self-center">
+                          <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
+                            Project Length
+                          </h3>
+                          <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">4 Months</p>
+                        </div>
+                      </div>
+                      <div className="flex flex-row gap-2">
+                        <div className=" self-center mt-1">
+                          <TeamIcon height='26px' stop={props.iconStop} />
+                        </div>
+                        <div className="flex flex-col gap-1.5 self-center">
+                          <h3 className="font-[550] text-[12px] leading-none  -ml-[1px] text-CIAAN-light opacity-[90%]">
+                            Role
+                          </h3>
+                          <p className="text-CIAAN-light font-['exo'] self-center leading-none text-left w-full">Sole UX/UI Designer</p>
+                        </div>
+                      </div>
+                      <div className="flex flex-row gap-2">
+                        <div className=" self-center mt-1">
+                          <ProjectIcon height='26px' stop={props.iconStop} />
+                        </div>
+                        <div className="flex flex-col gap-1.5 self-center">
+                          <h3 className="font-[550] text-[12px] leading-tight   -ml-[1px] text-CIAAN-light opacity-[90%]">
+                            Project Type
+                          </h3>
+                          <p className="text-CIAAN-light font-['exo'] self-center leading-none  -mt-[2px] text-left w-full">
+                            Interactive Workflow Mockups
+                          </p>
+                        </div>
+                      </div>
+                    </span>
+                  </div>
+                </div>
+              </span>
+            </div>
+
+            <div className={cn(props.descriptionClassName, " grid w-[100%] min-w-1/2   rounded-r-3xl overflow-hidden h-[58vh] ",)}>
+              <div className={cn(props.gradientOverlay, props.tocBg, "  absolute top-0  left-0 rounded-xl w-full h-full  pointer-events-none  ")}>
+              </div>
+              <FeatureCard {...props} step={step}>
+                {renderStepContent()}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  className={cn("absolute left-[12rem]  max-[844px]:left-0  rounded-3xl overflow-hidden top-6 z-50 h-full w-full cursor-pointer  md:left-0",
+                  )}
+                >
+                  <Steps current={step} onChange={() => { }} steps={getSteps(props.case)} />
+                </motion.div>
+                <motion.div
+                  className="absolute right-0 top-0 h-[100vh] z-[50]   w-full cursor-pointer md:left-0"
+                  onClick={handleIncrement}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                />
+
+              </FeatureCard>
+
+
+            </div>
+
+          </span>
         </section>
 
       </div>

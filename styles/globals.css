@@ -15,8 +15,8 @@
  }
 .featureCard-bg-scas{
   /* background-image: linear-gradient(270deg, rgba(0, 34, 41, 0), #67094263 90%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(251 81 255 / 15%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url(https://pub-e1fd8b0….r2.dev/hero_bg_1x.webp); */
-  background-image: linear-gradient(326deg, rgb(177 53 128 / 45%), #8416544d 90%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(251 81 255 / 15%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url(https://pub-e1fd8b0….r2.dev/hero_bg_1x.webp);
-
+  /* background-image: linear-gradient(326deg, rgb(177 53 128 / 45%), #8416544d 90%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(251 81 255 / 15%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url(https://pub-e1fd8b0….r2.dev/hero_bg_1x.webp); */
+background-image: linear-gradient(270deg, rgba(0, 34, 41, 0), #67094263 90%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(210 3 163 / 23%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url(https://pub-e1fd8b0….r2.dev/hero_bg_1x.webp);
 }
 .w-fill {
   width: -webkit-fill-available;
@@ -73,7 +73,11 @@
 background-repeat: no-repeat;
 background-size: cover;
 }
-
+.animated-cards-header-flik{
+  background-image: linear-gradient(66deg, #3f024d 32%, #0009ff5e);
+background-repeat: no-repeat;
+background-size: cover;
+}
 .animated-cards-cursor-scas-fixed{
   background-image: linear-gradient(66deg,#4b002ff7 32%,#e20d588e),url(https://cdn.prod.website-files.com/60ed4aeb79e554d52f0d9608/6383e4d85f097fa47164f397_2022-11-27%2014_28_54-402%20SCAS%20-%20Figma.png);
 }
@@ -391,7 +395,18 @@ filter: blur(calc(0.8* 1rem)) brightness(1) drop-shadow(0 0px 0px #ff00a200) ;
   mix-blend-mode: hard-light;
   z-index: 10 !important;
 }
-
+.cardInset-flik {
+  position: absolute;
+  display: block;
+  /* left: -10px; */
+  /* top: -60px; */
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  background: linear-gradient(182deg, #860a8900 50%, #8616a1a1 100%);
+  mix-blend-mode: hard-light;
+  z-index: 10 !important;
+}
 
   .text-CIAAN-light {
     -webkit-background-clip: text !important;
@@ -453,6 +468,12 @@ color: var(--scas);
     display: flex;
     box-shadow: 0 0 20px -2px #0009;
   }
+  .toc-line-scas {
+    background-image: linear-gradient(180deg, #ffd30000 0%, #ff9be066 27%, #f49cff4d 70%, #ff646400 100%);
+  }
+  .toc-line-flik {
+    background-image: linear-gradient(180deg, #ffd30000 0%, #ff9be066 27%, #f49cff4d 70%, #ff646400 100%);
+  }
   .bg-CIAAN-body {
     /* background:  url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg), linear-gradient(180deg, rgba(57, 0, 23, 0.407), rgba(62, 0, 35, 0.356)); */
     border-image: fill 0 linear-gradient(180deg, rgb(88 14 62) 0%, rgb(88 14 62 / 79%) 3%, #552344);
@@ -471,12 +492,47 @@ background-color: #7e7e7e57;
     background-image: linear-gradient(182deg, #33333300 50%, #930058a8 100%);
   
   }
+  .tocBg-scas {
+    background-image: linear-gradient(48deg, #00b4ff5e 0%, #ff25b3 100%), url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg);
+    background-size: 120%;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-position-y: bottom;
+    opacity: 4%;
+    background-attachment: fixed;
+}
+.toc-flik {
+  background-image: linear-gradient(182deg, #33333300 50%, #700093a8 100%);
+
+}
+.tocBg-flik {
+  background-image: linear-gradient(48deg, #00b4ff5e 0%, #ff25b3 100%), url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg);
+  background-size: 120%;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  background-position-y: bottom;
+  opacity: 4%;
+  background-attachment: fixed;
+}
   .bg-CIAAN-bodyHero {
     /* background:  url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg), linear-gradient(180deg, rgba(57, 0, 23, 0.407), rgba(62, 0, 35, 0.356)); */
     border-image: fill 0 linear-gradient(180deg, rgb(88 14 62) 0%, rgb(88 14 62 / 79%) 3%, #552344);
     /* background-image: url("https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg"); */
 min-height: 100%;
 border-image: fill 0 linear-gradient(180deg, rgb(88 14 62) 0%, rgb(255 13 220 / 33%) 3%, #ff077300);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+background-size: 120vw;
+background-color: #7e7e7e57;
+    background-image: linear-gradient(190deg, #fff, #fff0), radial-gradient(circle at 0 0, #b34f00, #00000000), linear-gradient(#0c151b1c, #007e85b0), url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_2x.webp);
+  }
+  .bg-flik-bodyHero {
+    /* background:  url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg), linear-gradient(180deg, rgba(57, 0, 23, 0.407), rgba(62, 0, 35, 0.356)); */
+    border-image: fill 0 linear-gradient(180deg, rgb(88 14 62) 0%, rgb(88 14 62 / 79%) 3%, #552344);
+    /* background-image: url("https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg"); */
+min-height: 100%;
+border-image: fill 0 linear-gradient(180deg, rgb(14 88 51 / 0%) 0%, rgb(255 140 13 / 51%) 3%, #ff6a0700);
 background-repeat: no-repeat;
 background-attachment: fixed;
 background-position: center;
@@ -503,7 +559,8 @@ background-color: #7e7e7e57;
     background-repeat: no-repeat;
     transition: all 0.6s ease-in-out;
     -webkit-transition: background-image 5s;
-    -webkit-mask-image: -webkit-linear-gradient(90deg, #ffffff00 25%, #000000 55%, #000000 100%);      }
+    -webkit-mask-image: -webkit-linear-gradient(90deg, #ffffff00 25%, #000000 55%, #000000 100%);  
+      }
   .bg-CIAAN-header{
 background-image:  linear-gradient(180deg, rgba(0, 34, 41, 0), #670947 45%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(48 0 31 / 25%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url('https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/hero_bg_1x.webp');
 /* background-image:  linear-gradient(167deg, rgba(75, 0, 48, 0.9), rgb(34 4 35 / 37%) 14%, rgb(35 4 34 / 0%) 78%, rgba(4, 29, 35, 0)), linear-gradient(180deg, rgba(0, 34, 41, 0), #6d0a4a 98%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(48 0 31 / 25%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url('https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/hero_bg_1x.webp'); */
@@ -513,7 +570,15 @@ transition: all 0.6s ease-in-out;
 -webkit-transition: background-image 5s;
 
   }
-  
+  .bg-flik-header-home{
+    background-image: linear-gradient(180deg, rgb(0 0 0 / 0%), #530067 45%, #530067 45%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(37 0 48 / 25%) 70%, rgb(156 12 174 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(36 0 27 / 21%) 70%, rgb(21 12 174 / 0%)), url('https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/hero_bg_1x.webp');
+    /* background-image:  linear-gradient(167deg, rgba(75, 0, 48, 0.9), rgb(34 4 35 / 37%) 14%, rgb(35 4 34 / 0%) 78%, rgba(4, 29, 35, 0)), linear-gradient(180deg, rgba(0, 34, 41, 0), #6d0a4a 98%), linear-gradient(0deg, hsla(0, 0%, 100%, 0), rgb(48 0 31 / 25%) 70%, rgb(174 12 164 / 0%)), linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgb(48 0 37 / 21%) 70%, rgb(21 12 174 / 0%)), url('https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/hero_bg_1x.webp'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 0.6s ease-in-out;
+    -webkit-transition: background-image 5s;
+    -webkit-mask-image: -webkit-linear-gradient(90deg, #ffffff00 25%, #000000 55%, #000000 100%);  
+      }
   .scroll-snap {
     scroll-snap-type: x mandatory;
   }
@@ -1509,7 +1574,22 @@ z-index: 2;
   display: flex !important;
   flex-direction: row !important;
 }
-  
+.panel-title-scasHero {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: absolute;
+  justify-self: center;
+}
+.panel-title-scasHero > div {
+  border-radius: 0px 0px 8px 8px !important;
+  border-width: 0px 1px 1px 1px;
+  border-color: rgb(107 23 75 / 43%);
+  position: relative !important;
+  background: linear-gradient(13deg, #ff4c7300, #db4ac600), linear-gradient(245deg, #ff369717, #ff00db0d), linear-gradient(#67174900, #00000000);
+  display: flex !important;
+  flex-direction: row !important;
+}
   /* .panel-title > div::before {
   
   content: "";
@@ -4271,6 +4351,14 @@ transition: filter 0.3s;
   align-items: flex-start;
   border-radius: 10px;
 }
+.bg-animated-cards-description-flik {
+  border: 1px solid rgb(7 0 76 / 20%);
+  fill: #2c454b00;
+  /* background:repeating-linear-gradient(-45deg, rgb(127 49 85 / 47%), rgb(53 0 0 / 39%) 1px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0) 2.83px), linear-gradient(145deg, rgb(0 34 41 / 0%) 0%, rgb(47 3 35 / 35%) 100%), radial-gradient(644.7% 114.87% at 22.25% 28.07%, rgb(82 41 74 / 0%) 0%, rgb(213 0 94 / 11%) 100%); */
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 10px;
+}
 .bg-animated-cards-description-tri {
   border: 1px solid rgb(75 0 50 / 30%);
   fill: #2c454b00;
@@ -4302,6 +4390,21 @@ background-repeat: no-repeat;
     mask-composite: exclude;
     
   }
+  .bg-animated-cards-description-flik::before {
+    z-index: -1;
+      content: "";
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      border-radius: 10px 10px 10px 10px;
+      border: 1px solid transparent;
+    background:radial-gradient(ellipse at 85% 0%, #82476dcf, #9c20954a, #c64eba30) border-box, radial-gradient(ellipse at 0% 50%, #00000026, #00000000, transparent) border-box, radial-gradient(ellipse at 100% 70%, #773de647, #8524c663, transparent) border-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#ffffff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      
+    }
 .panel-white {
   border:1px solid rgb(1 61 63 / 58%);
   fill: #01151A;

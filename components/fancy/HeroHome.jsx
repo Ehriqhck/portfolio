@@ -333,79 +333,153 @@ const Schedule = () => {
         },
     ];
     return (
-        <section
-            id="launch-schedule"
-            className="mx-auto   flex flex-col text-white bg-CIAAN-bodyHero"
-        >
-            <ScheduleItem title="Starlink" date="Dec 20th" location="Texas"
-                sectionContent={
-                    <FeatureCarousel
-                        items={itemsScas}
-                        gradientOverlay='cardInset-scas'
-                        cardInsetBg="bg-CIAAN-bodyHero"
-                        cardBg="animated-cards-header-scas"
-                        case="scas"
-                        title=<p className="text-CIAAN-light font-['exo'] ">CIAAN Security Corporation </p>
-                        descriptionClassName="bg-animated-cards-description-scas backdrop-blur-[10px]"
-                        description=<p className="text-CIAAN-light font-['exo']">Flightsim Keybind Mapping Automation</p>
+        <>
+            <section
+                id="launch-schedule"
+                className="mx-auto   flex flex-col text-white bg-CIAAN-bodyHero"
+            >
+                <ScheduleItem title="Starlink" date="Dec 20th" location="Texas"
+                    sectionContent={
+                        <FeatureCarousel
+                            items={itemsScas}
+                            tocLineCn='toc-line-scas'
+                            headerCn='bg-CIAAN-header-home'
+                            gradientOverlay='cardInset-scas'
+                            cardInsetBg="bg-CIAAN-bodyHero"
+                            cardBg="animated-cards-header-scas"
+                            case="scas"
+                            title=<p className="text-CIAAN-light font-['exo'] ">CIAAN Security Corporation </p>
+                            descriptionClassName="bg-animated-cards-description-scas backdrop-blur-[10px]"
+                            description=<p className="text-CIAAN-light font-['exo']">Flightsim Keybind Mapping Automation</p>
 
-                        iconStop="#E3EDFF"
-                        overview=<p className="text-CIAAN-light font-['exo']">SCAS (Security Controls & Automation System) is a platform of cybersecurity tools initially tailored for T-Mobile Security Staff.<br></br>  Here, I designed SCAS's workflow for automating assessment & engagement creation & management.</p>
-                        insetCardBorderClassName="min-w-fit w-full animated-cards-border-bg-scads"
-                        // Example classes for responsive layout
-                        step1img1Class={cn(
-                            " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]    md:left-[0%]  mt-8",
-                            "md:group-hover:translate-y-2"
-                        )}
-                        step1img2Class={cn(
-                            " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]   md:left-[0%]  mt-8",
-                            "md:group-hover:translate-y-2"
-                        )}
-                        step2img1Class={cn(
-                            " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]   md:left-[0%]  mt-8",
-                            "md:group-hover:translate-y-2"
-                        )}
-                        step2img2Class={cn(
-                            " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]   md:left-[0%]  mt-8",
-                            "md:group-hover:translate-y-2"
-                        )}
-                        step3imgClass={cn(
-                            " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]   md:left-[0%]  mt-8",
-                            "md:group-hover:translate-y-2"
-                        )}
-                        step4imgClass={cn(
-                            " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
-                            "  rounded-[10px]   md:left-[0%]  mt-8",
-                            "md:group-hover:translate-y-2"
-                        )}
-                        // Example images
-                        image={{
-                            step1light1: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
-                            step1light2: "https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg",
-                            step2light1: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
-                            step2light2: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
-                            step3light: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
-                            step4light: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
-                            alt: "Feature demonstration",
-                        }}
-                        // bg-gradient-to-tr from-neutral-900/90 to-neutral-800/90 Card styling
-                        bgClass="bg-CIAsAN-body"
-                        button={<RainbowButton type='scas'> <p className='rcs-scas-text leading-tight font-["EXO"] uppercase font-[550] text-[15px]'>Read Case Study</p> </RainbowButton>
-                        }
-                    />
-                }
-            />
+                            iconStop="#E3EDFF"
+                            overview=<p className="text-CIAAN-light font-['exo']">SCAS (Security Controls & Automation System) is a platform of cybersecurity tools initially tailored for T-Mobile Security Staff.<br></br>  Here, I designed SCAS's workflow for automating assessment & engagement creation & management.</p>
+                            insetCardBorderClassName="min-w-fit w-full animated-cards-border-bg-scads"
+                            // Example classes for responsive layout
+                            step1img1Class={cn(
+                                " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
+                                "  rounded-[10px]    md:left-[0%]  mt-8",
+                                "md:group-hover:translate-y-2"
+                            )}
+                            step1img2Class={cn(
+                                " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
+                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "md:group-hover:translate-y-2"
+                            )}
+                            step2img1Class={cn(
+                                " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
+                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "md:group-hover:translate-y-2"
+                            )}
+                            step2img2Class={cn(
+                                " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
+                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "md:group-hover:translate-y-2"
+                            )}
+                            step3imgClass={cn(
+                                " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
+                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "md:group-hover:translate-y-2"
+                            )}
+                            step4imgClass={cn(
+                                " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
+                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "md:group-hover:translate-y-2"
+                            )}
+                            // Example images
+                            image={{
+                                step1light1: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
+                                step1light2: "https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg",
+                                step2light1: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
+                                step2light2: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
+                                step3light: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
+                                step4light: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
+                                alt: "Feature demonstration",
+                            }}
+                            // bg-gradient-to-tr from-neutral-900/90 to-neutral-800/90 Card styling
+                            bgClass="bg-CIAsAN-body"
+                            button={<RainbowButton type='scas'> <p className='rcs-scas-text leading-tight font-["EXO"] uppercase font-[550] text-[15px]'>Read Case Study</p> </RainbowButton>
+                            }
+                        />
+                    }
+                />
+            </section>
+            <section
+                id="launch-schedule"
+                className="mx-auto   flex flex-col text-white bg-flik-bodyHero"
+            >
+                <ScheduleItem title="Starlink" date="Dec 20th" location="Texas"
+                    sectionContent={
+                        <FeatureCarousel
+                            items={itemsScas}
+                            tocLineCn='toc-line-scas'
+                            headerCn='bg-flik-header-home'
+                            gradientOverlay='cardInset-flik'
+                            cardInsetBg="bg-flik-bodyHero"
+                            cardBg="animated-cards-header-flik"
+                            case="scas"
+                            title=<p className="text-CIAAN-light font-['exo'] ">Flikshop </p>
+                            descriptionClassName="bg-animated-cards-description-flik backdrop-blur-[10px]"
+                            description=<p className="text-CIAAN-light font-['exo']">Product Platform Redesign</p>
 
+                            iconStop="#E3EDFF"
+                            overview=<p className="text-CIAAN-light font-['exo']">SCAS (Security Controls & Automation System) is a platform of cybersecurity tools initially tailored for T-Mobile Security Staff.<br></br>  Here, I designed SCAS's workflow for automating assessment & engagement creation & management.</p>
+                            insetCardBorderClassName="min-w-fit w-full animated-cards-border-bg-scads"
+                            // Example classes for responsive layout
+                            step1img1Class={cn(
+                                " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
+                                "  rounded-[10px]    md:left-[0%]  mt-8",
+                                "md:group-hover:translate-y-2"
+                            )}
+                            step1img2Class={cn(
+                                " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
+                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "md:group-hover:translate-y-2"
+                            )}
+                            step2img1Class={cn(
+                                " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
+                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "md:group-hover:translate-y-2"
+                            )}
+                            step2img2Class={cn(
+                                " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
+                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "md:group-hover:translate-y-2"
+                            )}
+                            step3imgClass={cn(
+                                " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
+                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "md:group-hover:translate-y-2"
+                            )}
+                            step4imgClass={cn(
+                                " drop-shadow-[0_15px_35px_rgb(54,0,40)] pointer-events-none w-[85%]  transition-all duration-500 dark:border-stone-700/50",
+                                "  rounded-[10px]   md:left-[0%]  mt-8",
+                                "md:group-hover:translate-y-2"
+                            )}
+                            // Example images
+                            image={{
+                                step1light1: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
+                                step1light2: "https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg",
+                                step2light1: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
+                                step2light2: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
+                                step3light: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
+                                step4light: "https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/downloads/default.mp4",
+                                alt: "Feature demonstration",
+                            }}
+                             tocBg=" tocBg-flik "
+                            // bg-gradient-to-tr from-neutral-900/90 to-neutral-800/90 Card styling
+                            bgClass="bg-CIAsAN-body"
+                            button={<RainbowButton type='scas'> <p className='rcs-scas-text leading-tight font-["EXO"] uppercase font-[550] text-[15px]'>Read Case Study</p> </RainbowButton>
+                            }
+                        />
+                    }
+                />
+            </section>
             <ScheduleItem title="NG-21" date="Dec 9th" location="Florida"
                 sectionContent={
                     <FeatureCarousel
                         items={itemsScas}
-
+                        tocLineCn='toc-line-scas'
                         case="tri"
                         cardInsetBg="bg-CIAAN-bodyHero"
                         cardBg="animated-cards-header-scas "
@@ -464,7 +538,7 @@ const Schedule = () => {
                     />
                 }
             />
-        </section>
+        </>
     );
 };
 
