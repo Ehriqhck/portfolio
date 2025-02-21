@@ -569,7 +569,7 @@ background-color: #7e7e7e57;
   }
   .bg-flik-body {
     /* background:  url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg), linear-gradient(180deg, rgba(57, 0, 23, 0.407), rgba(62, 0, 35, 0.356)); */
-    border-image:fill 0 linear-gradient(180deg, rgb(68 14 88) 0%, rgb(64 2 93 / 82%) 3%, #260045);
+    border-image:fill 0 linear-gradient(180deg, rgb(68 14 88) 0%, rgb(64 2 93 / 82%) 3%, #260045b8);
     /* background-image: url("https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg"); */
 min-height: 100%;
 /* border-image: fill 0 linear-gradient(180deg, rgb(88 14 62) 0%, rgb(255 13 220 / 33%) 3%, #ff077300); */

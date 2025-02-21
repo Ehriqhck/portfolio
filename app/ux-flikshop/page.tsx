@@ -16,8 +16,455 @@ import FigmaIcon from '@components/generic/Icons/Socials/FigmaIcon.jsx'
 import { Stream } from "@cloudflare/stream-react";
 import IframeResizer from "@iframe-resizer/react"
 import { ReactLenis } from "lenis/dist/lenis-react";
+// import { NyxTOCItems } from '@components/fancy/NyxTOCItems';
+import { cn } from '@/components/fancy/cn.jsx';
 
+import type {
+  AnchorHTMLAttributes,
+  HTMLAttributes,
+  ReactNode,
+  RefObject,
+} from "react"
+import {
+  createContext,
+  forwardRef,
+  useContext,
+  useEffect,
+  useMemo,
+
+} from "react"
 const page = () => {
+
+  // #region Components
+  const ScrollArea = (({ className, children, ...props }) => (
+    <>   {children} </>
+
+
+  ))
+
+
+
+
+  // #region Contexts
+  const ActiveAnchorContext = createContext<string[]>([])
+  const ScrollContext = createContext<RefObject<HTMLElement | null>>({
+    current: null,
+  })
+  const StylesContext = createContext<PageStyles>({
+    tocNav: "xl:hidden",
+    toc: "max-xl:hidden",
+  })
+
+  // #region Hooks
+  function useActiveAnchor(): string | undefined {
+    return useContext(ActiveAnchorContext).at(-1)
+  }
+
+  function useActiveAnchors(): string[] {
+    return useContext(ActiveAnchorContext)
+  }
+
+  function usePageStyles() {
+    return useContext(StylesContext)
+  }
+
+  // #region Utility Functions
+  function isDifferent(a: unknown, b: unknown): boolean {
+    if (Array.isArray(a) && Array.isArray(b))
+      return b.length !== a.length || a.some((v, i) => isDifferent(v, b[i]))
+    return a !== b
+  }
+
+  function mergeRefs<T>(...refs: React.Ref<T>[]): React.RefCallback<T> {
+    return (value) => {
+      refs.forEach((ref) => {
+        if (typeof ref === "function") ref(value)
+        else if (ref !== null && typeof ref === "object")
+          (ref as React.MutableRefObject<T | null>).current = value
+      })
+    }
+  }
+
+  function getItemOffset(depth: number): number {
+    if (depth <= 2) return 14
+    if (depth === 3) return 26
+    return 36
+  }
+
+  function getLineOffset(depth: number): number {
+    return depth >= 3 ? 12 : 0
+  }
+
+  // #region Components
+  function ScrollProvider({
+    containerRef,
+    children,
+  }: {
+    containerRef: RefObject<HTMLElement | null>
+    children?: ReactNode
+  }): React.ReactElement {
+    return (
+      <ScrollContext.Provider value={containerRef}>
+        {children}
+      </ScrollContext.Provider>
+    )
+  }
+
+  function AnchorProvider({
+    toc,
+    single = true,
+    children,
+  }: {
+    toc: TableOfContents
+    single?: boolean
+    children?: ReactNode
+  }): React.ReactElement {
+    const headings = useMemo(() => {
+      return toc.map((item) => item.url.split("#")[1])
+    }, [toc])
+
+    return (
+      <ActiveAnchorContext.Provider value={useAnchorObserver(headings, single)}>
+        {children}
+      </ActiveAnchorContext.Provider>
+    )
+  }
+
+  const TOCItem = forwardRef<HTMLAnchorElement, TOCItemProps>(
+    ({ onActiveChange, ...props }, ref) => {
+      const containerRef = useContext(ScrollContext)
+      const anchors = useActiveAnchors()
+      const anchorRef = useRef<HTMLAnchorElement>(null)
+      const mergedRef = mergeRefs(anchorRef, ref)
+
+      const isActive = anchors.includes(props.href.slice(1))
+
+
+
+      return (
+        <a ref={mergedRef} data-active={isActive} {...props}>
+          {props.children}
+        </a>
+      )
+    },
+  )
+
+  TOCItem.displayName = "TOCItem"
+
+  function TocThumb({
+    containerRef,
+    ...props
+  }: HTMLAttributes<HTMLDivElement> & {
+    containerRef: RefObject<HTMLElement | null>
+  }): ReactNode {
+    const active = useActiveAnchors()
+    const thumbRef = useRef<HTMLDivElement>(null)
+    const activeRef = useRef(active)
+    activeRef.current = active
+
+    function calc(container: HTMLElement, active: string[]): TOCThumb {
+      if (active.length === 0 || container.clientHeight === 0) return [0, 0]
+
+      let upper = Number.MAX_VALUE
+      let lower = 0
+
+      for (const item of active) {
+        const element = container.querySelector<HTMLElement>(
+          `a[href="#${item}"]`,
+        )
+        if (!element) continue
+
+        const styles = getComputedStyle(element)
+        upper = Math.min(
+          upper,
+          element.offsetTop + Number.parseFloat(styles.paddingTop),
+        )
+        lower = Math.max(
+          lower,
+          element.offsetTop +
+          element.clientHeight -
+          Number.parseFloat(styles.paddingBottom),
+        )
+      }
+
+      return [upper, lower - upper]
+    }
+
+    function update(element: HTMLElement, info: TOCThumb): void {
+      element.style.setProperty("--nyx-top", `${info[0]}px`)
+      element.style.setProperty("--nyx-height", `${info[1]}px`)
+    }
+
+    useEffect(() => {
+      if (!containerRef.current) return
+      const container = containerRef.current
+
+      const onResize = (): void => {
+        if (!thumbRef.current) return
+        update(thumbRef.current, calc(container, activeRef.current))
+      }
+
+      onResize()
+      const observer = new ResizeObserver(onResize)
+      observer.observe(container)
+
+      return () => {
+        observer.disconnect()
+      }
+    }, [containerRef])
+
+
+
+    return <div ref={thumbRef} role="none" {...props} />
+  }
+
+  function TocItemsEmpty() {
+    return (
+      <div className="bg-card text-muted-foreground rounded-lg border p-3 text-xs">
+        No headings found
+      </div>
+    )
+  }
+
+  function Toc(props: HTMLAttributes<HTMLDivElement>) {
+    const { toc } = usePageStyles()
+
+    return (
+      <div
+        id="nyx-toc"
+        {...props}
+        className={cn(
+          "top-nyx-layout-top sticky h-[var(--nyx-toc-height)] pb-2 pt-12",
+          toc,
+          props.className,
+        )}
+        style={
+          {
+            ...props.style,
+            "--nyx-toc-height":
+              "calc(100dvh - var(--nyx-banner-height) - var(--nyx-nav-height))",
+          } as any
+        }
+      >
+        <div className="flex h-full w-[var(--nyx-width)] max-w-full flex-col gap-3 pe-4">
+          {props.children}
+        </div>
+      </div>
+    )
+  }
+
+  // Main Component
+  function NyxTOCItems({
+    items,
+    isMenu = false,
+    label,
+
+    ...props
+  }: {
+    items: TOCItemType[]
+    isMenu?: boolean
+    label?: ReactNode
+    labelCn?: string
+  }) {
+    const viewRef = useRef<HTMLDivElement>(null)
+    const containerRef = useRef<HTMLDivElement>(null)
+
+    const [svg, setSvg] = useState<{
+      path: string
+      width: number
+      height: number
+    }>()
+
+    useEffect(() => {
+      if (!containerRef.current) return
+      const container = containerRef.current
+
+      function onResize(): void {
+        if (container.clientHeight === 0) return
+        let w = 0
+        let h = 0
+        const d: string[] = []
+        for (let i = 0; i < items.length; i++) {
+          const element: HTMLElement | null = container.querySelector(
+            `a[href="#${items[i].url.slice(1)}"]`,
+          )
+          if (!element) continue
+
+          const styles = getComputedStyle(element)
+          const offset = getLineOffset(items[i].depth) + 1
+          const top = element.offsetTop + Number.parseFloat(styles.paddingTop)
+          const bottom =
+            element.offsetTop +
+            element.clientHeight -
+            Number.parseFloat(styles.paddingBottom)
+
+          w = Math.max(offset, w)
+          h = Math.max(h, bottom)
+
+          d.push(`${i === 0 ? "M" : "L"}${offset} ${top}`)
+          d.push(`L${offset} ${bottom}`)
+        }
+
+        setSvg({
+          path: d.join(" "),
+          width: w + 1,
+          height: h,
+        })
+      }
+
+      const observer = new ResizeObserver(onResize)
+      onResize()
+      observer.observe(container)
+      return () => observer.disconnect()
+    }, [items])
+
+    if (items.length === 0) return <TocItemsEmpty />
+
+    return (
+      <>
+        {label && (
+          <h3 className={cn(props.labelCn, "  inline-flex items-center gap-1.5 mb-4")}
+          >
+            <AlignLeft className="size-4 opacity-100 " />
+            {label}
+          </h3>
+        )}
+        <ScrollArea className={cn("flex pl-1/2 flex-col ", isMenu && "-ms-3")}>
+          {svg ? (
+            <div
+              className={cn(props.tocLine, "absolute start-0 top-0 rtl:-scale-x-100  z-20 ")}
+              style={{
+                width: svg.width,
+                height: svg.height,
+                maskImage: `url("data:image/svg+xml,${
+                  // Inline SVG
+                  encodeURIComponent(
+                    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${svg.width} ${svg.height}"><path d="${svg.path}" stroke="black" stroke-width="1" fill="none" /></svg>`,
+                  )
+                  }")`,
+              }}
+            >
+              <TocThumb
+                containerRef={containerRef}
+                className="bg-primary mt-[var(--nyx-top)] h-[var(--nyx-height)] transition-all"
+              />
+            </div>
+          ) : null}
+          <ScrollProvider containerRef={viewRef}>
+            <div className="flex flex-col" ref={containerRef}>
+              {items.map((item, i) => (
+                <LocalTOCItem
+                  key={item.url}
+                  item={item}
+                  upper={items[i - 1]?.depth}
+                  lower={items[i + 1]?.depth}
+                  textCn={props.textCn}
+                  progress={props.progress}
+                />
+              ))}
+            </div>
+          </ScrollProvider>
+        </ScrollArea>
+      </>
+    )
+  }
+
+
+
+  function LocalTOCItem({
+    item,
+    upper = item.depth,
+    lower = item.depth,
+    ...props
+  }: {
+    item: TOCItemType
+    upper?: number
+    lower?: number
+  }) {
+    const offset = getLineOffset(item.depth)
+    const upperOffset = getLineOffset(upper)
+    const lowerOffset = getLineOffset(lower)
+
+    return (
+      <TOCItem
+        href={item.url}
+        style={{
+          paddingInlineStart: getItemOffset(item.depth),
+        }}
+        className="prose  data-[active=true]:text-primary  relative py-1.5 text-sm transition-colors [overflow-wrap:anywhere] first:pt-0 last:pb-0"
+      >
+        {offset !== upperOffset ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            className="absolute -top-1.5 start-0 size-4 rtl:-scale-x-100"
+          >
+            <line
+              x1={upperOffset}
+              y1="0"
+              x2={offset}
+              y2="12"
+              className="stroke-foreground/10"
+              strokeWidth="1"
+            />
+          </svg>
+        ) : null}
+        <div
+          className={cn(
+            "bg-foreground/10 absolute inset-y-0 w-px",
+            offset !== upperOffset && "top-1.5",
+            offset !== lowerOffset && "bottom-1.5",
+          )}
+          style={{
+            insetInlineStart: offset,
+          }}
+        />
+        <div className="flex flex-row">
+          {item.depth == 3 ? <>
+            <div className=" self-center  -ml-[6px]  pr-1 pt-[1px]">
+              <UnderArrow fill="#ffffff45" height='14px' />
+
+            </div>
+            <div className={cn(props.textCn, "pt-[5px] flex")}>
+
+              {
+                item.circle ?
+                  <>
+                    <div className=' flex self-center'>
+                      {item.circle}
+                      <p className=' self-center pl-[2px] '>    {item.title} </p>
+                    </div>
+                  </> : <></>
+              }
+
+
+            </div>
+
+          </> : <>
+          </>}
+
+          <p className={cn(props.textCn, " flex")}>
+            {item.depth == 1 ? <>
+              <div className={cn(props.textCn, "self-center pt-[0px] flex flex-row")}>
+                {item.circle ?
+                  <>
+                    {item.circle}
+                    <p className=' self-center  pl-[2px]  '>    {item.title} </p>
+                  </>
+                  : <></>
+                }
+              </div>
+
+            </> : <>
+            </>}
+
+        
+          </p>
+
+        </div>
+      </TOCItem>
+    )
+  }
   const variants = {
     container: {
       visible: {
@@ -52,23 +499,23 @@ const page = () => {
   const sliderItems_FLIK_Overview = [
     {
       // video: 'https://customer-ct1udu2wic3j3wru.cloudflarestream.com/846ef93c705e9d63ef0d0b7c5296da12/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2F846ef93c705e9d63ef0d0b7c5296da12%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false',
-      heading: 'What is SCAS, and what is the project scope?',
-      note: <p className="">
-        The work shown below was prior to CIAAN winning the development contract from T-Mobile. See the 'impact' section for further details </p>,
+      heading: 'What is Flikshop?',
+      // note: <p className="">
+      //   Flikshop is a D.C. based B2B and B2C company whose mission is to give support to incarcerated individuals by reconnecting them with their families through the Flikshop mail platform, providing rehabilitative and vocational training services through the 'Flikshop Me' prison learning management system and 'Flikshop School of Business', as well as connecting previously incarcerated individuals post-release with personalized benefits and opportunities through the 'Flikshop Neighbourhood datahub.  </p>,
       description:
-        <p>SCAS (Security Controls & Automation System) is a cybersecurity platform featuring a suite of security automation tools tailored for T-Mobile as bid to win a development contract against other competing software vendors.The work covered below focuses on the part of SCAS responsible for automating security assessments and engagements for T-Mobile's usecase.
-        </p>,
+        <p>        Flikshop is a D.C. based B2B and B2C company whose mission is to give support to incarcerated individuals by reconnecting them with their families through the Flikshop mail platform, providing rehabilitative and vocational training services through the Flikshop Me prison learning management system and Flikshop School of Business, as well as connecting previously incarcerated individuals post-release with personalized benefits and opportunities through the Flikshop Neighbourhood datahub.  </p>,    
+   
       visuals: [
 
       ]
     },
     {
       // video: 'https://customer-ct1udu2wic3j3wru.cloudflarestream.com/846ef93c705e9d63ef0d0b7c5296da12/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2F846ef93c705e9d63ef0d0b7c5296da12%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false',
-      heading: 'What are Security Assessments?',
+      heading: 'Project Scope',
       note: <p className="">Within SCAS, those on the receiving end of these assessments forms are considered under the umbrella term 'Security Users'.</p>,
       description:
-        <p>Imagine you are a developer or product owner working on some kind of product/app/service within a large organization: you have some baseline intuition/experience/knowledge on writing safe and secure code, but apart from common regulatory policies like GDPR, you don't spend your time studying the specifics of cybersecurity polcies and best practices - it's not something you have specialized in.
-          <br />  <br /> However, from a liability and regulatory standpoint the organization needs to make sure their software meets the bar, which is where the cybersecurity team comes in to (essentially) give you a Google Forms survey asking questions assessing the compliance of your code against the exact requirements.
+        <p> As part of their transition into a mid-sized company, Flikshop brought us on to research and ideate new market opportunities and to increase exposure to its current product verticals (Flikshop Me prison LMS, School of Business, Flikshop Neighbourhood datahub, & Flikshop Mail). 
+          <br />  <br /> During the Fall, the first focus was to conduct background research regarding Fliskhop's verticals and to interview company stakeholders to see where there was potential for market growth. The second goal was to use the collected research insights to ideate and create tangible product concepts.
           These assessment forms are compartively much more practical and convenient than spending the resources to train every developer to be cybersecurity policy experts, or have them do their own research which carries its own risks.
         </p>,
       visuals: [
@@ -386,14 +833,14 @@ const page = () => {
 
   ];
   const isMobile = useMediaQuery('(min-width: 640px)');
+
+
+  // const { scrollYProgressCircle } = useScroll({ container: navRef1 });
   const navRef1 = useRef(null);
   const navRef2 = useRef(null);
   const navRef3 = useRef(null);
   const navRef4 = useRef(null);
   const navRef5 = useRef(null);
-
-  // const { scrollYProgressCircle } = useScroll({ container: navRef1 });
-
   const { scrollYProgress: scrollYProgressNav1 } = useScroll({
     target: navRef1,
     offset: ["start start", "120vh"],
@@ -434,6 +881,254 @@ const page = () => {
     damping: 30,
     restDelta: 0.001
   });
+
+  const tocItems = [
+    {
+      title: "",
+      url: "#introduction",
+      depth: 1,
+      circle:<></>
+   
+    },
+    {
+      title: "Overview",
+      url: "#introduction",
+      depth: 1,
+      circle:
+        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgressNav1 }}
+          />        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicatorBg"
+
+          />
+        </svg>
+    },
+    {
+      title: "Research & Planning",
+      url: "#getting-started",
+      depth: 1,
+      circle:
+        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgressNav1 }}
+          />        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicatorBg"
+
+          />
+        </svg>
+    },
+    {
+      title: "Security Staff Flows",
+      url: "#installation",
+      depth: 1,
+      circle:
+        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgressNav1 }}
+          />        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicatorBg"
+
+          />
+        </svg>
+    },
+    {
+      title: "Security Assessments",
+      url: "#basic-usage",
+      depth: 3,
+      circle:
+        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgressNav1 }}
+          />        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicatorBg"
+
+          />
+        </svg>
+    },
+    {
+      title: "Security Engagements",
+      url: "#advanced-features",
+      depth: 3,
+      circle:
+        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgressNav1 }}
+          />        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicatorBg"
+
+          />
+        </svg>
+    },
+    {
+      title: "Spreadsheet View",
+      url: "#api-reference",
+      depth: 3,
+      circle:
+        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgressNav1 }}
+          />        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicatorBg"
+
+          />
+        </svg>
+    },
+    {
+      title: "Security User Flows",
+      url: "#introdudction",
+      depth: 1,
+      circle:
+        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgressNav1 }}
+          />        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicatorBg"
+
+          />
+        </svg>
+    },
+    {
+      title: "Assessment Delivery",
+      url: "#gettingd-started",
+      depth: 3,
+      circle:
+        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgressNav1 }}
+          />        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicatorBg"
+
+          />
+        </svg>
+    },
+    {
+      title: "Design System",
+      url: "#gettingd-sdtarted",
+      depth: 1,
+      circle:
+        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgressNav1 }}
+          />        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicatorBg"
+
+          />
+        </svg>
+    },
+    {
+      title: "",
+      url: "#gettindgd-sddtarted",
+      depth: 1,
+
+    },
+    {
+      title: "",
+      url: "#gettindgd-sddtarted",
+      depth: 1,
+    }, {
+      title: "",
+      url: "#gettindgd-sddtarted",
+      depth: 1,
+    },
+    {
+      title: "",
+      url: "#gettindgd-asdsddtarted",
+      depth: 1,
+    },
+
+  ]
+
   const Skeleton = () => (
     <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl   dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black"></div>
   );
@@ -537,7 +1232,7 @@ const page = () => {
                       <p className="font-['exo'] Capitalized font-[600] text-[18px]">4 Months</p>
                     </div>
                   </span>
-                  <BentoGrid className="  w-full max-w-[1300px] ml-1">
+                  <BentoGrid className="  w-full max-w-[1300px]  ml-1">
                     {items.map((item, i) => (
                       <BentoGridItem
                         key={i}
@@ -570,244 +1265,48 @@ const page = () => {
                     />
                   ))}
                 </BentoGrid> */}
-                  <section className=" flex flex-row w-full 
+                  <section className=" flex flex-row w-full  h-full
                   ">
-                    <div className=" flex flex-col w-[fit] overflow-visible top-5  pl-14 mr-8 pt-24  ">
+                    <div className=" flex h-full sticky  flex-col w-[fit] overflow-visible top-5  pl-14 mr-8 pt-24  ">
 
                       {/* navbar */}
-                      <div className="place-self-start	max-w-[1446]  self-start top-5 uppercase   font-['Exo_2'] tracking-[0]
-text-[12px] text-white h-fit flex gap-[4px] flex-col navbg   
-  z-[500]     pl-1   whitespace-nowrap  sticky  pb-[16px] pr-[28px] pt-[10px] mt-[5vh]
-base ">
-                        <span className="flex flex-col gap-2">
-                          <div className="px-[5px]  py-[3px]  flex flex-row gap-[2px] items-center  uppercase  h-fit self-start place-items-start">
-                            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                              <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicator"
-                                style={{ pathLength: scrollYProgressNav1 }}
-                              />        <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicatorBg"
+                      <div className="place-self-start	  top-5 featureCard-bg-flik bg-animated-cards-description-flik  rounded-xl backdrop-blur-[10px] group/bento hover:shadow-xl transition duration-200 shadow-input pb-8  pl-4 pr-10 justify-between">
+                        <div className={cn("cardInset-flik  absolute top-0  left-0 rounded-xl tocBg-scas w-full h-full  pointer-events-none  ")}>
+                        </div>
+                        <div class={cn("panel-title-scasHero ")}>
+                          <div class="flex flex-row px-2.5 pt-1.5 pb-[5px]">
+                            {/* <AlignLeft className="size-4 opacity-100 self-center pt-[-1px] mr-1.5" /> */}
+                            <h1 class="font-[550] text-nowrap text-[14px] leading-tight self-center    text-CIAAN-light opacity-[90%] ">
+                              Table of Contents
 
-                              />
-                            </svg>
-                            <p className=""> <a href="#Home">Overview</a></p>
-
-
+                            </h1>
                           </div>
+                        </div>
 
-                          <div className="px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                              <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicator"
-                                style={{ pathLength: scrollYProgressNav2 }}
-                              />
-                              <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicatorBg"
+                        <div className="flex gap-10  text-nowrap pt-8 pl-1">
+                          <NyxTOCItems
+                            items={tocItems}
+                            progress={true}
+                            tocLine={"toc-line-scas max-h-screen ml-4"}
+                            textCn="font-[550] self-center text-[12px] text-nowrap   -ml-[2px] text-CIAAN-light opacity-[95%]"
+                            labelCn="font-[550] text-[14px] leading-tight  mb-2 text-CIAAN-light opacity-[90%]" />
+                        </div>
+                        {/* <div class="bg-white bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)] h-full mt-1 object-fill bg-cover bg-no-repeat w-full  rounded-lg  overflow-hidden" src="https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/designSystem_feature_1_5x.webp">
+              </div> */}
+                        {/* <div class=" flex flex-col h-fit w-fit">
+                <div class="group-hover/bento:translate-x-2 transition duration-200">
+                  <span class=" flex flex-col h-fit">
+                    <div class="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2  mt-2">Security User Dashboard</div>
+                    <div class="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300">User-facing dashboard for managing assigned assessments.</div>
+                  </span>
+                </div>
+              </div> */}
 
-                              />
-                            </svg>
-                            <p className=""> <a href="#HowItWorks">Research & Planning</a></p>
-
-
-                          </div>
-
-                          <span className="pl-[4px] flex flex-col -mt-[4px]">
-                            <div className="px-[5px] py-[3px] flex flex-row gap-[2px] items-center mb-[2px]  h-fit self-start place-items-start">
-
-                              <p className="ml-[4px]"><a href="#500Keybinds">Security Staff Flows</a></p>
-
-
-                            </div>
-
-                            <div className=" ml-[14px]  px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                              <div className=" -mt-[8px] -ml-[6px] ">
-                                <UnderArrow fill="#ffffff25" height='18px' />
-
-                              </div>
-                              <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                                <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicator"
-                                  style={{ pathLength: scrollYProgressNav3 }}
-                                />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicatorBg"
-
-                                />
-                              </svg>
-                              <p className=""><a href="#500Keybinds">Security Assessments</a></p>
-
-
-                            </div>
-                            <div className=" ml-[14px] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                              <div className=" -mt-[8px] -ml-[6px] ">
-                                <UnderArrow fill="#ffffff25" height='18px' />
-
-                              </div>
-                              <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                                <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicator"
-                                  style={{ pathLength: scrollYProgressNav3 }}
-                                />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicatorBg"
-
-                                />
-                              </svg>
-                              <p className=""><a href="#500Keybinds">Security Engagements</a></p>
-
-
-                            </div>
-                            <div className=" ml-[14px] px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                              <div className=" -mt-[8px] -ml-[6px] ">
-                                <UnderArrow fill="#ffffff25" height='18px' />
-
-                              </div>
-                              <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                                <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicator"
-                                  style={{ pathLength: scrollYProgressNav3 }}
-                                />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicatorBg"
-
-                                />
-                              </svg>
-                              <p className=""><a href="#500Keybinds">Spreadsheet View</a></p>
-
-
-                            </div>
-                          </span>
-                          <span className="pl-[4px] flex flex-col -mt-[4px]">
-                            <div className="px-[5px] py-[3px] flex flex-row gap-[2px] items-center mb-[2px]  h-fit self-start place-items-start">
-
-                              <p className="ml-[4px]"><a href="#500Keybinds">Security User Flows</a></p>
-
-
-                            </div>
-
-                            <div className=" ml-[14px]  px-[5px] py-[3px] flex flex-row gap-[2px] items-center   h-fit self-start place-items-start">
-                              <div className=" -mt-[8px] -ml-[6px] ">
-                                <UnderArrow fill="#ffffff25" height='18px' />
-
-                              </div>
-                              <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                                <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicator"
-                                  style={{ pathLength: scrollYProgressNav3 }}
-                                />
-                                <motion.circle
-                                  cx="50"
-                                  cy="50"
-                                  r="30"
-                                  pathLength="1"
-                                  className="indicatorBg"
-
-                                />
-                              </svg>
-                              <p className=""><a href="#500Keybinds">Assessment Delivery</a></p>
-
-
-                            </div>
-
-
-                          </span>
-                          <div className="px-[5px] py-[3px]  flex flex-row gap-[2px] h-fit self-start items-center ">
-                            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                              <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicator"
-                                style={{ pathLength: scrollYProgressNav4 }}
-                              />        <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicatorBg"
-
-                              />
-                            </svg>
-                            <p className=""> <a href="#DeviceInputs">Design System</a></p>
-
-                          </div>
-                          <div className="px-[5px] py-[3px]  flex flex-row gap-[2px] h-fit self-start items-center ">
-                            <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-                              <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-                              <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicator"
-                                style={{ pathLength: scrollYProgressNav4 }}
-                              />        <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="30"
-                                pathLength="1"
-                                className="indicatorBg"
-                              />
-                            </svg>
-                            <p className=""> <a href="#DeviceInputs">User Testing</a></p>
-                          </div>
-                        </span>
                       </div>
+
                     </div>
 
-                    <section className=" flex flex-col h-full w-full max-w-[1100px] self-center  gap-[64px] mt-[5vh]">
+                    <section className=" flex flex-col h-full w-full max-w-[950px] self-center  gap-[64px] mt-[5vh]">
 
 
                       <PortfolioCard
@@ -815,7 +1314,7 @@ base ">
                         sliderProgressBarCn="progressSliderColor-flik"
                         noteBg="note-flik "
                         cardText='text-flik-dark  '
-                        Title='Security Controls & Automation System (SCAS)'
+                        // Title='Flikshop'
                         Section='Project Overview'
                         CardContent={sliderItems_FLIK_Overview} ></PortfolioCard>
 
@@ -831,10 +1330,10 @@ base ">
                       </PortfolioCard>
 
                       <PortfolioCard Section={'Security Staff Screens'}
-                       cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
-                       sliderProgressBarCn="progressSliderColor-flik"
-                       noteBg="note-flik "
-                       cardText='text-flik-dark  '
+                        cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
+                        sliderProgressBarCn="progressSliderColor-flik"
+                        noteBg="note-flik "
+                        cardText='text-flik-dark  '
                         Title={'Security Engagements: Creation & Management'}
                         CardContent={sliderItems_FLIK_EngagementFlow}
                       />

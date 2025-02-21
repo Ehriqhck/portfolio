@@ -7,6 +7,7 @@ import type {
 import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area"
 import { AlignLeft, ChevronRight } from "lucide-react"
 import UnderArrow from '@components/generic/Icons/UnderArrow.jsx'
+import { motion, useScroll, } from "framer-motion";
 
 import * as React from "react"
 import type {
@@ -398,11 +399,11 @@ export function NyxTOCItems({
                {label}
             </h3>
          )}
-         <ScrollArea className={cn("flex pl-1/2 flex-col", isMenu && "-ms-3")}>
+         <ScrollArea className={cn("flex pl-1/2 flex-col ", isMenu && "-ms-3")}>
             <ScrollViewport className="relative min-h-0" ref={viewRef}>
                {svg ? (
                   <div
-                     className={cn(props.tocLine,"absolute start-0 top-0 rtl:-scale-x-100  z-20 ")}
+                     className={cn(props.tocLine, "absolute start-0 top-0 rtl:-scale-x-100  z-20 ")}
                      style={{
                         width: svg.width,
                         height: svg.height,
@@ -429,6 +430,7 @@ export function NyxTOCItems({
                            upper={items[i - 1]?.depth}
                            lower={items[i + 1]?.depth}
                            textCn={props.textCn}
+                           progress={props.progress}
                         />
                      ))}
                   </div>
@@ -454,7 +456,7 @@ function LocalTOCItem({
    const offset = getLineOffset(item.depth)
    const upperOffset = getLineOffset(upper)
    const lowerOffset = getLineOffset(lower)
-
+ 
    return (
       <TOCItem
          href={item.url}
@@ -495,7 +497,15 @@ function LocalTOCItem({
                   <UnderArrow fill="#ffffff45" height='14px' />
 
                </div>
-               <p className={cn(props.textCn, "pt-[5px] flex")}>   {item.title} </p>
+               <p className={cn(props.textCn, "pt-[5px] flex")}>
+
+                  {props.progress ? <>
+       
+                  </> : <></>
+                     }
+                  {item.title}
+
+               </p>
 
             </> : <>
                <p className={cn(props.textCn, " flex")}>   {item.title} </p>
