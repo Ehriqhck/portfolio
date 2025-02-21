@@ -627,7 +627,7 @@ const ScheduleItem = ({ title, date, location, sectionContent }) => {
                         ))}
                     </BentoGrid> */}
                 </span>
-                <span className="homepage-bg-gradient-seam h-32  w-screen mb-[-4rem] ">
+                <span className="homepage-bg-gradient-seam h-32  w-screen  ">
 
                 </span>
             </div>

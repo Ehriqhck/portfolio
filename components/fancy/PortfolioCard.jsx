@@ -79,7 +79,7 @@ const PortfolioCard = ({type, CardContent, Section, Title, Slidercontent, Conten
 
   }
   const getHeading = (heading, index) => {
-    const padding = clsx('Capitalized font-[600] text-[20px] ', { 'mt-5': index > 0 });
+    const padding = clsx('Capitalized  font-[600] text-[20px] mb-1', { 'mt-5': index > 0 });
     return (
       <p class={padding} >
         {heading}
@@ -115,7 +115,7 @@ const PortfolioCard = ({type, CardContent, Section, Title, Slidercontent, Conten
                 : <></>
               }
               {item.description ?
-                <p>
+                <p className="mb-1.5 ml-[5px] mt-1 space-y-8  opacity-90">
                   {item.description}
                 </p>
                 : <>
@@ -126,11 +126,11 @@ const PortfolioCard = ({type, CardContent, Section, Title, Slidercontent, Conten
 
             {
               item.note ?
-                <section className="note-scas flex flex-row  mb-2 mt-1.5 gap-0 ml-1  h-  bg-slate-200 ">
+                <section className={cn(props.noteBg," flex flex-row  mb-2 mt-1.5 gap-0 ml-0.5 mr-20  h-  ")}>
                   {/* <div className="spacer-noH-CIAAN h-full w-[2px] flex  " /> */}
-                  <span className=" flex flex-col gap-4 mt-[7px] mb-2 ">
+                  <span className=" flex flex-col gap-4 mt-[8px] mb-2.5 ml-2 pr-4 ">
                     <span className=" flex flex-col pl-[6px] gap-[4px] max-w-[1000px]">
-                      <h1 className="font-['inter'] font-medium tracking-[0.005em]  text-[16px]">
+                      <h1 className="font-['inter'] font-medium tracking-[0.025em] opacity-95  text-[14px]">
                         {item.note}
                       </h1>
                     </span>
@@ -140,12 +140,12 @@ const PortfolioCard = ({type, CardContent, Section, Title, Slidercontent, Conten
             }
 
             <div className="flex  flex-col">
-              {getVisuals(item.visuals, item?.visuals?.length)}
+              {getVisuals(item.visuals, item?.visuals?.length, props?.sliderProgressBarCn)}
+              
               {item?.figma ?
                 <iframe
                   className="mt-3.5 ml-0.5"
                   src="https://embed.figma.com/proto/5yh2ZI7ywU6dsPP9m8wd1r/402-SCAS?page-id=136%3A9531&node-id=452-86817&viewport=2763%2C-1433%2C0.26&scaling=contain&content-scaling=fixed&starting-point-node-id=452%3A86817&show-proto-sidebar=1&embed-host=share" allowfullscreen>
-
                 </iframe>
                 : <></>}
 
@@ -166,7 +166,7 @@ const PortfolioCard = ({type, CardContent, Section, Title, Slidercontent, Conten
     hidden: { opacity: 0, },
     visible: { opacity: 1, },
   };
-  const getVisuals = (data, length, ...props) => {
+  const getVisuals = (data, length, ) => {
 
     try {
       if (length > 1) {
@@ -179,8 +179,8 @@ const PortfolioCard = ({type, CardContent, Section, Title, Slidercontent, Conten
                 <MobileCarousel
                  autoplayInterval={5000}
                   activeColor="#ff329ddb" 
-                 footerClass="MobileCarousel-bg-footer-gradient-scas" 
-                 tipGradient='MobileCarousel-bg-gradient-scas' 
+                 footerClass="MobileCarousel-bg-footer-gradient-flik" 
+                 tipGradient='MobileCarousel-bg-gradient-flik' 
                  textShadow='MobileCarousel-text-scas'
                  showNavigation={true} tips={data} backgroundTips={true}
                   backgroundGradient></MobileCarousel>
@@ -202,10 +202,10 @@ const PortfolioCard = ({type, CardContent, Section, Title, Slidercontent, Conten
                         key={index}
                         value={item?.sliderName}
                         className={'text-left flex  flex-col h-full  pt-2 pl-2 pb-4 sm:border-b border sm:pl-3 sm:pb-0 align-top   place-content-start sm:flex-1 bg-contain '}
-                        progressBarClass=' left-0 sm:top-0 bottom-0  bg-CIAAN-scas-light sm:w-1 sm:h-full h-4  before:h-full before:w-1 before:'
+                        progressBarClass={cn(props.sliderProgressBarCn,' left-0 sm:top-0 bottom-0  bg-CIAAN-scas-light sm:w-1 sm:h-full h-4  before:h-full before:w-1 before:')}
                       >
-                        <h2 className='relative px-4 rounded w-fit  bg-CIAAN-scas-light text-white my-2'>
-                          {item.title}
+                        <h2 className={cn(props.sliderProgressBarCn, 'relative px-4 rounded w-fit  bg-CIAAN-scas-light text-white my-2')}>
+                          {item.title} 
                         </h2>
                         <p className='text-sm font-medium  text-slate-900 line-clamp-2 pr-2 mb-2'>
                           {item.desc}
@@ -277,15 +277,15 @@ const PortfolioCard = ({type, CardContent, Section, Title, Slidercontent, Conten
   }
 
   return (
-    <div className={cn(props.cardBg, " pt-0 pb-14  h-full pl-10 pr-10  flex flex-col gap-4 font-['exo']    rounded-xl w-full [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]  ")}>
+    <div className={cn(props.cardBg, " pt-0 pb-24  h-full pl-10 pr-10  flex flex-col gap-4 font-['exo']    rounded-xl w-full [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]  ")}>
 
       <span className=" flex  flex-col">
 
         {ContentTest ? <>{ContentTest}</> :
           <>
-            <div className="panel-title ">
-              <div class="flex flex-row px-4 pb-2 ">
-                <h1 className="font-['exo'] capitalize text-CIAAN-light font-[600] pt-2.5 text-xl">
+            <div className="panel-title-flik w-fit ">
+              <div class="flex flex-row px-3 pb-1.5 ">
+                <h1 className="font-['exo'] opacity-[90%] capitalize text-CIAAN-light font-[600] pt-2 text-xl">
                   {Section}
                 </h1>
 
@@ -293,7 +293,7 @@ const PortfolioCard = ({type, CardContent, Section, Title, Slidercontent, Conten
             </div>
 
 
-            <h1 className="font-['inter'] font-bold  text-[2em] mt-14">
+            <h1 className="font-['inter'] opacity-95  font-[550]  text-[2em] mt-5 mb-5">
               {Title}
             </h1>
 

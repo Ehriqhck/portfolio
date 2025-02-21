@@ -49,7 +49,7 @@ const page = () => {
       },
     },
   }
-  const sliderItems_CIAAN_Overview = [
+  const sliderItems_FLIK_Overview = [
     {
       // video: 'https://customer-ct1udu2wic3j3wru.cloudflarestream.com/846ef93c705e9d63ef0d0b7c5296da12/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2F846ef93c705e9d63ef0d0b7c5296da12%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false',
       heading: 'What is SCAS, and what is the project scope?',
@@ -91,7 +91,7 @@ const page = () => {
 
 
   ];
-  const sliderItems_CIAAN_EngagementFlow = [
+  const sliderItems_FLIK_EngagementFlow = [
 
     {
       video: 'https://customer-ct1udu2wic3j3wru.cloudflarestream.com/846ef93c705e9d63ef0d0b7c5296da12/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2F846ef93c705e9d63ef0d0b7c5296da12%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false',
@@ -139,7 +139,7 @@ const page = () => {
 
 
   ];
-  const sliderItems_CIAAN_AssessmentFlow =
+  const sliderItems_FLIK_AssessmentFlow =
     [
       {
         video: 'https://customer-ct1udu2wic3j3wru.cloudflarestream.com/0b7c1165f13cedbcdfd43335e9ee8a27/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2F0b7c1165f13cedbcdfd43335e9ee8a27%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false',
@@ -180,7 +180,7 @@ const page = () => {
 
 
     ];
-  const sliderItems_CIAAN_ManagementFlow = [
+  const sliderItems_FLIK_ManagementFlow = [
     {
       video: 'https://customer-ct1udu2wic3j3wru.cloudflarestream.com/afa43c86b161718c4dcf69f8ef6240ed/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2Fafa43c86b161718c4dcf69f8ef6240ed%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false',
 
@@ -208,7 +208,7 @@ const page = () => {
 
   ];
 
-  const sliderItems_CIAAN_SecurityUserDashboard = [
+  const sliderItems_FLIK_SecurityUserDashboard = [
     {
       heading: 'User Dashboard',
       description: <p>
@@ -251,7 +251,7 @@ const page = () => {
     },
 
   ];
-  const sliderItems_CIAAN_UserResearch = [
+  const sliderItems_FLIK_UserResearch = [
     {
       heading: 'Expert Interviews',
       description: <p>User research was conducted concurrently alongside design tasks throughout the project. At the outset, I leaned heavily on expert interviews with CIAAN directors (as they knew how much I didn't know) to establish actionable user insights to serve as a starting point for planning my design sprints.
@@ -290,7 +290,7 @@ const page = () => {
     },
 
   ];
-  const sliderItems_CIAAN_DesignSystem = [
+  const sliderItems_FLIK_DesignSystem = [
 
     {
       // figma:"https://embed.figma.com/proto/5yh2ZI7ywU6dsPP9m8wd1r/402-SCAS?page-id=136%3A9531&node-id=452-86817&viewport=2763%2C-1433%2C0.26&scaling=contain&content-scaling=fixed&starting-point-node-id=452%3A86817&show-proto-sidebar=1&embed-host=share",
@@ -359,7 +359,7 @@ const page = () => {
       ]
     },
   ];
-  const sliderItems_CIAAN_UserTesting = [
+  const sliderItems_FLIK_UserTesting = [
 
     {
       // figma:"https://embed.figma.com/proto/5yh2ZI7ywU6dsPP9m8wd1r/402-SCAS?page-id=136%3A9531&node-id=452-86817&viewport=2763%2C-1433%2C0.26&scaling=contain&content-scaling=fixed&starting-point-node-id=452%3A86817&show-proto-sidebar=1&embed-host=share",
@@ -546,7 +546,7 @@ const page = () => {
                         header={item.header}
                         className={item.className}
                         icon={item.icon}
-                        cardBg="featureCard-bg-scas"
+                        cardBg="featureCard-bg-scas  "
                       />
                     ))}
                   </BentoGrid>
@@ -810,45 +810,80 @@ base ">
                     <section className=" flex flex-col h-full w-full max-w-[1100px] self-center  gap-[64px] mt-[5vh]">
 
 
-                      <PortfolioCard 
-                      cardBg="card-bg-flik" 
-                      cardText='text-flik-dark'
-                      Title='Security Controls & Automation System (SCAS)' Section='Project Overview'
-                        CardContent={sliderItems_CIAAN_Overview} ></PortfolioCard>
+                      <PortfolioCard
+                        cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
+                        sliderProgressBarCn="progressSliderColor-flik"
+                        noteBg="note-flik "
+                        cardText='text-flik-dark  '
+                        Title='Security Controls & Automation System (SCAS)'
+                        Section='Project Overview'
+                        CardContent={sliderItems_FLIK_Overview} ></PortfolioCard>
 
-                      <PortfolioCard  Title='User Research' Section='Research & Planning'
-                        CardContent={sliderItems_CIAAN_UserResearch} ></PortfolioCard>
+                      <PortfolioCard
+                        cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
+                        sliderProgressBarCn="progressSliderColor-flik"
+                        noteBg="note-flik "
+                        cardText='text-flik-dark  '
+                        Title='User Research'
+                        Section='Research & Planning'
+                        CardContent={sliderItems_FLIK_UserResearch} >
+
+                      </PortfolioCard>
 
                       <PortfolioCard Section={'Security Staff Screens'}
+                       cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
+                       sliderProgressBarCn="progressSliderColor-flik"
+                       noteBg="note-flik "
+                       cardText='text-flik-dark  '
                         Title={'Security Engagements: Creation & Management'}
-                        CardContent={sliderItems_CIAAN_EngagementFlow}
+                        CardContent={sliderItems_FLIK_EngagementFlow}
                       />
                       <PortfolioCard Section={'Security Staff Screens'}
+                        cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
+                        sliderProgressBarCn="progressSliderColor-flik"
+                        noteBg="note-flik "
+                        cardText='text-flik-dark  '
                         Title={'Security Assessments: Creation & Management'}
-                        CardContent={sliderItems_CIAAN_AssessmentFlow}
+                        CardContent={sliderItems_FLIK_AssessmentFlow}
                       />
 
 
                       <PortfolioCard
-                        CardContent={sliderItems_CIAAN_ManagementFlow}
+                        cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
+                        sliderProgressBarCn="progressSliderColor-flik"
+                        noteBg="note-flik "
+                        cardText='text-flik-dark  '
+                        CardContent={sliderItems_FLIK_ManagementFlow}
                         Section={"Security Staff Screens"}
                         Title={'Assessment & Engagement Management'}
                       />
 
                       <PortfolioCard
+                        cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
+                        sliderProgressBarCn="progressSliderColor-flik"
+                        noteBg="note-flik "
+                        cardText='text-flik-dark  '
                         Section={"Security User"}
                         Title={'Assessment Form Delivery'}
-                        CardContent={sliderItems_CIAAN_SecurityUserDashboard}
+                        CardContent={sliderItems_FLIK_SecurityUserDashboard}
                       />
                       <PortfolioCard
+                        cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
+                        sliderProgressBarCn="progressSliderColor-flik"
+                        noteBg="note-flik "
+                        cardText='text-flik-dark  '
                         Section={"Design System"}
                         Title={''}
-                        CardContent={sliderItems_CIAAN_DesignSystem}
+                        CardContent={sliderItems_FLIK_DesignSystem}
                       />
                       <PortfolioCard
+                        cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
+                        sliderProgressBarCn="progressSliderColor-flik"
+                        noteBg="note-flik "
+                        cardText='text-flik-dark  '
                         Section={"User Testing"}
                         Title={'Cognitive Walkthroughs'}
-                        CardContent={sliderItems_CIAAN_UserTesting}
+                        CardContent={sliderItems_FLIK_UserTesting}
                       />
                     </section>
                   </section>
