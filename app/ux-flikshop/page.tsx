@@ -458,7 +458,7 @@ const page = () => {
             </> : <>
             </>}
 
-        
+
           </p>
 
         </div>
@@ -503,8 +503,20 @@ const page = () => {
       // note: <p className="">
       //   Flikshop is a D.C. based B2B and B2C company whose mission is to give support to incarcerated individuals by reconnecting them with their families through the Flikshop mail platform, providing rehabilitative and vocational training services through the 'Flikshop Me' prison learning management system and 'Flikshop School of Business', as well as connecting previously incarcerated individuals post-release with personalized benefits and opportunities through the 'Flikshop Neighbourhood datahub.  </p>,
       description:
-        <p>        Flikshop is a D.C. based B2B and B2C company whose mission is to give support to incarcerated individuals by reconnecting them with their families through the Flikshop mail platform, providing rehabilitative and vocational training services through the Flikshop Me prison learning management system and Flikshop School of Business, as well as connecting previously incarcerated individuals post-release with personalized benefits and opportunities through the Flikshop Neighbourhood datahub.  </p>,    
-   
+        <p>        Flikshop is a D.C. based B2B and B2C company whose mission is to give support to incarcerated individuals by reconnecting them with their families through the Flikshop mail platform, providing rehabilitative and vocational training services through the Flikshop Me prison learning management system and Flikshop School of Business, as well as connecting previously incarcerated individuals post-release with personalized benefits and opportunities through the Flikshop Neighbourhood datahub.  </p>,
+
+      visuals: [
+
+      ]
+    },
+    {
+      // video: 'https://customer-ct1udu2wic3j3wru.cloudflarestream.com/846ef93c705e9d63ef0d0b7c5296da12/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-ct1udu2wic3j3wru.cloudflarestream.com%2F846ef93c705e9d63ef0d0b7c5296da12%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false',
+      heading: 'Project Background',
+      note: <p className="">Within SCAS, those on the receiving end of these assessments forms are considered under the umbrella term 'Security Users'.</p>,
+      description:
+        <p> As part of their transition into a mid-sized company, Flikshop brought us on to research and ideate new market opportunities and to increase exposure to its current product verticals (Flikshop Me prison LMS, School of Business, Flikshop Neighbourhood datahub, & Flikshop Mail).
+
+        </p>,
       visuals: [
 
       ]
@@ -514,7 +526,7 @@ const page = () => {
       heading: 'Project Scope',
       note: <p className="">Within SCAS, those on the receiving end of these assessments forms are considered under the umbrella term 'Security Users'.</p>,
       description:
-        <p> As part of their transition into a mid-sized company, Flikshop brought us on to research and ideate new market opportunities and to increase exposure to its current product verticals (Flikshop Me prison LMS, School of Business, Flikshop Neighbourhood datahub, & Flikshop Mail). 
+        <p> As part of their transition into a mid-sized company, Flikshop brought us on to research and ideate new market opportunities and to increase exposure to its current product verticals (Flikshop Me prison LMS, School of Business, Flikshop Neighbourhood datahub, & Flikshop Mail).
           <br />  <br /> During the Fall, the first focus was to conduct background research regarding Fliskhop's verticals and to interview company stakeholders to see where there was potential for market growth. The second goal was to use the collected research insights to ideate and create tangible product concepts.
           These assessment forms are compartively much more practical and convenient than spending the resources to train every developer to be cybersecurity policy experts, or have them do their own research which carries its own risks.
         </p>,
@@ -698,13 +710,61 @@ const page = () => {
     },
 
   ];
-  const sliderItems_FLIK_UserResearch = [
+  const sliderItems_FLIK_Sprint1_overview = [
     {
-      heading: 'Expert Interviews',
-      description: <p>User research was conducted concurrently alongside design tasks throughout the project. At the outset, I leaned heavily on expert interviews with CIAAN directors (as they knew how much I didn't know) to establish actionable user insights to serve as a starting point for planning my design sprints.
-        This was later combined with insights from semi-structured interviews with some of T-Mobile's security staff -- the culmination of which is shown in the graphic below.</p>,
+      heading: 'Team & Project Organization',
+      description:
+        <div>
+          {/* <p>We first created</p> */}
+          <div class="flex flex-col gap-[4px] ">
+            <h3 class=" self-start justify-start text-left flex ">
+              Prior to the first client kickoff meeting, the team squared away basic organizational and workspace tasks:
+            </h3>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                Set up a&nbsp;
+                <strong className='flik'>shared team email&nbsp;</strong>
+
+                for stakeholder communication and the below workspace accounts
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                Set up a <strong className='flik'>&nbsp;Figma Team&nbsp;</strong> for future design work
+
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                Created a <strong className='flik'>&nbsp;Trellow Workspace&nbsp;</strong> for task management
+
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                Set up a shared team<strong className='flik'>&nbsp;Google Drive&nbsp;</strong> with folder structures for future sprint deliverables
+
+              </h3>
+            </span>
+
+          </div>
+        </div>,
       note:
-        <p> There was great overlap between the security engineers & adminstrators; eventually we recognized that the practical/organizational differences were trivial enough between them to consolidate both as the 'Security Staff/Team' for this part of the SCAS platform.  </p>
+        <p>
+          There was great overlap between the security engineers & adminstrators; eventually we recognized that the practical/organizational differences were trivial enough between them to consolidate both as the 'Security Staff/Team' for this part of the SCAS platform.
+        </p>
       ,
       visuals: [
         {
@@ -719,10 +779,57 @@ const page = () => {
 
     },
     {
-      heading: 'Competitive Analysis',
-      description: <p>Due to the proprietary nature of cybersecurity platforms there was little opportunity to make a direct comparisons, but the issues affecting Security Staff are effectively analogous to many everyday problems such as having to many meetings, managing multiple projects and people, and other common friction points. For this reason, against the prior user research insights, the analysis aimed to explore design patterns employed by other products which could serve SCAS's assessment & engagement worklflows.   </p>,
+      heading: 'Client Kickoff Meeting',
+      description:
+        <div class="flex flex-col gap-2 ">
+          <p>In the kickoff meeting the team engaged with the client to discuss and lock in the following goals & tasks for the first design sprint.  </p>
+
+
+          <span class="ml-1 mt-1.5">
+            <h3 class="flex flex-col  ">
+              <strong className='flik text-nowrap'>
+                Sprint 1:&nbsp;
+              </strong>
+              Research potential market opportunities for Flikshop Mail to expand its userbase beyond incarcerated individuals with a focus towards elderly and military demographics (as suggested by the client).
+            </h3>
+          </span>
+          <span class="ml-6">
+            <h3 class="flex flex-row ">
+              <strong>
+                •&nbsp;
+              </strong>
+              <p>
+                Conduct <strong className='flik'>competitive analysis&nbsp;</strong>against other similar companies offering prison communications & mailing services to understand Flikshop's current market positioning and potential opportunities for expansion.
+              </p>
+
+            </h3>
+          </span>
+          <span class="ml-6">
+            <h3 class="flex flex-row ">
+              <strong>
+                •&nbsp;
+              </strong>
+              <p>
+                Create and conduct <strong className='flik'>market research surveys for elderly and military demographics&nbsp;</strong>to guage their respective growth potential
+              </p>
+
+            </h3>
+          </span>
+          <span class="ml-6">
+            <h3 class="flex flex-row ">
+              <strong>
+                •&nbsp;
+              </strong>
+              <p>
+                Conduct further <strong className='flik'>interviews with internal Flikshop stakeholders&nbsp;</strong>(past & present) to better understand the Flikshop brand and mission </p>
+
+            </h3>
+          </span>
+        </div>
+      ,
+
       note:
-        <p> For example, one pattern listed from the which made it into the mockups were Slack & Discord's systemic handling of user profile information with ID tags.   </p>
+        <p> Additionally, because we used a default Google Slide template for this first client presentation, I decided to create some bespokely <strong className='flik'>tailored slide designs&nbsp;</strong> for future meetings which will appear below. </p>
       ,
       visuals: [
         // {
@@ -737,71 +844,546 @@ const page = () => {
     },
 
   ];
-  const sliderItems_FLIK_DesignSystem = [
-
+  const sliderItems_FLIK_Sprint1_CAM = [
     {
-      // figma:"https://embed.figma.com/proto/5yh2ZI7ywU6dsPP9m8wd1r/402-SCAS?page-id=136%3A9531&node-id=452-86817&viewport=2763%2C-1433%2C0.26&scaling=contain&content-scaling=fixed&starting-point-node-id=452%3A86817&show-proto-sidebar=1&embed-host=share",
-      heading: 'Visual Approach',
-      description: <p >
-        The aim was to tailor the visual style to the T-Mobile brand while prioritizing function over form. To this end, I decided to simply use T-Mobile's characteristic hot pink for CTAs, brand text, and other elements that deserve higher visual salience.         </p>,
-      visuals: [
-        {
-          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/genericComponents.png',
-          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
-          title: '1. Set Details',
-          desc: 'Engagement name, targeted project/app, due dates, etc. ',
-          sliderName: 'Engagement Settings',
-        },
-
-      ]
-    },
-
-    {
-      heading: 'Componentize as I go',
-      description: <p>
-        For rapid design iteration I componentized and prototyped interface elements as I designed them in turn instead of starting with low or mid-fi drafts for the sake of time. This was necessary from the start since there are many interface elements repeatedly used (such as the ID tags) across flows that I would have to otherwise update individually. This eventually enabled me to create various templates for pages and nested components early on using these building blocks as shown below.  </p>,
-      visuals: [
-        {
-          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/pageComponents.png',
-          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
-          title: '1. Set Details',
-          desc: 'Engagement name, targeted project/app, due dates, etc. ',
-          sliderName: 'Engagement Settings',
-        },
-
-      ]
-    },
-    {
-      // figma:"https://embed.figma.com/proto/5yh2ZI7ywU6dsPP9m8wd1r/402-SCAS?page-id=136%3A9531&node-id=452-86817&viewport=2763%2C-1433%2C0.26&scaling=contain&content-scaling=fixed&starting-point-node-id=452%3A86817&show-proto-sidebar=1&embed-host=share",
-      heading: 'Spreadsheet View',
+      heading: 'Identifying Potential Competitors',
       description:
-        <p >
-          A set of sheet components were created, but the interface for advanced filtering and pagination were ommitted in favor of sticking to the table component already provided by the UI library CIAAN was using.
-        </p>,
+        <div>
+          {/* <p>We first created</p> */}
+          <div class="flex flex-col gap-[4px] ">
+            <h3 class=" self-start justify-start text-left  ">
+              The team identified multiple companies that are <strong className='flik'>serving the prison-industrial complex&nbsp;</strong>as well as those that market <strong className='flik'> mailing & communication services/products&nbsp;</strong> to understand how the various Flikshop product verticals are currently positioned:
+            </h3>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                Edovo
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                Ameelio
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                Orijin
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                ConnectNetwork
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                Pigeononly
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                Pelipost
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                Shutterfly
+              </h3>
+            </span>
+          </div>
+
+          <div class="flex flex-col gap-[4px]  mt-4 ">
+            <h3 class=" self-start justify-start text-left  ">
+
+              The analysis targeted the following <strong className='flik'>8 dimensions against Flikshop&nbsp;</strong>respectively:
+
+            </h3>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  1.&nbsp;
+                </strong>
+                Value proposition of products & pervices
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  2.&nbsp;
+                </strong>
+                How long they have been operating
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  3.&nbsp;
+                </strong>
+                How they present their brand
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  4.&nbsp;
+                </strong>
+                How they market their products and services
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  5.&nbsp;
+                </strong>
+                Revenue Streams
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  6.&nbsp;
+                </strong>
+                Monthly traffic and amount of users
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  7.&nbsp;
+                </strong>
+                What social media platforms they are active on and its content
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  8.&nbsp;
+                </strong>
+                Any potential community or UGC (user-generated-content) features
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  9.&nbsp;
+                </strong>
+                Any potential intrinsic competitive advantages or key features that set them apart
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  10.&nbsp;
+                </strong>
+                Visual design and usability of their website and apps
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  11.&nbsp;
+                </strong>
+                What geographic regions they serve
+              </h3>
+            </span>
+          </div>
+
+        </div>,
+      note:
+        <p>
+          Analysis data was consolidated in a shared Google Sheet document.        </p>
+      ,
       visuals: [
         {
-          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/sheetComponents.png',
-          imgClass: "h-[50%]",
-          title: '1. Set Details',
-          desc: 'Engagement name, targeted project/app, due dates, etc. ',
-          sliderName: 'Engagement Settings',
+          imgHeight: "h-[25vh]",
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/research/CAMraw.jpg',
+          title: 'Flikshop Mail App',
+          desc: 'Relative market cap & how similar their product/service offerings are ',
+          sliderName: 'CAM1',
+        },
+      ]
+
+
+    },
+
+    {
+      heading: 'Creating the analysis matrix',
+      description:
+        <div class=" flex-col gap-2">
+          The team generated a plethora of detailed research data, but as the design lead I head to find a way to concisely display our results for the next client meeting. Ultimately, because the competitive analysis were all relative to flikshop's market posture, my approach was to present the results in a graph where — with flikshop being in the center — <strong className='flik'>the other target companies are plotted around Flikshop based on where the respective company is relative to two of the targeted dimensions of analysis&nbsp;</strong>described above.
+        </div>
+      ,
+      visuals: [
+        {
+          imgHeight: "h-[25vh]",
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/research/cam1/cam1_1_5x.webp',
+          title: 'Flikshop Mail App',
+          desc: 'Relative market cap & how similar their product/service offerings are ',
+          sliderName: 'CAM1',
+        },
+        {
+          imgHeight: "h-[25vh]",
+
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/research/cam2/cam2_1_5x.webp',
+          title: 'Flikshop School of Business',
+          desc: 'Amount of industry partners & comparative size of course catalogue',
+          sliderName: 'CAM2',
+        },
+        {
+          imgHeight: "h-[25vh]",
+
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/research/cam3/cam3_1_5x.webp',
+          title: 'Flikshop as a company',
+          desc: 'Public brand perception & amount of positive leadership publicity',
+          sliderName: 'CAM3',
+        },
+      ]
+    },
+    {
+      note:
+        <p>
+          These were fun to make :)
+        </p>,
+      visuals: []
+    },
+    {
+      heading: 'Main Takeaways',
+      description:
+        <div class=" flex-col gap-2">
+          What the team took away was that <strong className='flik'>Flikshop as a brand is a unicorn in terms of leadership reputation and publicity&nbsp;</strong> due to Marcus' (The CEO) lived experience of being previously incarcerated and his story of how the postcards sent by his mother was a source of hope and motivation that led to his success after his release. His story is widely publicized <strong className='flik'>(he even did TED talk about it!)&nbsp;</strong>and very well received which is virtually unheard of across the competitors analyized where key leadership lack such lived experience and are generally not in the limelight of their respective brands at all.
+        </div>
+      ,
+      visuals: [
+
+      ]
+    },
+  ];
+  const sliderItems_FLIK_Sprint1_Surveys = [
+    {
+      heading: 'Military Demographics',
+      description:
+        <div>
+          {/* <p>We first created</p> */}
+          <div class="flex flex-col gap-[4px] ">
+            <h3 class=" self-start justify-start text-left  ">
+              The hypothesis presented by the client was that Flikshop's Mail service could potentially fill the gap experienced by active duty personel whom may have a hard time getting in touch with their family and loved ones.
+              <br /> <br />To this end, we <strong className='flik'>created a survey targeted towards present and past service members&nbsp;</strong>to test the client's hypothesis that asked question such as:
+            </h3>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'How often do/did you have access to technology when stationed away from home?'
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'When you did have access to technology, did you have access to communication type platforms and apps?'
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'Do/Did you face challenges when you communicated with friends and family when stationed away from home?'
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'If there were an app that could send text or pictures in a physical format to your loved one, would you be interested in using it?'
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'What do current communication offerings that you use to contact your loved one lack? And what could be improved?'
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'Are there any specific barriers that make it extra difficult to reach or stay in contact with someone who is deployed/in basic training?'
+              </h3>
+            </span>
+
+          </div>
+
+
+        </div>,
+      note:
+        <p>
+          As a Chinese-Canadian immigrant I had no cultural awareness on this matter so I mainly relied on my team members who had personal connections and better understanding of how to approach designing this survey.
+        </p>
+      ,
+      visuals: [
+        // {
+        //   imgHeight: "h-[25vh]",
+        //   img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/research/CAMraw.jpg',
+        //   title: 'Flikshop Mail App',
+        //   desc: 'Relative market cap & how similar their product/service offerings are ',
+        //   sliderName: 'CAM1',
+        // },
+      ]
+
+
+    },
+
+    {
+      heading: <p className='mb-[-1rem]'>  Survey Results  - Military Demographics: Tech Accessibility</p>,
+      description:
+        // <div class=" flex-col gap-2">
+        //   The team generated a plethora of detailed research data, but as the design lead I head to find a way to concisely display our results for the next client meeting. Ultimately, because the competitive analysis were all relative to flikshop's market posture, my approach was to present the results in a graph where — with flikshop being in the center — <strong className='flik'>the other target companies are plotted around Flikshop based on where the respective company is relative to two of the targeted dimensions of analysis&nbsp;</strong>described above.
+        // </div>
+        <></>,
+      visuals: [
+        {
+          imgHeight: "h-[25vh]",
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/research/Surveys/survey_military1/survey_military1_1_5x.webp',
+          title: 'Technology Accessability by Branch',
+          desc: 'Do service members have a hard time accessing communication methods?',
+          sliderName: 'Survey1',
         },
 
       ]
     },
     {
-      // figma:"https://embed.figma.com/proto/5yh2ZI7ywU6dsPP9m8wd1r/402-SCAS?page-id=136%3A9531&node-id=452-86817&viewport=2763%2C-1433%2C0.26&scaling=contain&content-scaling=fixed&starting-point-node-id=452%3A86817&show-proto-sidebar=1&embed-host=share",
-      heading: 'Status-dependant Variants',
-      description: <p >
-        Component variants were created for interface elements that are functionally dependant on some system status (such as save states).    </p>,
+      heading: <p className='mb-[-1rem]'>  Survey Results  - Military Demographics: Communication Preferences</p>,
+      description:
+        // <div class=" flex-col gap-2">
+        //   The team generated a plethora of detailed research data, but as the design lead I head to find a way to concisely display our results for the next client meeting. Ultimately, because the competitive analysis were all relative to flikshop's market posture, my approach was to present the results in a graph where — with flikshop being in the center — <strong className='flik'>the other target companies are plotted around Flikshop based on where the respective company is relative to two of the targeted dimensions of analysis&nbsp;</strong>described above.
+        // </div>
+        <></>,
       visuals: [
         {
-          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/designSystem_feature/statusComponents.png',
-          imgClass: "h-[50%]",
-          title: '1. Set Details',
-          desc: 'Engagement name, targeted project/app, due dates, etc. ',
-          sliderName: 'Engagement Settings',
+          imgHeight: "h-[25vh]",
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/research/Surveys/survey_military2/survey_military2_1_5x.webp',
+          title: 'Technology Accessability by Branch',
+          desc: 'Do service members have a hard time accessing communication methods?',
+          sliderName: 'Survey1',
         },
+
+      ]
+    },
+    {
+      heading: <p className='mb-[-1rem]'> Survey Results - Military Demographics: Communication Difficulties</p>,
+      description:
+        // <div class=" flex-col gap-2">
+        //   The team generated a plethora of detailed research data, but as the design lead I head to find a way to concisely display our results for the next client meeting. Ultimately, because the competitive analysis were all relative to flikshop's market posture, my approach was to present the results in a graph where — with flikshop being in the center — <strong className='flik'>the other target companies are plotted around Flikshop based on where the respective company is relative to two of the targeted dimensions of analysis&nbsp;</strong>described above.
+        // </div>
+        <></>,
+      visuals: [
+        {
+          imgHeight: "h-[25vh]",
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/research/Surveys/survey_military3/survey_military3_1_5x.webp',
+          title: 'Technology Accessability by Branch',
+          desc: 'Do service members have a hard time accessing communication methods?',
+          sliderName: 'Survey1',
+        },
+
+      ]
+    },
+    {
+      // note:
+      //   <p>
+      //    We only had five respondents
+      //   </p>,
+      visuals: []
+    },
+
+    //eldery
+    {
+      heading: 'Elderly Demographics',
+      description:
+        <div>
+          {/* <p>We first created</p> */}
+          <div class="flex flex-col gap-[4px] ">
+            <h3 class=" self-start justify-start text-left  ">
+              The other hypothesis presented by the client was that Flikshop's Mail service could potentially serve <strong className='flik'>elderly demographics that may appreciate physical communication (e.x. postcards) or otherwise have difficulty using digital communcation methods&nbsp;</strong>such as social media to get in touch with their family and loved ones.
+              <br /> <br /> To test the above hypothesis the team designed another survery asking question such as:
+            </h3>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'Do you live alone, with a partner, or in a shared living community?'              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'How often do you use technology (such as a phone, computer, tablet, library kiosks) in your daily life?'
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'Do/Did you face challenges when you communicated with friends and family when stationed away from home?'
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'How comfortable do you generally feel using technology (smartphones, computers, library kiosks, the internet)?'
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'Do you prefer face-to-face communication (e.g. phone or video calls, texting) or physical communication (e.g. letters, print media) over using technology?'
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'How comfortable are you using technology to share or view photos?'
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'Do you prefer to share or view photos in person or digitally?'
+              </h3>
+            </span>
+          </div>
+        </div>,
+      // note:
+      //   <p>
+      //     As a Chinese-Canadian immigrant I had no cultural awareness on this matter so I mainly relied on my team members who had personal connections and better understanding of how to approach designing this survey.
+      //   </p> ,
+      visuals: [
+        // {
+        //   imgHeight: "h-[25vh]",
+        //   img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/research/CAMraw.jpg',
+        //   title: 'Flikshop Mail App',
+        //   desc: 'Relative market cap & how similar their product/service offerings are ',
+        //   sliderName: 'CAM1',
+        // },
+      ]
+
+
+    },
+
+    {
+      heading: <p className='mb-[-1rem]'>  Survey Results  - Elderly Demographics: Photosharing Preferences</p>,
+      description:
+        // <div class=" flex-col gap-2">
+        //   The team generated a plethora of detailed research data, but as the design lead I head to find a way to concisely display our results for the next client meeting. Ultimately, because the competitive analysis were all relative to flikshop's market posture, my approach was to present the results in a graph where — with flikshop being in the center — <strong className='flik'>the other target companies are plotted around Flikshop based on where the respective company is relative to two of the targeted dimensions of analysis&nbsp;</strong>described above.
+        // </div>
+        <></>,
+      visuals: [
+        {
+          imgHeight: "h-[25vh]",
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/research/Surveys/survey_military1/survey_military1_1_5x.webp',
+          title: 'Technology Accessability by Branch',
+          desc: 'Do service members have a hard time accessing communication methods?',
+          sliderName: 'Survey1',
+        },
+
+      ]
+    },
+    {
+      heading: <p className='mb-[-1rem]'>  Survey Results  - Elderly Demographics: Consumption Modality</p>,
+      description:
+        // <div class=" flex-col gap-2">
+        //   The team generated a plethora of detailed research data, but as the design lead I head to find a way to concisely display our results for the next client meeting. Ultimately, because the competitive analysis were all relative to flikshop's market posture, my approach was to present the results in a graph where — with flikshop being in the center — <strong className='flik'>the other target companies are plotted around Flikshop based on where the respective company is relative to two of the targeted dimensions of analysis&nbsp;</strong>described above.
+        // </div>
+        <></>,
+      visuals: [
+        {
+          imgHeight: "h-[25vh]",
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/research/Surveys/survey_elderly2/survey_elderly2_1_5x.webp',
+          title: 'Technology Accessability by Branch',
+          desc: 'Do service members have a hard time accessing communication methods?',
+          sliderName: 'Survey1',
+        },
+
+      ]
+    },
+    {
+      heading: <p className='mb-[-1rem]'> Survey Results - Elderly Demographics: Techonology Familiarity </p>,
+      description:
+        // <div class=" flex-col gap-2">
+        //   The team generated a plethora of detailed research data, but as the design lead I head to find a way to concisely display our results for the next client meeting. Ultimately, because the competitive analysis were all relative to flikshop's market posture, my approach was to present the results in a graph where — with flikshop being in the center — <strong className='flik'>the other target companies are plotted around Flikshop based on where the respective company is relative to two of the targeted dimensions of analysis&nbsp;</strong>described above.
+        // </div>
+        <></>,
+      visuals: [
+        {
+          imgHeight: "h-[25vh]",
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/research/Surveys/survey_elderly3/survey_elderly3_1_5x.webp',
+          title: 'Technology Accessability by Branch',
+          desc: 'Do service members have a hard time accessing communication methods?',
+          sliderName: 'Survey1',
+        },
+
+      ]
+    },
+    {
+      // note:
+      //   <p>
+      //    We only had five respondents
+      //   </p>,
+      visuals: []
+    },
+
+
+
+
+    {
+      heading: 'Main Takeaways',
+      description:
+        <div class=" flex-col gap-2">
+          Based on the results of both surveys, the team all agreed that there is no appetite within elderly and military demographics for Flikshop's mail services.
+          <br /> <br /> 
+          <strong className='flik'>Military personel already tend to have little trouble getting in touch with their family and loved ones&nbsp;</strong>, and the barriers experience by those who do cannot be serviced by Flikshop anyways (i.e. they are in a nuclear submarine at the bottom of the ocean).
+          <br /> <br />
+          On the other hand, <strong className='flik'>survey results from our elderly demographic did not indicate a significant desire for physical photosharing nor significant difficulties in communincating with family members and loved ones.&nbsp;</strong> There are also a plethora of photosharing services tailored for elderly demographics of whose brands are likely to be better percieved for this purpose than Flikshop's (i.e. feelings such as: 'Wait isn't Flikshop for incarcerated people? Why are we using this instead of X?').
+        </div>
+      ,
+      visuals: [
 
       ]
     },
@@ -822,14 +1404,21 @@ const page = () => {
       visuals: [
         {
           img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/researchtesting/testing_feedback/testing_feedback_1_5x.webp',
-          imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
+          imgClass: "",
           title: '1. Set Details',
           desc: 'Engagement name, targeted project/app, due dates, etc. ',
           sliderName: 'Engagement Settings',
         },
-
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/researchtesting/testing_feedback/testing_feedback_1_5x.webp',
+          imgClass: "",
+          title: '1. Set Details',
+          desc: 'Engagement name, targeted project/app, due dates, etc. ',
+          sliderName: 'Engagement Settings',
+        },
       ]
-    }
+    },
+
 
   ];
   const isMobile = useMediaQuery('(min-width: 640px)');
@@ -887,11 +1476,11 @@ const page = () => {
       title: "",
       url: "#introduction",
       depth: 1,
-      circle:<></>
-   
+      circle: <></>
+
     },
     {
-      title: "Overview",
+      title: "Project Overview",
       url: "#introduction",
       depth: 1,
       circle:
@@ -915,7 +1504,7 @@ const page = () => {
         </svg>
     },
     {
-      title: "Research & Planning",
+      title: "Sprint 1 [Fall]",
       url: "#getting-started",
       depth: 1,
       circle:
@@ -939,7 +1528,7 @@ const page = () => {
         </svg>
     },
     {
-      title: "Security Staff Flows",
+      title: "Sprint 2 [Fall]",
       url: "#installation",
       depth: 1,
       circle:
@@ -963,7 +1552,7 @@ const page = () => {
         </svg>
     },
     {
-      title: "Security Assessments",
+      title: "Sprint 3 [Spring]",
       url: "#basic-usage",
       depth: 3,
       circle:
@@ -987,7 +1576,7 @@ const page = () => {
         </svg>
     },
     {
-      title: "Security Engagements",
+      title: "Sprint 4 [Spring]",
       url: "#advanced-features",
       depth: 3,
       circle:
@@ -1035,7 +1624,7 @@ const page = () => {
         </svg>
     },
     {
-      title: "Security User Flows",
+      title: "Sprint 3 [Spring]",
       url: "#introdudction",
       depth: 1,
       circle:
@@ -1083,7 +1672,7 @@ const page = () => {
         </svg>
     },
     {
-      title: "Design System",
+      title: "Sprint 4 [Spring]",
       url: "#gettingd-sdtarted",
       depth: 1,
       circle:
@@ -1323,20 +1912,30 @@ const page = () => {
                         sliderProgressBarCn="progressSliderColor-flik"
                         noteBg="note-flik "
                         cardText='text-flik-dark  '
-                        Title='User Research'
-                        Section='Research & Planning'
-                        CardContent={sliderItems_FLIK_UserResearch} >
-
+                        Title='Summarized Tasks & Goals'
+                        Section='Sprint 1'
+                        CardContent={sliderItems_FLIK_Sprint1_overview} >
                       </PortfolioCard>
 
-                      <PortfolioCard Section={'Security Staff Screens'}
+                      <PortfolioCard
                         cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
                         sliderProgressBarCn="progressSliderColor-flik"
                         noteBg="note-flik "
                         cardText='text-flik-dark  '
-                        Title={'Security Engagements: Creation & Management'}
-                        CardContent={sliderItems_FLIK_EngagementFlow}
-                      />
+                        Title='Competitive Analysis Matrices'
+                        Section='Sprint 1'
+                        CardContent={sliderItems_FLIK_Sprint1_CAM} >
+                      </PortfolioCard>
+                      <PortfolioCard
+                        cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
+                        sliderProgressBarCn="progressSliderColor-flik"
+                        noteBg="note-flik "
+                        cardText='text-flik-dark  '
+                        Title='Market Research Surveys'
+                        Section='Sprint 1'
+                        CardContent={sliderItems_FLIK_Sprint1_Surveys} >
+                      </PortfolioCard>
+                      {/* 
                       <PortfolioCard Section={'Security Staff Screens'}
                         cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
                         sliderProgressBarCn="progressSliderColor-flik"
@@ -1383,7 +1982,7 @@ const page = () => {
                         Section={"User Testing"}
                         Title={'Cognitive Walkthroughs'}
                         CardContent={sliderItems_FLIK_UserTesting}
-                      />
+                      /> */}
                     </section>
                   </section>
                 </span>

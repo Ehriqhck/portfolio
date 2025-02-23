@@ -585,6 +585,13 @@ background-image: linear-gradient(137deg, #1700ff7d, #4d0000d6), radial-gradient
     background-image: linear-gradient(182deg, #33333300 50%, #930058a8 100%);
   
   }
+  strong {
+    font-weight: 600;
+  }
+  strong.flik  {
+    color: #ffad52e8 !important;
+
+  }
   .tocBg-scas {
     background-image: linear-gradient(48deg, #00b4ff5e 0%, #ff25b3 100%), url(https://d3e0o4zthiks52.cloudfront.net/ey_logo_white.svg);
     background-size: 120%;

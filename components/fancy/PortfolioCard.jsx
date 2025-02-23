@@ -230,18 +230,21 @@ const PortfolioCard = ({type, CardContent, Section, Title, Slidercontent, Conten
                         >
                           <Image
 
-                            className={'rounded-r-xl h-[32vh]   w-min place-self-center self-center '}
+                            className={cn(item?.imgHeight,'rounded-r-xl  aspect-video   w-min place-self-center self-center ')}
 
                             src={item?.img}
 
+                        
+                            
                             width={'1440'}
                             height={'1025'}
-                          // onLoad={event => {
-                          //   const target = event.target;
 
-                          //   if (target.src.indexOf('data:image/gif;base64') < 0) {
-                          //       setImageIsLoaded(true)
-                          //   }}}
+                          onLoad={event => {
+                            const target = event.target;
+
+                            if (target.src.indexOf('data:image/gif;base64') < 0) {
+                                setImageIsLoaded(true)
+                            }}}
                           />
                         </motion.div>
                       </SliderWrapper>
@@ -258,7 +261,7 @@ const PortfolioCard = ({type, CardContent, Section, Title, Slidercontent, Conten
           data.map((item, index) => (
 
             <Image
-              className=' h-full mt-2 object-cover w-fit  rounded-xl   overflow-hidden'
+              className=' h-full my-4 object-cover w-fit  rounded-xl   overflow-hidden'
               src={item?.img}
               width={1920}
               height={1080}
