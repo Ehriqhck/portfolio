@@ -1377,7 +1377,7 @@ const page = () => {
       description:
         <div class=" flex-col gap-2">
           Based on the results of both surveys, the team all agreed that there is no appetite within elderly and military demographics for Flikshop's mail services.
-          <br /> <br /> 
+          <br /> <br />
           <strong className='flik'>Military personel already tend to have little trouble getting in touch with their family and loved ones&nbsp;</strong>, and the barriers experience by those who do cannot be serviced by Flikshop anyways (i.e. they are in a nuclear submarine at the bottom of the ocean).
           <br /> <br />
           On the other hand, <strong className='flik'>survey results from our elderly demographic did not indicate a significant desire for physical photosharing nor significant difficulties in communincating with family members and loved ones.&nbsp;</strong> There are also a plethora of photosharing services tailored for elderly demographics of whose brands are likely to be better percieved for this purpose than Flikshop's (i.e. feelings such as: 'Wait isn't Flikshop for incarcerated people? Why are we using this instead of X?').
@@ -1388,39 +1388,261 @@ const page = () => {
       ]
     },
   ];
-  const sliderItems_FLIK_UserTesting = [
+  const sliderItems_FLIK_Sprint1_Interviews = [
+    {
+      heading: 'Current & Past Flikshop Employees',
+      description:
+        <div>
+          {/* <p>We first created</p> */}
+          <div class="flex flex-col gap-[4px] ">
+            <h3 class=" self-start justify-start text-left  ">
+              The team interviewed various current and past Flikshop employees ranging from developers to designers across their current product verticals <strong className='flik'>to help the team better understand their values, mission, and vision for the future so we can design around it in future sprints.</strong>
+              <br /><br />
+              We asked general questions such as:
+            </h3>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'Can you describe your job role in depth?''
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'What do you think are the core values of Flikshop?'
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'How did you find out or get introduced into Flikshop?''
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'What about the company makes it special in your eyes?''
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'What are the company’s current priorities, and how does your team contribute to those goals?'
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'How well does the company communicate its product vision internally? How about externally?'
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'How has the company evolved since you joined?'
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                'In what areas or ways do you feel that Flikshop could make itself stronger as a competitor in this market?'
+              </h3>
+            </span>
+          </div>
+
+
+        </div>,
+      note:
+        <p>
+          Since I have web development experience I took up interviewing a developer to see what their tech stack looks like and if could help prototype our future mockups on the front end.
+        </p>,
+      visuals: [
+
+      ]
+
+
+    },
 
     {
-      // figma:"https://embed.figma.com/proto/5yh2ZI7ywU6dsPP9m8wd1r/402-SCAS?page-id=136%3A9531&node-id=452-86817&viewport=2763%2C-1433%2C0.26&scaling=contain&content-scaling=fixed&starting-point-node-id=452%3A86817&show-proto-sidebar=1&embed-host=share",
-      heading: 'Methodology',
-      description: <p>
-        Using the mockups above, three cognitive walkthroughs were conducted remotely through Zoom screensharing with three cybersecurity experts familiar with assessment/engagement processes. Each participant was asked to perform four common worflow tasks and were encouraged to verbalize their thought-process in-situ. Additional time was allocated afterwards to enquire further about usability feedback & discussion.         </p>,
-      visuals: ''
-    },
-    {
-      heading: 'Testing Results',
-      description: <p>
-        Research insights are summarized in the table below. Overall, feedback was generally very positive both in terms of both ease-of-use and aesthetics, though there were questions about the specific definitions of the terminology used such as 'assigning' a Security Engineer -- no operational definition was provided by the mockups so it was left to the users to presume.    </p>,
+      heading: '',
+      description:
+        <div class=" flex-col gap-2">
+          Interview data was consolidated in a Google Sheets document:
+        </div>
+      ,
       visuals: [
         {
-          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/researchtesting/testing_feedback/testing_feedback_1_5x.webp',
-          imgClass: "",
-          title: '1. Set Details',
-          desc: 'Engagement name, targeted project/app, due dates, etc. ',
-          sliderName: 'Engagement Settings',
+          imgHeight: "h-[25vh]",
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/research/Interviews/interviewsData.jpg',
+          title: 'Flikshop Mail App',
+          desc: 'Relative market cap & how similar their product/service offerings are ',
+          sliderName: 'CAM1',
         },
-        {
-          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/researchtesting/testing_feedback/testing_feedback_1_5x.webp',
-          imgClass: "",
-          title: '1. Set Details',
-          desc: 'Engagement name, targeted project/app, due dates, etc. ',
-          sliderName: 'Engagement Settings',
-        },
+
       ]
     },
+    {
+      note:
+        <p>
+          These interviews were mainly for the team; I decided not to spend the time to design presentation slides for them.
+        </p>,
+      visuals: []
+    },
+    {
+      heading: 'Main Takeaways',
+      description:
+        <div class=" flex-col gap-2">
+          Across all the employees we interviewed — both past and present — <strong className='flik'>everyone was enthusastic about Flikshop's mission&nbsp;</strong>of reconnecting incarcerated individuals with their loved ones and their efforts in reducing recidivism.
+          Many expressed how <strong className='flik'>uniquely suited Marcus is to be the Flikshop's CEO due to his lived experience and his advocacy for his customers/users that sets Flikshop apart from all their competitors.&nbsp;</strong>
+        </div>
+      ,
+      visuals: [
+      ]
+    },
+  ];
 
+  const sliderItems_FLIK_Sprint2_kickoff = [
+    {
+      heading: 'Focusing on Flikshop Mail App',
+      description:
+        <div>
+          {/* <p>We first created</p> */}
+          <div class="flex flex-col gap-[4px] ">
+            <h3 class=" self-start justify-start text-left  ">
+              After conveying the Sprint 1 research findings to the client, both the team and our client agreed that<strong className='flik'> Flikshop's mail service should not expand to elderly nor military demographics.&nbsp;</strong>
+              Rather, Flikshop should instead further invest in saturating its current user demographic of currently and previously incarcerated individuals <strong className='flik'>by leaning into brand storytelling centered around Marcus' unique live experience.&nbsp;</strong>
+              <br /><br />
+              To this end, the goals for sprint two were the following:
+            </h3>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                <strong className='flik'> Connect the various verticals in a repeatable and seamless flow&nbsp;</strong>within the Flikshop Mail app.
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                <strong className='flik'>Modernize&nbsp;</strong>the current Flikshop Mail app experience.
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                Inject elements of <strong className='flik'>&nbsp;brand storytelling&nbsp;</strong>within app userflows.
+              </h3>
+            </span>
+
+
+          </div>
+        </div>,
+      // note:
+      //   <p>
+      //     There was great overlap between the security engineers & adminstrators; eventually we recognized that the practical/organizational differences were trivial enough between them to consolidate both as the 'Security Staff/Team' for this part of the SCAS platform.
+      //   </p>
+      // ,
+      visuals: [
+        // {
+        //   img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/researchtesting/user_research/user_research_1_5x.webp',
+        //   imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
+        //   title: 'Assessments',
+        //   desc: 'Spreadsheet layout of all assessments ',
+        //   sliderName: 'Engagement Settings',
+        // },
+      ]
+    },
+    {
+      heading: 'Ideation with Client',
+      description:
+        <div class="flex flex-col gap-2 ">
+          <p>
+We brought Marcus (the CEO) into a team meeting where — inspired by the 
+          </p>
+
+
+          <span class="ml-1 mt-1.5">
+            <h3 class="flex flex-col  ">
+              <strong className='flik text-nowrap'>
+                Sprint 1:&nbsp;
+              </strong>
+              Research potential market opportunities for Flikshop Mail to expand its userbase beyond incarcerated individuals with a focus towards elderly and military demographics (as suggested by the client).
+            </h3>
+          </span>
+          <span class="ml-6">
+            <h3 class="flex flex-row ">
+              <strong>
+                •&nbsp;
+              </strong>
+              <p>
+                Conduct <strong className='flik'>competitive analysis&nbsp;</strong>against other similar companies offering prison communications & mailing services to understand Flikshop's current market positioning and potential opportunities for expansion.
+              </p>
+
+            </h3>
+          </span>
+          <span class="ml-6">
+            <h3 class="flex flex-row ">
+              <strong>
+                •&nbsp;
+              </strong>
+              <p>
+                Create and conduct <strong className='flik'>market research surveys for elderly and military demographics&nbsp;</strong>to guage their respective growth potential
+              </p>
+
+            </h3>
+          </span>
+          <span class="ml-6">
+            <h3 class="flex flex-row ">
+              <strong>
+                •&nbsp;
+              </strong>
+              <p>
+                Conduct further <strong className='flik'>interviews with internal Flikshop stakeholders&nbsp;</strong>(past & present) to better understand the Flikshop brand and mission </p>
+
+            </h3>
+          </span>
+        </div>
+      ,
+
+      note:
+        <p> Additionally, because we used a default Google Slide template for this first client presentation, I decided to create some bespokely <strong className='flik'>tailored slide designs&nbsp;</strong> for future meetings which will appear below. </p>
+      ,
+      visuals: [
+        // {
+        //   img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/researchtesting/user_research/user_research_1_5x.webp',
+        //   title: 'Assessments',
+        //   desc: 'Spreadsheet layout of all assessments ',
+        //   sliderName: 'Engagement Settings',
+        // },
+      ]
+
+
+    },
 
   ];
+
+
   const isMobile = useMediaQuery('(min-width: 640px)');
 
 
@@ -1473,15 +1695,14 @@ const page = () => {
 
   const tocItems = [
     {
-      title: "",
-      url: "#introduction",
+      title: <></>,
+      url: "#introdu111ction",
       depth: 1,
       circle: <></>
-
     },
     {
       title: "Project Overview",
-      url: "#introduction",
+      url: "#intro234234duction",
       depth: 1,
       circle:
         <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
@@ -1508,6 +1729,13 @@ const page = () => {
       url: "#getting-started",
       depth: 1,
       circle:
+        <></>
+    },
+    {
+      title: "Sprint Kickoff & Goals",
+      url: "#install44ation",
+      depth: 3,
+      circle:
         <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
           <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
           <motion.circle
@@ -1528,8 +1756,80 @@ const page = () => {
         </svg>
     },
     {
-      title: "Sprint 2 [Fall]",
-      url: "#installation",
+      title: "Competitive Analysis",
+      url: "#basic-098-09usage",
+      depth: 3,
+      circle:
+        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgressNav1 }}
+          />        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicatorBg"
+
+          />
+        </svg>
+    },
+    {
+      title: "Market Research Surveys",
+      url: "#advanced-f777eatures",
+      depth: 3,
+      circle:
+        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgressNav1 }}
+          />        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicatorBg"
+
+          />
+        </svg>
+    },
+    {
+      title: "Internal Stakeholder Interviews",
+      url: "#api-refere54345345nce",
+      depth: 3,
+      circle:
+        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgressNav1 }}
+          />        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicatorBg"
+
+          />
+        </svg>
+    },
+    {
+      title: "Sprint 2 [Spring]",
+      url: "#introdudoipction",
       depth: 1,
       circle:
         <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
@@ -1552,56 +1852,8 @@ const page = () => {
         </svg>
     },
     {
-      title: "Sprint 3 [Spring]",
-      url: "#basic-usage",
-      depth: 3,
-      circle:
-        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-          <motion.circle
-            cx="50"
-            cy="50"
-            r="30"
-            pathLength="1"
-            className="indicator"
-            style={{ pathLength: scrollYProgressNav1 }}
-          />        <motion.circle
-            cx="50"
-            cy="50"
-            r="30"
-            pathLength="1"
-            className="indicatorBg"
-
-          />
-        </svg>
-    },
-    {
-      title: "Sprint 4 [Spring]",
-      url: "#advanced-features",
-      depth: 3,
-      circle:
-        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
-          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
-          <motion.circle
-            cx="50"
-            cy="50"
-            r="30"
-            pathLength="1"
-            className="indicator"
-            style={{ pathLength: scrollYProgressNav1 }}
-          />        <motion.circle
-            cx="50"
-            cy="50"
-            r="30"
-            pathLength="1"
-            className="indicatorBg"
-
-          />
-        </svg>
-    },
-    {
-      title: "Spreadsheet View",
-      url: "#api-reference",
+      title: "Sprint Kickoff & Goals",
+      url: "#introdughjjdction",
       depth: 3,
       circle:
         <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
@@ -1625,7 +1877,7 @@ const page = () => {
     },
     {
       title: "Sprint 3 [Spring]",
-      url: "#introdudction",
+      url: "#introdudcasdddtion",
       depth: 1,
       circle:
         <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
@@ -1905,7 +2157,8 @@ const page = () => {
                         cardText='text-flik-dark  '
                         // Title='Flikshop'
                         Section='Project Overview'
-                        CardContent={sliderItems_FLIK_Overview} ></PortfolioCard>
+                        CardContent={sliderItems_FLIK_Overview} >
+                      </PortfolioCard>
 
                       <PortfolioCard
                         cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
@@ -1935,54 +2188,28 @@ const page = () => {
                         Section='Sprint 1'
                         CardContent={sliderItems_FLIK_Sprint1_Surveys} >
                       </PortfolioCard>
-                      {/* 
-                      <PortfolioCard Section={'Security Staff Screens'}
-                        cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
-                        sliderProgressBarCn="progressSliderColor-flik"
-                        noteBg="note-flik "
-                        cardText='text-flik-dark  '
-                        Title={'Security Assessments: Creation & Management'}
-                        CardContent={sliderItems_FLIK_AssessmentFlow}
-                      />
-
 
                       <PortfolioCard
                         cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
                         sliderProgressBarCn="progressSliderColor-flik"
                         noteBg="note-flik "
                         cardText='text-flik-dark  '
-                        CardContent={sliderItems_FLIK_ManagementFlow}
-                        Section={"Security Staff Screens"}
-                        Title={'Assessment & Engagement Management'}
-                      />
+                        Title='Internal Stakeholder Interviews'
+                        Section='Sprint 1'
+                        CardContent={sliderItems_FLIK_Sprint1_Interviews} >
+                      </PortfolioCard>
+
+                      {/* Sprint 2 */}
 
                       <PortfolioCard
                         cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
                         sliderProgressBarCn="progressSliderColor-flik"
                         noteBg="note-flik "
                         cardText='text-flik-dark  '
-                        Section={"Security User"}
-                        Title={'Assessment Form Delivery'}
-                        CardContent={sliderItems_FLIK_SecurityUserDashboard}
-                      />
-                      <PortfolioCard
-                        cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
-                        sliderProgressBarCn="progressSliderColor-flik"
-                        noteBg="note-flik "
-                        cardText='text-flik-dark  '
-                        Section={"Design System"}
-                        Title={''}
-                        CardContent={sliderItems_FLIK_DesignSystem}
-                      />
-                      <PortfolioCard
-                        cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
-                        sliderProgressBarCn="progressSliderColor-flik"
-                        noteBg="note-flik "
-                        cardText='text-flik-dark  '
-                        Section={"User Testing"}
-                        Title={'Cognitive Walkthroughs'}
-                        CardContent={sliderItems_FLIK_UserTesting}
-                      /> */}
+                        Title='Sprint 2 Kickoff & Goals'
+                        Section='Sprint 2'
+                        CardContent={sliderItems_FLIK_Sprint2_kickoff} >
+                      </PortfolioCard>
                     </section>
                   </section>
                 </span>
