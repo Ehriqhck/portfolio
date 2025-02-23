@@ -1526,34 +1526,10 @@ const page = () => {
           <div class="flex flex-col gap-[4px] ">
             <h3 class=" self-start justify-start text-left  ">
               After conveying the Sprint 1 research findings to the client, both the team and our client agreed that<strong className='flik'> Flikshop's mail service should not expand to elderly nor military demographics.&nbsp;</strong>
-              Rather, Flikshop should instead further invest in saturating its current user demographic of currently and previously incarcerated individuals <strong className='flik'>by leaning into brand storytelling centered around Marcus' unique live experience.&nbsp;</strong>
+              Rather, Flikshop should instead further invest in saturating its current user demographic of currently and previously incarcerated individuals by improving the current Flikshop app and leaning into brand storytelling centered around Marcus' unique live experience.
               <br /><br />
-              To this end, the goals for sprint two were the following:
+              To this end, we met with the client to collaboratively ideate on this sprints goals with this new focus.
             </h3>
-            <span class="ml-[8px]">
-              <h3 class="flex ">
-                <strong>
-                  •&nbsp;
-                </strong>
-                <strong className='flik'> Connect the various verticals in a repeatable and seamless flow&nbsp;</strong>within the Flikshop Mail app.
-              </h3>
-            </span>
-            <span class="ml-[8px]">
-              <h3 class="flex ">
-                <strong>
-                  •&nbsp;
-                </strong>
-                <strong className='flik'>Modernize&nbsp;</strong>the current Flikshop Mail app experience.
-              </h3>
-            </span>
-            <span class="ml-[8px]">
-              <h3 class="flex ">
-                <strong>
-                  •&nbsp;
-                </strong>
-                Inject elements of <strong className='flik'>&nbsp;brand storytelling&nbsp;</strong>within app userflows.
-              </h3>
-            </span>
 
 
           </div>
@@ -1578,71 +1554,301 @@ const page = () => {
       description:
         <div class="flex flex-col gap-2 ">
           <p>
-We brought Marcus (the CEO) into a team meeting where — inspired by the 
+            We brought Marcus (the CEO) into a team meeting where — inspired by Google's design sprint methodology — we had one team member ask questions based around the above sprint goals while everyone else simultaneously generates actionable 'how might we' (HMW) tasks to achieve them as represented the purple sticky notes. Afterwards, each team member is given two votes (the purple 'thumbs up' icon) to decide which HMW tasks to prioritize for this sprint. The client's votes (represented by the 'thumbs up' icons with a star) ultimately supercede that of the teams' but it nonetheless gave us a good idea of what to prioritize.
           </p>
-
-
-          <span class="ml-1 mt-1.5">
-            <h3 class="flex flex-col  ">
-              <strong className='flik text-nowrap'>
-                Sprint 1:&nbsp;
-              </strong>
-              Research potential market opportunities for Flikshop Mail to expand its userbase beyond incarcerated individuals with a focus towards elderly and military demographics (as suggested by the client).
-            </h3>
-          </span>
-          <span class="ml-6">
-            <h3 class="flex flex-row ">
-              <strong>
-                •&nbsp;
-              </strong>
-              <p>
-                Conduct <strong className='flik'>competitive analysis&nbsp;</strong>against other similar companies offering prison communications & mailing services to understand Flikshop's current market positioning and potential opportunities for expansion.
-              </p>
-
-            </h3>
-          </span>
-          <span class="ml-6">
-            <h3 class="flex flex-row ">
-              <strong>
-                •&nbsp;
-              </strong>
-              <p>
-                Create and conduct <strong className='flik'>market research surveys for elderly and military demographics&nbsp;</strong>to guage their respective growth potential
-              </p>
-
-            </h3>
-          </span>
-          <span class="ml-6">
-            <h3 class="flex flex-row ">
-              <strong>
-                •&nbsp;
-              </strong>
-              <p>
-                Conduct further <strong className='flik'>interviews with internal Flikshop stakeholders&nbsp;</strong>(past & present) to better understand the Flikshop brand and mission </p>
-
-            </h3>
-          </span>
         </div>
       ,
 
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/map_expert_q_a_40mins_/map_expert_q_a_40mins__1x.webp',
+          title: 'Assessments',
+          desc: 'Spreadsheet layout of all assessments ',
+          sliderName: 'Engagement Settings',
+        },
+      ]
+
+
+    },
+    {
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/hmw_how_might_we_diagram_10mins_/hmw_how_might_we_diagram_10mins__1x.webp',
+          title: 'Assessments',
+          desc: 'Spreadsheet layout of all assessments ',
+          sliderName: 'Engagement Settings',
+        },
+      ],
       note:
-        <p> Additionally, because we used a default Google Slide template for this first client presentation, I decided to create some bespokely <strong className='flik'>tailored slide designs&nbsp;</strong> for future meetings which will appear below. </p>
+        <p> Above are the questions discussed with the client while the team was generating the 'How Might We' notes shown below</p>
       ,
+    },
+    {
+      visuals: [
+
+      ],
+      note:
+        <p> The two teal HMWs at the near the right were suggestions the client especially wanted us to prioritize.</p>
+      ,
+    },
+    {
+      heading: 'Sprint 2 Goals',
+      description:
+        <div>
+          {/* <p>We first created</p> */}
+          <div class="flex flex-col gap-[4px] ">
+            <h3 class=" self-start justify-start text-left  ">
+
+              In the end, the team and our client agreed that this print should pursue these three themes:
+            </h3>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                <strong className='flik'> Connect the various verticals in a repeatable and seamless flow&nbsp;</strong>within the Flikshop mobile app.
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                <strong className='flik'>Modernize&nbsp;</strong>the current Flikshop app experience & aesthetics.
+              </h3>
+            </span>
+            <span class="ml-[8px]">
+              <h3 class="flex ">
+                <strong>
+                  •&nbsp;
+                </strong>
+                Inject elements of <strong className='flik'>&nbsp;brand storytelling&nbsp;</strong>within app userflows.
+              </h3>
+            </span>
+
+          </div>
+        </div>,
+      // note:
+      //   <p>
+      //     There was great overlap between the security engineers & adminstrators; eventually we recognized that the practical/organizational differences were trivial enough between them to consolidate both as the 'Security Staff/Team' for this part of the SCAS platform.
+      //   </p>
+      // ,
       visuals: [
         // {
         //   img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/researchtesting/user_research/user_research_1_5x.webp',
+        //   imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
         //   title: 'Assessments',
         //   desc: 'Spreadsheet layout of all assessments ',
         //   sliderName: 'Engagement Settings',
         // },
       ]
-
-
     },
-
   ];
 
+  const sliderItems_FLIK_Sprint2_sketch = [
+    {
+      heading: 'Storymapping',
+      description:
+        <div>
+          {/* <p>We first created</p> */}
+          <div class="flex flex-col gap-[4px] ">
+            <h3 class=" self-start justify-start text-left  ">
+              After the ideation session with the client, the team got together to <strong className='flik'>storyboard what we envision the Flikshop app's seamless experience&nbsp;</strong>to look like. It starts off with a user learning about Flikshop from word-of-mouth, to downloading and using the app to send a Flikshop postcard, and then learning about the other Flikshop verticals.
+              {/* <br /><br />
+              To this end, we met with the client to collaboratively ideate on this sprints goals with this new focus. */}
+            </h3>
 
+          </div>
+        </div>,
+      note:
+        <p>
+          The empty storyboard sections were those that were out of the scope of work for this sprint, such as the Flikshop postcard customization flow
+        </p>
+      ,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/storyboard_sprint2/storyboard_sprint2_1x.webp',
+          imgClass: "",
+          title: 'Assessments',
+          desc: 'Spreadsheet layout of all assessments ',
+          sliderName: 'Engagement Settings',
+        },
+      ]
+    },
+    {
+      heading: 'Low-fi Solution Sketches',
+      description:
+        <div class="flex flex-col gap-2 ">
+          <p>
+            After storyboarding, <strong className='flik'>each team member sketched some low-fidelity solutions&nbsp;</strong>towards creating the seamless flow from a user arriving at the Flikshop website homepage to downloading the app and being exposed to the various product verticals.
+          </p>
+        </div>
+      ,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/solution_sketch_sprint2/solution_sketch_1x.webp',
+          imgClass: "",
+          title: 'Assessments',
+          desc: 'Spreadsheet layout of all assessments ',
+          sliderName: 'Engagement Settings',
+        },
+      ]
+    },
+    {
+      heading: 'Deciding',
+      description:
+        <div class="flex flex-col gap-2 ">
+          <p>
+            With the solution sketches in hand, the team ran it by the client to see which parts of our designs we should prioritize in the following prototyping phase.
+          </p>
+        </div>
+      ,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/deciding_sprint2/deciding_1x.webp',
+          imgClass: "",
+          title: 'Assessments',
+          desc: 'Spreadsheet layout of all assessments ',
+          sliderName: 'Engagement Settings',
+        },
+      ],
+    },
+    {
+      note: "The blue dotes represent which specific design elements the team liked, while the larger red dots were for those that the client wanted us to prioritize.",
+      visuals: [
+
+      ],
+    },
+    {
+      heading: 'Main Takeaways',
+      description:
+        <div>
+          {/* <p>We first created</p> */}
+          <div class="flex flex-col gap-[4px] ">
+            <h3 class=" self-start justify-start text-left  ">
+
+              The client really liked the aspects of brand storytelling where we <strong className='flik'>highlight the social good of Flikshop's mission</strong>, as well as a <strong className='flik'>'product hub' type widget&nbsp;</strong>that allows users to easily explore and navigate to Flikshop's other product verticals. These remarks would guide the team in the following protoyping phase where we created Figma mockups based on these client remarks and the distribution of votes from the 'decide' meeting.            </h3>
+      
+          </div>
+        </div>,
+      // note:
+      //   <p>
+      //     There was great overlap between the security engineers & adminstrators; eventually we recognized that the practical/organizational differences were trivial enough between them to consolidate both as the 'Security Staff/Team' for this part of the SCAS platform.
+      //   </p>
+      // ,
+      visuals: [
+        // {
+        //   img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/researchtesting/user_research/user_research_1_5x.webp',
+        //   imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
+        //   title: 'Assessments',
+        //   desc: 'Spreadsheet layout of all assessments ',
+        //   sliderName: 'Engagement Settings',
+        // },
+      ]
+    },
+  ];
+  const sliderItems_FLIK_Sprint2_prototype = [
+    {
+      heading: 'Storymapping',
+      description:
+        <div>
+          {/* <p>We first created</p> */}
+          <div class="flex flex-col gap-[4px] ">
+            <h3 class=" self-start justify-start text-left  ">
+              After the ideation session with the client, the team got together to <strong className='flik'>storyboard what we envision the Flikshop app's seamless experience&nbsp;</strong>to look like. It starts off with a user learning about Flikshop from word-of-mouth, to downloading and using the app to send a Flikshop postcard, and then learning about the other Flikshop verticals.
+              {/* <br /><br />
+              To this end, we met with the client to collaboratively ideate on this sprints goals with this new focus. */}
+            </h3>
+
+          </div>
+        </div>,
+      note:
+        <p>
+          The empty storyboard sections were those that were out of the scope of work for this sprint, such as the Flikshop postcard customization flow
+        </p>
+      ,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/storyboard_sprint2/storyboard_sprint2_1x.webp',
+          imgClass: "",
+          title: 'Assessments',
+          desc: 'Spreadsheet layout of all assessments ',
+          sliderName: 'Engagement Settings',
+        },
+      ]
+    },
+    {
+      heading: 'Low-fi Solution Sketches',
+      description:
+        <div class="flex flex-col gap-2 ">
+          <p>
+            After storyboarding, <strong className='flik'>each team member sketched some low-fidelity solutions&nbsp;</strong>towards creating the seamless flow from a user arriving at the Flikshop website homepage to downloading the app and being exposed to the various product verticals.
+          </p>
+        </div>
+      ,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/solution_sketch_sprint2/solution_sketch_1x.webp',
+          imgClass: "",
+          title: 'Assessments',
+          desc: 'Spreadsheet layout of all assessments ',
+          sliderName: 'Engagement Settings',
+        },
+      ]
+    },
+    {
+      heading: 'Deciding',
+      description:
+        <div class="flex flex-col gap-2 ">
+          <p>
+            With the solution sketches in hand, the team ran it by the client to see which parts of our designs we should prioritize in the following prototyping phase.
+          </p>
+        </div>
+      ,
+      visuals: [
+        {
+          img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/Flik/deciding_sprint2/deciding_1x.webp',
+          imgClass: "",
+          title: 'Assessments',
+          desc: 'Spreadsheet layout of all assessments ',
+          sliderName: 'Engagement Settings',
+        },
+      ],
+    },
+    {
+      note: "The blue dotes represent which specific design elements the team liked, while the larger red dots were for those that the client wanted us to prioritize.",
+      visuals: [
+
+      ],
+    },
+    {
+      heading: 'Main Takeaways',
+      description:
+        <div>
+          {/* <p>We first created</p> */}
+          <div class="flex flex-col gap-[4px] ">
+            <h3 class=" self-start justify-start text-left  ">
+
+              The client really liked the aspects of brand storytelling where we <strong className='flik'>highlight the social good of Flikshop's mission</strong>, as well as a <strong className='flik'>'product hub' type widget&nbsp;</strong>that allows users to easily explore and navigate to Flikshop's other product verticals. These remarks would guide the team in the following protoyping phase where we created Figma mockups based on these client remarks and the distribution of votes from the 'decide' meeting.            </h3>
+      
+          </div>
+        </div>,
+      // note:
+      //   <p>
+      //     There was great overlap between the security engineers & adminstrators; eventually we recognized that the practical/organizational differences were trivial enough between them to consolidate both as the 'Security Staff/Team' for this part of the SCAS platform.
+      //   </p>
+      // ,
+      visuals: [
+        // {
+        //   img: 'https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/researchtesting/user_research/user_research_1_5x.webp',
+        //   imgClass: "bg-[url(https://pub-e1fd8b0c7190484ebfff1f41eaef6dc2.r2.dev/screen_security_user_dashboard/screen_security_user_dashboard_1x.webp)]",
+        //   title: 'Assessments',
+        //   desc: 'Spreadsheet layout of all assessments ',
+        //   sliderName: 'Engagement Settings',
+        // },
+      ]
+    },
+  ];
   const isMobile = useMediaQuery('(min-width: 640px)');
 
 
@@ -1854,6 +2060,54 @@ We brought Marcus (the CEO) into a team meeting where — inspired by the
     {
       title: "Sprint Kickoff & Goals",
       url: "#introdughjjdction",
+      depth: 3,
+      circle:
+        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgressNav1 }}
+          />        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicatorBg"
+
+          />
+        </svg>
+    },
+    {
+      title: "Sketching & Storyboarding",
+      url: "#introdugddhjjdction",
+      depth: 3,
+      circle:
+        <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
+          <circle cx="50" cy="50" r="30" pathLength="1" className="  z-50" />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgressNav1 }}
+          />        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicatorBg"
+
+          />
+        </svg>
+    },
+    {
+      title: "Design Prototyping",
+      url: "#introdugddhdddddjjdction",
       depth: 3,
       circle:
         <svg width="20px" height="20px" viewBox="0 0 100 100" className="-rotate-90 opacity-90">
@@ -2210,6 +2464,25 @@ We brought Marcus (the CEO) into a team meeting where — inspired by the
                         Section='Sprint 2'
                         CardContent={sliderItems_FLIK_Sprint2_kickoff} >
                       </PortfolioCard>
+                      <PortfolioCard
+                        cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
+                        sliderProgressBarCn="progressSliderColor-flik"
+                        noteBg="note-flik "
+                        cardText='text-flik-dark  '
+                        Title='Sketching & Storyboarding'
+                        Section='Sprint 2'
+                        CardContent={sliderItems_FLIK_Sprint2_sketch} >
+                      </PortfolioCard>
+                      <PortfolioCard
+                        cardBg=" bg-[#00000026] portfolioCard-bg-flik  backdrop-blur-[7px]"
+                        sliderProgressBarCn="progressSliderColor-flik"
+                        noteBg="note-flik "
+                        cardText='text-flik-dark  '
+                        Title='Prototyping'
+                        Section='Sprint 2'
+                        CardContent={sliderItems_FLIK_Sprint2_prototype} >
+                      </PortfolioCard>
+                      
                     </section>
                   </section>
                 </span>
